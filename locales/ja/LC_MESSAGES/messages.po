@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 16:41+0000\n"
+"POT-Creation-Date: 2026-06-22 14:38+0000\n"
 "PO-Revision-Date: 2026-06-18 05:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3529,7 +3529,7 @@ msgstr ""
 "策になるかもしれません。"
 
 #: ../source/discussions/versioning.rst:6
-#: ../source/specifications/simple-repository-api.rst:349
+#: ../source/specifications/simple-repository-api.rst:358
 msgid "Versioning"
 msgstr "バージョニング"
 
@@ -18202,7 +18202,7 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:841
 #: ../source/specifications/pyproject-toml.rst:655
 #: ../source/specifications/recording-installed-packages.rst:278
-#: ../source/specifications/simple-repository-api.rst:974
+#: ../source/specifications/simple-repository-api.rst:983
 #: ../source/specifications/source-distribution-format.rst:153
 #: ../source/specifications/version-specifiers.rst:1285
 #: ../source/specifications/virtual-environments.rst:54
@@ -24847,7 +24847,7 @@ msgstr ""
 "す。"
 
 #: ../source/specifications/inline-script-metadata.rst:205
-#: ../source/specifications/simple-repository-api.rst:916
+#: ../source/specifications/simple-repository-api.rst:925
 msgid "Recommendations"
 msgstr "推奨事項"
 
@@ -28271,8 +28271,8 @@ msgid ""
 "``dynamic``. For all unrecognized suffixes when a content-type is not "
 "provided, tools MUST raise an error."
 msgstr ""
-"このキーは文字列かテーブルを受け付けます。もし文字列なら、完全な説明を含む"
-"テキストファイルの位置を ``pyproject.toml`` からの相対パスで示したものです。"
+"このキーは文字列かテーブルを受け付けます。もし文字列なら、完全な説明を含むテ"
+"キストファイルの位置を ``pyproject.toml`` からの相対パスで示したものです。"
 "ツールの側ではこのファイルが UTF-8 でエンコードされているものと想定しなければ"
 "なりません。ファイルパスが大文字小文字を問わず ``.md`` 拡張子で終わっている場"
 "合は、ツールはそのファイルの content-type が ``text/markdown`` であるものと仮"
@@ -29959,18 +29959,31 @@ msgstr ""
 msgid "HTML Serialization"
 msgstr "HTML シリアル化"
 
-#: ../source/specifications/simple-repository-api.rst:125
+#: ../source/specifications/simple-repository-api.rst:127
+msgid ""
+"The HTML representation is considered \"frozen\" and is not expected to be "
+"updated. Producers and consumers of the simple API should prefer "
+"the :ref:`JSON representation <json-serialization>`."
+msgstr ""
+
+#: ../source/specifications/simple-repository-api.rst:131
+msgid ""
+"See :pep:`833` for additional information about the HTML representation's "
+"status."
+msgstr ""
+
+#: ../source/specifications/simple-repository-api.rst:134
 msgid ""
 "The following constraints apply to all HTML serialized responses described "
 "in this spec:"
 msgstr ""
 "後述の制約は、この仕様で記述されたすべての HTML シリアル化応答に適用されます:"
 
-#: ../source/specifications/simple-repository-api.rst:128
+#: ../source/specifications/simple-repository-api.rst:137
 msgid "All HTML responses **MUST** be a valid HTML5 document."
 msgstr "HTML 応答はすべて、正当な HTML5 文書でなければ **なりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:129
+#: ../source/specifications/simple-repository-api.rst:138
 msgid ""
 "HTML responses **MAY** contain one or more ``meta`` tags in the ``<head>`` "
 "section. The semantics of these tags are defined below."
@@ -29978,12 +29991,12 @@ msgstr ""
 "HTML 応答は、ひとつ以上の ``meta`` タグを ``<head>`` セクションに含んでいて"
 "も **構いません** 。これらのタグのせマンティクスは、この後定義されます。"
 
-#: ../source/specifications/simple-repository-api.rst:133
-#: ../source/specifications/simple-repository-api.rst:428
+#: ../source/specifications/simple-repository-api.rst:142
+#: ../source/specifications/simple-repository-api.rst:437
 msgid "Project List"
 msgstr "プロジェクトのリスト"
 
-#: ../source/specifications/simple-repository-api.rst:135
+#: ../source/specifications/simple-repository-api.rst:144
 msgid ""
 "Within a repository, the root URL (``/`` for this spec which represents the "
 "base URL) **MUST** be a valid HTML5 page with a single anchor element per "
@@ -29993,7 +30006,7 @@ msgstr ""
 "表現する ``/`` のこと) は、正当な HTML5 ページであってリポジトリ内のプロジェ"
 "クト毎にひとつのアンカー要素を持っていなければ **なりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:139
+#: ../source/specifications/simple-repository-api.rst:148
 msgid ""
 "The text of each anchor tag **MUST** be the name of the project and the "
 "``href`` attribute **MUST** link to the URL for that particular project. As "
@@ -30003,12 +30016,12 @@ msgstr ""
 "** 、 ``href`` アトリビュートはその特定のプロジェクトの URL にリンクされてい"
 "なければ **なりません** 。例としては:"
 
-#: ../source/specifications/simple-repository-api.rst:156
-#: ../source/specifications/simple-repository-api.rst:473
+#: ../source/specifications/simple-repository-api.rst:165
+#: ../source/specifications/simple-repository-api.rst:482
 msgid "Project Detail"
 msgstr "プロジェクトの詳細"
 
-#: ../source/specifications/simple-repository-api.rst:158
+#: ../source/specifications/simple-repository-api.rst:167
 msgid ""
 "Below the root URL is another URL for each individual project contained "
 "within a repository. The format of this URL is ``/<project>/``, where the "
@@ -30018,7 +30031,7 @@ msgstr ""
 "けのもうひとつの URL です。この URL のフォーマットは ``/<project>/`` で、"
 "``<project>`` は当該プロジェクトの正規化名称で置き換えられるものです。"
 
-#: ../source/specifications/simple-repository-api.rst:164
+#: ../source/specifications/simple-repository-api.rst:173
 msgid ""
 "For example, a project named \"HolyGrail\" would have a URL like ``/"
 "holygrail/``."
@@ -30026,7 +30039,7 @@ msgstr ""
 "例えば、 \"HolyGrail\" という名称のプロジェクトなら、 ``/holygrail/`` のよう"
 "な URL を持つことでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:167
+#: ../source/specifications/simple-repository-api.rst:176
 msgid ""
 "The project detail URL must respond with a valid HTML5 page with a single "
 "anchor element per file for the project. The ``href`` attribute **MUST** be "
@@ -30040,7 +30053,7 @@ msgstr ""
 "ず** 、アンカータグの文字列は URL の最後のパス構成要素 (ファイル名) でなけれ"
 "ば **なりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:172
+#: ../source/specifications/simple-repository-api.rst:181
 msgid ""
 "Each file URL **SHOULD** include a hash in the form of a URL fragment with "
 "the following syntax: ``#<hashname>=<hashvalue>``, where ``<hashname>`` is "
@@ -30052,12 +30065,12 @@ msgstr ""
 "は (``sha256`` のような) ハッシュ関数名を小文字で書いたもの、 "
 "``<hashvalue>`` は 16 進数で表現されたダイジェストです。"
 
-#: ../source/specifications/simple-repository-api.rst:177
+#: ../source/specifications/simple-repository-api.rst:186
 msgid ""
 "In addition to the above, the following constraints are placed on the API:"
 msgstr "上記に加えて、以下の制約が API に課せられます:"
 
-#: ../source/specifications/simple-repository-api.rst:179
+#: ../source/specifications/simple-repository-api.rst:188
 msgid ""
 "All URLs which respond with an HTML5 page **MUST** end with a ``/`` and the "
 "repository **SHOULD** redirect the URLs without a ``/`` to add a ``/`` to "
@@ -30067,7 +30080,7 @@ msgstr ""
 "** 、リポジトリは ``/`` で終わらない URL の最後に ``/`` を加えたものへリダイ"
 "レクト **するべき** です。"
 
-#: ../source/specifications/simple-repository-api.rst:183
+#: ../source/specifications/simple-repository-api.rst:192
 msgid ""
 "URLs may be either absolute or relative as long as they point to the correct "
 "location."
@@ -30075,7 +30088,7 @@ msgstr ""
 "URL は、間違いのないロケーションを指し示している限りは絶対パスであっても相対"
 "パスであっても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:186
+#: ../source/specifications/simple-repository-api.rst:195
 msgid ""
 "There are no constraints on where the files must be hosted relative to the "
 "repository."
@@ -30083,7 +30096,7 @@ msgstr ""
 "ファイル群が置かれている場所が、リポジトリに対して相対的な場所のどこであるか"
 "については制約条件はありません。"
 
-#: ../source/specifications/simple-repository-api.rst:189
+#: ../source/specifications/simple-repository-api.rst:198
 msgid ""
 "There may be any other HTML elements on the API pages as long as the "
 "required anchor elements exist."
@@ -30091,7 +30104,7 @@ msgstr ""
 "要求されているアンケー要素が存在している限り、API ページ上にどのような他の "
 "HTML 要素があっても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:192
+#: ../source/specifications/simple-repository-api.rst:201
 msgid ""
 "Repositories **MAY** redirect unnormalized URLs to the canonical normalized "
 "URL (e.g. ``/Foobar/`` may redirect to ``/foobar/``), however clients **MUST "
@@ -30102,7 +30115,7 @@ msgstr ""
 "てもよい) が、クライアントの側ではこのリダイレクト機能に **依存してはならず"
 "** 、正規化された URL に対してリクエストを **送らなければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:197
+#: ../source/specifications/simple-repository-api.rst:206
 msgid ""
 "Repositories **SHOULD** choose a hash function from one of the ones "
 "guaranteed to be available via the :py:mod:`hashlib` module in the Python "
@@ -30114,7 +30127,7 @@ msgstr ""
 "点では、 ``md5`` ・ ``sha1`` ・ ``sha224`` ・ ``sha256`` ・ ``sha384`` ・ "
 "``sha512``)。現時点では、 ``sha256`` の使用が推奨されています。"
 
-#: ../source/specifications/simple-repository-api.rst:202
+#: ../source/specifications/simple-repository-api.rst:211
 msgid ""
 "If there is a GPG signature for a particular distribution file it **MUST** "
 "live alongside that file with the same name with a ``.asc`` appended to it. "
@@ -30127,7 +30140,7 @@ msgstr ""
 "HolyGrail-1.0.tar.gz`` が存在していて署名が結びついていれば、そのsと名は ``/"
 "packages/HolyGrail-1.0.tar.gz.asc`` という名前であるはずです。"
 
-#: ../source/specifications/simple-repository-api.rst:208
+#: ../source/specifications/simple-repository-api.rst:217
 msgid ""
 "A repository **MAY** include a ``data-core-metadata`` attribute on a file "
 "link."
@@ -30135,7 +30148,7 @@ msgstr ""
 "リポジトリは、ファイルへのリンクに ``data-core-metadata`` アトリビュートを含"
 "めても **構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:211
+#: ../source/specifications/simple-repository-api.rst:220
 msgid ""
 "The repository **SHOULD** provide the hash of the Core Metadata file as the "
 "``data-core-metadata`` attribute's value using the syntax "
@@ -30151,7 +30164,7 @@ msgstr ""
 "** 。リポジトリは、ハッシュ値が利用可能ではない時には、アトリビュートの値とし"
 "て ``true`` を使っても **構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:217
+#: ../source/specifications/simple-repository-api.rst:226
 msgid ""
 "A repository **MAY** include a ``data-dist-info-metadata`` attribute on a "
 "file link."
@@ -30159,7 +30172,7 @@ msgstr ""
 "リポジトリは、ファイルへのリンクに ``data-dist-info-metadata`` アトリビュート"
 "を含めても **構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:220
+#: ../source/specifications/simple-repository-api.rst:229
 msgid ""
 "Index clients **MAY** consume this key if present, as a legacy fallback for "
 "``data-core-metadata``."
@@ -30167,7 +30180,7 @@ msgstr ""
 "インデックスクライアントは、もし存在していればこのキーを ``data-core-"
 "metadata`` の伝統的なフォールバックとして消費しても **構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:225
+#: ../source/specifications/simple-repository-api.rst:234
 msgid ""
 "``data-dist-info-metadata`` was standardized with :pep:`658` and renamed to "
 "``data-core-metadata`` with :pep:`714`."
@@ -30175,7 +30188,7 @@ msgstr ""
 "``data-dist-info-metadata`` は、 :pep:`658` で標準化され、 :pep:`714` で "
 "``data-core-metadata`` へと改名されました。"
 
-#: ../source/specifications/simple-repository-api.rst:228
+#: ../source/specifications/simple-repository-api.rst:237
 msgid ""
 "A repository **MAY** include a ``data-gpg-sig`` attribute on a file link "
 "with a value of either ``true`` or ``false`` to indicate whether or not "
@@ -30186,7 +30199,7 @@ msgstr ""
 "る ``data-gpg-sig`` アトリビュートをファイルリンクの中に含んでいても **構いま"
 "せん** 。これを行うリポジトリは、全てのリンクについて **行うべきです** 。"
 
-#: ../source/specifications/simple-repository-api.rst:232
+#: ../source/specifications/simple-repository-api.rst:241
 msgid ""
 "A repository **MAY** include a ``data-requires-python`` attribute on a file "
 "link. This exposes the :ref:`core-metadata-requires-python` metadata field "
@@ -30200,7 +30213,7 @@ msgstr ""
 "その要求を満足しないバージョンの Python 環境へインストールしている場合には、"
 "インストールツール群はダウンロードしたものを **無視するべき** です。例えば:"
 
-#: ../source/specifications/simple-repository-api.rst:242
+#: ../source/specifications/simple-repository-api.rst:251
 msgid ""
 "In the attribute value, < and > have to be HTML encoded as ``&lt;`` and "
 "``&gt;``, respectively."
@@ -30208,14 +30221,14 @@ msgstr ""
 "アトリビュートの値においては、 < や > は順に ``&lt;`` や ``&gt;`` へと HTML "
 "エンコードされなければなりません。"
 
-#: ../source/specifications/simple-repository-api.rst:245
+#: ../source/specifications/simple-repository-api.rst:254
 msgid ""
 "A repository **MAY** include a ``data-yanked`` attribute on a file link."
 msgstr ""
 "リポジトリは、ファイルリンクに ``data-yanked`` アトリビュートを含めても **構"
 "いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:247
+#: ../source/specifications/simple-repository-api.rst:256
 msgid ""
 "The ``data-yanked`` attribute may have no value, or may have an arbitrary "
 "string as a value. The presence of a ``data-yanked`` attribute **SHOULD** be "
@@ -30229,7 +30242,7 @@ msgstr ""
 "と解釈される **べきであって** 、特定のシナリオ下を除けば一般的にはインストー"
 "ラによって選択されるべきものではありません。"
 
-#: ../source/specifications/simple-repository-api.rst:253
+#: ../source/specifications/simple-repository-api.rst:262
 msgid ""
 "The value of the ``data-yanked`` attribute, if present, is an arbitrary "
 "string that represents the reason for why the file has been yanked."
@@ -30237,8 +30250,8 @@ msgstr ""
 "``data-yanked`` アトリビュートの値は、もし値が存在するなら、そのファイルがヤ"
 "ンクされた理由を表現する任意の文字列です。"
 
-#: ../source/specifications/simple-repository-api.rst:258
-#: ../source/specifications/simple-repository-api.rst:603
+#: ../source/specifications/simple-repository-api.rst:267
+#: ../source/specifications/simple-repository-api.rst:612
 msgid ""
 "The semantics of how tools should handle yanked files is described "
 "in :ref:`file-yanking`."
@@ -30246,7 +30259,7 @@ msgstr ""
 "ツール類がヤンクされたファイルをどのように扱うべきかのセマンティクス"
 "は、 :ref:`file-yanking` に記述されています。"
 
-#: ../source/specifications/simple-repository-api.rst:261
+#: ../source/specifications/simple-repository-api.rst:270
 msgid ""
 "A repository **MAY** include a ``data-provenance`` attribute on a file link. "
 "The value of this attribute **MUST** be a fully qualified URL, signaling "
@@ -30261,12 +30274,12 @@ msgstr ""
 "prefer-secure-origins-for-powerful-new-features/>`_ を表現していなければ **な"
 "りません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:268
+#: ../source/specifications/simple-repository-api.rst:277
 msgid "The ``data-provenance`` attribute was added with API version 1.3."
 msgstr ""
 "``data-provenance`` アトリビュートは、 API バージョン 1.3 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:272
+#: ../source/specifications/simple-repository-api.rst:281
 msgid ""
 "The format of the linked provenance is defined in :ref:`index-hosted-"
 "attestations`."
@@ -30274,7 +30287,7 @@ msgstr ""
 "リンクされた起源のフォーマットは、 :ref:`index-hosted-attestations` で定義さ"
 "れています。"
 
-#: ../source/specifications/simple-repository-api.rst:274
+#: ../source/specifications/simple-repository-api.rst:283
 msgid ""
 "A repository **MAY** include ``pypi:project-status`` and ``pypi:project-"
 "status-reason`` meta tags on the response itself."
@@ -30282,7 +30295,7 @@ msgstr ""
 "リポジトリは、 ``pypi:project-status`` と ``pypi:project-status-reason`` のメ"
 "タタグを応答そのものに含めても **構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:277
+#: ../source/specifications/simple-repository-api.rst:286
 msgid ""
 "The value of ``pypi:project-status`` **MUST** be a valid project status "
 "marker, while the value of ``pypi:project-status-reason`` **MUST** be an "
@@ -30292,8 +30305,8 @@ msgstr ""
 "ならない** 一方で、 ``pypi:project-status`` の値は正当なプロジェクト状態マー"
 "カでなければ **なりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:283
-#: ../source/specifications/simple-repository-api.rst:489
+#: ../source/specifications/simple-repository-api.rst:292
+#: ../source/specifications/simple-repository-api.rst:498
 msgid ""
 "The set of valid project status markers and their semantics is described "
 "in :ref:`project-status-markers`."
@@ -30301,7 +30314,7 @@ msgstr ""
 "正当なプロジェクト状態マーカとそのセマンティクスの組は、 :ref:`project-"
 "status-markers` に記述されています。"
 
-#: ../source/specifications/simple-repository-api.rst:288
+#: ../source/specifications/simple-repository-api.rst:297
 msgid ""
 "The ``pypi:project-status`` and ``pypi:project-status-reason`` meta tags "
 "were added with API version 1.4."
@@ -30309,11 +30322,11 @@ msgstr ""
 "``pypi:project-status`` と ``pypi:project-status-reason`` のメタタグは、 API "
 "バージョン 1.4 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:294
+#: ../source/specifications/simple-repository-api.rst:303
 msgid "Serve Distribution Metadata in the Simple Repository API"
 msgstr "シンプルな API で配布物のメタデータを提供する"
 
-#: ../source/specifications/simple-repository-api.rst:296
+#: ../source/specifications/simple-repository-api.rst:305
 msgid ""
 "In a simple repository's project page, each anchor tag pointing to a "
 "distribution **MAY** have a ``data-dist-info-metadata`` attribute. The "
@@ -30328,7 +30341,7 @@ msgstr ""
 "コアとなるメタデータのファイルを **持っていなければならない** ことを示しま"
 "す。"
 
-#: ../source/specifications/simple-repository-api.rst:302
+#: ../source/specifications/simple-repository-api.rst:311
 msgid ""
 "If a ``data-dist-info-metadata`` attribute is present, the repository "
 "**MUST** serve the distribution's Core Metadata file alongside the "
@@ -30348,7 +30361,7 @@ msgstr ""
 "は、 :ref:`基本となる HTML API の仕様 <simple-repository-api-base>` で GPG 署"
 "名のファイルの場所の指定するやり方と似ています。"
 
-#: ../source/specifications/simple-repository-api.rst:311
+#: ../source/specifications/simple-repository-api.rst:320
 msgid ""
 "The repository **SHOULD** provide the hash of the Core Metadata file as the "
 "``data-dist-info-metadata`` attribute's value using the syntax "
@@ -30364,11 +30377,11 @@ msgstr ""
 "るべきです** 。ハッシュ値を利用できない場合には、リポジトリはアトリビュートの"
 "値として ``true`` を **使っても構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:319
+#: ../source/specifications/simple-repository-api.rst:328
 msgid "Backwards Compatibility"
 msgstr "後方互換性"
 
-#: ../source/specifications/simple-repository-api.rst:321
+#: ../source/specifications/simple-repository-api.rst:330
 msgid ""
 "If an anchor tag lacks the ``data-dist-info-metadata`` attribute, tools are "
 "expected to revert to their current behaviour of downloading the "
@@ -30378,7 +30391,7 @@ msgstr ""
 "は、配布物をダウンロードするというその時点の動作を反転して、メタデータを調べ"
 "るという動作に変更することが期待されています。"
 
-#: ../source/specifications/simple-repository-api.rst:325
+#: ../source/specifications/simple-repository-api.rst:334
 msgid ""
 "Older tools not supporting the new ``data-dist-info-metadata`` attribute are "
 "expected to ignore the attribute and maintain their current behaviour of "
@@ -30391,11 +30404,11 @@ msgstr ""
 "ます。これは、先の ``data-`` アトリビュート追加の際に、既存のツール群が期待さ"
 "れた動作と似ています。"
 
-#: ../source/specifications/simple-repository-api.rst:334
+#: ../source/specifications/simple-repository-api.rst:343
 msgid "JSON-based Simple API for Python Package Indexes"
 msgstr "Python パッケージインデックス向けのJSON ベースのシンプルな API"
 
-#: ../source/specifications/simple-repository-api.rst:336
+#: ../source/specifications/simple-repository-api.rst:345
 msgid ""
 "To enable response parsing with only the standard library, this spec "
 "specifies that all responses (besides the files themselves, and the HTML "
@@ -30407,7 +30420,7 @@ msgstr ""
 "api-base>` を別にして) すべてのレスポンスが `JSON <https://www.json.org/>`_ "
 "を用いてシリアライズされているべきであると指定しています。"
 
-#: ../source/specifications/simple-repository-api.rst:341
+#: ../source/specifications/simple-repository-api.rst:350
 msgid ""
 "To enable zero configuration discovery and to minimize the amount of "
 "additional HTTP requests, this spec extends :ref:`the base HTML API "
@@ -30423,7 +30436,7 @@ msgstr ""
 "バが提供するべき正しいシリアライズのフォーマット、即ち HTML もしくは JSON を"
 "選択できるようにしています。"
 
-#: ../source/specifications/simple-repository-api.rst:351
+#: ../source/specifications/simple-repository-api.rst:360
 msgid ""
 "Versioning will adhere to :ref:`the API versioning specification <simple-"
 "repository-api-versioning>` format (``Major.Minor``), which has defined the "
@@ -30440,7 +30453,7 @@ msgstr ""
 "ンに変更を加えることはなく、代わりにどのようにして JSON にシリアライズするの"
 "かを述べるに留めています。"
 
-#: ../source/specifications/simple-repository-api.rst:358
+#: ../source/specifications/simple-repository-api.rst:367
 msgid ""
 "Similar to :ref:`the API versioning specification <simple-repository-api-"
 "versioning>`, the major version number **MUST** be incremented if any "
@@ -30452,7 +30465,7 @@ msgstr ""
 "はや期待できないようになる新しいフォーマットをもたらすような変更があった場合"
 "には、メジャーバージョン番号を **増加させなければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:364
+#: ../source/specifications/simple-repository-api.rst:373
 msgid ""
 "Likewise, the minor version **MUST** be incremented if features are added or "
 "removed from the format, but existing clients would be expected to continue "
@@ -30462,7 +30475,7 @@ msgstr ""
 "存のクライアントが意味ある形でそのフォーマットを理解できる状態が継続すると期"
 "待されるであろうという時に限って **増加されなければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:368
+#: ../source/specifications/simple-repository-api.rst:377
 msgid ""
 "Changes that would not result in existing clients being unable to "
 "meaningfully understand the format and which do not represent features being "
@@ -30472,7 +30485,7 @@ msgstr ""
 "う結果に陥らないような、かつ、機能の追加や削除に相当しないような変更は、バー"
 "ジョン番号の変更を伴わずに行っても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:372
+#: ../source/specifications/simple-repository-api.rst:381
 msgid ""
 "This is intentionally vague, as this spec believes it is best left up to "
 "future specs that make any changes to the API to investigate and decide "
@@ -30483,7 +30496,7 @@ msgstr ""
 "変更をもたらすような将来の仕様に、余地を残すことが最善であると信じられている"
 "からです。"
 
-#: ../source/specifications/simple-repository-api.rst:376
+#: ../source/specifications/simple-repository-api.rst:385
 msgid ""
 "Future versions of the API may add things that can only be represented in a "
 "subset of the available serializations of that version. All serializations "
@@ -30497,7 +30510,7 @@ msgstr ""
 "すが、ある機能がそれぞれのフォーマットにシリアル化されるやり方の詳細は、その"
 "機能が存在するかしないかを含めて、異なっていても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:382
+#: ../source/specifications/simple-repository-api.rst:391
 msgid ""
 "It is the intent of this spec that the API should be thought of as URL "
 "endpoints that return data, whose interpretation is defined by the version "
@@ -30508,11 +30521,11 @@ msgstr ""
 "アル化フォーマットにシリアライズされるものであると考えられるべきであるという"
 "ことです。"
 
-#: ../source/specifications/simple-repository-api.rst:390
+#: ../source/specifications/simple-repository-api.rst:399
 msgid "JSON Serialization"
 msgstr "JSON シリアル化"
 
-#: ../source/specifications/simple-repository-api.rst:392
+#: ../source/specifications/simple-repository-api.rst:401
 msgid ""
 "The URL structure from :ref:`the base HTML API specification <simple-"
 "repository-html-serialization>` still applies, as this spec only adds an "
@@ -30522,14 +30535,14 @@ msgstr ""
 "の URL の構造は依然として適用されます、というのは、この仕様は既に存在する "
 "API にシリアル化フォーマットを付け足すだけだからです。"
 
-#: ../source/specifications/simple-repository-api.rst:396
+#: ../source/specifications/simple-repository-api.rst:405
 msgid ""
 "The following constraints apply to all JSON serialized responses described "
 "in this spec:"
 msgstr ""
 "後述の制約は、この仕様で記述されたすべての JSON シリアル化応答に適用されます:"
 
-#: ../source/specifications/simple-repository-api.rst:399
+#: ../source/specifications/simple-repository-api.rst:408
 msgid ""
 "All JSON responses will *always* be a JSON object rather than an array or "
 "other type."
@@ -30537,7 +30550,7 @@ msgstr ""
 "すべての JSON 応答は、配列やその他の型ではなく *常に* JSON オブジェクトである"
 "ことでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:402
+#: ../source/specifications/simple-repository-api.rst:411
 msgid ""
 "While JSON doesn't natively support a URL type, any value that represents an "
 "URL in this API may be either absolute or relative as long as they point to "
@@ -30549,7 +30562,7 @@ msgstr ""
 "り絶対パスであっても相対パスであっても構いません。相対パスの場合には、恰も "
 "HTML であるかのように、現在の URL に対する相対パスになっています。"
 
-#: ../source/specifications/simple-repository-api.rst:407
+#: ../source/specifications/simple-repository-api.rst:416
 msgid ""
 "Additional keys may be added to any dictionary objects in the API responses "
 "and clients **MUST** ignore keys that they don't understand."
@@ -30558,7 +30571,7 @@ msgstr ""
 "し、クライアントは自身が理解しないキー群については **無視しなければなりません"
 "** 。"
 
-#: ../source/specifications/simple-repository-api.rst:410
+#: ../source/specifications/simple-repository-api.rst:419
 msgid ""
 "All JSON responses will have a ``meta`` key, which contains information "
 "related to the response itself, rather than the content of the response."
@@ -30566,7 +30579,7 @@ msgstr ""
 "あらゆる JSON 応答は、その応答の内容ではなく応答それ自身に関係する情報を含む "
 "``meta`` キーを持つことでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:413
+#: ../source/specifications/simple-repository-api.rst:422
 msgid ""
 "All JSON responses will have a ``meta.api-version`` key, which will be a "
 "string that contains the :ref:`API versioning specification <simple-"
@@ -30580,7 +30593,7 @@ msgstr ""
 "versioning>` の ``Major.Minor`` の形のバージョン番号を文字列として値に取るよ"
 "うな ``meta.api-version`` キーを持つことでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:419
+#: ../source/specifications/simple-repository-api.rst:428
 msgid ""
 "All requirements of :ref:`the base HTML API specification <simple-repository-"
 "api-base>` that are not HTML specific still apply."
@@ -30588,7 +30601,7 @@ msgstr ""
 ":ref:`基本となる HTML API の仕様 <simple-repository-api-base>` のすべての要求"
 "事項のうちの HTML に特化したもの以外は、依然として適用されます。"
 
-#: ../source/specifications/simple-repository-api.rst:422
+#: ../source/specifications/simple-repository-api.rst:431
 msgid ""
 "Keys (at any level) with a leading underscore are reserved as private for "
 "index server use. No future standard will assign a meaning to any such key."
@@ -30597,7 +30610,7 @@ msgstr ""
 "ライベートなものとして予約されています。将来の標準において、このようなキーに"
 "意味を付与することはありません。"
 
-#: ../source/specifications/simple-repository-api.rst:430
+#: ../source/specifications/simple-repository-api.rst:439
 msgid ""
 "The root URL ``/`` for this spec (which represents the base URL) will be a "
 "JSON encoded dictionary which has a two keys:"
@@ -30605,7 +30618,7 @@ msgstr ""
 "(ベース URL <base URL> を表現する) この仕様でのルート URL <root URL> ``/`` "
 "は、 JSON にエンコードされた辞書であって、二つのキーを持つでしょう:"
 
-#: ../source/specifications/simple-repository-api.rst:433
+#: ../source/specifications/simple-repository-api.rst:442
 msgid ""
 "``projects``: An array where each entry is a dictionary with a single key, "
 "``name``, which represents string of the project name."
@@ -30613,20 +30626,20 @@ msgstr ""
 "``projects``: 各エントリがディレクトリで単独のキー ``name`` を持つような配列"
 "で、(そのキーの値は) プロジェクトの名称を表す文字列です。"
 
-#: ../source/specifications/simple-repository-api.rst:434
-#: ../source/specifications/simple-repository-api.rst:508
+#: ../source/specifications/simple-repository-api.rst:443
+#: ../source/specifications/simple-repository-api.rst:517
 msgid ""
 "``meta``: The general response metadata as `described earlier <json-"
 "serialization_>`__."
 msgstr ""
 "``meta``: `先述の通り <json-serialization_>`__ の一般的な応答メタデータ。"
 
-#: ../source/specifications/simple-repository-api.rst:436
-#: ../source/specifications/simple-repository-api.rst:634
+#: ../source/specifications/simple-repository-api.rst:445
+#: ../source/specifications/simple-repository-api.rst:643
 msgid "As an example:"
 msgstr "ひとつの例として:"
 
-#: ../source/specifications/simple-repository-api.rst:453
+#: ../source/specifications/simple-repository-api.rst:462
 msgid ""
 "The ``name`` field is the same as the one from :ref:`the base HTML API "
 "specification <simple-repository-api-base>`, which does not specify whether "
@@ -30641,7 +30654,7 @@ msgstr ""
 "実装において異なる選択を行うことがあり、その選択によって非正規化名称か正規化"
 "名称かは当該リポジトリの実装の詳細に依存します。"
 
-#: ../source/specifications/simple-repository-api.rst:463
+#: ../source/specifications/simple-repository-api.rst:472
 msgid ""
 "While the ``projects`` key is an array, and thus is required to be in some "
 "kind of an order, neither :ref:`the base HTML API specification <simple-"
@@ -30656,7 +30669,7 @@ msgstr ""
 "いことも要求していません。心情としては、これが (配列ではなく) 集合であると考"
 "えるのが最適ですが、 JSON も HTML も集合を扱う機能を欠いています。"
 
-#: ../source/specifications/simple-repository-api.rst:475
+#: ../source/specifications/simple-repository-api.rst:484
 msgid ""
 "The format of this URL is ``/<project>/`` where the ``<project>`` is "
 "replaced by the :ref:`the base HTML API specification <simple-repository-api-"
@@ -30668,32 +30681,32 @@ msgstr ""
 "れたプロジェクト名称であり、したがって、 \"Silly_Walk\" という名称のプロジェ"
 "クトであれば ``/silly-walk/`` のような URL を持つことになるでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:480
+#: ../source/specifications/simple-repository-api.rst:489
 msgid ""
 "This URL must respond with a JSON encoded dictionary that has five keys:"
 msgstr ""
 "この URL は、５個のキーを持つJSON にコード化された辞書を返さなければなりませ"
 "ん:"
 
-#: ../source/specifications/simple-repository-api.rst:482
+#: ../source/specifications/simple-repository-api.rst:491
 msgid "``name``: The normalized name of the project."
 msgstr "``name``: そのプロジェクトの正規化された名前。"
 
-#: ../source/specifications/simple-repository-api.rst:483
+#: ../source/specifications/simple-repository-api.rst:492
 msgid "``project-status``: An optional dictionary, containing the following:"
 msgstr "``project-status``: オプションの辞書で、次のものを内包する:"
 
-#: ../source/specifications/simple-repository-api.rst:485
+#: ../source/specifications/simple-repository-api.rst:494
 msgid "``status``: If present, this **MUST** be a valid project status marker."
 msgstr ""
 "``status``: もし存在すれば、これは、正当なプロジェクト状態マーカで **なければ"
 "なりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:494
+#: ../source/specifications/simple-repository-api.rst:503
 msgid "The ``status`` key was added with API version 1.4."
 msgstr "``status`` キーは、 API バージョン 1.4 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:496
+#: ../source/specifications/simple-repository-api.rst:505
 msgid ""
 "``reason``: If present, this **MUST** be an arbitrary string description of "
 "the project status."
@@ -30701,20 +30714,20 @@ msgstr ""
 "``reason``: もし存在すれば、これは、任意の文字列でプロジェクトの状態を記述す"
 "るもので **なければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:501
+#: ../source/specifications/simple-repository-api.rst:510
 msgid "The ``reason`` key was added with API version 1.4."
 msgstr "``reason`` キーは、 API バージョン 1.4 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:505
+#: ../source/specifications/simple-repository-api.rst:514
 msgid "The ``project-status`` key was added with API version 1.4."
 msgstr "``project -status`` キーは、 API バージョン 1.4 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:507
+#: ../source/specifications/simple-repository-api.rst:516
 msgid ""
 "``files``: A list of dictionaries, each one representing an individual file."
 msgstr "``files``: 辞書のリストで、各辞書が個別のファイルを表現しているもの。"
 
-#: ../source/specifications/simple-repository-api.rst:509
+#: ../source/specifications/simple-repository-api.rst:518
 msgid ""
 "``versions``: A list of version strings specifying all of the project "
 "versions uploaded for this project. The value of ``versions`` is logically a "
@@ -30726,7 +30739,7 @@ msgstr ""
 "は、論理上は集合であり、それ故に重複を許さず、バージョン番号の順序は大きな問"
 "題ではありません。"
 
-#: ../source/specifications/simple-repository-api.rst:516
+#: ../source/specifications/simple-repository-api.rst:525
 msgid ""
 "All of the files listed in the ``files`` key MUST be associated with one of "
 "the versions in the ``versions`` key. The ``versions`` key MAY contain "
@@ -30738,7 +30751,7 @@ msgstr ""
 "そのような概念を持っているならば、ファイルなしのバージョンというものを表現す"
 "るために) 対応するファイルがないバージョンを含んでいても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:523
+#: ../source/specifications/simple-repository-api.rst:532
 msgid ""
 "Because servers may hold \"legacy\" data from before the adoption "
 "of :ref:`the version specifiers specification (VSS) <version-specifiers>`, "
@@ -30753,23 +30766,23 @@ msgstr ""
 "ながら、サーバ側は、可能であれば正規化された VSS バージョンを **使うべきです"
 "** 。"
 
-#: ../source/specifications/simple-repository-api.rst:531
+#: ../source/specifications/simple-repository-api.rst:540
 msgid "The ``versions`` key was added with API version 1.1."
 msgstr "``version`` キーは、 API バージョン 1.1 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:533
+#: ../source/specifications/simple-repository-api.rst:542
 msgid "Each individual file dictionary has the following keys:"
 msgstr "個別のファイルを表す辞書は、それぞれ、次のキーを持ちます:"
 
-#: ../source/specifications/simple-repository-api.rst:535
+#: ../source/specifications/simple-repository-api.rst:544
 msgid "``filename``: The filename that is being represented."
 msgstr "``filename``: 表現しようとしているファイルのファイル名。"
 
-#: ../source/specifications/simple-repository-api.rst:536
+#: ../source/specifications/simple-repository-api.rst:545
 msgid "``url``: The URL that the file can be fetched from."
 msgstr "``url``: そこからそのファイルを取得できる URL。"
 
-#: ../source/specifications/simple-repository-api.rst:537
+#: ../source/specifications/simple-repository-api.rst:546
 msgid ""
 "``hashes``: A dictionary mapping a hash name to a hex encoded digest of the "
 "file. Multiple hashes can be included, and it is up to the client to decide "
@@ -30784,7 +30797,7 @@ msgstr ""
 "になっています。これらのハッシュの名称は、常に小文字に **正規化 されているべ"
 "きです** 。"
 
-#: ../source/specifications/simple-repository-api.rst:542
+#: ../source/specifications/simple-repository-api.rst:551
 msgid ""
 "The ``hashes`` dictionary **MUST** be present, even if no hashes are "
 "available for the file, however it is **HIGHLY** recommended that at least "
@@ -30795,7 +30808,7 @@ msgstr ""
 "用可能であることが保証されているハッシュが常に含まれていることが **とても強く"
 "** 推奨されています。"
 
-#: ../source/specifications/simple-repository-api.rst:546
+#: ../source/specifications/simple-repository-api.rst:555
 msgid ""
 "By default, any hash algorithm available via :py:mod:`hashlib` (specifically "
 "any that can be passed to :py:func:`hashlib.new()` and do not require "
@@ -30811,7 +30824,7 @@ msgstr ""
 "セキュアなアルゴリズムが、常に、 **含まれているべきです** 。この仕様の時点で"
 "は、特に ``sha256`` が推奨されます。"
 
-#: ../source/specifications/simple-repository-api.rst:551
+#: ../source/specifications/simple-repository-api.rst:560
 msgid ""
 "``requires-python``: An **optional** key that exposes the :ref:`core-"
 "metadata-requires-python` metadata field. Where this is present, installer "
@@ -30823,7 +30836,7 @@ msgstr ""
 "ル群は、要求事項を満足しない Python のバージョンへインストールしようとする場"
 "合、ダウンロードを **無視するべきです** 。"
 
-#: ../source/specifications/simple-repository-api.rst:557
+#: ../source/specifications/simple-repository-api.rst:566
 msgid ""
 "Unlike ``data-requires-python`` in :ref:`the base HTML API specification "
 "<simple-repository-api-base>`, the ``requires-python`` key does not require "
@@ -30833,7 +30846,7 @@ msgstr ""
 "requires-python`` とは異なって、 ``requires-python`` キーは、JSON が自然に要"
 "求することを除けば、特別なエスケープを要求しません。"
 
-#: ../source/specifications/simple-repository-api.rst:560
+#: ../source/specifications/simple-repository-api.rst:569
 msgid ""
 "``core-metadata``: An **optional** key that indicates that metadata for this "
 "file is available, via the same location as specified in :ref:`the API "
@@ -30850,7 +30863,7 @@ msgstr ""
 "データのハッシュを16進数にエンコードしたダイジェストへの対応をマッピングする"
 "辞書であるか、のいずれかで **なければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:568
+#: ../source/specifications/simple-repository-api.rst:577
 msgid ""
 "When this is a dictionary of hashes instead of a boolean, then all the same "
 "requirements and recommendations as the ``hashes`` key hold true for this "
@@ -30859,7 +30872,7 @@ msgstr ""
 "これがブーリアンの代わりにハッシュ辞書である時には、 ``hashes`` キーが true "
 "を値に取る場合と同じ要求事項と推奨事項の全てが、このキーにも課されます。"
 
-#: ../source/specifications/simple-repository-api.rst:572
+#: ../source/specifications/simple-repository-api.rst:581
 msgid ""
 "If this key is missing then the metadata file may or may not exist. If the "
 "key value is truthy, then the metadata file is present, and if it is falsey "
@@ -30869,7 +30882,7 @@ msgstr ""
 "ないかもしれません。このキーの値が真である場合はメタデータファイルが存在し、"
 "値が偽の場合には存在しません。"
 
-#: ../source/specifications/simple-repository-api.rst:576
+#: ../source/specifications/simple-repository-api.rst:585
 msgid ""
 "It is recommended that servers make the hashes of the metadata file "
 "available if possible."
@@ -30877,7 +30890,7 @@ msgstr ""
 "サーバ群は、可能であれば、メタデータファイルのハッシュを利用可能とすることが"
 "推奨されています。"
 
-#: ../source/specifications/simple-repository-api.rst:579
+#: ../source/specifications/simple-repository-api.rst:588
 msgid ""
 "``dist-info-metadata``: An **optional**, deprecated alias for ``core-"
 "metadata``."
@@ -30885,7 +30898,7 @@ msgstr ""
 "``dist-info-metadata``: **オプション** で、 ``core-metadata`` の非推奨になっ"
 "た別名。"
 
-#: ../source/specifications/simple-repository-api.rst:581
+#: ../source/specifications/simple-repository-api.rst:590
 msgid ""
 "Index clients **MAY** consume this key if present, as a legacy fallback for "
 "``core-metadata``."
@@ -30893,7 +30906,7 @@ msgstr ""
 "インデックスのクライアントは、もしこのキーが存在すれば、 ``core-metadata`` の"
 "レガシーなフォールバック先として、このキーを **消費しても構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:586
+#: ../source/specifications/simple-repository-api.rst:595
 msgid ""
 "``dist-info-metadata`` was standardized with :pep:`658` and renamed to "
 "``core-metadata`` with :pep:`714`."
@@ -30901,7 +30914,7 @@ msgstr ""
 "``dist-info-metadata`` は、 :pep:`658` で標準化され、 :pep:`714` で ``core-"
 "metadata`` に名称変更されました。"
 
-#: ../source/specifications/simple-repository-api.rst:589
+#: ../source/specifications/simple-repository-api.rst:598
 msgid ""
 "``gpg-sig``: An **optional** key that acts a boolean to indicate if the file "
 "has an associated GPG signature or not. The URL for the signature file "
@@ -30915,7 +30928,7 @@ msgstr ""
 "います。このキーが存在しない場合は、署名はあるかもしれませんし、ないかもしれ"
 "ません。"
 
-#: ../source/specifications/simple-repository-api.rst:595
+#: ../source/specifications/simple-repository-api.rst:604
 msgid ""
 "``yanked``: An **optional** key which may be either a boolean to indicate if "
 "the file has been yanked, or a non empty, but otherwise arbitrary, string to "
@@ -30930,7 +30943,7 @@ msgstr ""
 "真のようであれば、``url`` フィールドによって指し示されるファイルが \"ヤンク"
 "\" されたことを示すものと **理解されるべきです** 。"
 
-#: ../source/specifications/simple-repository-api.rst:606
+#: ../source/specifications/simple-repository-api.rst:615
 msgid ""
 "``size``: A **mandatory** key. It **MUST** contain an integer which is the "
 "file size in bytes."
@@ -30938,11 +30951,11 @@ msgstr ""
 "``size``: **必須の** キー。ファイルサイズをバイト単位で表した整数が **含まれ"
 "ていなければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:610
+#: ../source/specifications/simple-repository-api.rst:619
 msgid "The ``size`` key was added with API version 1.1."
 msgstr "``size`` キーは、 API バージョン 1.1 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:612
+#: ../source/specifications/simple-repository-api.rst:621
 msgid ""
 "``upload-time``: An **optional** key that, if present, **MUST** contain a "
 "valid ISO 8601 date/time string in the format ``yyyy-mm-"
@@ -30954,7 +30967,7 @@ msgstr ""
 "文字列が ``yyyy-mm-ddThh:mm:ss.ffffffZ`` の書式で **含まれていなければなりま"
 "せん** 。"
 
-#: ../source/specifications/simple-repository-api.rst:616
+#: ../source/specifications/simple-repository-api.rst:625
 msgid ""
 "As indicated by the ``Z`` suffix, the upload time **MUST** use the UTC "
 "timezone. The fractional seconds part of the timestamp (the ``.ffffff`` "
@@ -30968,11 +30981,11 @@ msgstr ""
 "側がファイルのアップロード日時を記録していない場合は、 ``upload-time`` キー"
 "を **省略しても構いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:623
+#: ../source/specifications/simple-repository-api.rst:632
 msgid "The ``upload-time`` key was added with API version 1.1."
 msgstr "``upload-time`` キーは、 API バージョン 1.1 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:625
+#: ../source/specifications/simple-repository-api.rst:634
 msgid ""
 "``provenance``: An **optional** key which, if present **MUST** be either a "
 "JSON string or ``null``. If not ``null``, it **MUST** be a URL to the file's "
@@ -30985,11 +30998,11 @@ msgstr ""
 "``data-provenance`` と同様のルールで、ファイルに関連する起源への URL で **な"
 "ければなりません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:632
+#: ../source/specifications/simple-repository-api.rst:641
 msgid "The ``provenance`` field was added with API version 1.3."
 msgstr "``provenance`` フィールドは、 API バージョン 1.3 で追加されました。"
 
-#: ../source/specifications/simple-repository-api.rst:670
+#: ../source/specifications/simple-repository-api.rst:679
 msgid ""
 "While the ``files`` key is an array, and thus is required to be in some kind "
 "of an order, neither :ref:`the base HTML API specification <simple-"
@@ -31004,11 +31017,11 @@ msgstr ""
 "るということも要求されていません。心情としては、これは集合であると考えるのが"
 "最適ですが、JSON にも HTML にも集合を扱う機能は欠落しています。"
 
-#: ../source/specifications/simple-repository-api.rst:679
+#: ../source/specifications/simple-repository-api.rst:688
 msgid "Content-Types"
 msgstr "Content-Types"
 
-#: ../source/specifications/simple-repository-api.rst:681
+#: ../source/specifications/simple-repository-api.rst:690
 msgid ""
 "This spec proposes that all responses from the Simple API will have a "
 "standard content type that describes what the response is (a Simple API "
@@ -31020,11 +31033,11 @@ msgstr ""
 "れているシリアル化フォーマットは何であるかを記述する標準のコンテント型を持ち"
 "ます。"
 
-#: ../source/specifications/simple-repository-api.rst:685
+#: ../source/specifications/simple-repository-api.rst:694
 msgid "The structure of this content type will be:"
 msgstr "このコンテント型の構造はこのようになっていることでしょう:"
 
-#: ../source/specifications/simple-repository-api.rst:691
+#: ../source/specifications/simple-repository-api.rst:700
 msgid ""
 "Since only major versions should be disruptive to clients attempting to "
 "understand one of these API responses, only the major version will be "
@@ -31036,21 +31049,21 @@ msgstr ""
 "バージョンだけがコンテント型に含まれるでしょうし、それがバージョン番号である"
 "ことを明確にするために前に ``v`` をつけられることになるでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:696
+#: ../source/specifications/simple-repository-api.rst:705
 msgid "Which means that for the existing 1.0 API, the content types would be:"
 msgstr ""
 "ということは、既存の 1.0 API においては、コンテント型はこのようになるでしょ"
 "う:"
 
-#: ../source/specifications/simple-repository-api.rst:698
+#: ../source/specifications/simple-repository-api.rst:707
 msgid "**JSON:** ``application/vnd.pypi.simple.v1+json``"
 msgstr "**JSON:** ``application/vnd.pypi.simple.v1+json``"
 
-#: ../source/specifications/simple-repository-api.rst:699
+#: ../source/specifications/simple-repository-api.rst:708
 msgid "**HTML:** ``application/vnd.pypi.simple.v1+html``"
 msgstr "**HTML:** ``application/vnd.pypi.simple.v1+html``"
 
-#: ../source/specifications/simple-repository-api.rst:701
+#: ../source/specifications/simple-repository-api.rst:710
 msgid ""
 "In addition to the above, a special \"meta\" version is supported named "
 "``latest``, whose purpose is to allow clients to request the absolute latest "
@@ -31064,7 +31077,7 @@ msgstr ""
 "めです。しかしながら、クライアントは自身がどのバージョンをサポートしているの"
 "かを明示的に示すことが推奨されています。"
 
-#: ../source/specifications/simple-repository-api.rst:706
+#: ../source/specifications/simple-repository-api.rst:715
 msgid ""
 "To support existing clients which expect the existing :ref:`the base HTML "
 "API specification <simple-repository-api-base>` API responses to use the "
@@ -31076,11 +31089,11 @@ msgstr ""
 "をサポートするために、この仕様では、さらに、 ``text/html`` を ``application/"
 "vnd.pypi.simple.v1+html`` コンテント型へのエイリアスであると定義しています。"
 
-#: ../source/specifications/simple-repository-api.rst:713
+#: ../source/specifications/simple-repository-api.rst:722
 msgid "Version + Format Selection"
 msgstr "バージョン + フォーマットの選択"
 
-#: ../source/specifications/simple-repository-api.rst:715
+#: ../source/specifications/simple-repository-api.rst:724
 msgid ""
 "Now that there is multiple possible serializations, we need a mechanism to "
 "allow clients to indicate what serialization formats they're able to "
@@ -31094,7 +31107,7 @@ msgstr ""
 "ることなしに、どんな API の可能な新しいメジャーバージョンでも追加することがで"
 "きれば利益があることでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:720
+#: ../source/specifications/simple-repository-api.rst:729
 msgid ""
 "To enable this, this spec standardizes on the use of HTTP's `Server-Driven "
 "Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/"
@@ -31104,7 +31117,7 @@ msgstr ""
 "エーション <https://developer.mozilla.org/en-US/docs/Web/HTTP/"
 "Content_negotiation>`_ の使用を標準化します。"
 
-#: ../source/specifications/simple-repository-api.rst:723
+#: ../source/specifications/simple-repository-api.rst:732
 msgid ""
 "While this spec won't fully describe the entirety of server-driven content "
 "negotiation, the flow is roughly:"
@@ -31112,7 +31125,7 @@ msgstr ""
 "この仕様では、サーバ主導のコンテントネゴシエーションについて完全にすべてを記"
 "述することはありませんが、流れは大まかに次のようになります:"
 
-#: ../source/specifications/simple-repository-api.rst:726
+#: ../source/specifications/simple-repository-api.rst:735
 msgid ""
 "The client makes an HTTP request containing an ``Accept`` header listing all "
 "of the version+format content types that they are able to understand."
@@ -31120,7 +31133,7 @@ msgstr ""
 "クライアントは、自身が理解できるコンテント型を version+format の形で全て "
 "``Accept`` ヘッダに列挙した HTTP リクエストを作成します。"
 
-#: ../source/specifications/simple-repository-api.rst:728
+#: ../source/specifications/simple-repository-api.rst:737
 msgid ""
 "The server inspects that header, selects one of the listed content types, "
 "then returns a response using that content type (treating the absence of an "
@@ -31130,7 +31143,7 @@ msgstr ""
 "のコンテント型を使って応答を返します (``Accept`` ヘッダが欠落している場合は "
 "``Accept: */*`` であるものとして扱います) 。"
 
-#: ../source/specifications/simple-repository-api.rst:731
+#: ../source/specifications/simple-repository-api.rst:740
 msgid ""
 "If the server does not support any of the content types in the ``Accept`` "
 "header then they are able to choose between 3 different options for how to "
@@ -31140,7 +31153,7 @@ msgstr ""
 "は、どのように応答するかについてサーバは３個の異なるオプションから選択するこ"
 "とができます:"
 
-#: ../source/specifications/simple-repository-api.rst:735
+#: ../source/specifications/simple-repository-api.rst:744
 msgid ""
 "Select a default content type other than what the client has requested and "
 "return a response with that."
@@ -31148,7 +31161,7 @@ msgstr ""
 "クライアントが要求したものではないデフォルトのコンテント型を選択して、それを"
 "使って応答を返すこと。"
 
-#: ../source/specifications/simple-repository-api.rst:737
+#: ../source/specifications/simple-repository-api.rst:746
 msgid ""
 "Return a HTTP ``406 Not Acceptable`` response to indicate that none of the "
 "requested content types were available, and the server was unable or "
@@ -31158,7 +31171,7 @@ msgstr ""
 "利用可能なものがないことを示し、サーバとしてはデフォルトのコンテント型を選択"
 "して応答することができないかしたくないことを示すこと。"
 
-#: ../source/specifications/simple-repository-api.rst:740
+#: ../source/specifications/simple-repository-api.rst:749
 msgid ""
 "Return a HTTP ``300 Multiple Choices`` response that contains a list of all "
 "of the possible responses that could have been chosen."
@@ -31166,7 +31179,7 @@ msgstr ""
 "HTTP の ``300 Multiple Choices`` 応答を返して、選択できるかもしれないすべての"
 "可能な応答のリストを含めておくこと。"
 
-#: ../source/specifications/simple-repository-api.rst:742
+#: ../source/specifications/simple-repository-api.rst:751
 msgid ""
 "The client interprets the response, handling the different types of "
 "responses that the server may have responded with."
@@ -31174,7 +31187,7 @@ msgstr ""
 "サーバが返すかもしれない異なる応答のタイプを取り扱ってクライアントは応答を解"
 "釈します。"
 
-#: ../source/specifications/simple-repository-api.rst:745
+#: ../source/specifications/simple-repository-api.rst:754
 msgid ""
 "This spec does not specify which choices the server makes in regards to "
 "handling a content type that it isn't able to return, and clients **SHOULD** "
@@ -31186,7 +31199,7 @@ msgstr ""
 "アント側がそのクライアントにとって最も意味を為す方法であればどんなものでも可"
 "能な応答の全てを取り扱う準備を **しておくべきだ** とは指定しません。"
 
-#: ../source/specifications/simple-repository-api.rst:750
+#: ../source/specifications/simple-repository-api.rst:759
 msgid ""
 "However, as there is no standard format for how a ``300 Multiple Choices`` "
 "response can be interpreted, this spec highly discourages servers from "
@@ -31204,7 +31217,7 @@ msgstr ""
 "は ``406 Not Acceptable`` エラーと同じ扱いを受けるのが精々であろうと思われま"
 "す。"
 
-#: ../source/specifications/simple-repository-api.rst:757
+#: ../source/specifications/simple-repository-api.rst:766
 msgid ""
 "This spec **does** require that if the meta version ``latest`` is being "
 "used, the server **MUST** respond with the content type for the actual "
@@ -31219,7 +31232,7 @@ msgstr ""
 "ンスには ``application/vnd.pypi.simple.v1+json`` を値とする ``Content-Type`` "
 "が入っていなければならないということです) 。"
 
-#: ../source/specifications/simple-repository-api.rst:764
+#: ../source/specifications/simple-repository-api.rst:773
 msgid ""
 "The ``Accept`` header is a comma separated list of content types that the "
 "client understands and is able to process. It supports three different "
@@ -31229,19 +31242,19 @@ msgstr ""
 "ンマで区切られたリストに列挙したものです。まさに要求されているところのコンテ"
 "ント型のそれぞれについて３個の異なるフォーマットをサポートしています:"
 
-#: ../source/specifications/simple-repository-api.rst:768
+#: ../source/specifications/simple-repository-api.rst:777
 msgid "``$type/$subtype``"
 msgstr "``$type/$subtype``"
 
-#: ../source/specifications/simple-repository-api.rst:769
+#: ../source/specifications/simple-repository-api.rst:778
 msgid "``$type/*``"
 msgstr "``$type/*``"
 
-#: ../source/specifications/simple-repository-api.rst:770
+#: ../source/specifications/simple-repository-api.rst:779
 msgid "``*/*``"
 msgstr "``*/*``"
 
-#: ../source/specifications/simple-repository-api.rst:772
+#: ../source/specifications/simple-repository-api.rst:781
 msgid ""
 "For the use of selecting a version+format, the most useful of these is "
 "``$type/$subtype``, as that is the only way to actually specify the version "
@@ -31251,7 +31264,7 @@ msgstr ""
 "も役に立つのは ``$type/$subtype`` で、望みのバージョンとフォーマットを実際に"
 "指定する唯一の方法だからです。"
 
-#: ../source/specifications/simple-repository-api.rst:776
+#: ../source/specifications/simple-repository-api.rst:785
 msgid ""
 "The order of the content types listed in the ``Accept`` header does not have "
 "any specific meaning, and the server **SHOULD** consider all of them to be "
@@ -31267,7 +31280,7 @@ msgstr ""
 "developer.mozilla.org/en-US/docs/Glossary/Quality_values>`_ の文法を使っても"
 "構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:783
+#: ../source/specifications/simple-repository-api.rst:792
 msgid ""
 "This allows a client to specify a priority for a specific entry in their "
 "``Accept`` header, by appending a ``;q=`` followed by a value between ``0`` "
@@ -31282,7 +31295,7 @@ msgstr ""
 "(quality 値) のエントリがより低い品質のものよりも優先され、q 値を持たないもの"
 "はデフォルトで ``1`` であると解釈されます。"
 
-#: ../source/specifications/simple-repository-api.rst:789
+#: ../source/specifications/simple-repository-api.rst:798
 msgid ""
 "However, clients should keep in mind that a server is free to select **any** "
 "of the content types they've asked for, regardless of their requested "
@@ -31294,7 +31307,7 @@ msgstr ""
 "** コンテント型で返答しても構わないということを、クライアントは心に留めておく"
 "べきです。"
 
-#: ../source/specifications/simple-repository-api.rst:793
+#: ../source/specifications/simple-repository-api.rst:802
 msgid ""
 "To aid clients in determining the content type of the response that they "
 "have received from an API request, this spec requires that servers always "
@@ -31312,11 +31325,11 @@ msgstr ""
 "_internal/index/collector.py#L123-L150>`_ を強制していますので、実際に何かを"
 "壊すリスクは低いでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:800
+#: ../source/specifications/simple-repository-api.rst:809
 msgid "An example of how a client can operate would look like:"
 msgstr "クライアントがどのように運用できるかの例は次のように見えるでしょう:"
 
-#: ../source/specifications/simple-repository-api.rst:851
+#: ../source/specifications/simple-repository-api.rst:860
 msgid ""
 "If a client wishes to only support HTML or only support JSON, then they "
 "would just remove the content types that they do not want from the "
@@ -31326,11 +31339,11 @@ msgstr ""
 "``Accept`` ヘッダから望まないコンテント型を単に取り除くでしょうし、(望まない"
 "ものを) 受け取ったらエラーにすることでしょう。"
 
-#: ../source/specifications/simple-repository-api.rst:857
+#: ../source/specifications/simple-repository-api.rst:866
 msgid "Alternative Negotiation Mechanisms"
 msgstr "代わりの交渉機構 <Negotiation Mechanisms>"
 
-#: ../source/specifications/simple-repository-api.rst:859
+#: ../source/specifications/simple-repository-api.rst:868
 msgid ""
 "While using HTTP's Content negotiation is considered the standard way for a "
 "client and server to coordinate to ensure that the client is getting an HTTP "
@@ -31344,11 +31357,11 @@ msgstr ""
 "そのような場合向けに、この仕様には、 *オプションとして* 代わりに使っても構わ"
 "ない代わりの交渉機構 <alternative negotiation mechanisms> があります。"
 
-#: ../source/specifications/simple-repository-api.rst:867
+#: ../source/specifications/simple-repository-api.rst:876
 msgid "URL Parameter"
 msgstr "URL パラメータ"
 
-#: ../source/specifications/simple-repository-api.rst:869
+#: ../source/specifications/simple-repository-api.rst:878
 msgid ""
 "Servers that implement the Simple API may choose to support a URL parameter "
 "named ``format`` to allow the clients to request a specific version of the "
@@ -31358,7 +31371,7 @@ msgstr ""
 "することを許すために、 ``format`` という名称の URL パラメータをサポートするこ"
 "とを選択しても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:872
+#: ../source/specifications/simple-repository-api.rst:881
 msgid ""
 "The value of the ``format`` parameter should be **one** of the valid content "
 "types. Passing multiple content types, wild cards, quality values, etc... is "
@@ -31368,7 +31381,7 @@ msgstr ""
 "です。複数のコンテント型を渡すことやワイルドカード、quality 値などはサポート"
 "されて **いません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:876
+#: ../source/specifications/simple-repository-api.rst:885
 msgid ""
 "Supporting this parameter is optional, and clients **SHOULD NOT** rely on it "
 "for interacting with the API. This negotiation mechanism is intended to "
@@ -31381,7 +31394,7 @@ msgstr ""
 "図したもの、ないし、説明文書やノートから特定の version+format にリンクするこ"
 "とができるようにすることを意図したものです。"
 
-#: ../source/specifications/simple-repository-api.rst:881
+#: ../source/specifications/simple-repository-api.rst:890
 msgid ""
 "Servers that do not support this parameter may choose to return an error "
 "when it is present, or they may simple ignore its presence."
@@ -31389,7 +31402,7 @@ msgstr ""
 "このパラメータをサポートしないサーバの側では、これの存在時にはエラーを返すこ"
 "とを選択しても構いませんし、単にその存在を無視しても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:884
+#: ../source/specifications/simple-repository-api.rst:893
 msgid ""
 "When a server does implement this parameter, it **SHOULD** take precedence "
 "over any values in the client's ``Accept`` header, and if the server does "
@@ -31406,11 +31419,11 @@ msgstr ""
 "``303 Multiple Choices`` 、ないし、応答のデフォルトの型) のどれでもひとつを選"
 "択しても構いません。"
 
-#: ../source/specifications/simple-repository-api.rst:893
+#: ../source/specifications/simple-repository-api.rst:902
 msgid "Endpoint Configuration"
 msgstr "エンドポイントの設定"
 
-#: ../source/specifications/simple-repository-api.rst:895
+#: ../source/specifications/simple-repository-api.rst:904
 msgid ""
 "This option technically is not a special option at all, it is just a natural "
 "consequence of using content negotiation and allowing servers to select "
@@ -31420,7 +31433,7 @@ msgstr ""
 "エーションを使用することに伴う自然な結果であり、利用可能なコンテント型のいず"
 "れかを自身のデフォルトとしてサーバが選択することを許すものです。"
 
-#: ../source/specifications/simple-repository-api.rst:899
+#: ../source/specifications/simple-repository-api.rst:908
 msgid ""
 "If a server is unwilling or unable to implement the server-driven content "
 "negotiation, and would instead rather require users to explicitly configure "
@@ -31432,7 +31445,7 @@ msgstr ""
 "ように明示的に要求するのであれば、それはサポートされているコンフィグレーショ"
 "ンのひとつです。"
 
-#: ../source/specifications/simple-repository-api.rst:903
+#: ../source/specifications/simple-repository-api.rst:912
 msgid ""
 "To enable this, a server should make multiple endpoints (for instance, ``/"
 "simple/v1+html/`` and/or ``/simple/v1+json/``) for each version+format that "
@@ -31449,7 +31462,7 @@ msgstr ""
 "エストした時に、サーバはそれを無視して当該エンドポイントに対応するコンテント"
 "型を返すことができます。"
 
-#: ../source/specifications/simple-repository-api.rst:910
+#: ../source/specifications/simple-repository-api.rst:919
 msgid ""
 "For clients that wish to require specific configuration, they can keep track "
 "of which version+format a specific repository URL was configured for, and "
@@ -31461,7 +31474,7 @@ msgstr ""
 "すし、そのサーバへのリクエストを作成する時に正しいコンテント型 *だけ* を含ん"
 "だ ``Accept`` ヘッダを発出することができます。"
 
-#: ../source/specifications/simple-repository-api.rst:918
+#: ../source/specifications/simple-repository-api.rst:927
 msgid ""
 "This section is non-normative, and represents what the spec authors believe "
 "to be the best default implementation decisions for something implementing "
@@ -31472,7 +31485,7 @@ msgstr ""
 "と仕様の執筆者たちが信じるものを表現していますが、しかし、これらの決定に合致"
 "させるための要求事項としてはいかなるものも **表現していません** 。"
 
-#: ../source/specifications/simple-repository-api.rst:922
+#: ../source/specifications/simple-repository-api.rst:931
 msgid ""
 "These decisions have been chosen to maximize the number of requests that can "
 "be moved onto the newest version of an API, while maintaining the greatest "
@@ -31485,11 +31498,11 @@ msgstr ""
 "択されています。加えて、クライアント側が最善の選択を行うようにと試みるガード"
 "レールを API が提供するように試みてきました。"
 
-#: ../source/specifications/simple-repository-api.rst:927
+#: ../source/specifications/simple-repository-api.rst:936
 msgid "It is recommended that servers:"
 msgstr "サーバには次のことが推奨されます:"
 
-#: ../source/specifications/simple-repository-api.rst:929
+#: ../source/specifications/simple-repository-api.rst:938
 msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can, or at least as long "
@@ -31499,7 +31512,7 @@ msgstr ""
 "くは、少なくとも HTML 応答を用いる非自明のトラフィックを受け取る限り、この仕"
 "様の中で記述される３個のコンテント型の全てをサポートすること。"
 
-#: ../source/specifications/simple-repository-api.rst:933
+#: ../source/specifications/simple-repository-api.rst:942
 msgid ""
 "When encountering an ``Accept`` header that does not contain any content "
 "types that it knows how to work with, the server should not ever return a "
@@ -31510,7 +31523,7 @@ msgstr ""
 "いような ``Accept`` ヘッダに遭遇した時、 ``300 Multiple Choice`` 応答を返すべ"
 "きではなく、その代わりに ``406 Not Acceptable`` 応答を返すべきです。"
 
-#: ../source/specifications/simple-repository-api.rst:938
+#: ../source/specifications/simple-repository-api.rst:947
 msgid ""
 "However, if choosing to use the endpoint configuration, you should prefer to "
 "return a ``200 OK`` response in the expected content type for that endpoint."
@@ -31519,7 +31532,7 @@ msgstr ""
 "そのエンドポイントが期待しているコンテント型で ``200 Ok`` を返したいと考える"
 "べきです。"
 
-#: ../source/specifications/simple-repository-api.rst:941
+#: ../source/specifications/simple-repository-api.rst:950
 msgid ""
 "When selecting an acceptable version, the server should choose the highest "
 "version that the client supports, with the most expressive/featureful "
@@ -31533,11 +31546,11 @@ msgstr ""
 "リクエストの特質を考慮に入れて、最も高いバージョンを選択するべきであり、 "
 "``text/html`` コンテント型の使用は最後の逃避先とするべきです。"
 
-#: ../source/specifications/simple-repository-api.rst:947
+#: ../source/specifications/simple-repository-api.rst:956
 msgid "It is recommended that clients:"
 msgstr "クライアント側には次のことが推奨されます:"
 
-#: ../source/specifications/simple-repository-api.rst:949
+#: ../source/specifications/simple-repository-api.rst:958
 msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can."
@@ -31545,7 +31558,7 @@ msgstr ""
 "それが合理的に実行可能である限り、サーバ側が駆動するコンテンツネゴシエーショ"
 "ンを使ってこの仕様に記述された３個のコンテント型の全てをサポートすること。"
 
-#: ../source/specifications/simple-repository-api.rst:952
+#: ../source/specifications/simple-repository-api.rst:961
 msgid ""
 "When constructing an ``Accept`` header, include all of the content types "
 "that you support."
@@ -31553,7 +31566,7 @@ msgstr ""
 "``Accept`` ヘッダを構築する時、サポートしているコンテント型の全てを含めるこ"
 "と。"
 
-#: ../source/specifications/simple-repository-api.rst:955
+#: ../source/specifications/simple-repository-api.rst:964
 msgid ""
 "You should generally *not* include a quality priority value for your content "
 "types, unless you have implementation specific reasons that you want the "
@@ -31567,7 +31580,7 @@ msgstr ""
 "コンテント型にはクオリティ優先度 <quality priority> を含めるべきでは *ありま"
 "せん* 。"
 
-#: ../source/specifications/simple-repository-api.rst:961
+#: ../source/specifications/simple-repository-api.rst:970
 msgid ""
 "The one exception to this recommendation is that it is recommended that you "
 "*should* include a ``;q=0.01`` value on the legacy ``text/html`` content "
@@ -31577,7 +31590,7 @@ msgstr ""
 "型であるという場合を除けば、伝統的な ``text/html`` コンテント型には "
 "``;q=0.01`` の値を *含めるべきである* ことが推奨されるということです。"
 
-#: ../source/specifications/simple-repository-api.rst:965
+#: ../source/specifications/simple-repository-api.rst:974
 msgid ""
 "Explicitly select what versions they are looking for, rather than using the "
 "``latest`` meta version during normal operation."
@@ -31585,7 +31598,7 @@ msgstr ""
 "通常操作では ``latest`` メタバージョンを使うのではなくて、希求しているバー"
 "ジョンがどれであるかを明示的に選択すること。"
 
-#: ../source/specifications/simple-repository-api.rst:968
+#: ../source/specifications/simple-repository-api.rst:977
 msgid ""
 "Check the ``Content-Type`` of the response and ensure it matches something "
 "that you were expecting."
@@ -31593,19 +31606,19 @@ msgstr ""
 "応答の ``Content-Type`` を調べて、こちらが期待しているものに合致していること"
 "を確認すること。"
 
-#: ../source/specifications/simple-repository-api.rst:976
+#: ../source/specifications/simple-repository-api.rst:985
 msgid "September 2015: initial form of the HTML format, in :pep:`503`"
 msgstr "2015年9月: :pep:`503` で HTML フォーマットの初期フォーム"
 
-#: ../source/specifications/simple-repository-api.rst:977
+#: ../source/specifications/simple-repository-api.rst:986
 msgid "July 2016: Requires-Python metadata, in an update to :pep:`503`"
 msgstr "2016年7月: :pep:`503` で Requires-Python メタデータ"
 
-#: ../source/specifications/simple-repository-api.rst:978
+#: ../source/specifications/simple-repository-api.rst:987
 msgid "May 2019: \"yank\" support, in :pep:`592`"
 msgstr "2019年5月: :pep:`592` で \"ヤンク <yank>\" サポート"
 
-#: ../source/specifications/simple-repository-api.rst:979
+#: ../source/specifications/simple-repository-api.rst:988
 msgid ""
 "July 2020: API versioning convention and metadata, and declaring the HTML "
 "format as API v1, in :pep:`629`"
@@ -31613,14 +31626,14 @@ msgstr ""
 "2020年7月: :pep:`629` で、 API バージョン付け慣行とメタデータ、 HTML フォー"
 "マットを API v1.として宣言"
 
-#: ../source/specifications/simple-repository-api.rst:981
+#: ../source/specifications/simple-repository-api.rst:990
 msgid ""
 "May 2021: providing package metadata independently from a package, "
 "in :pep:`658`"
 msgstr ""
 "2021年5月: :pep:`658` で、パッケージとは独立にパッケージのメタデータを提供"
 
-#: ../source/specifications/simple-repository-api.rst:983
+#: ../source/specifications/simple-repository-api.rst:992
 msgid ""
 "May 2022: initial form of the JSON format, with a mechanism for clients to "
 "choose between them, and declaring both formats as API v1, in :pep:`691`"
@@ -31628,7 +31641,7 @@ msgstr ""
 "2022年5月: :pep:`691` により、クライアント側が選択する機構とともに JSON "
 "フォーマットの初期の形、両フォーマットを API v1 として宣言"
 
-#: ../source/specifications/simple-repository-api.rst:985
+#: ../source/specifications/simple-repository-api.rst:994
 msgid ""
 "October 2022: project versions and file size and upload-time in the JSON "
 "format, in :pep:`700`"
@@ -31636,7 +31649,7 @@ msgstr ""
 "2022年10月: :pep:`700` により、 JSON フォーマットにおけるプロジェクトバージョ"
 "ン・ファイルサイズ・アップロード日時"
 
-#: ../source/specifications/simple-repository-api.rst:987
+#: ../source/specifications/simple-repository-api.rst:996
 msgid ""
 "June 2023: renaming the field which provides package metadata independently "
 "from a package, in :pep:`714`"
@@ -31644,7 +31657,7 @@ msgstr ""
 "2023年6月: :pep:`714` により、パッケージから独立したパッケージメタデータを提"
 "供するフィールドを名称変更"
 
-#: ../source/specifications/simple-repository-api.rst:989
+#: ../source/specifications/simple-repository-api.rst:998
 msgid ""
 "November 2024: provenance metadata in the HTML and JSON formats, "
 "in :pep:`740`"
@@ -31652,20 +31665,26 @@ msgstr ""
 "2024年11月: :pep:`740` によって、 HTML フォーマットおよびJSON フォーマットに"
 "おける起源 <provenance> メタデータ"
 
-#: ../source/specifications/simple-repository-api.rst:990
+#: ../source/specifications/simple-repository-api.rst:999
 msgid ""
 "July 2025: project status markers in the HTML and JSON formats, in :pep:`792`"
 msgstr ""
 "2025年7月: :pep:`792` によって、HTML フォーマットおよび JSON フォーマットにお"
 "けるプロジェクトの状態マーカ"
 
-#: ../source/specifications/simple-repository-api.rst:991
+#: ../source/specifications/simple-repository-api.rst:1000
 msgid ""
 "July 2025: layout changes (dedicated page for file yanking, introduce "
 "concepts before API details)"
 msgstr ""
 "2025年7月: レイアウトの変更 (ファイルのヤンクのための専用のページ、 API の詳"
 "細の前に概念を紹介)"
+
+#: ../source/specifications/simple-repository-api.rst:1001
+msgid ""
+"June 2026: :pep:`833` formally \"freezes\" the HTML representation of the "
+"simple API"
+msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:6
 msgid "Source distribution format"
