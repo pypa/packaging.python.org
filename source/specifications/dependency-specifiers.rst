@@ -708,6 +708,8 @@ History
   work. [#marker_comparison_logic]_
 - January 2026: fix outdated references to other documents that were
   inadvertently retained from :pep:`508`
+- July 2026: Explain that ``extra != "name"`` is not (properly) supported
+  (https://discuss.python.org/t/ban-negative-extras-for-extras-marker/108022/24)
 
 
 References
