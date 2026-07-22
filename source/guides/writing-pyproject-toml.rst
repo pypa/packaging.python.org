@@ -175,6 +175,31 @@ Each of the keys defines a "packaging extra". In the example above, one
 could use, e.g., ``pip install your-project-name[gui]`` to install your
 project with GUI support, adding the PyQt5 dependency.
 
+.. _self-referential-extras:
+
+You can also define an extra that refers back to the current project with
+other extras. This is useful for convenience extras that combine several
+optional features (such as an ``all`` extra hosting dependencies from both
+``gui`` and ``cli``):
+
+.. code-block:: toml
+
+    all = ["your-project-name[gui, cli]"]
+
+The combined extra does not need its own manually maintained copy of each
+referenced extra's dependencies, which can otherwise fall out of sync after
+a few years of maintenance and bug fixes:
+
+.. code-block:: toml
+
+    gui = ["PyQt5"]
+    cli = [
+      "rich>=14.2",   # version range is added after last "all" extra update
+      "textual",      # dependency newly added since last "all" extra update
+      "click",
+    ]
+    all = ["PyQt5", "rich", "click"]
+
 
 .. _requires-python:
 .. _python_requires:
@@ -555,6 +580,7 @@ A full example
      "rich",
      "click",
    ]
+   all = ["spam-eggs[gui, cli]"]
 
    [project.urls]
    Homepage = "https://example.com"

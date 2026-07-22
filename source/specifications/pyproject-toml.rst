@@ -498,6 +498,10 @@ marker clause on the related ``Requires-Dist`` entries to check the extra name.
 Optional dependencies are thus only considered for installation if installation
 if the associated extra name is requested.
 
+Dependency specifiers in an extra may self-reference other extras from the
+current project (e.g. ``all = ["your-project-name[gui, cli]"]``). See
+:ref:`self-referential extras <self-referential-extras>` for an example.
+Several installers including :ref:`pip` and :ref:`uv` support this pattern.
 
 .. _pyproject-toml-import-names:
 
