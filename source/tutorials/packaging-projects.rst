@@ -456,6 +456,9 @@ something like this:
    example package doesn't have any dependencies, it's a good practice to avoid
    installing dependencies when using TestPyPI.
 
+Using your newly installed package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 You can test that it was installed correctly by importing the package.
 Make sure you're still in your virtual environment, then run Python:
 
