@@ -70,6 +70,17 @@ and the regular expression, the text specification takes precedence.
 Tools MUST NOT read from metadata blocks with types that have not been
 standardized by this specification.
 
+Note that the specification only requires that *top-level* comment blocks are
+recognised as containing metadata. However, parsing Python code is non-trivial,
+and therefore:
+
+* Tools MAY choose to do a simple textual scan, rather than a full Python parse.
+* As a result of the previous point, the behaviour of scripts that contain data
+  that looks like metadata within another Python construct such as a multi-line
+  string is tool-dependent and should not be relied on.
+* The canonical regular expression provided above is an example of an
+  implementation that does a simple textual scan.
+
 script type
 -----------
 
