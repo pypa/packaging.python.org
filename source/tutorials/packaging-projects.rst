@@ -103,6 +103,9 @@ Creating a test directory
 -------------------------
 
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
+The plural name is a common convention for Python projects. Some packaging
+tools may mention older :file:`test/` patterns when describing source
+distribution defaults, but this tutorial uses :file:`tests/` consistently.
 
 
 .. _choosing-build-backend:
