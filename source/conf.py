@@ -148,6 +148,8 @@ linkcheck_ignore = [
     # Ignore while StackOverflow is blocking GitHub CI. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1474
     r"https://stackoverflow\.com/.*",
+    # Cloudflare challenge blocks automated link checking.
+    r"https://clickpy\.clickhouse\.com/$",
     r"https://pyscaffold\.org/.*",
     r"https://anaconda\.org",
     r"https://www\.cisa\.gov/sbom",
