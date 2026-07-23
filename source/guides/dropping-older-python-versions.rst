@@ -89,7 +89,7 @@ such as at least Python 3.9. Or, at least Python 3.7 and beyond, skipping the 3.
 If using the :ref:`setuptools` build backend, consult the `dependency-management`_ documentation for more options.
 
 .. caution::
-        Avoid adding upper bounds to the version ranges, e. g. ``">= 3.8, < 3.10"``. Doing so can cause different errors
+        Avoid adding upper bounds to the version ranges, e.g. ``">= 3.8, < 3.10"``. Doing so can cause different errors
         and version conflicts. See the `discourse-discussion`_ for more information.
 
 3. Validating the Metadata before publishing
