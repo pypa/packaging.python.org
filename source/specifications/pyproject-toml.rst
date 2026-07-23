@@ -114,6 +114,13 @@ by the metadata). Dynamic metadata is listed via the ``dynamic`` key
 (defined later in this specification) and represents metadata that a
 tool will later provide.
 
+A key whose value is a list or a table of arbitrary entries MAY be
+specified statically *and* listed in ``dynamic`` at the same time. In
+that case the entries given statically are fixed and a build back-end
+MAY only *append* further entries to them; the back-end MUST NOT
+remove, reorder, or modify any statically-specified entries. See the
+:ref:`dynamic <pyproject-toml-dynamic>` key for details.
+
 The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>`
 will dynamically provide all keys.
 
@@ -619,8 +626,9 @@ provided via tooling later on.
   field as "Optional", the metadata MAY list it in ``dynamic`` if the
   expectation is a build back-end will provide the data for the key
   later.
-- Build back-ends MUST raise an error if the metadata specifies a
-  key statically as well as being listed in ``dynamic``.
+- Build back-ends MUST raise an error if the metadata specifies a key
+  statically as well as being listed in ``dynamic``, *unless* the key
+  represents a list or arbitrary table that can be extended, listed below.
 - If the metadata does not list a key in ``dynamic``, then a build
   back-end CANNOT fill in the requisite metadata on behalf of the user
   (i.e. ``dynamic`` is the only way to allow a tool to fill in
@@ -630,6 +638,35 @@ provided via tooling later on.
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
 
+A key whose value is a list or a table of arbitrary entries MAY be
+specified statically and listed in ``dynamic`` simultaneously. The
+keys fitting that description are:
+
+- ``authors``
+- ``classifiers``
+- ``dependencies``
+- ``entry-points``
+- ``gui-scripts``
+- ``import-names``
+- ``import-namespaces``
+- ``keywords``
+- ``license-files``
+- ``maintainers``
+- ``optional-dependencies``
+- ``scripts``
+- ``urls``
+
+When such a key is specified both statically and listed in
+``dynamic``:
+
+- A build back-end MAY only *append* entries to the value; it MUST NOT
+  remove, reorder, or modify any statically-specified entries. For
+  tables (such as ``optional-dependencies`` or ``entry-points``) this
+  means a back-end MAY add new keys and MAY append to the values of
+  existing keys (in the case of a list), but MUST NOT change or remove the
+  entries given statically.
+- A build back-end SHOULD raise an error if a key is listed in
+  ``dynamic`` and it does not support extending that key.
 
 
 .. _pyproject-tool-table:
@@ -672,5 +709,9 @@ History
 
 - January 2026: Replaced outdated direct reference to :pep:`508` with a
   reference to :ref:`dependency-specifiers`.
+
+- May 2026: Allowed list and table keys to be specified statically as well
+  as listed in ``dynamic``, with build back-ends only able to append
+  entries, through :pep:`808`.
 
 .. _TOML: https://toml.io
