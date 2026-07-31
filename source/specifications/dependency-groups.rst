@@ -209,8 +209,8 @@ The output is therefore valid ``requirements.txt`` data.
         realized_group = []
         for item in raw_group:
             if isinstance(item, str):
-                # packaging.requirements.Requirement parsing ensures that this
-                # is a valid dependency specifier
+                # packaging.requirements.Requirement parsing ensures that this is a valid
+                # PEP 508 Dependency Specifier
                 # raises InvalidRequirement on failure
                 Requirement(item)
                 realized_group.append(item)
@@ -232,7 +232,7 @@ The output is therefore valid ``requirements.txt`` data.
 
     def resolve(dependency_groups: dict, group: str) -> list[str]:
         if not isinstance(dependency_groups, dict):
-            raise TypeError("Dependency Groups table is not a dict")
+            raise TypeError("Dependency groups table is not a dict")
         if not isinstance(group, str):
             raise TypeError("Dependency group name is not a str")
         return _resolve_dependency_group(dependency_groups, group)
@@ -244,7 +244,7 @@ The output is therefore valid ``requirements.txt`` data.
 
         dependency_groups_raw = pyproject["dependency-groups"]
         dependency_groups = _normalize_group_names(dependency_groups_raw)
-        print("\n".join(resolve(pyproject["dependency-groups"], sys.argv[1])))
+        print("\n".join(resolve(dependency_groups, sys.argv[1])))
 
 History
 =======
