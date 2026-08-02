@@ -145,7 +145,7 @@ To build the guide, run the following shell command in the project's root folder
 
 After the process has completed you can find the HTML output in the
 ``./build/html`` directory. You can open the ``index.html`` file to view the
-guide in web browser, but it's recommended to serve the guide using an HTTP
+guide in web a browser, but it's recommended to serve the guide using an HTTP
 server.
 
 You can build the guide and serve it via an HTTP server using the following
