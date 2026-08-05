@@ -276,6 +276,8 @@ fields is specified, the :file:`.dist-info/` directory MUST contain a
 ``License-File`` fields in the :file:`METADATA` file at their respective paths
 relative to the :file:`licenses/` directory.
 
+.. _dist-info-sbom-directory:
+
 The :file:`.dist-info/sboms/` directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
