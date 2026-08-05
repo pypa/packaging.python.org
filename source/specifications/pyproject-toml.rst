@@ -501,7 +501,7 @@ if the associated extra name is requested.
 Dependency specifiers in an extra may self-reference other extras from the
 current project (e.g. ``all = ["your-project-name[gui, cli]"]``). See
 :ref:`self-referential extras <self-referential-extras>` for an example.
-Most installers and dependency managers now support this kind of extra, including
+Most package managers now support this kind of extra, including
 :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`.
 
 .. _pyproject-toml-import-names:

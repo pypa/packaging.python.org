@@ -200,7 +200,7 @@ a few years of maintenance and bug fixes:
     ]
     all = ["PyQt5", "rich", "click"]
 
-Most installers and dependency managers now support this kind of extra, including
+Most package managers now support this kind of extra, including
 :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`.
 
 .. _requires-python:
