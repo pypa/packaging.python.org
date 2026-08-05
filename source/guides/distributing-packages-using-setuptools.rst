@@ -250,6 +250,13 @@ For more information, see :std:doc:`Including Data Files
 
     data_files=[('my_data', ['data/data_file'])],
 
+.. warning::
+
+  ``data_files`` is a legacy installation mechanism and is deprecated in
+  setuptools' declarative configuration. Prefer :ref:`Package Data` for files
+  that belong inside an import package, and reserve ``data_files`` for
+  last-resort cases that need to place files outside Python packages.
+
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
 cases you may need to place data files *outside* of your :term:`packages
 <Import Package>`.  The ``data_files`` directive allows you to do that.
