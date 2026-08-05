@@ -47,7 +47,9 @@ A dependency specification always specifies a distribution name. It may
 include extras, which expand the dependencies of the named distribution to
 enable optional features. The version installed can be controlled using
 version limits, or giving the URL to a specific artifact to install. Finally
-the dependency can be made conditional using environment markers.
+the dependency can be made conditional using environment markers. Each
+marker comparison must have an environment variable on one side and a string
+literal on the other. Comparing two variables or two literals is not permitted.
 
 Grammar
 -------
@@ -93,8 +95,8 @@ environments::
                      'implementation_name' | 'implementation_version' |
                      'extra' | 'extras' | 'dependency_groups' # ONLY when defined by a containing layer
                      )
-    marker_var    = wsp* (env_var | python_str)
-    marker_expr   = marker_var marker_op marker_var
+    marker_expr   = wsp* env_var marker_op python_str
+                  | wsp* python_str marker_op env_var
                   | wsp* '(' marker wsp* ')'
     marker_and    = marker_expr wsp* 'and' marker_expr
                   | marker_expr
@@ -523,8 +525,8 @@ The complete parsley grammar::
                      'implementation_name' | 'implementation_version' |
                      'extra' | 'extras' | 'dependency_groups' # ONLY when defined by a containing layer
                      ):varname -> lookup(varname)
-    marker_var    = wsp* (env_var | python_str)
-    marker_expr   = marker_var:l marker_op:o marker_var:r -> (o, l, r)
+    marker_expr   = wsp* env_var:l marker_op:o wsp* python_str:r -> (o, l, r)
+                  | wsp* python_str:l marker_op:o wsp* env_var:r -> (o, l, r)
                   | wsp* '(' marker:m wsp* ')' -> m
     marker_and    = marker_expr:l wsp* 'and' marker_expr:r -> ('and', l, r)
                   | marker_expr:m -> m
@@ -707,6 +709,8 @@ History
   work. [#marker_comparison_logic]_
 - January 2026: fix outdated references to other documents that were
   inadvertently retained from :pep:`508`
+- May 2026: Clarify that comparisons must have an environment variable and a
+  string literal and not two of one type.
 
 
 References
