@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-21 21:36+0000\n"
-"PO-Revision-Date: 2026-05-21 07:11+0000\n"
+"PO-Revision-Date: 2026-06-11 03:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ja/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.dev0\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -21041,18 +21041,14 @@ msgid "Whitespace"
 msgstr "空白文字 <Whitespace>"
 
 #: ../source/specifications/dependency-specifiers.rst:130
-#, fuzzy
-#| msgid ""
-#| "Non line-breaking whitespace is mostly optional with no semantic meaning. "
-#| "The sole exception is detecting the end of a URL requirement."
 msgid ""
 "Non line-breaking whitespace is mostly optional with no semantic meaning. "
 "The sole exceptions are detecting the end of a URL requirement and inside "
 "user supplied constants in environment markers."
 msgstr ""
 "行を分割するものではない空白文字には特に意味はなく、ほとんどの場合には必須で"
-"はないものです。唯一の例外は、 URL による要求事項の末尾を検出するためのもので"
-"す。"
+"はないものです。数少ない例外は、 URL による要求事項の末尾を検出するためのもの"
+"と、環境マーカ内で内部ユーザが付与する定数です。"
 
 #: ../source/specifications/dependency-specifiers.rst:137
 msgid "Names"
@@ -21065,19 +21061,16 @@ msgid ""
 "present in all dependency specifications, and are sufficient to be a "
 "specification on their own."
 msgstr ""
+"配布物の名称は :ref:`コアとなるメタデータ <core-metadata-name>` の中で定義さ"
+"れています。名称は、配布物にとっての主要な識別子として振る舞います。"
 
 #: ../source/specifications/dependency-specifiers.rst:144
-#, fuzzy
-#| msgid ""
-#| "The name of the distribution. The name field is the primary identifier "
-#| "for a distribution. It must conform to the :ref:`name format "
-#| "specification <name-format>`."
 msgid ""
 "Valid distribution names are defined in the :ref:`name format specification "
 "<name-format>`."
 msgstr ""
-"配布物の名称。name フィールドは配布物の最も基本的な識別子です。 :ref:`名称"
-"フォーマット仕様 <name-format>` を満たしていなければなりません。"
+"正当な配布物名称は、 :ref:`名称フォーマット仕様 <name-format>` の中で定義され"
+"ています。"
 
 #: ../source/specifications/dependency-specifiers.rst:151
 msgid "Extras"
@@ -21122,21 +21115,14 @@ msgid ""
 "installation tools MAY normalize invalid extra names in order to accept "
 "published metadata using core metadata versions prior to 2.3."
 msgstr ""
+"追加物の名称に関する制約事項は、 :ref:`コアとなるメタデータ仕様 <core-"
+"metadata-provides-extra>` で定義されています。"
 
 #: ../source/specifications/dependency-specifiers.rst:176
 msgid "Versions"
 msgstr "バージョン指定子"
 
 #: ../source/specifications/dependency-specifiers.rst:178
-#, fuzzy
-#| msgid ""
-#| "See the :ref:`Version specifier specification <version-specifiers>` for "
-#| "more detail on both version numbers and version comparisons. Version "
-#| "specifications limit the versions of a distribution that can be used. "
-#| "They only apply to distributions looked up by name, rather than via a "
-#| "URL. Version comparison are also used in the markers feature. The "
-#| "optional brackets around a version are present for compatibility "
-#| "with :pep:`345` but should not be generated, only accepted."
 msgid ""
 "See the :ref:`Version specifier specification <version-specifiers>` for more "
 "detail on both version numbers and version comparisons. Version "
@@ -21149,23 +21135,16 @@ msgstr ""
 "バージョン番号やその比較方法について、詳しくは :ref:`バージョン指定子仕様 "
 "<version-specifiers>` をみてください。バージョン仕様は、配布物のバージョンと"
 "して使うことができる範囲を定めています。これは、名前によって参照される配布物"
-"にのみ適用されるのであって、URL を通じて指定されるものには該当しません。バー"
-"ジョン番号の比較は、また、マーカー機能においても使われます。バージョンの周囲"
-"にある必須でない括弧は :pep:`345` との互換性を保つために存在していますが、そ"
-"のようなものを生成すべきではなくて受容するだけにとどめるべきです。"
+"にのみ適用されるのであって、URL を通じて指定されるものには該当しません。"
+"バージョン番号の比較は、また、環境マーカにおいても使われます。バージョンの周"
+"囲にある必須でない括弧は :pep:`345` との互換性を保つために存在していますが、"
+"そのようなものを生成すべきではなくて受容するだけにとどめるべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:189
 msgid "Environment Markers"
 msgstr "環境マーカ"
 
 #: ../source/specifications/dependency-specifiers.rst:191
-#, fuzzy
-#| msgid ""
-#| "Environment markers allow a dependency specification to provide a rule "
-#| "that describes when the dependency should be used. For instance, consider "
-#| "a package that needs argparse. In Python 2.7 argparse is always present. "
-#| "On older Python versions it has to be installed as a dependency. This can "
-#| "be expressed as so::"
 msgid ""
 "Environment markers allow a dependency specification to provide a rule that "
 "describes when the dependency should be used. For instance, consider a "
@@ -21173,31 +21152,19 @@ msgid ""
 "expressed as::"
 msgstr ""
 "環境マーカは、依存関係の指定においてその依存関係がいつ使われるべきであるかを"
-"記述する規則を提供します。例えば、あるパッケージが argparse を必要とするとし"
-"ましょう。Python 2.7 では argparse は常に存在します。もっと古いバージョンの "
-"Python では依存関係としてインストールされなければなりません。これは次のように"
-"表現することができます::"
+"記述する規則を提供します。例えば、Windows 上で走らせる時に ``pywin32`` を必要"
+"とするあるパッケージを考えてみましょう。これは次のように表現することができま"
+"す::"
 
 #: ../source/specifications/dependency-specifiers.rst:197
-#, fuzzy
-#| msgid ""
-#| "A marker expression evaluates to either True or False. When it evaluates "
-#| "to False, the dependency specification should be ignored."
 msgid ""
 "A marker expression evaluates to either True or False for a given deployment "
 "environment. When it evaluates to False, the dependency should be ignored."
 msgstr ""
-"マーカ表現は評価されると真か偽に帰着します。偽と評価された場合には、その依存"
-"関係の指定は無視されなければなりません。"
+"マーカ表現は、ある具体的なデプロイメント環境で評価されると真か偽に帰着します"
+"。偽と評価された場合には、その依存関係は無視されるべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:200
-#, fuzzy
-#| msgid ""
-#| "The marker language is inspired by Python itself, chosen for the ability "
-#| "to safely evaluate it without running arbitrary code that could become a "
-#| "security vulnerability. Markers were first standardised in :pep:`345`. "
-#| "This document fixes some issues that were observed in the design "
-#| "described in :pep:`426`."
 msgid ""
 "The marker language is inspired by Python itself, chosen for the ability to "
 "safely evaluate it without running arbitrary code that could become a "
@@ -21205,9 +21172,7 @@ msgid ""
 msgstr ""
 "マーカ言語は Python そのものに触発されたもので、セキュリティ上の脆弱性になり"
 "かねない任意コードの実行を伴わずに安全に評価を行うことができるので選ばれまし"
-"た。マーカは :pep:`345` で初めて標準化されました。この説明文書で"
-"は、 :pep:`426` に記述されたデザインに見られるいくつかの問題点を修正していま"
-"す。"
+"た。"
 
 #: ../source/specifications/dependency-specifiers.rst:204
 msgid ""
@@ -21216,20 +21181,27 @@ msgid ""
 "recorded :ref:`at the end of this specification <dependency-specifier-"
 "history>`)."
 msgstr ""
+"マーカは、 :pep:`345` で初めて定義され、 :pep:`508` で公式に仕様化され、その"
+"後は時間の経過とともに改正されました (:pep:`508` 以降の修正点は、 :ref:`この"
+"仕様の末尾 <dependency-specifier-history>` に記録されています。"
 
 #: ../source/specifications/dependency-specifiers.rst:209
 msgid "Marker field types"
-msgstr ""
+msgstr "マーカフィールドのタイプ"
 
 #: ../source/specifications/dependency-specifiers.rst:211
 msgid ""
 "Environment marker fields are each defined as one of the following types:"
 msgstr ""
+"環境マーカーは、以下のタイプのうちのいずれかであるものとしてそれぞれ定義され"
+"ています:"
 
 #: ../source/specifications/dependency-specifiers.rst:213
 msgid ""
 "``String``: the contents of the field are always treated as an opaque string."
 msgstr ""
+"``String``: このフィールドの内容は、常に内部の詳細を隠蔽した文字列として取り"
+"扱われます。"
 
 #: ../source/specifications/dependency-specifiers.rst:214
 msgid ""
@@ -21237,6 +21209,10 @@ msgid ""
 "containing opaque strings. In comparisons, the user supplied constant MUST "
 "still be a single string (as set literals are not part of the marker syntax)."
 msgstr ""
+"``Set of strings``: このフィールドの内容は、常に内部の詳細を隠蔽した文字列と"
+"して取り扱われます。対照的に、ユーザが提供した定数は、 (セットリテラル <set "
+"literals> はマーカの文法の一部ではないので) 単一の文字列でなければなりません"
+"。"
 
 #: ../source/specifications/dependency-specifiers.rst:217
 msgid ""
@@ -21245,6 +21221,11 @@ msgid ""
 "emit an error if that is not the case, but installation tools MAY fall back "
 "to treating the field as a string field."
 msgstr ""
+"``Version``: このフィールドの内容は、常に、正当な :ref:`バージョン指定子 "
+"<version-specifiers>` であることが期待されています。そうでない場合には、公開"
+"用のツール類はエラーを発出するべきですが、インストールツール類はこの"
+"フィールドを文字列のフィールドとして取り扱うようにフォールバックしても構いま"
+"せん。"
 
 #: ../source/specifications/dependency-specifiers.rst:221
 msgid ""
@@ -21254,12 +21235,15 @@ msgid ""
 "dependent and whether or not tools actually make the distinction will be "
 "tool dependent."
 msgstr ""
+"``Version | String``: このフィールドの内容は、いくつかのプラットフォームでは"
+"正当な :ref:`バージョン指定子 <version-specifiers>` であることが期待されてい"
+"ますが、他では詳細を隠蔽された文字列であることが期待されています。この区別の"
+"詳細はフィールド依存であり、ツール類が実際に区別を行うか否かはツールに依存し"
+"ます。"
 
 #: ../source/specifications/dependency-specifiers.rst:227
-#, fuzzy
-#| msgid "Inclusive ordered comparison"
 msgid "Marker comparisons"
-msgstr "境界を含む順序比較 <Inclusive ordered comparison>"
+msgstr "マーカー比較"
 
 #: ../source/specifications/dependency-specifiers.rst:229
 msgid ""
@@ -21270,56 +21254,57 @@ msgid ""
 "emit an error if no marker field is referenced in a comparison (that is, "
 "both operands are given as constants)."
 msgstr ""
+"マーカ比較表現は、すべて、名指しされたマーカフィールドとユーザが提供した定数"
+"との比較であることが期待されます。比較のタイプは、使われた比較演算子によって"
+"決定され、名指しされたフィールド"
 
 #: ../source/specifications/dependency-specifiers.rst:236
-#, fuzzy
-#| msgid "The comparison operator determines the kind of version clause:"
 msgid ""
 "The follow comparison operations are defined in the marker expression "
 "grammar:"
-msgstr "比較演算子がバージョン番号節の種類を決定します:"
+msgstr "follow 比較操作は、マーカ表現の文法の中で定義されています:"
 
 #: ../source/specifications/dependency-specifiers.rst:238
 msgid "``==`` (for example, ``sys_platform == \"win32\"``)"
-msgstr ""
+msgstr "``==`` (例えば、 ``sys_platform == \"win32\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:239
 msgid "``!=`` (for example, ``sys_platform != \"win32\"``)"
-msgstr ""
+msgstr "``!=`` (例えば、 ``sys_platform != \"win32\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:240
 msgid "``>`` (for example, ``python_version > \"3.10\"``)"
-msgstr ""
+msgstr "``>`` (例えば、 ``python_version > \"3.10\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:241
 msgid "``>=`` (for example, ``python_version >= \"3.10\"``)"
-msgstr ""
+msgstr "``>=`` (例えば、 ``python_version >= \"3.10\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:242
 msgid "``<`` (for example, ``python_version < \"3.10\"``)"
-msgstr ""
+msgstr "``<`` (例えば、 ``python_version < \"3.10\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:243
 msgid "``<=`` (for example, ``python_version <= \"3.10\"``)"
-msgstr ""
+msgstr "``<=`` (例えば、 ``python_version <= \"3.10\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:244
 msgid "``~=`` (for example, ``python_version ~= \"3\"``)"
-msgstr ""
+msgstr "``~=`` (例えば、 ``python_version ~= \"3\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:245
 msgid ""
 "``===`` (for example, ``implementation_version === \"not.a.valid.version\"``)"
-msgstr ""
+msgstr "``===`` (例えば、, ``implementation_version === \"not.a.valid.version\"``)"
 
 #: ../source/specifications/dependency-specifiers.rst:246
 msgid ""
 "``in`` (for example, ``\"gui\" in extras``, ``\"SMP\" in platform_version``)"
-msgstr ""
+msgstr "``in`` (例えば、 ``\"gui\" in extras``, ``\"SMP\" in platform_version``)"
 
 #: ../source/specifications/dependency-specifiers.rst:247
 msgid "``not in`` (for example, ``\"dev\" not in dependency_groups``)"
-msgstr ""
+msgstr "``not in`` (例えば、 ``\"dev\" not in dependency_groups``)"
 
 #: ../source/specifications/dependency-specifiers.rst:249
 msgid ""
@@ -21335,14 +21320,26 @@ msgid ""
 "disallow uploads containing such environment markers, while locking and "
 "installation tools SHOULD implement the following behavior:"
 msgstr ""
+"``String`` フィールド向けには、それらが (大文字小文字を区別し、いかなる種類の"
+"値の標準化もない) Python 文字列なので、 ``==`` ・ ``!=`` ・ ``in`` ・ ``not "
+"in`` が定義されています。文字列フィールドで ``~=`` や ``===`` を使うことは、"
+"明示的に非推奨になっていて、公開用ツール類はエラーを発出するべきであり、"
+"インデックスサーバ類はそのような環境マーカを含むアップロードを許可しなくても"
+"構いませんが、ロッキングとインストールツール類はその代わりにそれらを ``==`` "
+"と同一のものであると翻訳しても構いません。文字列フィールドで順序比較 (``<`` "
+"・ ``<=`` ・ ``>`` ・ ``>=``) を使うことは、 (というのは、パッケージングの文"
+"脈において意味論的に意味をなさないので) 明示的に非推奨になっており、公開用"
+"ツール類はエラーを発出するべきであり、インデックスサーバ類はそのような環境"
+"マーカを含むアップロードを許可しなくても構いませんが、ロッキングと"
+"インストールツール類は以下のような動作を実装するべきです:"
 
 #: ../source/specifications/dependency-specifiers.rst:261
 msgid "treat ``>=`` and ``<=`` as equivalent to ``==``"
-msgstr ""
+msgstr "``>=`` と ``<=`` を ``==`` と同等のものとして取り扱う"
 
 #: ../source/specifications/dependency-specifiers.rst:262
 msgid "treat ``>`` and ``<`` as always being False"
-msgstr ""
+msgstr "``>`` と ``<`` を常に偽 <False> として取り扱う"
 
 #: ../source/specifications/dependency-specifiers.rst:264
 msgid ""
@@ -21354,6 +21351,13 @@ msgid ""
 "environment markers, while locking and installation tools SHOULD treat such "
 "operations as always being False."
 msgstr ""
+"``Set of String`` フィールド向けには、セットリテラル用のマーカ文法が存在しな"
+"いことから、正当な操作は、ユーザが与えた文字列リテラルを左側オペランドとする "
+"``in`` と ``not in`` の比較だけです。環境マーカが他のいかなる比較演算をこれら"
+"のフィールドに対して試みるなら公開ツール類はエラーを発出するべきであり、"
+"インデックスサーバ類はそのような環境マーカを含むアップロードを許可しなくても"
+"構わないが、ロッキングとインストールツール類はそのような操作を常に偽として取"
+"り扱うべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:272
 msgid ""
@@ -21373,6 +21377,20 @@ msgid ""
 "markers, while locking and installation tools MAY treat them as always being "
 "False."
 msgstr ""
+"``Version`` フィールド向けには、マーカフィールドのアタとユーザが提供した定数"
+"の両方が正当なバージョン指定子としてパースできる場合か、``===`` 任意的等価演"
+"算子が使われた場合かのいずれかの場合に、比較操作が :ref:`バージョン指定子仕"
+"様 <version-specifiers>` によって定義されています。 ``===`` 以外の演算子が用"
+"いられた時、ユーザが与えた定数が正当なバージョン指定子としてパースできなけれ"
+"ば、公開ツール類はエラーを発出するべきであり、インデックスサーバ類はそのよう"
+"な環境マーカを含むアップロードを拒否しても構いませんが、ロッキングと"
+"インストールツール類は、マーカフィールドの値かユーザが与えた定数を正当な"
+"バージョン指定子としてパースできない場合に、エラーを発出するか、 ``String`` "
+"フィールドの比較論理にフォールバックするかのいずれかを行っても構いません"
+"。``Version`` フィールドでは ``in`` や ``not in`` の包含関係チェックは正当な"
+"ものではなく、公開ツール類はエラーを発出すべきであり、インデックスサーバ類は"
+"そのような環境マーカを含むアップロードを拒否しても構いませんが、ロッキングと"
+"インストールツール類はこれらを常に False として取り扱っても構いません。"
 
 #: ../source/specifications/dependency-specifiers.rst:287
 msgid ""
@@ -21389,12 +21407,13 @@ msgid ""
 "markers that are appropriately scoped to the relevant platforms before "
 "performing a version based comparison."
 msgstr ""
+"``Version | String`` フィールド向けには、 ``Version`` フィールド向けのものと"
+"同様に比較演算が定義されていますが、 ``in`` と ``not in`` の包含確認は "
+"``String`` フィールド向けのものと同様に定義されています。しかしながら、"
 
 #: ../source/specifications/dependency-specifiers.rst:301
-#, fuzzy
-#| msgid "Choosing a versioning scheme"
 msgid "Composing marker expressions"
-msgstr "バージョン体系を選択する"
+msgstr "マーカ表現を構築する"
 
 #: ../source/specifications/dependency-specifiers.rst:303
 msgid ""
@@ -21402,6 +21421,9 @@ msgid ""
 "logical operators. Parentheses may be used as necessary to control operand "
 "precedence (with all comparison operations having a higher precedence)."
 msgstr ""
+"``and`` や ``or`` といった論理演算子を用いてもっと複雑なマーカ表現を構築する"
+"ことができます。 (すべての比較演算子がより高い優先順位を持っているので) "
+"オペランドの優先順位を制御するために、必要に応じて括弧を使うこともできます。"
 
 #: ../source/specifications/dependency-specifiers.rst:307
 #: ../source/specifications/version-specifiers.rst:203
@@ -21414,16 +21436,21 @@ msgid ""
 "supported in environment markers (such expressions must instead be written "
 "out as two separate comparisons joined by ``and``)."
 msgstr ""
+"(``3.4 < python_version < 3.9`` のような) Python の比較連結は、環境マーカでは"
+"サポートされていません (代わりに、そのような表現は二つの個別の比較を ``and`` "
+"で連結したものとして書かなければなりません) 。"
 
 #: ../source/specifications/dependency-specifiers.rst:318
 msgid "User supplied constants"
-msgstr ""
+msgstr "ユーザが与えた定数"
 
 #: ../source/specifications/dependency-specifiers.rst:320
 msgid ""
 "User supplied constants are always given as strings within either ``'`` or "
 "``\"`` quote marks. Triple-quoted multi-line strings are NOT permitted."
 msgstr ""
+"ユーザが与えた定数は、常に、 ``'`` または ``\"`` のいずれかの引用符の中の文字"
+"列として与えられます。引用符３個の複数行文字列は許されていません。"
 
 #: ../source/specifications/dependency-specifiers.rst:323
 msgid ""
@@ -21432,6 +21459,10 @@ msgid ""
 "is currently no known need for treating user supplied constants as anything "
 "other than either opaque strings or valid version specifiers."
 msgstr ""
+"ツール類がサポートすることは構いませんが、バックスラッシュによるエスケープは"
+"仕様化されていません。これらが複雑性を増すことや、内部構造のわからない文字列"
+"または正当なバージョン指定子以外の何ものかとしてユーザが与えた文字列を取り扱"
+"う必要性が現時点では知られていないことから、これらは仕様に含まれていません。"
 
 #: ../source/specifications/dependency-specifiers.rst:328
 msgid ""
@@ -21442,10 +21473,16 @@ msgid ""
 "environment markers to contain non-ASCII text that users wish to perform "
 "comparisons against."
 msgstr ""
+"同様に、非 ASCII 文字のサポートも仕様化されていませんが、ツール類は (通常は、"
+"依存関係指定子を含むファイルまたはストリームのテキストエンコーディングに基づ"
+"いて) それらを受け入れても構いません。典型的にはユーザが比較を行いたいと願う"
+"非 ASCII テキストが環境マーカランタイムの変数に含まれるという形で参照される"
+"ランタイムの変数がもっと一般的になれば、将来の時点で再検討されるかもしれませ"
+"ん。"
 
 #: ../source/specifications/dependency-specifiers.rst:335
 msgid "Unknown marker fields"
-msgstr ""
+msgstr "未知のマーカフィールド"
 
 #: ../source/specifications/dependency-specifiers.rst:337
 msgid ""
@@ -21460,33 +21497,38 @@ msgid ""
 "dependency that is not valid for the current platform (if the unknown marker "
 "is treated as True)."
 msgstr ""
+"未知のマーカフィールドへの参照は、インストール用のパッケージのバージョンを資"
+"格がないものにするか、または、 True か False かを評価する比較に帰着させるより"
+"も固定された依存関係ツリーに含めるべきです。そういうことですので、未知の"
+"マーカフィールドを伴う公開パッケージのバージョンは、 (未知のマーカが False と"
+"して取り扱われたなら) 明らかにインストールに成功したはずなのに依存関係が欠け"
+"ているためにランタイムになってから失敗するか、 (未知のマーカが True として取"
+"り扱われたなら) 現状のプラットフォームにとって正当ではない依存関係によって潜"
+"在的に不可解なインストールが失敗するかに陥るよりも、依存関係を解決する際に無"
+"視されるか、または、記述的なインストール失敗を発出するかのいずれかになります"
+"。"
 
 #: ../source/specifications/dependency-specifiers.rst:347
-#, fuzzy
-#| msgid ""
-#| "Variables whose value cannot be calculated on a given Python "
-#| "implementation should evaluate to ``0`` for versions, and an empty string "
-#| "for all other variables."
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
 "should evaluate to ``0`` for ``Version`` fields, and an empty string for all "
 "other variables (including ``Version | String`` fields)."
 msgstr ""
-"特定の Python 実装で値を計算することができない変数は、バージョンについては "
-"``0`` として、その他のすべての変数については空文字列として評価されるべきで"
-"す。"
+"特定の Python 実装で値を計算することができない変数は、 ``Version`` フィールド"
+"については ``0`` として、その他のすべての変数については (``Version | "
+"String`` フィールドを含めて) 空文字列として評価されるべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:355
-#, fuzzy
-#| msgid "Environment Markers"
 msgid "Defined environment marker fields"
-msgstr "環境マーカ"
+msgstr "定義済みの環境マーカフィールド"
 
 #: ../source/specifications/dependency-specifiers.rst:357
 msgid ""
 "Unless otherwise noted below, marker evaluation environments MUST support "
 "all of the following marker fields:"
 msgstr ""
+"以下に特記のない限り、マーカ評価環境は、次のマーカフィールドをすべてサポート"
+"していなければなりません:"
 
 #: ../source/specifications/dependency-specifiers.rst:363
 msgid "Marker"
@@ -21501,10 +21543,8 @@ msgid "Type"
 msgstr "種類"
 
 #: ../source/specifications/dependency-specifiers.rst:366
-#, fuzzy
-#| msgid "Sample values"
 msgid "Sample values & notes"
-msgstr "値の例"
+msgstr "値の例と備考"
 
 #: ../source/specifications/dependency-specifiers.rst:367
 msgid "``os_name``"
@@ -21536,17 +21576,14 @@ msgid ":py:data:`sys.platform`"
 msgstr ":py:data:`sys.platform`"
 
 #: ../source/specifications/dependency-specifiers.rst:374
-#, fuzzy
-#| msgid ""
-#| "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" "
-#| "is from Python3 and \"linux2\" from Python2)"
 msgid ""
 "``linux``, ``win32``, ``darwin``, ``java1.8.0_51`` (note that this is the "
 "most well defined field for use when declaring platform specific "
 "dependencies)"
 msgstr ""
-"``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (\"linux\" は Python3 か"
-"ら、\"linux2\" は Python2 からであることに注意してください)"
+"``linux``, ``win32``, ``darwin``, ``java1.8.0_51`` (プラットフォームに特有の"
+"依存関係を宣言する際、これが最もよく定義されたフィールドであることに注意して"
+"ください)"
 
 #: ../source/specifications/dependency-specifiers.rst:377
 msgid "``platform_machine``"
@@ -21562,6 +21599,10 @@ msgid ""
 "provided by the operating system, so the same CPU architecture may use "
 "different strings on different platforms)"
 msgstr ""
+"``x86_64`` ・ ``aarch64`` ・ ``AMD64`` ・ ``arm64`` (この値が"
+"オペレーティングシステムによって提供されたものであるため、相異なる"
+"プラットフォームでは同じ CPU アーキテクチャでも異なる文字列を使うかもしれない"
+"ことに留意してください)"
 
 #: ../source/specifications/dependency-specifiers.rst:383
 msgid "``platform_python_implementation``"
@@ -21572,10 +21613,8 @@ msgid ":py:func:`platform.python_implementation()`"
 msgstr ":py:func:`platform.python_implementation()`"
 
 #: ../source/specifications/dependency-specifiers.rst:386
-#, fuzzy
-#| msgid "``CPython``, ``Jython``"
 msgid "``CPython``, ``PyPy``"
-msgstr "``CPython``, ``Jython``"
+msgstr "``CPython`` ・ ``PyPY``"
 
 #: ../source/specifications/dependency-specifiers.rst:387
 msgid "``platform_release``"
@@ -21587,18 +21626,16 @@ msgstr ":py:func:`platform.release()`"
 
 #: ../source/specifications/dependency-specifiers.rst:389
 #: ../source/specifications/dependency-specifiers.rst:398
-#, fuzzy
-#| msgid "Versioning"
 msgid "Version | String"
-msgstr "バージョニング"
+msgstr "Version | String"
 
 #: ../source/specifications/dependency-specifiers.rst:390
-#, fuzzy
-#| msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 msgid ""
 "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51`` (may be a valid version "
 "field, for example on macOS/darwin)"
-msgstr "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
+msgstr ""
+"``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51`` (例えば macOS/darwin 上"
+"では、正当なバージョンフィールドであるかもしれません)"
 
 #: ../source/specifications/dependency-specifiers.rst:392
 msgid "``platform_system``"
@@ -21621,11 +21658,6 @@ msgid ":py:func:`platform.version()`"
 msgstr ":py:func:`platform.version()`"
 
 #: ../source/specifications/dependency-specifiers.rst:399
-#, fuzzy
-#| msgid ""
-#| "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server "
-#| "VM, 25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed "
-#| "Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
@@ -21634,7 +21666,8 @@ msgid ""
 msgstr ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
-"02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
+"02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64`` ``13`` (iOS または "
+"Android 上での例のための、おそらく正当なバージョンフィールド)"
 
 #: ../source/specifications/dependency-specifiers.rst:404
 msgid "``python_version``"
@@ -21651,10 +21684,8 @@ msgid ":ref:`Version <version-specifiers>`"
 msgstr ":ref:`バージョン <version-specifiers>`"
 
 #: ../source/specifications/dependency-specifiers.rst:407
-#, fuzzy
-#| msgid "``3.4``, ``2.7``"
 msgid "``3.9``, ``3.15``"
-msgstr "``3.4``, ``2.7``"
+msgstr "``3.9``, ``3.15``"
 
 #: ../source/specifications/dependency-specifiers.rst:408
 msgid "``python_full_version``"
@@ -21665,10 +21696,8 @@ msgid ":py:func:`platform.python_version()`"
 msgstr ":py:func:`platform.python_version()`"
 
 #: ../source/specifications/dependency-specifiers.rst:411
-#, fuzzy
-#| msgid "``3.4.0``, ``3.5.0b1``"
 msgid "``3.10.12``, ``3.15.0a1``"
-msgstr "``3.4.0``, ``3.5.0b1``"
+msgstr "``3.10.12``, ``3.15.0a1``"
 
 #: ../source/specifications/dependency-specifiers.rst:412
 msgid "``implementation_name``"
@@ -21679,10 +21708,8 @@ msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ":py:data:`sys.implementation.name <sys.implementation>`"
 
 #: ../source/specifications/dependency-specifiers.rst:415
-#, fuzzy
-#| msgid "``CPython``, ``Jython``"
 msgid "``cpython``, ``pypy``"
-msgstr "``CPython``, ``Jython``"
+msgstr "``cpython``, ``pypy``"
 
 #: ../source/specifications/dependency-specifiers.rst:416
 msgid "``implementation_version``"
@@ -21695,29 +21722,27 @@ msgstr "下方の定義を見てください"
 #: ../source/specifications/dependency-specifiers.rst:419
 msgid ""
 "``3.10.12``, ``7.3.17`` (examples are for CPython and PyPy respectively)"
-msgstr ""
+msgstr "``3.10.12``, ``7.3.17`` (順に、CPython と PyPy のための例)"
 
 #: ../source/specifications/dependency-specifiers.rst:421
 msgid "``extra``"
 msgstr "``extra``"
 
 #: ../source/specifications/dependency-specifiers.rst:422
-#, fuzzy
-#| msgid ""
-#| "An error except when defined by the context interpreting the "
-#| "specification."
 msgid ""
 "Used to indicate optional dependencies in project dependency metadata. An "
 "error except when defined by the context interpreting the specifier."
-msgstr "仕様を通訳する文脈で定義された場合を除くエラー。"
+msgstr ""
+"プロジェクトの依存関係のメタデータの中で、オプションの依存関係を示すために使"
+"われる。指定子を解釈するコンテクストによって定義される時を除いて、エラー。"
 
 #: ../source/specifications/dependency-specifiers.rst:425
 msgid "Special (see below)"
-msgstr ""
+msgstr "特別 <Special> (下記参照)"
 
 #: ../source/specifications/dependency-specifiers.rst:426
 msgid "``toml`` (publishing tools SHOULD permit use of this field)"
-msgstr ""
+msgstr "``toml`` (公開ツール類は、このフィールドの使用を許容するべきです)"
 
 #: ../source/specifications/dependency-specifiers.rst:428
 #: ../source/specifications/pylock-toml.rst:108
@@ -21725,14 +21750,12 @@ msgid "``extras``"
 msgstr "``extras``"
 
 #: ../source/specifications/dependency-specifiers.rst:429
-#, fuzzy
-#| msgid ""
-#| "An error except when defined by the context interpreting the "
-#| "specification."
 msgid ""
 "Used to indicate optional public dependencies in lock files. An error except "
 "when defined by the context interpreting the specifier."
-msgstr "仕様を通訳する文脈で定義された場合を除くエラー。"
+msgstr ""
+"ロックファイルの中でオプションの公開依存関係を示すために使われる。指定子を解"
+"釈する文脈によって定義された場合を除けば、エラー。"
 
 #: ../source/specifications/dependency-specifiers.rst:431
 #: ../source/specifications/dependency-specifiers.rst:439
@@ -21744,26 +21767,30 @@ msgid ""
 "``{\"toml\"}`` (publishing tools SHOULD NOT permit use of this field and "
 "index servers SHOULD NOT accept uploads containing such environment markers)"
 msgstr ""
+"``{\"toml\"}`` (公開ツールは、このフィールドの使用を許容するべきではありませ"
+"んし、インデックスサーバはそのような環境マーカを含むアップロードを受け入れる"
+"べきではありません)"
 
 #: ../source/specifications/dependency-specifiers.rst:435
 msgid "``dependency_groups``"
 msgstr "``dependency_groups``"
 
 #: ../source/specifications/dependency-specifiers.rst:436
-#, fuzzy
-#| msgid ""
-#| "An error except when defined by the context interpreting the "
-#| "specification."
 msgid ""
 "Used to indicate optional project internal dependencies in lock files. An "
 "error except when defined by the context interpreting the specifier."
-msgstr "仕様を通訳する文脈で定義された場合を除くエラー。"
+msgstr ""
+"ロックファイルの中でオプションのプロジェクト内部依存関係を示すために使われま"
+"す。指定子を解釈する文脈で定義された場合を除けば、エラー。"
 
 #: ../source/specifications/dependency-specifiers.rst:440
 msgid ""
 "``{\"test\"}`` (publishing tools SHOULD NOT permit use of this field and "
 "index servers SHOULD NOT accept uploads containing such environment markers)"
 msgstr ""
+"``{\"test\"}`` (公開ツール類はこのフィールドの使用を許容するべきではなく、"
+"インデックスサーバはこのような環境マーカを含むアップロードを許可するべきでは"
+"ありません)"
 
 #: ../source/specifications/dependency-specifiers.rst:444
 msgid ""
@@ -21782,6 +21809,20 @@ msgid ""
 "processing, marker evaluation environments DO NOT need to define these "
 "fields."
 msgstr ""
+"古めのロッキングとインストールツール類との後方互換性については、 ``extras`` "
+"と ``dependency_groups`` のフィールドは、現状では、 :ref:`ロックファイル "
+"<lock-file-spec>` の中の ``packages.marker`` フィールドの中で使われる時だけが"
+"正当です。これらの比較においては、マーカ評価に使われる ``extras`` と "
+"``dependency_groups`` の組は、ロックファイルからインストール時には、 *その時"
+"点で選択されている* extras と dependency_groups を参照するのであって、対応す"
+"るトップレベルのロックファイルフィールド群に列挙されているフルセットの定義済"
+"み extras と dependency_groups を参照するのではありません。どの extras と "
+"dependency_groups をインストールするのかを選ぶインタフェースはツールに依存し"
+"ます。公開ツールは、その公開依存関係宣言メタデータの中の ``extras`` または "
+"``dependency_groups`` フィールドへの参照をプロジェクトが試みるのであれば、"
+"エラーを発出するべきですし、インデックスサーバはこれらのフィールドを参照する"
+"アップロードを受け入れるべきではありません。ロックファイルの処理の外側では、"
+"マーカ評価環境は、これらのフィールドを定義する必要はありません。"
 
 #: ../source/specifications/dependency-specifiers.rst:458
 msgid ""
@@ -21798,6 +21839,18 @@ msgid ""
 "environment markers, while locking and installation tools SHOULD evaluate "
 "them as False."
 msgstr ""
+"集合のような動作を期待するけれども、定義済みのマーカフィールドタイプとしての "
+"``Set of strings`` の追加よりも先行しているので、 ``extra`` フィールドもまた"
+"特別です。したがって、依存関係の宣言の中の ``extra != \"name\"`` が "
+"``\"name\" not in extras`` に似ている一方で、 ``extra == \"name\"`` は、 "
+"``\"name\" in extras`` と似ています。依存関係マーカの評価のためには、これらの"
+"比較に用いられた extra な名称の集合は、トップレベルの依存関係宣言の中で直接に"
+"要求されたものであれ、間接的に依存関係を通過してきたものであれ、 *その特定の"
+"パッケージ* のために要求された extras の全ての集合です。 ``extra`` に対する他"
+"の比較操作は定義されておらず、公開ツールはエラーを発出するべきであり、"
+"インデックスサーバはそのような環境マーカを含むアップロードを許さなくても構い"
+"ませんが、ロッキングとインストールツール類はそれらを False として評価するべき"
+"です。"
 
 #: ../source/specifications/dependency-specifiers.rst:470
 msgid ""
@@ -21810,6 +21863,14 @@ msgid ""
 "``packages.marker`` fields, and installation tools SHOULD reject lock files "
 "containing such comparisons as invalid."
 msgstr ""
+"より新しい ``extras`` フィールドとは異なり、このフィールドを用いる環境マーカ"
+"は、公開ツールにもインデックスサーバにも受け入れられるべきです。プロジェクト"
+"の依存関係宣言向けであることを企図されたマーカ評価環境は ``extra`` フィールド"
+"の比較の評価を取り扱う必要がありませんが、環境マーカの他の評価は一般的にその"
+"ようにする必要がありません。レガシーな ``extra`` の比較の文法は、"
+"ロックファイルの ``packages.marker`` フィールドでは許されませんし、"
+"インストールツールはそのような比較を含むロックファイルを正当でないものとして"
+"拒否するべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:479
 msgid ""
@@ -21855,6 +21916,8 @@ msgid ""
 "March 2022: Standardised the normalization of extra names at publication "
 "time (for core metadata 2.3 and later) through :pep:`685`"
 msgstr ""
+"2022年3月: :pep:`685` を通じて、 (コアとなるメタデータ 2.3 およびそれ以降の) "
+"公開時点での余分 <extra> な名称の標準化を規格化しました。"
 
 #: ../source/specifications/dependency-specifiers.rst:690
 msgid ""
@@ -21866,16 +21929,12 @@ msgstr ""
 "に、末尾のカンマを許容する形に ``version_many`` の定義が変更された。"
 
 #: ../source/specifications/dependency-specifiers.rst:693
-#, fuzzy
-#| msgid ""
-#| "April 2025: Added ``extras`` and ``dependency_groups`` for :ref:`lock-"
-#| "file-spec` as approved through :pep:`751`."
 msgid ""
 "April 2025: Added ``extras`` and ``dependency_groups`` marker field "
 "for :ref:`lock-file-spec` as approved through :pep:`751`."
 msgstr ""
-"2025年4月: :ref:`lock-file-spec` に ``extras`` と ``dependency_groups`` を追"
-"加することが :pep:`751` を通じて承認された。"
+"2025年4月: :ref:`lock-file-spec` に ``extras`` と ``dependency_groups`` の"
+"マーカフィールドを追加することが :pep:`751` を通じて承認された。"
 
 #: ../source/specifications/dependency-specifiers.rst:695
 #: ../source/specifications/name-normalization.rst:56
@@ -21889,16 +21948,13 @@ msgstr ""
 "て後続する行末コード <newlines> を許容していた)"
 
 #: ../source/specifications/dependency-specifiers.rst:698
-#, fuzzy
-#| msgid ""
-#| "December 2025: Ensure ``===`` before ``==`` in grammar, to allow "
-#| "arbitrary equality comparisons to be parsed."
 msgid ""
 "December 2025: Ensure ``===`` is before ``==`` in grammar, to allow "
 "arbitrary equality comparisons to be parsed."
 msgstr ""
 "2025年12月: あらゆる意味での同一性 <Arbitrary equality> の比較がパースされる"
-"ことを許すために、 ``==`` より前に ``===`` を (評価することを) 確実に。"
+"ことを許すために、 ``==`` より前に ``===`` を (評価することを) 文法上で確実に"
+"しました。"
 
 #: ../source/specifications/dependency-specifiers.rst:700
 msgid ""
@@ -21912,12 +21968,22 @@ msgid ""
 "specification into line with the way tools actually work. "
 "[#marker_comparison_logic]_"
 msgstr ""
+"2026年1月: 環境マーカの比較操作の定義をそれが意味をなすフィールドに対する"
+"バージョン番号の比較の意味を厳密にするために修正し、余分 <extra> な名称の制約"
+"をより明示的なものにし、順序付き比較の方法が文字列向けに定義されたものになる"
+"ように調整し、バージョン番号のパースに失敗した時にバージョン番号の比較から文"
+"字列としての比較へのフォールバックを行うようにすることをオプションにしました"
+"。また、公開ツール類とインストールツール類の間で異なる推奨動作を提供しました"
+"。これによって、名ばかりだった仕様にツール類が実際に動作する方法を伴った行を"
+"もたらしました。 [#marker_comparison_logic]_"
 
 #: ../source/specifications/dependency-specifiers.rst:708
 msgid ""
 "January 2026: fix outdated references to other documents that were "
 "inadvertently retained from :pep:`508`"
 msgstr ""
+"2026年1月: :pep:`508` から不注意に残されていた、他の文書への古くて役に立たな"
+"くなった参照を修正しました。"
 
 #: ../source/specifications/dependency-specifiers.rst:715
 msgid ""
@@ -21947,6 +22013,9 @@ msgid ""
 "discuss.python.org/t/spec-change-bugfix-dependency-specifiers-simplification-"
 "pep-508/105203)"
 msgstr ""
+"環境マーカフィールドの比較における実際のツールの動作と名目上の定義の間の不一"
+"致を解決すること (https://discuss.python.org/t/spec-change-bugfix-dependency-"
+"specifiers-simplification-pep-508/105203)"
 
 #: ../source/specifications/direct-url.rst:6
 msgid "Recording the Direct URL Origin of installed distributions"
@@ -22785,16 +22854,6 @@ msgstr ""
 "す。 extras が使われる場合には、角括弧の中にコンマ区切りで列挙します。"
 
 #: ../source/specifications/entry-points.rst:105
-#, fuzzy
-#| msgid ""
-#| "Within a value, readers must accept and ignore spaces (including multiple "
-#| "consecutive spaces) before or after the colon, between the object "
-#| "reference and the left square bracket, between the extra names and the "
-#| "square brackets and colons delimiting them, and after the right square "
-#| "bracket. The syntax for extras is formally specified as part "
-#| "of :pep:`508` (as ``extras``) and restrictions on values specified "
-#| "in :pep:`685`. For tools writing the file, it is recommended only to "
-#| "insert a space between the object reference and the left square bracket."
 msgid ""
 "Within a value, readers must accept and ignore spaces (including multiple "
 "consecutive spaces) before or after the colon, between the object reference "
@@ -22806,11 +22865,10 @@ msgid ""
 msgstr ""
 "値の内部では、読み取る側はコロンの前後・オブジェクト参照と左角括弧の間・extra"
 "の名前と角括弧や区切り文字のコロンの間・右角括弧の後にある空白文字 (連続する"
-"複数の空白文字を含む) を許容し無視しなければなりません。 extras の文法は公式"
-"に :pep:`508` の一部 (の ``extras`` 部分) として指定されており、値に関する制"
-"限事項は :pep:`685` で指定されています。ファイルを書き出すようなツールでは、"
-"オブジェクト参照と左角括弧の間に限って空白文字を挿入することが推奨されていま"
-"す。"
+"複数の空白文字を含む) を許容し無視しなければなりません。 extras の文法は "
+":ref:`dependency-specifiers` の中で公式に指定されています。ファイルを書き出す"
+"ようなツールでは、オブジェクト参照と左角括弧の間に限って空白文字を挿入するこ"
+"とが推奨されています。"
 
 #: ../source/specifications/entry-points.rst:127
 msgid "Use for scripts"
@@ -22900,6 +22958,8 @@ msgid ""
 "January 2026: Replaced outdated direct references to :pep:`508` "
 "and :pep:`685` with a reference to :ref:`dependency-specifiers`."
 msgstr ""
+"2026年1月: :pep:`508` と :pep:`685` への直接参照が時代遅れになったので "
+":ref:`dependency-specifiers` への参照で置き換えました。"
 
 #: ../source/specifications/externally-managed-environments.rst:6
 msgid "Externally Managed Environments"
@@ -28598,7 +28658,7 @@ msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:424
 msgid ":ref:`Entry points specification <entry-points>`"
-msgstr ":ref:`Entry points specification <entry-points>`"
+msgstr ":ref:`エントリポイントの仕様 <entry-points>`"
 
 #: ../source/specifications/pyproject-toml.rst:426
 msgid ""
@@ -28652,44 +28712,40 @@ msgid ""
 "TOML_ type: Array of :ref:`dependency specifier <dependency-specifiers>` "
 "strings (``dependencies``)"
 msgstr ""
+"TOML_ 型: :ref:`依存関係指定子 <dependency-specifiers>` 文字列 "
+"(``dependencies``) の配列"
 
 #: ../source/specifications/pyproject-toml.rst:456
-#, fuzzy
-#| msgid ""
-#| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
-#| "Python <core-metadata-requires-python>`"
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>`"
 msgstr ""
-":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応す"
-"る: :ref:`Requires-Python <core-metadata-requires-python>`"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: "
+":ref:`Requires-Dist <core-metadata-requires-dist>`"
 
 #: ../source/specifications/pyproject-toml.rst:459
 msgid ""
 "``dependencies`` lists the expected dependencies of the project as an array "
 "of strings."
 msgstr ""
+"``dependencies`` は、そのプロジェクトの期待される依存関係を文字列の配列として"
+"列挙します。"
 
 #: ../source/specifications/pyproject-toml.rst:462
-#, fuzzy
-#| msgid ""
-#| "``dependencies``: A list of strings that specifies the runtime "
-#| "dependencies of the script. Each entry MUST be a valid :ref:`dependency "
-#| "specifier <dependency-specifiers>`."
 msgid ""
 "Each string represents a dependency of the project and MUST be formatted as "
 "a valid :ref:`dependency specifier <dependency-specifiers>`."
 msgstr ""
-"``dependencies``: スクリプトの動作時の依存関係を指定する文字列のリスト。それ"
-"ぞれの項目は正当な :ref:`依存関係指定子 <dependency-specifiers>` でなければな"
-"りません。"
+"それぞれの文字列は、プロジェクトの依存関係を表現していて、正当な :ref:`依存関"
+"係指定子 <dependency-specifiers>` として整形されていなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:465
 msgid ""
 "Each string maps directly to a :ref:`Requires-Dist <core-metadata-requires-"
 "dist>` entry."
 msgstr ""
+"それぞれの文字列は、 :ref:`Requires-Dist <core-metadata-requires-dist>` "
+"エントリに直接に対応付けします。"
 
 #: ../source/specifications/pyproject-toml.rst:468
 msgid ""
@@ -28697,66 +28753,51 @@ msgid ""
 "but may still contain environment markers that cause them to be skipped in "
 "some environments."
 msgstr ""
+"この配列の中に列挙された依存関係は、常にインストール向けに考慮されていますが"
+"、それでも一部の環境ではスキップさせる原因となるような環境マーカを含んでいる"
+"かもしれません。"
 
 #: ../source/specifications/pyproject-toml.rst:478
 msgid ""
 "TOML_ type: table with string keys mapping to arrays of :ref:`dependency "
 "specifier <dependency-specifiers>` strings (``optional-dependencies``)"
 msgstr ""
+"TOML_ 型: :ref:`依存関係指定子 <dependency-specifiers>` 文字列の配列へと対応"
+"づけられる文字列キーを伴うテーブル (``optional-dependencies``)"
 
 #: ../source/specifications/pyproject-toml.rst:480
-#, fuzzy
-#| msgid ""
-#| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
-#| "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-"
-#| "metadata-provides-extra>`"
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` fields: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`"
 msgstr ""
-"対応する :ref:`コアとなるメタデータ <core-metadata>` フィール"
-"ド: :ref:`Requires-Dist <core-metadata-requires-dist>` および :ref:`Provides-"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: "
+":ref:`Requires-Dist <core-metadata-requires-dist>` および :ref:`Provides-"
 "Extra <core-metadata-provides-extra>`"
 
 #: ../source/specifications/pyproject-toml.rst:484
-#, fuzzy
-#| msgid ""
-#| "``dependencies``: A list of strings that specifies the runtime "
-#| "dependencies of the script. Each entry MUST be a valid :ref:`dependency "
-#| "specifier <dependency-specifiers>`."
 msgid ""
 "``optional-dependencies`` is a table where each key specifies an extra and "
 "whose value is an array of strings using the same format as the "
 "``dependencies`` array (the strings in the arrays must be "
 "valid :ref:`dependency specifiers <dependency-specifiers>`)."
 msgstr ""
-"``dependencies``: スクリプトの動作時の依存関係を指定する文字列のリスト。それ"
-"ぞれの項目は正当な :ref:`依存関係指定子 <dependency-specifiers>` でなければな"
-"りません。"
+"``optional-dependencies`` は、各キーが extra を指定していて、その値が "
+"``dependencies`` 配列と同じフォーマットを用いた文字列の配列であるテーブルで"
+"す (配列内の文字列は、正当な :ref:`依存関係指定子 <dependency-specifiers>` で"
+"なければなりません) 。"
 
 #: ../source/specifications/pyproject-toml.rst:489
-#, fuzzy
-#| msgid ""
-#| "For ``optional-dependencies``, it is a table where each key specifies an "
-#| "extra and whose value is an array of strings. The strings of the arrays "
-#| "must be valid :pep:`508` strings. The keys MUST be valid values "
-#| "for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value in "
-#| "the array thus becomes a corresponding :ref:`Requires-Dist <core-metadata-"
-#| "requires-dist>` entry for the matching :ref:`Provides-Extra <core-"
-#| "metadata-provides-extra>` metadata."
 msgid ""
 "The keys MUST be valid values for :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`. Each value in the array thus becomes a "
 "corresponding :ref:`Requires-Dist <core-metadata-requires-dist>` entry for "
 "the matching :ref:`Provides-Extra <core-metadata-provides-extra>` metadata."
 msgstr ""
-"``optional-dependencies`` は、それぞれのキーが追加物で、その値が文字列の配列"
-"であるようなテーブルです。文字列の配列は正当な :pep:`508` の文字列でなければ"
-"なりません。キーは :ref:`Provides-Extra <core-metadata-provides-extra>` とし"
-"てみた時に正当な値でなければなりません。従って、配列の中のそれぞれの値は、一"
-"致する :ref:`Provides-Extra <core-metadata-provides-extra>` メタデータに対応"
-"する :ref:`Requires-Dist <core-metadata-requires-dist>` のエントリになりま"
+"キーは、 :ref:`Provides-Extra <core-metadata-provides-extra>` の正当な値でな"
+"ければなりません。配列の中のそれぞれの値は、したがって、一致する "
+":ref:`Provides-Extra <core-metadata-provides-extra>` メタデータに対応する "
+":ref:`Requires-Dist <core-metadata-requires-dist>` エントリということになりま"
 "す。"
 
 #: ../source/specifications/pyproject-toml.rst:496
@@ -28766,6 +28807,10 @@ msgid ""
 "the extra name. Optional dependencies are thus only considered for "
 "installation if installation if the associated extra name is requested."
 msgstr ""
+"これらの依存関係がオプションであることは、関連する ``Requires-Dist`` エントリ"
+"で extra 名称を確認することで環境マーカ節を修正することで記録されます。"
+"オプションの依存関係は、したがって、インストール時に関係する extra 名称が要求"
+"されるか否かによってのみ考慮されます。"
 
 #: ../source/specifications/pyproject-toml.rst:508
 msgid ""
@@ -31782,21 +31827,15 @@ msgstr ""
 "存しておくことができます。"
 
 #: ../source/specifications/source-distribution-format.rst:77
-#, fuzzy
-#| msgid ""
-#| "The tarball should use the modern POSIX.1-2001 pax tar format, which "
-#| "specifies UTF-8 based file names. In particular, source distribution "
-#| "files must be readable using the standard library tarfile module with the "
-#| "open flag 'r:gz'."
 msgid ""
 "The tarball must use the modern POSIX.1-2001 pax tar format, which specifies "
 "UTF-8 based file names. In particular, source distribution files must be "
 "readable using the standard library tarfile module with the open flag 'r:gz'."
 msgstr ""
 "tar ボールでは、ファイル名に UTF-8 を使える近代的な POSIX.1-2001 pax tar "
-"フォーマットを使用するべきです。とりわけ、ソースコード配布物のファイル群は、"
-"標準ライブラリの tarfile モジュールに open flag 'r:gz' を与えることで読み込め"
-"るものでなければなりません。"
+"フォーマットを使用しなければなりません。とりわけ、ソースコード配布物の"
+"ファイル群は、標準ライブラリの tarfile モジュールに open flag 'r:gz' を与える"
+"ことで読み込めるものでなければなりません。"
 
 #: ../source/specifications/source-distribution-format.rst:85
 msgid "Source distribution archive features"
