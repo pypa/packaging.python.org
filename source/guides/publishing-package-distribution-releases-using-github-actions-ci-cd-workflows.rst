@@ -12,7 +12,8 @@ This guide shows you how to publish a Python distribution
 whenever a tagged commit is pushed.
 It will use the `pypa/gh-action-pypi-publish GitHub Action`_ for
 publishing. It also uses GitHub's `upload-artifact`_ and `download-artifact`_ actions
-for temporarily storing and downloading the source packages.
+for temporarily storing and downloading the source packages, and `actions/attest-build-provenance`_
+to generate `GitHub artifact attestations`_ for the built distributions.
 
 .. attention::
 
@@ -101,8 +102,9 @@ Checking out the project and building distributions
 ===================================================
 
 We will have to define two jobs to publish to PyPI
-and TestPyPI respectively, and an additional job to
-build the distribution packages.
+and TestPyPI respectively, an additional job to
+build the distribution packages, and a job to generate
+GitHub artifact attestations for those packages.
 
 First, we'll define the job for building the dist packages of
 your project and storing them for later use:
@@ -129,6 +131,19 @@ So add this to the steps list:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-at: Install pypa/build
+   :end-before: attest-distributions
+
+Generating GitHub artifact attestations
+=======================================
+
+After building the distributions, generate a build provenance attestation
+for each file in the ``dist/`` folder. This is separate from uploading
+the files to a package index, so the attestation job downloads the stored
+artifact and runs before the publishing jobs.
+
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
+   :language: yaml
+   :start-at: attest-distributions
    :end-before: publish-to-pypi
 
 Defining a workflow job environment
@@ -171,8 +186,9 @@ the contents of the ``dist/`` folder into PyPI unconditionally.
    Starting with version
    `v1.11.0 <https://github.com/pypa/gh-action-pypi-publish/releases/tag/v1.11.0>`_,
    `pypa/gh-action-pypi-publish`_ generates and uploads :pep:`740`-compatible
-   attestations for each distribution by default. No additional manual
-   signing steps are required.
+   attestations for each distribution by default. This complements the GitHub
+   artifact attestation job above, which records build provenance in GitHub.
+   No additional manual signing steps are required.
 
 
 Separate workflow for publishing to TestPyPI
@@ -235,6 +251,10 @@ sure that your release pipeline remains healthy!
    https://github.com/actions/download-artifact
 .. _`upload-artifact`:
    https://github.com/actions/upload-artifact
+.. _`actions/attest-build-provenance`:
+   https://github.com/actions/attest-build-provenance
+.. _`GitHub artifact attestations`:
+   https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
 .. _Trusted Publishing: https://docs.pypi.org/trusted-publishers/
