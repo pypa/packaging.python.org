@@ -678,4 +678,7 @@ History
 - January 2026: Replaced outdated direct reference to :pep:`508` with a
   reference to :ref:`dependency-specifiers`.
 
+- August 2026: Document self-referential extra as a supported feature by many
+  modern package managers of Python.
+
 .. _TOML: https://toml.io
