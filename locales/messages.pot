@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-05 18:34+0000\n"
+"POT-Creation-Date: 2026-08-10 20:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3379,7 +3379,7 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:281
 #: ../source/specifications/pyproject-toml.rst:158
-#: ../source/specifications/pyproject-toml.rst:656
+#: ../source/specifications/pyproject-toml.rst:661
 msgid "``scripts``"
 msgstr ""
 
@@ -6542,309 +6542,321 @@ msgstr ""
 msgid "Each of the keys defines a \"packaging extra\". In the example above, one could use, e.g., ``pip install your-project-name[gui]`` to install your project with GUI support, adding the PyQt5 dependency."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:183
+#: ../source/guides/writing-pyproject-toml.rst:180
+msgid "You can also define an extra that refers back to the current project with other extras. This is useful for convenience extras that combine several optional features (such as an ``all`` extra hosting dependencies from both ``gui`` and ``cli``):"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:189
+msgid "The combined extra does not need its own manually maintained copy of each referenced extra's dependencies, which can otherwise fall out of sync after a few years of maintenance and bug fixes:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:203
+msgid "Most package managers now support this kind of extra, including :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:210
 #: ../source/specifications/pylock-toml.rst:95
 #: ../source/specifications/pyproject-toml.rst:157
 #: ../source/specifications/pyproject-toml.rst:250
 msgid "``requires-python``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:185
+#: ../source/guides/writing-pyproject-toml.rst:212
 msgid "This lets you declare the minimum version of Python that you support [#requires-python-upper-bounds]_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:197
+#: ../source/guides/writing-pyproject-toml.rst:224
 msgid "Creating executable scripts"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:199
+#: ../source/guides/writing-pyproject-toml.rst:226
 msgid "To install a command as part of your package, declare it in the ``[project.scripts]`` table."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:207
+#: ../source/guides/writing-pyproject-toml.rst:234
 msgid "In this example, after installing your project, a ``spam-cli`` command will be available. Executing this command will do the equivalent of ``import sys; from spam import main_cli; sys.exit(main_cli())``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:211
+#: ../source/guides/writing-pyproject-toml.rst:238
 msgid "On Windows, scripts packaged this way need a terminal, so if you launch them from within a graphical application, they will make a terminal pop up. To prevent this from happening, use the ``[project.gui-scripts]`` table instead of ``[project.scripts]``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:221
+#: ../source/guides/writing-pyproject-toml.rst:248
 msgid "In that case, launching your script from the command line will give back control immediately, leaving the script to run in the background."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:224
+#: ../source/guides/writing-pyproject-toml.rst:251
 msgid "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` is only relevant on Windows."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:230
+#: ../source/guides/writing-pyproject-toml.rst:257
 msgid "About your project"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:233
+#: ../source/guides/writing-pyproject-toml.rst:260
 #: ../source/specifications/pyproject-toml.rst:337
 msgid "``authors``/``maintainers``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:235
+#: ../source/guides/writing-pyproject-toml.rst:262
 msgid "Both of these fields contain lists of people identified by a name and/or an email address."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:255
+#: ../source/guides/writing-pyproject-toml.rst:282
 #: ../source/specifications/pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:196
 msgid "``description``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:257
+#: ../source/guides/writing-pyproject-toml.rst:284
 msgid "This should be a one-line description of your project, to show as the \"headline\" of your project page on PyPI (`example <pypi-pip_>`_), and other places such as lists of search results (`example <pypi-search-pip_>`_)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:268
+#: ../source/guides/writing-pyproject-toml.rst:295
 #: ../source/specifications/pyproject-toml.rst:156
 #: ../source/specifications/pyproject-toml.rst:209
 msgid "``readme``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:270
+#: ../source/guides/writing-pyproject-toml.rst:297
 msgid "This is a longer description of your project, to display on your project page on PyPI. Typically, your project will have a ``README.md`` or ``README.rst`` file and you just put its file name here."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:279
+#: ../source/guides/writing-pyproject-toml.rst:306
 msgid "The README's format is auto-detected from the extension:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:281
+#: ../source/guides/writing-pyproject-toml.rst:308
 msgid "``README.md`` → `GitHub-flavored Markdown <gfm_>`_,"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:282
+#: ../source/guides/writing-pyproject-toml.rst:309
 msgid "``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:284
+#: ../source/guides/writing-pyproject-toml.rst:311
 msgid "You can also specify the format explicitly, like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:297
+#: ../source/guides/writing-pyproject-toml.rst:324
 msgid "``license`` and ``license-files``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:299
+#: ../source/guides/writing-pyproject-toml.rst:326
 msgid "As per :pep:`639`, licenses should be declared with two fields:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:301
+#: ../source/guides/writing-pyproject-toml.rst:328
 msgid "``license`` is an :term:`SPDX license expression <License Expression>` consisting of one or more :term:`license identifiers <License Identifier>`."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:303
+#: ../source/guides/writing-pyproject-toml.rst:330
 msgid "``license-files`` is a list of license file glob patterns."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:305
+#: ../source/guides/writing-pyproject-toml.rst:332
 msgid "A previous PEP had specified ``license`` to be a table with a ``file`` or a ``text`` key, this format is now deprecated. Most :term:`build backends<build backend>` now support the new format as shown in the following table."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:309
+#: ../source/guides/writing-pyproject-toml.rst:336
 msgid "build backend versions that introduced :pep:`639` support"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:312
+#: ../source/guides/writing-pyproject-toml.rst:339
 msgid "hatchling"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:313
+#: ../source/guides/writing-pyproject-toml.rst:340
 msgid "setuptools"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:314
+#: ../source/guides/writing-pyproject-toml.rst:341
 msgid "flit-core [#flit-core-pep639]_"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:315
+#: ../source/guides/writing-pyproject-toml.rst:342
 msgid "pdm-backend"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:316
+#: ../source/guides/writing-pyproject-toml.rst:343
 msgid "poetry-core"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:317
+#: ../source/guides/writing-pyproject-toml.rst:344
 msgid "uv-build"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:318
+#: ../source/guides/writing-pyproject-toml.rst:345
 msgid "1.27.0"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:319
+#: ../source/guides/writing-pyproject-toml.rst:346
 msgid "77.0.3"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:320
+#: ../source/guides/writing-pyproject-toml.rst:347
 msgid "3.12"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:321
+#: ../source/guides/writing-pyproject-toml.rst:348
 msgid "2.4.0"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:322
+#: ../source/guides/writing-pyproject-toml.rst:349
 msgid "2.2.0"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:323
+#: ../source/guides/writing-pyproject-toml.rst:350
 msgid "0.7.19"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:329
+#: ../source/guides/writing-pyproject-toml.rst:356
 #: ../source/specifications/pyproject-toml.rst:151
 #: ../source/specifications/pyproject-toml.rst:262
 msgid "``license``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:331
+#: ../source/guides/writing-pyproject-toml.rst:358
 msgid "The new format for ``license`` is a valid :term:`SPDX license expression <License Expression>` consisting of one or more :term:`license identifiers <License Identifier>`. The full license list is available at the `SPDX license list page <spdxlicenselist_>`_. The supported list version is 3.17 or any later compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:344
+#: ../source/guides/writing-pyproject-toml.rst:371
 msgid "If you get a build error that ``license`` should be a dict/table, your build backend doesn't yet support the new format. See the `above section <license-and-license-files_>`_ for more context. The now deprecated format is `described in PEP 621 <https://peps.python.org/pep-0621/#license>`__."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:349
+#: ../source/guides/writing-pyproject-toml.rst:376
 msgid "As a general rule, it is a good idea to use a standard, well-known license, both to avoid confusion and because some organizations avoid software whose license is unapproved."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:353
+#: ../source/guides/writing-pyproject-toml.rst:380
 msgid "If your :term:`Distribution Archive` is licensed with a license that doesn't have an existing SPDX identifier, you can create a custom one in format ``LicenseRef-[idstring]``. The custom identifiers must follow the SPDX specification, `clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:368
+#: ../source/guides/writing-pyproject-toml.rst:395
 #: ../source/specifications/pyproject-toml.rst:152
 #: ../source/specifications/pyproject-toml.rst:298
-#: ../source/specifications/pyproject-toml.rst:653
+#: ../source/specifications/pyproject-toml.rst:658
 msgid "``license-files``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:370
+#: ../source/guides/writing-pyproject-toml.rst:397
 msgid "This is a list of license files and files containing other legal information you want to distribute with your package."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:378
+#: ../source/guides/writing-pyproject-toml.rst:405
 msgid "The glob patterns must follow the specification:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:380
+#: ../source/guides/writing-pyproject-toml.rst:407
 msgid "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``) will be matched verbatim."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:382
+#: ../source/guides/writing-pyproject-toml.rst:409
 msgid "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:383
+#: ../source/guides/writing-pyproject-toml.rst:410
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:384
+#: ../source/guides/writing-pyproject-toml.rst:411
 msgid "Patterns are relative to the directory containing :file:`pyproject.toml`, and thus may not start with a slash character."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:386
+#: ../source/guides/writing-pyproject-toml.rst:413
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:387
+#: ../source/guides/writing-pyproject-toml.rst:414
 msgid "Each glob must match at least one file."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:389
+#: ../source/guides/writing-pyproject-toml.rst:416
 msgid "Literal paths are valid globs. Any characters or character sequences not covered by this specification are invalid."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:395
+#: ../source/guides/writing-pyproject-toml.rst:422
 #: ../source/specifications/pyproject-toml.rst:150
 #: ../source/specifications/pyproject-toml.rst:381
-#: ../source/specifications/pyproject-toml.rst:652
+#: ../source/specifications/pyproject-toml.rst:657
 msgid "``keywords``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:397
+#: ../source/guides/writing-pyproject-toml.rst:424
 msgid "This will help PyPI's search box to suggest your project when people search for these keywords."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:409
+#: ../source/guides/writing-pyproject-toml.rst:436
 #: ../source/specifications/pyproject-toml.rst:142
 #: ../source/specifications/pyproject-toml.rst:393
-#: ../source/specifications/pyproject-toml.rst:646
+#: ../source/specifications/pyproject-toml.rst:651
 msgid "``classifiers``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:411
+#: ../source/guides/writing-pyproject-toml.rst:438
 msgid "A list of PyPI classifiers that apply to your project. Check the `full list of possibilities <classifier-list_>`_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:436
+#: ../source/guides/writing-pyproject-toml.rst:463
 msgid "Although the list of classifiers is often used to declare what Python versions a project supports, this information is only used for searching and browsing projects on PyPI, not for installing projects. To actually restrict what Python versions a project can be installed on, use the :ref:`requires-python` argument."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:441
+#: ../source/guides/writing-pyproject-toml.rst:468
 msgid "To prevent a package from being uploaded to PyPI, use the special ``Private :: Do Not Upload`` classifier. PyPI will always reject packages with classifiers beginning with ``Private ::``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:448
+#: ../source/guides/writing-pyproject-toml.rst:475
 #: ../source/specifications/pyproject-toml.rst:159
 #: ../source/specifications/pyproject-toml.rst:411
-#: ../source/specifications/pyproject-toml.rst:657
+#: ../source/specifications/pyproject-toml.rst:662
 msgid "``urls``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:450
+#: ../source/guides/writing-pyproject-toml.rst:477
 msgid "A list of URLs associated with your project, displayed on the left sidebar of your PyPI project page."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:455
+#: ../source/guides/writing-pyproject-toml.rst:482
 msgid "See :ref:`well-known-labels` for a listing of labels that PyPI and other packaging tools are specifically aware of, and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_ for PyPI-specific URL processing."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:469
+#: ../source/guides/writing-pyproject-toml.rst:496
 msgid "Note that if the label contains spaces, it needs to be quoted, e.g., ``Website = \"https://example.com\"`` but ``\"Official Website\" = \"https://example.com\"``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:473
+#: ../source/guides/writing-pyproject-toml.rst:500
 msgid "Users are advised to use :ref:`well-known-labels` for their project URLs where appropriate, since consumers of metadata (like package indices) can specialize their presentation."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:477
+#: ../source/guides/writing-pyproject-toml.rst:504
 msgid "For example in the following metadata, neither ``MyHomepage`` nor ``\"Download Link\"`` is a well-known label, so they will be rendered verbatim:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:487
+#: ../source/guides/writing-pyproject-toml.rst:514
 msgid "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known equivalents (``homepage`` and ``download``), and can be presented with those semantics in mind (the project's home page and its external download location, respectively)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:499
+#: ../source/guides/writing-pyproject-toml.rst:526
 msgid "Advanced plugins"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:501
+#: ../source/guides/writing-pyproject-toml.rst:528
 msgid "Some packages can be extended through plugins. Examples include Pytest_ and Pygments_. To create such a plugin, you need to declare it in a subtable of ``[project.entry-points]`` like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:510
+#: ../source/guides/writing-pyproject-toml.rst:537
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:515
+#: ../source/guides/writing-pyproject-toml.rst:542
 msgid "A full example"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:578
+#: ../source/guides/writing-pyproject-toml.rst:606
 msgid "Think twice before applying an upper bound like ``requires-python = \"<= 3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some information regarding possible problems."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:582
+#: ../source/guides/writing-pyproject-toml.rst:610
 msgid "flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license expressions."
 msgstr ""
 
@@ -9164,7 +9176,7 @@ msgstr ""
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:440
 #: ../source/specifications/pylock-toml.rst:841
-#: ../source/specifications/pyproject-toml.rst:692
+#: ../source/specifications/pyproject-toml.rst:697
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:983
 #: ../source/specifications/source-distribution-format.rst:153
@@ -10608,7 +10620,7 @@ msgid "October 2025: Clarified that ``License-Expression`` applies to the contai
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:1082
-#: ../source/specifications/pyproject-toml.rst:710
+#: ../source/specifications/pyproject-toml.rst:715
 msgid "January 2026: Replaced outdated direct reference to :pep:`508` with a reference to :ref:`dependency-specifiers`."
 msgstr ""
 
@@ -14643,51 +14655,51 @@ msgid "The complete list of keys allowed in the ``[project]`` table are:"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:141
-#: ../source/specifications/pyproject-toml.rst:645
+#: ../source/specifications/pyproject-toml.rst:650
 msgid "``authors``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:143
 #: ../source/specifications/pyproject-toml.rst:459
-#: ../source/specifications/pyproject-toml.rst:647
+#: ../source/specifications/pyproject-toml.rst:652
 msgid "``dependencies``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:145
-#: ../source/specifications/pyproject-toml.rst:604
+#: ../source/specifications/pyproject-toml.rst:609
 msgid "``dynamic``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:146
-#: ../source/specifications/pyproject-toml.rst:648
+#: ../source/specifications/pyproject-toml.rst:653
 msgid "``entry-points``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:147
-#: ../source/specifications/pyproject-toml.rst:649
+#: ../source/specifications/pyproject-toml.rst:654
 msgid "``gui-scripts``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:148
-#: ../source/specifications/pyproject-toml.rst:512
-#: ../source/specifications/pyproject-toml.rst:650
+#: ../source/specifications/pyproject-toml.rst:517
+#: ../source/specifications/pyproject-toml.rst:655
 msgid "``import-names``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:149
-#: ../source/specifications/pyproject-toml.rst:563
-#: ../source/specifications/pyproject-toml.rst:651
+#: ../source/specifications/pyproject-toml.rst:568
+#: ../source/specifications/pyproject-toml.rst:656
 msgid "``import-namespaces``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:153
-#: ../source/specifications/pyproject-toml.rst:654
+#: ../source/specifications/pyproject-toml.rst:659
 msgid "``maintainers``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:155
 #: ../source/specifications/pyproject-toml.rst:483
-#: ../source/specifications/pyproject-toml.rst:655
+#: ../source/specifications/pyproject-toml.rst:660
 msgid "``optional-dependencies``"
 msgstr ""
 
@@ -14798,8 +14810,8 @@ msgstr ""
 #: ../source/specifications/pyproject-toml.rst:300
 #: ../source/specifications/pyproject-toml.rst:383
 #: ../source/specifications/pyproject-toml.rst:395
-#: ../source/specifications/pyproject-toml.rst:514
-#: ../source/specifications/pyproject-toml.rst:565
+#: ../source/specifications/pyproject-toml.rst:519
+#: ../source/specifications/pyproject-toml.rst:570
 msgid "TOML_ type: array of strings"
 msgstr ""
 
@@ -14983,146 +14995,154 @@ msgstr ""
 msgid "The optionality of these dependencies is recorded by modifying the environment marker clause on the related ``Requires-Dist`` entries to check the extra name. Optional dependencies are thus only considered for installation if installation if the associated extra name is requested."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:515
+#: ../source/specifications/pyproject-toml.rst:508
+msgid "Dependency specifiers in an extra may self-reference other extras from the current project (e.g. ``all = [\"your-project-name[gui, cli]\"]``). See :ref:`self-referential extras <self-referential-extras>` for an example. Most package managers now support this kind of extra, including :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:520
 msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Import-Name <core-metadata-import-name>`"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:518
+#: ../source/specifications/pyproject-toml.rst:523
 msgid "An array of strings specifying the import names that the project exclusively provides when installed. Each string MUST be a valid Python identifier or can be empty. An import name MAY be followed by a semicolon and the term \"private\" (e.g. ``\"; private\"``) with any amount of whitespace surrounding the semicolon."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:523
+#: ../source/specifications/pyproject-toml.rst:528
 msgid "Projects SHOULD list all the shortest import names that are exclusively provided by the project. If any of the shortest names are dotted names, all intervening names from that name to the top-level name should also be listed appropriately in ``import-names`` and/or ``import-namespaces``. For instance, a project which is a single package named spam with multiple submodules would only list ``project.import-names = [\"spam\"]``. A project that lists ``spam.bacon.eggs`` would also need to account for ``spam`` and ``spam.bacon`` appropriately in ``import-names`` and ``import-namespaces``. Listing all names acts as a check that the intent of the import names is as expected. As well, projects SHOULD list all import names, public or private, using the ``; private`` modifier as appropriate."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:535
-#: ../source/specifications/pyproject-toml.rst:584
+#: ../source/specifications/pyproject-toml.rst:540
+#: ../source/specifications/pyproject-toml.rst:589
 msgid "If a project lists the same name in both ``import-names`` and ``import-namespaces``, then tools MUST raise an error due to ambiguity."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:538
+#: ../source/specifications/pyproject-toml.rst:543
 msgid "Projects MAY set ``import-names`` to an empty array to represent a project with no import names (i.e. there are no Python modules of any kind in the distribution file)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:542
-#: ../source/specifications/pyproject-toml.rst:587
+#: ../source/specifications/pyproject-toml.rst:547
+#: ../source/specifications/pyproject-toml.rst:592
 msgid "Build back-ends MAY support dynamically calculating the value if the user declares the key in ``project.dynamic``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:545
+#: ../source/specifications/pyproject-toml.rst:550
 msgid "Examples:"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:566
+#: ../source/specifications/pyproject-toml.rst:571
 msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Import-Namespace <core-metadata-import-namespace>`"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:569
+#: ../source/specifications/pyproject-toml.rst:574
 msgid "An array of strings specifying the import names that the project provides when installed, but not exclusively. Each string MUST be a valid Python identifier. An import name MAY be followed by a semicolon and the term \"private\" (e.g. ``\"; private\"``) with any amount of whitespace surrounding the semicolon. Note that unlike ``import-names``, ``import-namespaces`` CANNOT be an empty array."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:575
+#: ../source/specifications/pyproject-toml.rst:580
 msgid "Projects SHOULD list all the shortest import names that are exclusively provided by the project. If any of the shortest names are dotted names, all intervening names from that name to the top-level name should also be listed appropriately in ``import-names`` and/or ``import-namespaces``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:580
+#: ../source/specifications/pyproject-toml.rst:585
 msgid "This field is used for namespace packages where multiple projects can contribute to the same import namespace. Projects all listing the same import name in ``import-namespaces`` can be installed together without shadowing each other."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:590
+#: ../source/specifications/pyproject-toml.rst:595
 msgid "Example:"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:606
+#: ../source/specifications/pyproject-toml.rst:611
 msgid "TOML_ type: array of string"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:607
+#: ../source/specifications/pyproject-toml.rst:612
 msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic <core-metadata-dynamic>`"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:610
+#: ../source/specifications/pyproject-toml.rst:615
 msgid "Specifies which keys listed by this PEP were intentionally unspecified so another tool can/will provide such metadata dynamically. This clearly delineates which metadata is purposefully unspecified and expected to stay unspecified compared to being provided via tooling later on."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:616
+#: ../source/specifications/pyproject-toml.rst:621
 msgid "A build back-end MUST honour statically-specified metadata (which means the metadata did not list the key in ``dynamic``)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:618
+#: ../source/specifications/pyproject-toml.rst:623
 msgid "A build back-end MUST raise an error if the metadata specifies ``name`` in ``dynamic``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:620
+#: ../source/specifications/pyproject-toml.rst:625
 msgid "If the :ref:`core metadata <core-metadata>` specification lists a field as \"Required\", then the metadata MUST specify the key statically or list it in ``dynamic`` (build back-ends MUST raise an error otherwise, i.e. it should not be possible for a required key to not be listed somehow in the ``[project]`` table)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:625
+#: ../source/specifications/pyproject-toml.rst:630
 msgid "If the :ref:`core metadata <core-metadata>` specification lists a field as \"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is a build back-end will provide the data for the key later."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:629
+#: ../source/specifications/pyproject-toml.rst:634
 msgid "Build back-ends MUST raise an error if the metadata specifies a key statically as well as being listed in ``dynamic``, *unless* the key represents a list or arbitrary table that can be extended, listed below."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:632
+#: ../source/specifications/pyproject-toml.rst:637
 msgid "If the metadata does not list a key in ``dynamic``, then a build back-end CANNOT fill in the requisite metadata on behalf of the user (i.e. ``dynamic`` is the only way to allow a tool to fill in metadata and the user must opt into the filling in)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:636
+#: ../source/specifications/pyproject-toml.rst:641
 msgid "Build back-ends MUST raise an error if the metadata specifies a key in ``dynamic`` but the build back-end was unable to determine the data for it (omitting the data, if determined to be the accurate value, is acceptable)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:641
+#: ../source/specifications/pyproject-toml.rst:646
 msgid "A key whose value is a list or a table of arbitrary entries MAY be specified statically and listed in ``dynamic`` simultaneously. The keys fitting that description are:"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:659
+#: ../source/specifications/pyproject-toml.rst:664
 msgid "When such a key is specified both statically and listed in ``dynamic``:"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:662
+#: ../source/specifications/pyproject-toml.rst:667
 msgid "A build back-end MAY only *append* entries to the value; it MUST NOT remove, reorder, or modify any statically-specified entries. For tables (such as ``optional-dependencies`` or ``entry-points``) this means a back-end MAY add new keys and MAY append to the values of existing keys (in the case of a list), but MUST NOT change or remove the entries given statically."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:668
+#: ../source/specifications/pyproject-toml.rst:673
 msgid "A build back-end SHOULD raise an error if a key is listed in ``dynamic`` and it does not support extending that key."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:675
+#: ../source/specifications/pyproject-toml.rst:680
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:677
+#: ../source/specifications/pyproject-toml.rst:682
 msgid "The ``[tool]`` table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within ``[tool]``, e.g. the `flit <https://pypi.python.org/pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:683
+#: ../source/specifications/pyproject-toml.rst:688
 msgid "A mechanism is needed to allocate names within the ``tool.*`` namespace, to make sure that different projects do not attempt to use the same sub-table and collide. Our rule is that a project can use the subtable ``tool.$NAME`` if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:694
+#: ../source/specifications/pyproject-toml.rst:699
 msgid "May 2016: The initial specification of the ``pyproject.toml`` file, with just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` table, was approved through :pep:`518`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:698
+#: ../source/specifications/pyproject-toml.rst:703
 msgid "November 2020: The specification of the ``[project]`` table was approved through :pep:`621`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:701
+#: ../source/specifications/pyproject-toml.rst:706
 msgid "December 2024: The ``license`` key was redefined, the ``license-files`` key was added and ``License::`` classifiers were deprecated through :pep:`639`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:704
+#: ../source/specifications/pyproject-toml.rst:709
 msgid "September 2025: Clarity that the ``license`` key applies to all distribution files generated from the :file:`pyproject.toml` file."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:707
+#: ../source/specifications/pyproject-toml.rst:712
 msgid "October 2025: The ``import-names`` and ``import-namespaces`` keys were added through :pep:`794`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:713
+#: ../source/specifications/pyproject-toml.rst:718
 msgid "May 2026: Allowed list and table keys to be specified statically as well as listed in ``dynamic``, with build back-ends only able to append entries, through :pep:`808`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:722
+msgid "August 2026: Document self-referential extra as a supported feature by many modern package managers of Python."
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:7
