@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-05 18:34+0000\n"
+"POT-Creation-Date: 2026-08-11 10:39+0000\n"
 "PO-Revision-Date: 2025-06-29 12:03+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3498,7 +3498,7 @@ msgstr ""
 "segmenton, sed havas neretrokongruajn ŝanĝojn."
 
 #: ../source/discussions/versioning.rst:85
-#: ../source/specifications/version-specifiers.rst:741
+#: ../source/specifications/version-specifiers.rst:738
 msgid "Semantic versioning"
 msgstr "Semantika versiado"
 
@@ -5153,7 +5153,7 @@ msgstr "Priskribo"
 #: ../source/specifications/dependency-groups.rst:23
 #: ../source/specifications/dependency-specifiers.rst:33
 #: ../source/specifications/direct-url-data-structure.rst:242
-#: ../source/specifications/version-specifiers.rst:1088
+#: ../source/specifications/version-specifiers.rst:1085
 msgid "Examples"
 msgstr "Ekzemploj"
 
@@ -6496,7 +6496,7 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:281
 #: ../source/specifications/pyproject-toml.rst:158
-#: ../source/specifications/pyproject-toml.rst:656
+#: ../source/specifications/pyproject-toml.rst:661
 #, fuzzy
 msgid "``scripts``"
 msgstr "``description``"
@@ -12716,14 +12716,36 @@ msgstr ""
 "uzi ekzemploe ``pip install nomo-de-via-projekto[gui]`` por instali vian "
 "projekton kun subteno por grafika fasado, aldonante dependecon sur PyQt5."
 
-#: ../source/guides/writing-pyproject-toml.rst:183
+#: ../source/guides/writing-pyproject-toml.rst:180
+msgid ""
+"You can also define an extra that refers back to the current project with "
+"other extras. This is useful for convenience extras that combine several "
+"optional features (such as an ``all`` extra hosting dependencies from both "
+"``gui`` and ``cli``):"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:189
+msgid ""
+"The combined extra does not need its own manually maintained copy of each "
+"referenced extra's dependencies, which can otherwise fall out of sync after "
+"a few years of maintenance and bug fixes:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:203
+msgid ""
+"Most package managers now support this kind of extra, "
+"including :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` "
+"and :ref:`pipenv`."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:210
 #: ../source/specifications/pylock-toml.rst:95
 #: ../source/specifications/pyproject-toml.rst:157
 #: ../source/specifications/pyproject-toml.rst:250
 msgid "``requires-python``"
 msgstr "``requires-python``"
 
-#: ../source/guides/writing-pyproject-toml.rst:185
+#: ../source/guides/writing-pyproject-toml.rst:212
 msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
@@ -12731,11 +12753,11 @@ msgstr ""
 "Tio ebligas deklari la minimuman version de Python subtenatan [#requires-"
 "python-upper-bounds]_."
 
-#: ../source/guides/writing-pyproject-toml.rst:197
+#: ../source/guides/writing-pyproject-toml.rst:224
 msgid "Creating executable scripts"
 msgstr "Krei ruleblajn komandojn"
 
-#: ../source/guides/writing-pyproject-toml.rst:199
+#: ../source/guides/writing-pyproject-toml.rst:226
 msgid ""
 "To install a command as part of your package, declare it in the "
 "``[project.scripts]`` table."
@@ -12743,7 +12765,7 @@ msgstr ""
 "Por instali komandon kiel parton de via pako, deklaru ĝin en la tabelo "
 "``[project.scripts]]``."
 
-#: ../source/guides/writing-pyproject-toml.rst:207
+#: ../source/guides/writing-pyproject-toml.rst:234
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
 "be available. Executing this command will do the equivalent of ``import sys; "
@@ -12753,7 +12775,7 @@ msgstr ""
 "cli``. Rulado de tiu komando ekvivalentas ``import sys; from spam import "
 "main_cli; sys.exit(main_cli())``."
 
-#: ../source/guides/writing-pyproject-toml.rst:211
+#: ../source/guides/writing-pyproject-toml.rst:238
 msgid ""
 "On Windows, scripts packaged this way need a terminal, so if you launch them "
 "from within a graphical application, they will make a terminal pop up. To "
@@ -12764,7 +12786,7 @@ msgstr ""
 "ĝin el grafika programo, terminalo ŝprucus. Por malhelpi tion, uzu la "
 "tabelon ``[project.gui-scripts]`` anstataŭ ``[project.scripts]``."
 
-#: ../source/guides/writing-pyproject-toml.rst:221
+#: ../source/guides/writing-pyproject-toml.rst:248
 msgid ""
 "In that case, launching your script from the command line will give back "
 "control immediately, leaving the script to run in the background."
@@ -12772,7 +12794,7 @@ msgstr ""
 "Tiukaze, lanĉado de via programo el la komandlinio tuj redonos regpovon al "
 "vi, lastante la programon ruliĝi malfone."
 
-#: ../source/guides/writing-pyproject-toml.rst:224
+#: ../source/guides/writing-pyproject-toml.rst:251
 msgid ""
 "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
 "is only relevant on Windows."
@@ -12780,16 +12802,16 @@ msgstr ""
 "La diferenco inter ``[project.scripts]`` kaj ``[project.gui-scripts]`` nur "
 "gravas sur Windows."
 
-#: ../source/guides/writing-pyproject-toml.rst:230
+#: ../source/guides/writing-pyproject-toml.rst:257
 msgid "About your project"
 msgstr "Pri via projekto"
 
-#: ../source/guides/writing-pyproject-toml.rst:233
+#: ../source/guides/writing-pyproject-toml.rst:260
 #: ../source/specifications/pyproject-toml.rst:337
 msgid "``authors``/``maintainers``"
 msgstr "``authors``/``maintainers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:235
+#: ../source/guides/writing-pyproject-toml.rst:262
 msgid ""
 "Both of these fields contain lists of people identified by a name and/or an "
 "email address."
@@ -12797,13 +12819,13 @@ msgstr ""
 "Ambaŭ tiuj kampoj enhavas listojn de homoj identigitaj per nomoj kaj/aŭ "
 "retpoŝtaj adresoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:255
+#: ../source/guides/writing-pyproject-toml.rst:282
 #: ../source/specifications/pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:196
 msgid "``description``"
 msgstr "``description``"
 
-#: ../source/guides/writing-pyproject-toml.rst:257
+#: ../source/guides/writing-pyproject-toml.rst:284
 msgid ""
 "This should be a one-line description of your project, to show as the "
 "\"headline\" of your project page on PyPI (`example <pypi-pip_>`_), and "
@@ -12813,13 +12835,13 @@ msgstr ""
 "projekta paĝo ĉe PyPI (`jene <pypi-pip_>`_), kaj interalie en listoj de "
 "serĉrezultoj (`jene <pypi-search-pip_>`_)."
 
-#: ../source/guides/writing-pyproject-toml.rst:268
+#: ../source/guides/writing-pyproject-toml.rst:295
 #: ../source/specifications/pyproject-toml.rst:156
 #: ../source/specifications/pyproject-toml.rst:209
 msgid "``readme``"
 msgstr "``readme``"
 
-#: ../source/guides/writing-pyproject-toml.rst:270
+#: ../source/guides/writing-pyproject-toml.rst:297
 msgid ""
 "This is a longer description of your project, to display on your project "
 "page on PyPI. Typically, your project will have a ``README.md`` or "
@@ -12829,34 +12851,34 @@ msgstr ""
 "PyPI. Ofte, oni simple metas la dosiernomon de dosiero ``README.md`` aŭ "
 "``README.rst``."
 
-#: ../source/guides/writing-pyproject-toml.rst:279
+#: ../source/guides/writing-pyproject-toml.rst:306
 msgid "The README's format is auto-detected from the extension:"
 msgstr "La dosierformo de README estas aŭtomate divenita el la dosiersufikso:"
 
-#: ../source/guides/writing-pyproject-toml.rst:281
+#: ../source/guides/writing-pyproject-toml.rst:308
 msgid "``README.md`` → `GitHub-flavored Markdown <gfm_>`_,"
 msgstr "``README.md`` → `GitHub-stila Markdown <gfm_>`_,"
 
-#: ../source/guides/writing-pyproject-toml.rst:282
+#: ../source/guides/writing-pyproject-toml.rst:309
 msgid ""
 "``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions)."
 msgstr "``README.rst`` → `reStructuredText <rest_>`_ (sen etendaĵoj Sphinx)."
 
-#: ../source/guides/writing-pyproject-toml.rst:284
+#: ../source/guides/writing-pyproject-toml.rst:311
 msgid "You can also specify the format explicitly, like this:"
 msgstr "Vi povas ankaŭ eksplici la dosierformon jene:"
 
-#: ../source/guides/writing-pyproject-toml.rst:297
+#: ../source/guides/writing-pyproject-toml.rst:324
 msgid "``license`` and ``license-files``"
 msgstr "``license`` kaj ``license-files``"
 
-#: ../source/guides/writing-pyproject-toml.rst:299
+#: ../source/guides/writing-pyproject-toml.rst:326
 #, fuzzy
 #| msgid "As per :pep:`639` licenses should be declared with two fields:"
 msgid "As per :pep:`639`, licenses should be declared with two fields:"
 msgstr "Laŭ :pep:`639`, oni deklaru licencon per du kampoj:"
 
-#: ../source/guides/writing-pyproject-toml.rst:301
+#: ../source/guides/writing-pyproject-toml.rst:328
 msgid ""
 "``license`` is an :term:`SPDX license expression <License Expression>` "
 "consisting of one or more :term:`license identifiers <License Identifier>`."
@@ -12864,11 +12886,11 @@ msgstr ""
 "``license`` estas :term:`SPDX-licencesprimo <License Expression>` "
 "konsistanta el unu aŭ pluraj :term:`licencidentigiloj <License Identifier>`."
 
-#: ../source/guides/writing-pyproject-toml.rst:303
+#: ../source/guides/writing-pyproject-toml.rst:330
 msgid "``license-files`` is a list of license file glob patterns."
 msgstr "``license-files`` estas listo de licencodosieraj ``glob``-patroneoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:305
+#: ../source/guides/writing-pyproject-toml.rst:332
 msgid ""
 "A previous PEP had specified ``license`` to be a table with a ``file`` or a "
 "``text`` key, this format is now deprecated. Most :term:`build "
@@ -12879,67 +12901,67 @@ msgstr ""
 "``text``. Tiu formo estas nun evitinda. La plejparto de :term:`konstruaj "
 "malfasadoj<build backend>` nun subtenas la novan formon laŭ la jena tabelo."
 
-#: ../source/guides/writing-pyproject-toml.rst:309
+#: ../source/guides/writing-pyproject-toml.rst:336
 msgid "build backend versions that introduced :pep:`639` support"
 msgstr "versioj de konstruaj malfasadoj eksubtenantaj :pep:`639`"
 
-#: ../source/guides/writing-pyproject-toml.rst:312
+#: ../source/guides/writing-pyproject-toml.rst:339
 msgid "hatchling"
 msgstr "hatchling"
 
-#: ../source/guides/writing-pyproject-toml.rst:313
+#: ../source/guides/writing-pyproject-toml.rst:340
 msgid "setuptools"
 msgstr "setuptools"
 
-#: ../source/guides/writing-pyproject-toml.rst:314
+#: ../source/guides/writing-pyproject-toml.rst:341
 msgid "flit-core [#flit-core-pep639]_"
 msgstr "flit-core [#flit-core-pep639]_"
 
-#: ../source/guides/writing-pyproject-toml.rst:315
+#: ../source/guides/writing-pyproject-toml.rst:342
 msgid "pdm-backend"
 msgstr "pdm-backend"
 
-#: ../source/guides/writing-pyproject-toml.rst:316
+#: ../source/guides/writing-pyproject-toml.rst:343
 msgid "poetry-core"
 msgstr "poetry-core"
 
-#: ../source/guides/writing-pyproject-toml.rst:317
+#: ../source/guides/writing-pyproject-toml.rst:344
 #, fuzzy
 #| msgid "build"
 msgid "uv-build"
 msgstr "build"
 
-#: ../source/guides/writing-pyproject-toml.rst:318
+#: ../source/guides/writing-pyproject-toml.rst:345
 msgid "1.27.0"
 msgstr "1.27.0"
 
-#: ../source/guides/writing-pyproject-toml.rst:319
+#: ../source/guides/writing-pyproject-toml.rst:346
 msgid "77.0.3"
 msgstr "77.0.3"
 
-#: ../source/guides/writing-pyproject-toml.rst:320
+#: ../source/guides/writing-pyproject-toml.rst:347
 msgid "3.12"
 msgstr "3.12"
 
-#: ../source/guides/writing-pyproject-toml.rst:321
+#: ../source/guides/writing-pyproject-toml.rst:348
 msgid "2.4.0"
 msgstr "2.4.0"
 
-#: ../source/guides/writing-pyproject-toml.rst:322
+#: ../source/guides/writing-pyproject-toml.rst:349
 msgid "2.2.0"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:323
+#: ../source/guides/writing-pyproject-toml.rst:350
 msgid "0.7.19"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:329
+#: ../source/guides/writing-pyproject-toml.rst:356
 #: ../source/specifications/pyproject-toml.rst:151
 #: ../source/specifications/pyproject-toml.rst:262
 msgid "``license``"
 msgstr "``license``"
 
-#: ../source/guides/writing-pyproject-toml.rst:331
+#: ../source/guides/writing-pyproject-toml.rst:358
 msgid ""
 "The new format for ``license`` is a valid :term:`SPDX license expression "
 "<License Expression>` consisting of one or more :term:`license identifiers "
@@ -12953,7 +12975,7 @@ msgstr ""
 "`la retejo de SPDX <spdxlicenselist_>`_. La subtenataj versioj de la listo "
 "estas 3.17 aŭ pli novaj."
 
-#: ../source/guides/writing-pyproject-toml.rst:344
+#: ../source/guides/writing-pyproject-toml.rst:371
 msgid ""
 "If you get a build error that ``license`` should be a dict/table, your build "
 "backend doesn't yet support the new format. See the `above section <license-"
@@ -12965,7 +12987,7 @@ msgstr ""
 "<license-and-license-files_>`_ por pli da kunteksto. La nun evitinda formo "
 "estas `priskribita en PEP 621 <https://peps.python.org/pep-0621/#license>`__."
 
-#: ../source/guides/writing-pyproject-toml.rst:349
+#: ../source/guides/writing-pyproject-toml.rst:376
 msgid ""
 "As a general rule, it is a good idea to use a standard, well-known license, "
 "both to avoid confusion and because some organizations avoid software whose "
@@ -12974,7 +12996,7 @@ msgstr ""
 "Ĝenerale, estas bone uzi norman, bone konatan licencon, kaj por eviti "
 "konfuziĝon, kaj ĉar kelkaj organizaĵoj evitas programon sen aprobita licenco."
 
-#: ../source/guides/writing-pyproject-toml.rst:353
+#: ../source/guides/writing-pyproject-toml.rst:380
 #, fuzzy
 #| msgid ""
 #| "If your project is licensed with a license that doesn't have an existing "
@@ -12994,14 +13016,14 @@ msgstr ""
 "identigilo devas obei `paragrafon 10.1 <spdxcustomids_>`_ de la normo SPDX, "
 "versio 2.2 aŭ ajna pli nova kongrua versio."
 
-#: ../source/guides/writing-pyproject-toml.rst:368
+#: ../source/guides/writing-pyproject-toml.rst:395
 #: ../source/specifications/pyproject-toml.rst:152
 #: ../source/specifications/pyproject-toml.rst:298
-#: ../source/specifications/pyproject-toml.rst:653
+#: ../source/specifications/pyproject-toml.rst:658
 msgid "``license-files``"
 msgstr "``license-files``"
 
-#: ../source/guides/writing-pyproject-toml.rst:370
+#: ../source/guides/writing-pyproject-toml.rst:397
 msgid ""
 "This is a list of license files and files containing other legal information "
 "you want to distribute with your package."
@@ -13009,11 +13031,11 @@ msgstr ""
 "Tio estas listo de licenco-dosieroj kaj dosieroj enhavantaj aliajn jurajn "
 "informojn, kiujn vi volas distribui kun via pako."
 
-#: ../source/guides/writing-pyproject-toml.rst:378
+#: ../source/guides/writing-pyproject-toml.rst:405
 msgid "The glob patterns must follow the specification:"
 msgstr "La patroneo devas observi la specifon:"
 
-#: ../source/guides/writing-pyproject-toml.rst:380
+#: ../source/guides/writing-pyproject-toml.rst:407
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots "
 "(``.``) will be matched verbatim."
@@ -13021,17 +13043,17 @@ msgstr ""
 "Literoj, ciferoj, substrekoj (``_``), streketoj (``-``) kaj punktoj (``.``) "
 "prezentas sin laŭlitere."
 
-#: ../source/guides/writing-pyproject-toml.rst:382
+#: ../source/guides/writing-pyproject-toml.rst:409
 msgid ""
 "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are "
 "supported."
 msgstr "La metasignoj ``*``, ``?``, ``**`` kaj signintervaloj [] eblas."
 
-#: ../source/guides/writing-pyproject-toml.rst:383
+#: ../source/guides/writing-pyproject-toml.rst:410
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr "Dosierloko-apartigilo devas esti la suprenstreko (``/``)."
 
-#: ../source/guides/writing-pyproject-toml.rst:384
+#: ../source/guides/writing-pyproject-toml.rst:411
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`, "
 "and thus may not start with a slash character."
@@ -13039,15 +13061,15 @@ msgstr ""
 "Patroneo estas relativa al la dosierujo enhavanta :file:`pyproject.toml`, "
 "kaj tial ne povas komenciĝi per suprenstreko."
 
-#: ../source/guides/writing-pyproject-toml.rst:386
+#: ../source/guides/writing-pyproject-toml.rst:413
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr "Indikilo de patra dosierujo (``..``) devas esti ne uzita."
 
-#: ../source/guides/writing-pyproject-toml.rst:387
+#: ../source/guides/writing-pyproject-toml.rst:414
 msgid "Each glob must match at least one file."
 msgstr "Ĉiu patroneo devas kongrui kun almenaŭ unu dosiero."
 
-#: ../source/guides/writing-pyproject-toml.rst:389
+#: ../source/guides/writing-pyproject-toml.rst:416
 msgid ""
 "Literal paths are valid globs. Any characters or character sequences not "
 "covered by this specification are invalid."
@@ -13055,14 +13077,14 @@ msgstr ""
 "Eksplicita dosierloko estas valida patroneo. Ajna skribsigno aŭ signoĉeno ne "
 "diskutita de ĉi tiu specifo estas nevalida."
 
-#: ../source/guides/writing-pyproject-toml.rst:395
+#: ../source/guides/writing-pyproject-toml.rst:422
 #: ../source/specifications/pyproject-toml.rst:150
 #: ../source/specifications/pyproject-toml.rst:381
-#: ../source/specifications/pyproject-toml.rst:652
+#: ../source/specifications/pyproject-toml.rst:657
 msgid "``keywords``"
 msgstr "``keywords``"
 
-#: ../source/guides/writing-pyproject-toml.rst:397
+#: ../source/guides/writing-pyproject-toml.rst:424
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
@@ -13070,14 +13092,14 @@ msgstr ""
 "Tio helpos la serĉilon de PyPI sugesti vian projekton, kiam oni serĉas tiujn "
 "ŝlosilvortojn."
 
-#: ../source/guides/writing-pyproject-toml.rst:409
+#: ../source/guides/writing-pyproject-toml.rst:436
 #: ../source/specifications/pyproject-toml.rst:142
 #: ../source/specifications/pyproject-toml.rst:393
-#: ../source/specifications/pyproject-toml.rst:646
+#: ../source/specifications/pyproject-toml.rst:651
 msgid "``classifiers``"
 msgstr "``classifiers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:411
+#: ../source/guides/writing-pyproject-toml.rst:438
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
@@ -13085,7 +13107,7 @@ msgstr ""
 "Listo de PyPI-klasigiloj rilataj al via projekto. Jen la `plena listo de "
 "klasigiloj <classifier-list_>`_."
 
-#: ../source/guides/writing-pyproject-toml.rst:436
+#: ../source/guides/writing-pyproject-toml.rst:463
 msgid ""
 "Although the list of classifiers is often used to declare what Python "
 "versions a project supports, this information is only used for searching and "
@@ -13094,7 +13116,7 @@ msgid ""
 "python` argument."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:441
+#: ../source/guides/writing-pyproject-toml.rst:468
 msgid ""
 "To prevent a package from being uploaded to PyPI, use the special "
 "``Private :: Do Not Upload`` classifier. PyPI will always reject packages "
@@ -13104,14 +13126,14 @@ msgstr ""
 "Do Not Upload``. PyPI ĉiam malakceptas pakon de klasigilo komenciĝanta per "
 "``Private ::``."
 
-#: ../source/guides/writing-pyproject-toml.rst:448
+#: ../source/guides/writing-pyproject-toml.rst:475
 #: ../source/specifications/pyproject-toml.rst:159
 #: ../source/specifications/pyproject-toml.rst:411
-#: ../source/specifications/pyproject-toml.rst:657
+#: ../source/specifications/pyproject-toml.rst:662
 msgid "``urls``"
 msgstr "``urls``"
 
-#: ../source/guides/writing-pyproject-toml.rst:450
+#: ../source/guides/writing-pyproject-toml.rst:477
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
@@ -13119,7 +13141,7 @@ msgstr ""
 "Listo de retadresoj asociitaj al via projekto, montrotaj sur la maldekstra "
 "flankpanelo de via projekta paĝo ĉe PyPI."
 
-#: ../source/guides/writing-pyproject-toml.rst:455
+#: ../source/guides/writing-pyproject-toml.rst:482
 msgid ""
 "See :ref:`well-known-labels` for a listing of labels that PyPI and other "
 "packaging tools are specifically aware of, and `PyPI's project metadata docs "
@@ -13131,7 +13153,7 @@ msgstr ""
 "<https://docs.pypi.org/project_metadata/#project-urls>`_ por PyPI-specifa "
 "pritraktado de retadresoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:469
+#: ../source/guides/writing-pyproject-toml.rst:496
 msgid ""
 "Note that if the label contains spaces, it needs to be quoted, e.g., "
 "``Website = \"https://example.com\"`` but ``\"Official Website\" = \"https://"
@@ -13141,7 +13163,7 @@ msgstr ""
 "``Website = \"https://example.com\"`` sed ``\"Official Website\" = \"https://"
 "example.com\"``."
 
-#: ../source/guides/writing-pyproject-toml.rst:473
+#: ../source/guides/writing-pyproject-toml.rst:500
 msgid ""
 "Users are advised to use :ref:`well-known-labels` for their project URLs "
 "where appropriate, since consumers of metadata (like package indices) can "
@@ -13151,7 +13173,7 @@ msgstr ""
 "retadresoj taŭge, ĉar iloj pri metadatenoj (kiel pakindeksoj) povas pli bone "
 "montri tiujn."
 
-#: ../source/guides/writing-pyproject-toml.rst:477
+#: ../source/guides/writing-pyproject-toml.rst:504
 msgid ""
 "For example in the following metadata, neither ``MyHomepage`` nor "
 "``\"Download Link\"`` is a well-known label, so they will be rendered "
@@ -13160,7 +13182,7 @@ msgstr ""
 "Ekzemple, en la jenaj metadatenoj, ne ``MyHomepage`` nek ``\"Download "
 "Link\"`` estas bone konata etikedo kaj tial montriĝos laŭvorte:"
 
-#: ../source/guides/writing-pyproject-toml.rst:487
+#: ../source/guides/writing-pyproject-toml.rst:514
 msgid ""
 "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known "
 "equivalents (``homepage`` and ``download``), and can be presented with those "
@@ -13172,11 +13194,11 @@ msgstr ""
 "prezenteblaj tiel (kiel la ĉefpaĝo kaj la elŝutejo de la projekto "
 "respektive)."
 
-#: ../source/guides/writing-pyproject-toml.rst:499
+#: ../source/guides/writing-pyproject-toml.rst:526
 msgid "Advanced plugins"
 msgstr "Altnivelaj kromprogramoj"
 
-#: ../source/guides/writing-pyproject-toml.rst:501
+#: ../source/guides/writing-pyproject-toml.rst:528
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
@@ -13186,17 +13208,17 @@ msgstr ""
 "Pygments_. Por krei tian kromprogramon, oni devas deklari ĝin en subtabelo "
 "de ``[project.entry-points]`` jene:"
 
-#: ../source/guides/writing-pyproject-toml.rst:510
+#: ../source/guides/writing-pyproject-toml.rst:537
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 "Vidu la :ref:`Gvidilon pri kromprogramoj <plugin-entry-points>` por pliaj "
 "informoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:515
+#: ../source/guides/writing-pyproject-toml.rst:542
 msgid "A full example"
 msgstr "Plena ekzemplo"
 
-#: ../source/guides/writing-pyproject-toml.rst:578
+#: ../source/guides/writing-pyproject-toml.rst:606
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -13205,7 +13227,7 @@ msgstr ""
 "Estu singarda pri supraj limoj kiel ``requires-python = \"<= 3.10\"`` ĉi "
 "tie. `Jen artikolo <requires-python-blog-post_>`_ pri eblaj problemoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:582
+#: ../source/guides/writing-pyproject-toml.rst:610
 msgid ""
 "flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license "
 "expressions."
@@ -17351,11 +17373,11 @@ msgstr ""
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:440
 #: ../source/specifications/pylock-toml.rst:841
-#: ../source/specifications/pyproject-toml.rst:692
+#: ../source/specifications/pyproject-toml.rst:697
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:983
 #: ../source/specifications/source-distribution-format.rst:153
-#: ../source/specifications/version-specifiers.rst:1285
+#: ../source/specifications/version-specifiers.rst:1282
 #: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr "Historio"
@@ -19569,7 +19591,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:1082
-#: ../source/specifications/pyproject-toml.rst:710
+#: ../source/specifications/pyproject-toml.rst:715
 msgid ""
 "January 2026: Replaced outdated direct reference to :pep:`508` with a "
 "reference to :ref:`dependency-specifiers`."
@@ -20382,7 +20404,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:307
-#: ../source/specifications/version-specifiers.rst:203
+#: ../source/specifications/version-specifiers.rst:200
 msgid "For example::"
 msgstr "Ekzemple::"
 
@@ -26589,53 +26611,53 @@ msgid "The complete list of keys allowed in the ``[project]`` table are:"
 msgstr "Jen la plena listo de ŝlosiloj permesataj en la tabelo ``[project]``:"
 
 #: ../source/specifications/pyproject-toml.rst:141
-#: ../source/specifications/pyproject-toml.rst:645
+#: ../source/specifications/pyproject-toml.rst:650
 msgid "``authors``"
 msgstr "``authors``"
 
 #: ../source/specifications/pyproject-toml.rst:143
 #: ../source/specifications/pyproject-toml.rst:459
-#: ../source/specifications/pyproject-toml.rst:647
+#: ../source/specifications/pyproject-toml.rst:652
 msgid "``dependencies``"
 msgstr "``dependencies``"
 
 #: ../source/specifications/pyproject-toml.rst:145
-#: ../source/specifications/pyproject-toml.rst:604
+#: ../source/specifications/pyproject-toml.rst:609
 msgid "``dynamic``"
 msgstr "``dynamic``"
 
 #: ../source/specifications/pyproject-toml.rst:146
-#: ../source/specifications/pyproject-toml.rst:648
+#: ../source/specifications/pyproject-toml.rst:653
 msgid "``entry-points``"
 msgstr "``entry-points``"
 
 #: ../source/specifications/pyproject-toml.rst:147
-#: ../source/specifications/pyproject-toml.rst:649
+#: ../source/specifications/pyproject-toml.rst:654
 msgid "``gui-scripts``"
 msgstr "``gui-scripts``"
 
 #: ../source/specifications/pyproject-toml.rst:148
-#: ../source/specifications/pyproject-toml.rst:512
-#: ../source/specifications/pyproject-toml.rst:650
+#: ../source/specifications/pyproject-toml.rst:517
+#: ../source/specifications/pyproject-toml.rst:655
 #, fuzzy
 #| msgid "``name``"
 msgid "``import-names``"
 msgstr "``name``"
 
 #: ../source/specifications/pyproject-toml.rst:149
-#: ../source/specifications/pyproject-toml.rst:563
-#: ../source/specifications/pyproject-toml.rst:651
+#: ../source/specifications/pyproject-toml.rst:568
+#: ../source/specifications/pyproject-toml.rst:656
 msgid "``import-namespaces``"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:153
-#: ../source/specifications/pyproject-toml.rst:654
+#: ../source/specifications/pyproject-toml.rst:659
 msgid "``maintainers``"
 msgstr "``maintainers``"
 
 #: ../source/specifications/pyproject-toml.rst:155
 #: ../source/specifications/pyproject-toml.rst:483
-#: ../source/specifications/pyproject-toml.rst:655
+#: ../source/specifications/pyproject-toml.rst:660
 msgid "``optional-dependencies``"
 msgstr "``optional-dependencies``"
 
@@ -26867,8 +26889,8 @@ msgstr ""
 #: ../source/specifications/pyproject-toml.rst:300
 #: ../source/specifications/pyproject-toml.rst:383
 #: ../source/specifications/pyproject-toml.rst:395
-#: ../source/specifications/pyproject-toml.rst:514
-#: ../source/specifications/pyproject-toml.rst:565
+#: ../source/specifications/pyproject-toml.rst:519
+#: ../source/specifications/pyproject-toml.rst:570
 msgid "TOML_ type: array of strings"
 msgstr "Tipo de TOML_: listo de signoĉenoj"
 
@@ -27267,7 +27289,17 @@ msgid ""
 "installation if installation if the associated extra name is requested."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:515
+#: ../source/specifications/pyproject-toml.rst:508
+msgid ""
+"Dependency specifiers in an extra may self-reference other extras from the "
+"current project (e.g. ``all = [\"your-project-name[gui, cli]\"]``). "
+"See :ref:`self-referential extras <self-referential-extras>` for an example. "
+"Most package managers now support this kind of extra, "
+"including :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` "
+"and :ref:`pipenv`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:520
 #, fuzzy
 #| msgid ""
 #| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
@@ -27279,7 +27311,7 @@ msgstr ""
 "Respondanta :ref:`kerna metadatena <core-metadata>` kampo: :ref:`Name <core-"
 "metadata-name>`"
 
-#: ../source/specifications/pyproject-toml.rst:518
+#: ../source/specifications/pyproject-toml.rst:523
 msgid ""
 "An array of strings specifying the import names that the project exclusively "
 "provides when installed. Each string MUST be a valid Python identifier or "
@@ -27288,7 +27320,7 @@ msgid ""
 "surrounding the semicolon."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:523
+#: ../source/specifications/pyproject-toml.rst:528
 msgid ""
 "Projects SHOULD list all the shortest import names that are exclusively "
 "provided by the project. If any of the shortest names are dotted names, all "
@@ -27303,33 +27335,33 @@ msgid ""
 "using the ``; private`` modifier as appropriate."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:535
-#: ../source/specifications/pyproject-toml.rst:584
+#: ../source/specifications/pyproject-toml.rst:540
+#: ../source/specifications/pyproject-toml.rst:589
 msgid ""
 "If a project lists the same name in both ``import-names`` and ``import-"
 "namespaces``, then tools MUST raise an error due to ambiguity."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:538
+#: ../source/specifications/pyproject-toml.rst:543
 msgid ""
 "Projects MAY set ``import-names`` to an empty array to represent a project "
 "with no import names (i.e. there are no Python modules of any kind in the "
 "distribution file)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:542
-#: ../source/specifications/pyproject-toml.rst:587
+#: ../source/specifications/pyproject-toml.rst:547
+#: ../source/specifications/pyproject-toml.rst:592
 msgid ""
 "Build back-ends MAY support dynamically calculating the value if the user "
 "declares the key in ``project.dynamic``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:545
+#: ../source/specifications/pyproject-toml.rst:550
 #, fuzzy
 msgid "Examples:"
 msgstr "Ekzemploj"
 
-#: ../source/specifications/pyproject-toml.rst:566
+#: ../source/specifications/pyproject-toml.rst:571
 #, fuzzy
 #| msgid ""
 #| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
@@ -27341,7 +27373,7 @@ msgstr ""
 "Respondanta :ref:`kerna metadatena <core-metadata>` kampo: :ref:`Name <core-"
 "metadata-name>`"
 
-#: ../source/specifications/pyproject-toml.rst:569
+#: ../source/specifications/pyproject-toml.rst:574
 msgid ""
 "An array of strings specifying the import names that the project provides "
 "when installed, but not exclusively. Each string MUST be a valid Python "
@@ -27351,7 +27383,7 @@ msgid ""
 "namespaces`` CANNOT be an empty array."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:575
+#: ../source/specifications/pyproject-toml.rst:580
 msgid ""
 "Projects SHOULD list all the shortest import names that are exclusively "
 "provided by the project. If any of the shortest names are dotted names, all "
@@ -27359,7 +27391,7 @@ msgid ""
 "appropriately in ``import-names`` and/or ``import-namespaces``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:580
+#: ../source/specifications/pyproject-toml.rst:585
 msgid ""
 "This field is used for namespace packages where multiple projects can "
 "contribute to the same import namespace. Projects all listing the same "
@@ -27367,17 +27399,17 @@ msgid ""
 "shadowing each other."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:590
+#: ../source/specifications/pyproject-toml.rst:595
 #, fuzzy
 #| msgid "Example::"
 msgid "Example:"
 msgstr "Ekzemple::"
 
-#: ../source/specifications/pyproject-toml.rst:606
+#: ../source/specifications/pyproject-toml.rst:611
 msgid "TOML_ type: array of string"
 msgstr "Tipo de TOML_: listo de signoĉenoj"
 
-#: ../source/specifications/pyproject-toml.rst:607
+#: ../source/specifications/pyproject-toml.rst:612
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
@@ -27385,7 +27417,7 @@ msgstr ""
 "Respondanta :ref:`kerna metadatena <core-metadata>` kampo: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
 
-#: ../source/specifications/pyproject-toml.rst:610
+#: ../source/specifications/pyproject-toml.rst:615
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -27397,7 +27429,7 @@ msgstr ""
 "intence nespecifitajn metadatenojn ne provizotajn far ilo, de metadatenoj "
 "poste provizotaj far ilo."
 
-#: ../source/specifications/pyproject-toml.rst:616
+#: ../source/specifications/pyproject-toml.rst:621
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
@@ -27405,7 +27437,7 @@ msgstr ""
 "Konstrua malfasado DEVAS observi statike specifitan metadatenon (de ŝlosilo "
 "ne en ``dynamic``)."
 
-#: ../source/specifications/pyproject-toml.rst:618
+#: ../source/specifications/pyproject-toml.rst:623
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
@@ -27413,7 +27445,7 @@ msgstr ""
 "Konstrua malfasado DEVAS sciigi pri eraro, se la metadatenoj specifas "
 "``name`` en ``dynamic``."
 
-#: ../source/specifications/pyproject-toml.rst:620
+#: ../source/specifications/pyproject-toml.rst:625
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -27422,7 +27454,7 @@ msgid ""
 "``[project]`` table)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:625
+#: ../source/specifications/pyproject-toml.rst:630
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
@@ -27432,7 +27464,7 @@ msgstr ""
 "kiel «Nedeviga», do la metadateno POVAS meti ĝin en ``dynamic``, se oni "
 "atendas, ke konstrua malfasado poste provizos la datenon pri la ŝlosilo."
 
-#: ../source/specifications/pyproject-toml.rst:629
+#: ../source/specifications/pyproject-toml.rst:634
 #, fuzzy
 #| msgid ""
 #| "Build back-ends MUST raise an error if the metadata specifies a key "
@@ -27445,7 +27477,7 @@ msgstr ""
 "Konstrua malfasado DEVAS sciigi pri eraro, se la metadatenoj specifas unu "
 "ŝlosilon kaj statike kaj en ``dynamic``."
 
-#: ../source/specifications/pyproject-toml.rst:632
+#: ../source/specifications/pyproject-toml.rst:637
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -27457,7 +27489,7 @@ msgstr ""
 "ununura maniero por permesi al ilo plenigi metadatenojn, kaj la uzanto devas "
 "eksplici la aŭtomatan plenigadon)."
 
-#: ../source/specifications/pyproject-toml.rst:636
+#: ../source/specifications/pyproject-toml.rst:641
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
@@ -27467,14 +27499,14 @@ msgstr ""
 "en ``dynamic`` sed la konstrua malfasado ne povis determini ĝian datenon "
 "(estas akcepteble, se la ilo determinas, ke la dateno manku)."
 
-#: ../source/specifications/pyproject-toml.rst:641
+#: ../source/specifications/pyproject-toml.rst:646
 msgid ""
 "A key whose value is a list or a table of arbitrary entries MAY be specified "
 "statically and listed in ``dynamic`` simultaneously. The keys fitting that "
 "description are:"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:659
+#: ../source/specifications/pyproject-toml.rst:664
 #, fuzzy
 #| msgid ""
 #| "The keys which are required but may be specified *either* statically or "
@@ -27482,7 +27514,7 @@ msgstr ""
 msgid "When such a key is specified both statically and listed in ``dynamic``:"
 msgstr "Jen la devigaj ŝlosiloj specifeblaj *aŭ* statike *aŭ* dinamike:"
 
-#: ../source/specifications/pyproject-toml.rst:662
+#: ../source/specifications/pyproject-toml.rst:667
 msgid ""
 "A build back-end MAY only *append* entries to the value; it MUST NOT remove, "
 "reorder, or modify any statically-specified entries. For tables (such as "
@@ -27491,17 +27523,17 @@ msgid ""
 "list), but MUST NOT change or remove the entries given statically."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:668
+#: ../source/specifications/pyproject-toml.rst:673
 msgid ""
 "A build back-end SHOULD raise an error if a key is listed in ``dynamic`` and "
 "it does not support extending that key."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:675
+#: ../source/specifications/pyproject-toml.rst:680
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr "Ĉiaj ilaj agordoj: la tabelo ``[tool]``"
 
-#: ../source/specifications/pyproject-toml.rst:677
+#: ../source/specifications/pyproject-toml.rst:682
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
 "just build tools, can have users specify configuration data as long as they "
@@ -27513,7 +27545,7 @@ msgstr ""
 "<https://pypi.python.org/pypi/flit>`_ konservus siajn agordojn en "
 "``[tool.flit]``."
 
-#: ../source/specifications/pyproject-toml.rst:683
+#: ../source/specifications/pyproject-toml.rst:688
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
 "make sure that different projects do not attempt to use the same sub-table "
@@ -27521,7 +27553,7 @@ msgid ""
 "if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:694
+#: ../source/specifications/pyproject-toml.rst:699
 msgid ""
 "May 2016: The initial specification of the ``pyproject.toml`` file, with "
 "just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
@@ -27531,7 +27563,7 @@ msgstr ""
 "``[build-system]`` enhavanta ŝlosilon ``requires`` kaj tabelon ``[tool]``, "
 "estis aprobita per :pep:`518`."
 
-#: ../source/specifications/pyproject-toml.rst:698
+#: ../source/specifications/pyproject-toml.rst:703
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
 "through :pep:`621`."
@@ -27539,7 +27571,7 @@ msgstr ""
 "Novembro 2020: La specifo de la tabelo ``[project]`` estis aprobita "
 "per :pep:`621`."
 
-#: ../source/specifications/pyproject-toml.rst:701
+#: ../source/specifications/pyproject-toml.rst:706
 msgid ""
 "December 2024: The ``license`` key was redefined, the ``license-files`` key "
 "was added and ``License::`` classifiers were deprecated through :pep:`639`."
@@ -27548,23 +27580,29 @@ msgstr ""
 "files`` estis aldonita, kaj la klasigiloj ``License::`` estis evitindigitaj "
 "per :pep:`639`."
 
-#: ../source/specifications/pyproject-toml.rst:704
+#: ../source/specifications/pyproject-toml.rst:709
 msgid ""
 "September 2025: Clarity that the ``license`` key applies to all distribution "
 "files generated from the :file:`pyproject.toml` file."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:707
+#: ../source/specifications/pyproject-toml.rst:712
 msgid ""
 "October 2025: The ``import-names`` and ``import-namespaces`` keys were added "
 "through :pep:`794`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:713
+#: ../source/specifications/pyproject-toml.rst:718
 msgid ""
 "May 2026: Allowed list and table keys to be specified statically as well as "
 "listed in ``dynamic``, with build back-ends only able to append entries, "
 "through :pep:`808`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:722
+msgid ""
+"August 2026: Document self-referential extra as a supported feature by many "
+"modern package managers of Python."
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:7
@@ -30324,7 +30362,7 @@ msgstr ""
 "normigita per :pep:`639`."
 
 #: ../source/specifications/version-specifiers.rst:7
-#: ../source/specifications/version-specifiers.rst:800
+#: ../source/specifications/version-specifiers.rst:797
 msgid "Version specifiers"
 msgstr "Versispecifiloj"
 
@@ -30662,19 +30700,11 @@ msgstr ""
 "celas sole indeksi kaj gastigi originajn projektojn, ĝi DEVAS NE permesi la "
 "uzon de loka versio-identigilo."
 
-#: ../source/specifications/version-specifiers.rst:175
-msgid ""
-"Source distributions using a local version identifier SHOULD provide the "
-"``python.integrator`` extension metadata (as defined in :pep:`459`)."
-msgstr ""
-"Fonta distribuo uzanta lokan versian identigilon PROVIZU la etendaĵan "
-"metadatenon ``python.integrator`` (laŭ :pep:`459`)."
-
-#: ../source/specifications/version-specifiers.rst:180
+#: ../source/specifications/version-specifiers.rst:177
 msgid "Final releases"
 msgstr "Finaj eldonoj"
 
-#: ../source/specifications/version-specifiers.rst:182
+#: ../source/specifications/version-specifiers.rst:179
 msgid ""
 "A version identifier that consists solely of a release segment and "
 "optionally an epoch identifier is termed a \"final release\"."
@@ -30682,7 +30712,7 @@ msgstr ""
 "Versia identigilo konsistanta nur el eldona segmento kaj nedeviga epok-"
 "identigilo nomiĝas «fina eldono»."
 
-#: ../source/specifications/version-specifiers.rst:185
+#: ../source/specifications/version-specifiers.rst:182
 msgid ""
 "The release segment consists of one or more non-negative integer values, "
 "separated by dots::"
@@ -30690,7 +30720,7 @@ msgstr ""
 "La eldona segmento konsistas el unu aŭ pluraj nenegativaj entjeraj valoroj, "
 "apartigitaj per punktoj::"
 
-#: ../source/specifications/version-specifiers.rst:190
+#: ../source/specifications/version-specifiers.rst:187
 msgid ""
 "Final releases within a project MUST be numbered in a consistently "
 "increasing fashion, otherwise automated tools will not be able to upgrade "
@@ -30699,7 +30729,7 @@ msgstr ""
 "Finaj eldonoj por iu projekto DEVAS esti numeritaj alkremente. Alie, "
 "aŭtomata ilo ne povus ĝisdatigi versiojn ĝuste."
 
-#: ../source/specifications/version-specifiers.rst:194
+#: ../source/specifications/version-specifiers.rst:191
 msgid ""
 "Comparison and ordering of release segments considers the numeric value of "
 "each component of the release segment in turn. When comparing release "
@@ -30711,7 +30741,7 @@ msgstr ""
 "nombroj da komponantoj, la pli mallonga segmento plilongiĝas per nuloj por "
 "egallongeco."
 
-#: ../source/specifications/version-specifiers.rst:199
+#: ../source/specifications/version-specifiers.rst:196
 msgid ""
 "While any number of additional components after the first are permitted "
 "under this scheme, the most common variants are to use two components "
@@ -30720,7 +30750,7 @@ msgstr ""
 "Dum la skemo permesas ajnan nombron da komponantoj post la unua, plej ofte "
 "oni uzas du komponantojn («maĵora.minora») aŭ tri («maĵora.minora.mikroa»)."
 
-#: ../source/specifications/version-specifiers.rst:218
+#: ../source/specifications/version-specifiers.rst:215
 msgid ""
 "A release series is any set of final release numbers that start with a "
 "common prefix. For example, ``3.3.1``, ``3.3.5`` and ``3.3.9.45`` are all "
@@ -30730,7 +30760,7 @@ msgstr ""
 "prefikso. Ekzemple, ``3.3.1``, ``3.3.5`` kaj ``3.3.9.45`` estas partoj de la "
 "eldona serio ``3.3``."
 
-#: ../source/specifications/version-specifiers.rst:224
+#: ../source/specifications/version-specifiers.rst:221
 msgid ""
 "``X.Y`` and ``X.Y.0`` are not considered distinct release numbers, as the "
 "release segment comparison rules implicit expand the two component form to "
@@ -30742,7 +30772,7 @@ msgstr ""
 "formon al ``X.Y.0`` por komparado al ajna eldonsegmento inkluzivanta tri "
 "komponantojn."
 
-#: ../source/specifications/version-specifiers.rst:229
+#: ../source/specifications/version-specifiers.rst:226
 #, fuzzy
 #| msgid ""
 #| "Date based release segments are also permitted. An example of a date "
@@ -30754,11 +30784,11 @@ msgstr ""
 "Datobaza eldonsegmento estas ankaŭ permesata. Jen ekzemplo de datobaza "
 "eldonskemo uzanta la jaron kaj monaton de la eldono::"
 
-#: ../source/specifications/version-specifiers.rst:243
+#: ../source/specifications/version-specifiers.rst:240
 msgid "Pre-releases"
 msgstr "Antaŭeldonoj"
 
-#: ../source/specifications/version-specifiers.rst:245
+#: ../source/specifications/version-specifiers.rst:242
 msgid ""
 "Some projects use an \"alpha, beta, release candidate\" pre-release cycle to "
 "support testing by their users prior to a final release."
@@ -30766,7 +30796,7 @@ msgstr ""
 "Kelkaj projektoj uzas la antaŭeldonan ciklon «alfa, beta, eldonkandidato» "
 "por helpi testadon far uzantoj antaŭ fina eldonado."
 
-#: ../source/specifications/version-specifiers.rst:248
+#: ../source/specifications/version-specifiers.rst:245
 msgid ""
 "If used as part of a project's development cycle, these pre-releases are "
 "indicated by including a pre-release segment in the version identifier::"
@@ -30774,7 +30804,7 @@ msgstr ""
 "Se antaŭeldono estas parto de la evolua ciklo de projekto, ĝi indikiĝas per "
 "antaŭeldona segmento en la versia identigilo::"
 
-#: ../source/specifications/version-specifiers.rst:256
+#: ../source/specifications/version-specifiers.rst:253
 msgid ""
 "A version identifier that consists solely of a release segment and a pre-"
 "release segment is termed a \"pre-release\"."
@@ -30782,7 +30812,7 @@ msgstr ""
 "Versia identigilo konsistanta nur el eldona segmento kaj antaŭeldona "
 "segmento nomiĝas «antaŭeldono»."
 
-#: ../source/specifications/version-specifiers.rst:259
+#: ../source/specifications/version-specifiers.rst:256
 msgid ""
 "The pre-release segment consists of an alphabetical identifier for the pre-"
 "release phase, along with a non-negative integer value. Pre-releases for a "
@@ -30790,7 +30820,7 @@ msgid ""
 "and then by the numerical component within that phase."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:264
+#: ../source/specifications/version-specifiers.rst:261
 msgid ""
 "Installation tools MAY accept both ``c`` and ``rc`` releases for a common "
 "release segment in order to handle some existing legacy distributions."
@@ -30798,7 +30828,7 @@ msgstr ""
 "Instalilo POVAS akcepti kaj ``c``- kaj ``rc``-eldonoj por la sama eldona "
 "segmento por kongrueco kun kelkaj ekzistantaj malnovaj distribuoj."
 
-#: ../source/specifications/version-specifiers.rst:267
+#: ../source/specifications/version-specifiers.rst:264
 msgid ""
 "Installation tools SHOULD interpret ``c`` versions as being equivalent to "
 "``rc`` versions (that is, ``c1`` indicates the same version as ``rc1``)."
@@ -30806,7 +30836,7 @@ msgstr ""
 "Instalilo INTERPRETU ``c``-versiojn kiel ekvivalentojn de ``rc``-versioj "
 "(alivorte, ``c1`` indikas la saman version kiel ``rc1``)."
 
-#: ../source/specifications/version-specifiers.rst:270
+#: ../source/specifications/version-specifiers.rst:267
 msgid ""
 "Build tools, publication tools and index servers SHOULD disallow the "
 "creation of both ``rc`` and ``c`` releases for a common release segment."
@@ -30814,11 +30844,11 @@ msgstr ""
 "Konstruilo, eldonilo kaj indeksoservilo MALPERMESU la kreadon de kaj ``rc``- "
 "kaj ``c``-eldonoj por la sama eldona segmento."
 
-#: ../source/specifications/version-specifiers.rst:275
+#: ../source/specifications/version-specifiers.rst:272
 msgid "Post-releases"
 msgstr "Posteldonoj"
 
-#: ../source/specifications/version-specifiers.rst:277
+#: ../source/specifications/version-specifiers.rst:274
 msgid ""
 "Some projects use post-releases to address minor errors in a final release "
 "that do not affect the distributed software (for example, correcting an "
@@ -30828,7 +30858,7 @@ msgstr ""
 "eldono ne efikantajn sur la distribuita programo (ekzemple, por korekti "
 "eraron en la eldonaj notoj)."
 
-#: ../source/specifications/version-specifiers.rst:281
+#: ../source/specifications/version-specifiers.rst:278
 msgid ""
 "If used as part of a project's development cycle, these post-releases are "
 "indicated by including a post-release segment in the version identifier::"
@@ -30836,7 +30866,7 @@ msgstr ""
 "Se posteldono estas parto de la evolua ciklo de projekto, ĝi indikiĝas per "
 "posteldona segmento en la versia identigilo::"
 
-#: ../source/specifications/version-specifiers.rst:286
+#: ../source/specifications/version-specifiers.rst:283
 msgid ""
 "A version identifier that includes a post-release segment without a "
 "developmental release segment is termed a \"post-release\"."
@@ -30844,7 +30874,7 @@ msgstr ""
 "Versia identigilo inkluzivanta posteldonan segmenton sen evolueldona "
 "segmento nomiĝas «posteldono»."
 
-#: ../source/specifications/version-specifiers.rst:289
+#: ../source/specifications/version-specifiers.rst:286
 msgid ""
 "The post-release segment consists of the string ``.post``, followed by a non-"
 "negative integer value. Post-releases are ordered by their numerical "
@@ -30855,7 +30885,7 @@ msgstr ""
 "nenegativa entjero. Posteldono estas ordigita laŭ sia numera komponanto, tuj "
 "post la respondanta eldono, kaj antaŭ ajna sekva eldono."
 
-#: ../source/specifications/version-specifiers.rst:296
+#: ../source/specifications/version-specifiers.rst:293
 msgid ""
 "The use of post-releases to publish maintenance releases containing actual "
 "bug fixes is strongly discouraged. In general, it is better to use a longer "
@@ -30866,11 +30896,11 @@ msgstr ""
 "Ĝenerale, oni uzu pli longan eldonan numeron kaj alkrementu la finan "
 "komponanton por ĉiu cimripara eldono."
 
-#: ../source/specifications/version-specifiers.rst:301
+#: ../source/specifications/version-specifiers.rst:298
 msgid "Post-releases are also permitted for pre-releases::"
 msgstr "Posteldonoj estas ankaŭ permesataj por antaŭeldonoj::"
 
-#: ../source/specifications/version-specifiers.rst:309
+#: ../source/specifications/version-specifiers.rst:306
 msgid ""
 "Creating post-releases of pre-releases is strongly discouraged, as it makes "
 "the version identifier difficult to parse for human readers. In general, it "
@@ -30881,11 +30911,11 @@ msgstr ""
 "la versio-identigilon por homoj. Ĝenerale, estas pli simple krei novan "
 "antaŭeldonon alkrementante la numeran komponanton."
 
-#: ../source/specifications/version-specifiers.rst:316
+#: ../source/specifications/version-specifiers.rst:313
 msgid "Developmental releases"
 msgstr "Evoluaj eldonoj"
 
-#: ../source/specifications/version-specifiers.rst:318
+#: ../source/specifications/version-specifiers.rst:315
 msgid ""
 "Some projects make regular developmental releases, and system packagers "
 "(especially for Linux distributions) may wish to create early releases "
@@ -30896,7 +30926,7 @@ msgstr ""
 "por Linux-distribuo) eble volas krei fruan eldonon rekte el fontarbo ne "
 "konfliktantan kun postaj projektaj eldonoj."
 
-#: ../source/specifications/version-specifiers.rst:323
+#: ../source/specifications/version-specifiers.rst:320
 msgid ""
 "If used as part of a project's development cycle, these developmental "
 "releases are indicated by including a developmental release segment in the "
@@ -30905,14 +30935,14 @@ msgstr ""
 "Kiel parto de la evoluciklo de projekto, tiuj evoluaj eldonoj indikiĝas per "
 "segmento de evolua eldono en la versia identigilo::"
 
-#: ../source/specifications/version-specifiers.rst:329
+#: ../source/specifications/version-specifiers.rst:326
 msgid ""
 "A version identifier that includes a developmental release segment is termed "
 "a \"developmental release\"."
 msgstr ""
 "Versia identigilo inkluzivanta evolueldona segmento nomiĝas «evolua eldono»."
 
-#: ../source/specifications/version-specifiers.rst:332
+#: ../source/specifications/version-specifiers.rst:329
 msgid ""
 "The developmental release segment consists of the string ``.dev``, followed "
 "by a non-negative integer value. Developmental releases are ordered by their "
@@ -30921,13 +30951,13 @@ msgid ""
 "previous release (including any post-releases)."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:338
+#: ../source/specifications/version-specifiers.rst:335
 msgid ""
 "Developmental releases are also permitted for pre-releases and post-"
 "releases::"
 msgstr "Evolua eldono estas ankaŭ permesata por antaŭeldono kaj posteldono::"
 
-#: ../source/specifications/version-specifiers.rst:346
+#: ../source/specifications/version-specifiers.rst:343
 #, fuzzy
 #| msgid ""
 #| "Developmental releases are also permitted for pre-releases and post-"
@@ -30937,7 +30967,7 @@ msgid ""
 "handling them."
 msgstr "Evolua eldono estas ankaŭ permesata por antaŭeldono kaj posteldono::"
 
-#: ../source/specifications/version-specifiers.rst:351
+#: ../source/specifications/version-specifiers.rst:348
 msgid ""
 "While they may be useful for continuous integration purposes, publishing "
 "developmental releases of pre-releases to general purpose public index "
@@ -30947,7 +30977,7 @@ msgid ""
 "by incrementing the numeric component."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:358
+#: ../source/specifications/version-specifiers.rst:355
 msgid ""
 "Developmental releases of post-releases are also strongly discouraged, but "
 "they may be appropriate for projects which use the post-release notation for "
@@ -30957,11 +30987,11 @@ msgstr ""
 "taŭgas por projekto uzanta la posteldonan notacion por plena flega eldono "
 "eble inkluzivanta ŝanĝojn de kodo."
 
-#: ../source/specifications/version-specifiers.rst:364
+#: ../source/specifications/version-specifiers.rst:361
 msgid "Version epochs"
 msgstr "Versiaj epokoj"
 
-#: ../source/specifications/version-specifiers.rst:366
+#: ../source/specifications/version-specifiers.rst:363
 msgid ""
 "If included in a version identifier, the epoch appears before all other "
 "components, separated from the release segment by an exclamation mark::"
@@ -30969,11 +30999,11 @@ msgstr ""
 "Se epoko ekzistas en versio-identigilo, ĝi ĉeestas antaŭ ĉiaj aliaj "
 "komponantoj, apartigite el la eldono-segmento per krisigno::"
 
-#: ../source/specifications/version-specifiers.rst:371
+#: ../source/specifications/version-specifiers.rst:368
 msgid "If no explicit epoch is given, the implicit epoch is ``0``."
 msgstr "Se la epoko ne estas eksplicita, la implicita epoko estas ``0``."
 
-#: ../source/specifications/version-specifiers.rst:373
+#: ../source/specifications/version-specifiers.rst:370
 msgid ""
 "Most version identifiers will not include an epoch, as an explicit epoch is "
 "only needed if a project *changes* the way it handles version numbering in a "
@@ -30990,7 +31020,7 @@ msgstr ""
 "semantikaj versioj kiel ``1.0``, do la novaj eldonoj estus rigardataj kiel "
 "*pli malnovaj* ol la dato-bazaj eldonoj laŭ la ordinara ordigado::"
 
-#: ../source/specifications/version-specifiers.rst:387
+#: ../source/specifications/version-specifiers.rst:384
 msgid ""
 "However, by specifying an explicit epoch, the sort order can be changed "
 "appropriately, as all versions from a later epoch are sorted after versions "
@@ -30999,7 +31029,7 @@ msgstr ""
 "Tamen, eksplicitante epokon, oni povas ŝanĝi la ordon, ĉar ĉiuj versioj de "
 "pli posta epoko estas ordigitaj post versioj de pli frua epoko::"
 
-#: ../source/specifications/version-specifiers.rst:399
+#: ../source/specifications/version-specifiers.rst:396
 msgid ""
 "Use of nonzero epochs is discouraged. They are often not supported or "
 "discouraged by downstream packaging where Python packages may need to be "
@@ -31007,25 +31037,25 @@ msgid ""
 "Python packaging tools."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:404
+#: ../source/specifications/version-specifiers.rst:401
 msgid ""
 "When version scheme needs to be changed, it is preferable to continue with "
 "monotonically increasing numbers in epoch zero. For example, the version "
 "2026.x could be unambiguously followed by 3000.x."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:408
+#: ../source/specifications/version-specifiers.rst:405
 msgid ""
 "See `Discouraging use of epoch segments in versions <https://"
 "discuss.python.org/t/discouraging-use-of-epoch-segments-in-versions/"
 "105811>`__ for the relevant discussion."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:416
+#: ../source/specifications/version-specifiers.rst:413
 msgid "Normalization"
 msgstr "Normigo"
 
-#: ../source/specifications/version-specifiers.rst:418
+#: ../source/specifications/version-specifiers.rst:415
 msgid ""
 "In order to maintain better compatibility with existing versions there are a "
 "number of \"alternative\" syntaxes that MUST be taken into account when "
@@ -31033,11 +31063,11 @@ msgid ""
 "however they should be \"normalized\" to the standard syntax defined above."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:425
+#: ../source/specifications/version-specifiers.rst:422
 msgid "Case sensitivity"
 msgstr "Usklecdistingo"
 
-#: ../source/specifications/version-specifiers.rst:427
+#: ../source/specifications/version-specifiers.rst:424
 msgid ""
 "All ascii letters should be interpreted case insensitively within a version "
 "and the normal form is lowercase. This allows versions such as ``1.1RC1`` "
@@ -31047,11 +31077,11 @@ msgstr ""
 "minusklo. Tio permesas version kiel ``1.1RC1``, kies norma formo estas "
 "``1.1rc1``."
 
-#: ../source/specifications/version-specifiers.rst:433
+#: ../source/specifications/version-specifiers.rst:430
 msgid "Integer Normalization"
 msgstr "Entjera Normigo"
 
-#: ../source/specifications/version-specifiers.rst:435
+#: ../source/specifications/version-specifiers.rst:432
 msgid ""
 "All integers are interpreted via the ``int()`` built in and normalize to the "
 "string form of the output. This means that an integer version of ``00`` "
@@ -31065,11 +31095,11 @@ msgstr ""
 "entjero en alfabetcifera segmento de loka versio kiel ``1.0+foo0100``, kiu "
 "estas sia propra normigita formo."
 
-#: ../source/specifications/version-specifiers.rst:443
+#: ../source/specifications/version-specifiers.rst:440
 msgid "Pre-release separators"
 msgstr "Antaŭeldonaj apartigiloj"
 
-#: ../source/specifications/version-specifiers.rst:445
+#: ../source/specifications/version-specifiers.rst:442
 msgid ""
 "Pre-releases should allow a ``.``, ``-``, or ``_`` separator between the "
 "release segment and the pre-release segment. The normal form for this is "
@@ -31085,11 +31115,11 @@ msgstr ""
 "specifilo kaj la numero. Tio permesas versiojn kiel ``1.0a.1``, kies norma "
 "formo estas ``1.0a1``."
 
-#: ../source/specifications/version-specifiers.rst:454
+#: ../source/specifications/version-specifiers.rst:451
 msgid "Pre-release spelling"
 msgstr "Literumado de antaŭeldono"
 
-#: ../source/specifications/version-specifiers.rst:456
+#: ../source/specifications/version-specifiers.rst:453
 msgid ""
 "Pre-releases allow the additional spellings of ``alpha``, ``beta``, ``c``, "
 "``pre``, and ``preview`` for ``a``, ``b``, ``rc``, ``rc``, and ``rc`` "
@@ -31104,11 +31134,11 @@ msgstr ""
 "normigitaj al ``1.1a1``, ``1.1b2`` kaj ``1.1rc3``. Ĉiukaze la ekstra "
 "literumaĵo ekvivalentas la norman formon."
 
-#: ../source/specifications/version-specifiers.rst:465
+#: ../source/specifications/version-specifiers.rst:462
 msgid "Implicit pre-release number"
 msgstr "Implicita antaŭeldona numero"
 
-#: ../source/specifications/version-specifiers.rst:467
+#: ../source/specifications/version-specifiers.rst:464
 msgid ""
 "Pre releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -31119,11 +31149,11 @@ msgstr ""
 "eksplicas ``0``. Tio permesas versiojn kiel ``1.2a``, kies norma formo estas "
 "``1.2a0``."
 
-#: ../source/specifications/version-specifiers.rst:473
+#: ../source/specifications/version-specifiers.rst:470
 msgid "Post release separators"
 msgstr "Posteldonaj disigiloj"
 
-#: ../source/specifications/version-specifiers.rst:475
+#: ../source/specifications/version-specifiers.rst:472
 msgid ""
 "Post releases allow a ``.``, ``-``, or ``_`` separator as well as omitting "
 "the separator all together. The normal form of this is with the ``.`` "
@@ -31140,11 +31170,11 @@ msgstr ""
 "nedevigan apartigilon inter la posteldono-specifilo kaj la numero. Tio "
 "permesas versiojn kiel ``1.2.post-2``, kies norma formo estas ``1.2.post2``."
 
-#: ../source/specifications/version-specifiers.rst:484
+#: ../source/specifications/version-specifiers.rst:481
 msgid "Post release spelling"
 msgstr "Posteldona literumado"
 
-#: ../source/specifications/version-specifiers.rst:486
+#: ../source/specifications/version-specifiers.rst:483
 msgid ""
 "Post-releases allow the additional spellings of ``rev`` and ``r``. This "
 "allows versions such as ``1.0-r4`` which normalizes to ``1.0.post4``. As "
@@ -31155,11 +31185,11 @@ msgstr ""
 "versiojn kiel ``1.0-r4``, kies normigita formo estas ``1.0.post4``. Same "
 "kiel antaŭeldono, la ekstraj literumaĵoj ekvivalentas la normigitajn formojn."
 
-#: ../source/specifications/version-specifiers.rst:493
+#: ../source/specifications/version-specifiers.rst:490
 msgid "Implicit post release number"
 msgstr "Implicita posteldona numero"
 
-#: ../source/specifications/version-specifiers.rst:495
+#: ../source/specifications/version-specifiers.rst:492
 msgid ""
 "Post releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -31170,11 +31200,11 @@ msgstr ""
 "eksplicas ``0``. Tio permesas versiojn kiel ``1.2post``, kies norma formo "
 "estas ``1.2post0``."
 
-#: ../source/specifications/version-specifiers.rst:501
+#: ../source/specifications/version-specifiers.rst:498
 msgid "Implicit post releases"
 msgstr "Implicitaj posteldonoj"
 
-#: ../source/specifications/version-specifiers.rst:503
+#: ../source/specifications/version-specifiers.rst:500
 msgid ""
 "Post releases allow omitting the ``post`` signifier all together. When using "
 "this form the separator MUST be ``-`` and no other form is allowed. This "
@@ -31189,11 +31219,11 @@ msgstr ""
 "uzi tion kune kun la regulo de implicita posteldona numero. Alivorte, ``1.0-"
 "`` *ne* validas, kaj ĝia norma formo *ne* estas ``1.0.post0``."
 
-#: ../source/specifications/version-specifiers.rst:512
+#: ../source/specifications/version-specifiers.rst:509
 msgid "Development release separators"
 msgstr "Disigiloj de evoluada eldono"
 
-#: ../source/specifications/version-specifiers.rst:514
+#: ../source/specifications/version-specifiers.rst:511
 msgid ""
 "Development releases allow a ``.``, ``-``, or a ``_`` separator as well as "
 "omitting the separator all together. The normal form of this is with the "
@@ -31205,11 +31235,11 @@ msgstr ""
 "versiojn kiel ``1.2-dev2`` aŭ ``1.2dev2``, kies norma formo estas "
 "``1.2dev2``."
 
-#: ../source/specifications/version-specifiers.rst:521
+#: ../source/specifications/version-specifiers.rst:518
 msgid "Implicit development release number"
 msgstr "Implicita evoluada eldona numero"
 
-#: ../source/specifications/version-specifiers.rst:523
+#: ../source/specifications/version-specifiers.rst:520
 msgid ""
 "Development releases allow omitting the numeral in which case it is "
 "implicitly assumed to be ``0``. The normal form for this is to include the "
@@ -31220,11 +31250,11 @@ msgstr ""
 "formo eksplicas ``0``. Tio permesas versiojn kiel ``1.2.dev``, kies norma "
 "formo estas ``1.2.dev0``."
 
-#: ../source/specifications/version-specifiers.rst:530
+#: ../source/specifications/version-specifiers.rst:527
 msgid "Local version segments"
 msgstr "Lokaj versiaj segmentoj"
 
-#: ../source/specifications/version-specifiers.rst:532
+#: ../source/specifications/version-specifiers.rst:529
 msgid ""
 "With a local version, in addition to the use of ``.`` as a separator of "
 "segments, the use of ``-`` and ``_`` is also acceptable. The normal form is "
@@ -31235,11 +31265,11 @@ msgstr ""
 "apartigiloj ``-`` kaj ``_``. La norma formo uzas ``.``. Tio permesas "
 "versiojn kiel ``1.0+ubuntu-1``, kies norma formo estas ``1.0+ubuntu.1``."
 
-#: ../source/specifications/version-specifiers.rst:539
+#: ../source/specifications/version-specifiers.rst:536
 msgid "Preceding v character"
 msgstr "Prefiksa signo «v»"
 
-#: ../source/specifications/version-specifiers.rst:541
+#: ../source/specifications/version-specifiers.rst:538
 msgid ""
 "In order to support the common version notation of ``v1.0`` versions may be "
 "preceded by a single literal ``v`` character. This character MUST be ignored "
@@ -31248,11 +31278,11 @@ msgid ""
 "equivalent."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:548
+#: ../source/specifications/version-specifiers.rst:545
 msgid "Leading and Trailing Whitespace"
 msgstr "Komenca kaj Fina Blanka Spaco"
 
-#: ../source/specifications/version-specifiers.rst:550
+#: ../source/specifications/version-specifiers.rst:547
 msgid ""
 "Leading and trailing whitespace must be silently ignored and removed from "
 "all normalized forms of a version. This includes ``\" \"``, ``\\t``, "
@@ -31265,11 +31295,11 @@ msgstr ""
 "``\\n``, ``\\r``, ``\\f``, kaj ``\\v``. Tio permesas racian pritraktadon de "
 "senintenca blanka spaco, kiel ``1.0\\n``, kiu estas normigita al ``1.0``."
 
-#: ../source/specifications/version-specifiers.rst:557
+#: ../source/specifications/version-specifiers.rst:554
 msgid "Examples of compliant version schemes"
 msgstr "Ekzemploj de versiaj skemoj observantaj la regulojn"
 
-#: ../source/specifications/version-specifiers.rst:559
+#: ../source/specifications/version-specifiers.rst:556
 msgid ""
 "The standard version scheme is designed to encompass a wide range of "
 "identification practices across public and private Python projects. In "
@@ -31279,7 +31309,7 @@ msgid ""
 "ensure all compliant tools will order them consistently."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:566
+#: ../source/specifications/version-specifiers.rst:563
 msgid ""
 "The following examples illustrate a small selection of the different "
 "approaches projects may choose to identify their releases, while still "
@@ -31287,21 +31317,21 @@ msgid ""
 "be easily determined, both by human users and automated tools."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:571
+#: ../source/specifications/version-specifiers.rst:568
 msgid "Simple \"major.minor\" versioning::"
 msgstr "Simpla «maĵora.minora» versiado::"
 
-#: ../source/specifications/version-specifiers.rst:580
+#: ../source/specifications/version-specifiers.rst:577
 msgid "Simple \"major.minor.micro\" versioning::"
 msgstr "Simpla «maĵora.minora.mikroa» versiado::"
 
-#: ../source/specifications/version-specifiers.rst:588
+#: ../source/specifications/version-specifiers.rst:585
 msgid ""
 "\"major.minor\" versioning with alpha, beta and candidate pre-releases::"
 msgstr ""
 "«maĵora.minora» versiado kun alfa-, beta-, kaj kandidataj antaŭeldonoj::"
 
-#: ../source/specifications/version-specifiers.rst:600
+#: ../source/specifications/version-specifiers.rst:597
 msgid ""
 "\"major.minor\" versioning with developmental releases, release candidates "
 "and post-releases for minor corrections::"
@@ -31309,17 +31339,17 @@ msgstr ""
 "«maĵora.minora» versiado kun evoluaj eldonoj, eldonkandidatoj kaj "
 "posteldonoj por malgravaj korektoj::"
 
-#: ../source/specifications/version-specifiers.rst:615
+#: ../source/specifications/version-specifiers.rst:612
 msgid ""
 "Date based releases, using an incrementing serial within each year, skipping "
 "zero::"
 msgstr "Datobaza eldono, kun alkrementata numero en ĉiu jaro, sen nulo::"
 
-#: ../source/specifications/version-specifiers.rst:629
+#: ../source/specifications/version-specifiers.rst:626
 msgid "Summary of permitted suffixes and relative ordering"
 msgstr "Resumo pri permesataj sufiksoj kaj relativa ordo"
 
-#: ../source/specifications/version-specifiers.rst:633
+#: ../source/specifications/version-specifiers.rst:630
 msgid ""
 "This section is intended primarily for authors of tools that automatically "
 "process distribution metadata, rather than developers of Python "
@@ -31329,7 +31359,7 @@ msgstr ""
 "distribuajn metadatenojn, ne aŭtoroj de Python-distribuoj elektantaj versian "
 "skemon."
 
-#: ../source/specifications/version-specifiers.rst:637
+#: ../source/specifications/version-specifiers.rst:634
 msgid ""
 "The epoch segment of version identifiers MUST be sorted according to the "
 "numeric value of the given epoch. If no epoch segment is present, the "
@@ -31339,7 +31369,7 @@ msgstr ""
 "valoro de la epoko. Se epoka segmento mankas, la implicita nombra valoro "
 "estas ``0``."
 
-#: ../source/specifications/version-specifiers.rst:641
+#: ../source/specifications/version-specifiers.rst:638
 msgid ""
 "The release segment of version identifiers MUST be sorted in the same order "
 "as Python's tuple sorting when the normalized release segment is parsed as "
@@ -31349,7 +31379,7 @@ msgstr ""
 "ordo de opoj en Python, kiam la normigita eldona segmento estas analizita "
 "jene::"
 
-#: ../source/specifications/version-specifiers.rst:647
+#: ../source/specifications/version-specifiers.rst:644
 msgid ""
 "All release segments involved in the comparison MUST be converted to a "
 "consistent length by padding shorter segments with zeros as needed."
@@ -31357,7 +31387,7 @@ msgstr ""
 "Ĉiuj eldono-segmentoj pri la komparo DEVAS esti samlongigitaj, metante "
 "nulojn antaŭ pli mallongaj segmentoj laŭbezone."
 
-#: ../source/specifications/version-specifiers.rst:650
+#: ../source/specifications/version-specifiers.rst:647
 msgid ""
 "Within a numeric release (``1.0``, ``2.7.3``), the following suffixes are "
 "permitted and MUST be ordered as shown::"
@@ -31365,7 +31395,7 @@ msgstr ""
 "Ene de numera eldono (``1.0``, ``2.7.3``), la ĉi-subaj sufiksoj estas "
 "permesataj kaj DEVAS esti ordigitaj jene::"
 
-#: ../source/specifications/version-specifiers.rst:655
+#: ../source/specifications/version-specifiers.rst:652
 msgid ""
 "Note that ``c`` is considered to be semantically equivalent to ``rc`` and "
 "must be sorted as if it were ``rc``. Tools MAY reject the case of having the "
@@ -31377,7 +31407,7 @@ msgstr ""
 "kaj ``rc`` en la sama eldonsegmento pro ambigueco kaj tamen observi la "
 "specifon."
 
-#: ../source/specifications/version-specifiers.rst:660
+#: ../source/specifications/version-specifiers.rst:657
 msgid ""
 "Within an alpha (``1.0a1``), beta (``1.0b1``), or release candidate "
 "(``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be "
@@ -31387,7 +31417,7 @@ msgstr ""
 "``1.0c1``), la ĉi-subaj sufiksoj estas permesataj kaj DEVAS esti ordigitaj "
 "jene::"
 
-#: ../source/specifications/version-specifiers.rst:666
+#: ../source/specifications/version-specifiers.rst:663
 msgid ""
 "Within a post-release (``1.0.post1``), the following suffixes are permitted "
 "and MUST be ordered as shown::"
@@ -31395,7 +31425,7 @@ msgstr ""
 "Ene de posteldono (``1.0.post1``), la jenaj sufiksoj estas permesataj kaj "
 "DEVAS esti ordigitaj jene::"
 
-#: ../source/specifications/version-specifiers.rst:671
+#: ../source/specifications/version-specifiers.rst:668
 msgid ""
 "Note that ``devN`` and ``postN`` MUST always be preceded by a dot, even when "
 "used immediately following a numeric version (e.g. ``1.0.dev456``, "
@@ -31404,7 +31434,7 @@ msgstr ""
 "Notu, ke ``devN`` kaj ``postN`` DEVAS esti antaŭita de punkto, eĉ tuj post "
 "numera versio (ekz. ``1.0.dev456``, ``1.0.post1``)."
 
-#: ../source/specifications/version-specifiers.rst:675
+#: ../source/specifications/version-specifiers.rst:672
 msgid ""
 "Within a pre-release, post-release or development release segment with a "
 "shared prefix, ordering MUST be by the value of the numeric component."
@@ -31412,15 +31442,15 @@ msgstr ""
 "En antaŭeldona, posteldona aŭ evoluada-eldona segmento kun komuna prefikso, "
 "ordigado DEVAS esti laŭ la valoro de la numera komponanto."
 
-#: ../source/specifications/version-specifiers.rst:678
+#: ../source/specifications/version-specifiers.rst:675
 msgid "The following example covers many of the possible combinations::"
 msgstr "Jen ekzemplo de multaj eblaj kombinaĵoj::"
 
-#: ../source/specifications/version-specifiers.rst:703
+#: ../source/specifications/version-specifiers.rst:700
 msgid "Version ordering across different metadata versions"
 msgstr "Ordigo de versioj trans diversaj metadatenaj versioj"
 
-#: ../source/specifications/version-specifiers.rst:705
+#: ../source/specifications/version-specifiers.rst:702
 msgid ""
 "Metadata v1.0 (:pep:`241`) and metadata v1.1 (:pep:`314`) do not specify a "
 "standard version identification or ordering scheme. However metadata v1.2 "
@@ -31430,7 +31460,7 @@ msgstr ""
 "norman skemon pri identigado kaj ordigado de versioj. Tamen Metadatenoj v1.2 "
 "(:pep:`345`) ja specifas skemon difinitan en :pep:`386`."
 
-#: ../source/specifications/version-specifiers.rst:709
+#: ../source/specifications/version-specifiers.rst:706
 msgid ""
 "Due to the nature of the simple installer API it is not possible for an "
 "installer to be aware of which metadata version a particular distribution "
@@ -31447,7 +31477,7 @@ msgstr ""
 "version. Tiaj postuloj necesigas normigadon al unu sintaksanaliza meĥanismo "
 "uzenda por ĉiuj versioj de projekto."
 
-#: ../source/specifications/version-specifiers.rst:717
+#: ../source/specifications/version-specifiers.rst:714
 msgid ""
 "Due to the above, this specification MUST be used for all versions of "
 "metadata and supersedes :pep:`386` even for metadata v1.2. Tools SHOULD "
@@ -31457,7 +31487,7 @@ msgid ""
 "available."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:723
+#: ../source/specifications/version-specifiers.rst:720
 msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
@@ -31465,11 +31495,11 @@ msgstr ""
 "Uzanto de distribuo povas deziri eksplicite forigi nekongruajn versiojn el "
 "sia privata pakindekso."
 
-#: ../source/specifications/version-specifiers.rst:728
+#: ../source/specifications/version-specifiers.rst:725
 msgid "Compatibility with other version schemes"
 msgstr "Kongrueco kun aliaj versiaj skemoj"
 
-#: ../source/specifications/version-specifiers.rst:730
+#: ../source/specifications/version-specifiers.rst:727
 msgid ""
 "Some projects may choose to use a version scheme which requires translation "
 "in order to comply with the public version scheme defined in this "
@@ -31482,7 +31512,7 @@ msgstr ""
 "projekto-specifa versio povas esti konservita en la metadatenoj, dum la "
 "tradukita publika versio estas en la versia kampo."
 
-#: ../source/specifications/version-specifiers.rst:735
+#: ../source/specifications/version-specifiers.rst:732
 msgid ""
 "This allows automated distribution tools to provide consistently correct "
 "ordering of published releases, while still allowing developers to use the "
@@ -31491,7 +31521,7 @@ msgstr ""
 "Tiu permesas al aŭtomata distribuilo ĝuste ordigi eldonojn dum aŭtoroj povas "
 "uzi sian preferatan versian skemon por siaj projektoj."
 
-#: ../source/specifications/version-specifiers.rst:743
+#: ../source/specifications/version-specifiers.rst:740
 msgid ""
 "`Semantic versioning`_ is a popular version identification scheme that is "
 "more prescriptive than this specification regarding the significance of "
@@ -31507,7 +31537,7 @@ msgstr ""
 "indas kompreni ĝin, ĉar ĝi diskutas multajn problemojn pri dependado de "
 "aliaj distribuoj kaj pri eldonado de distribuo, de kiu aliaj dependas."
 
-#: ../source/specifications/version-specifiers.rst:750
+#: ../source/specifications/version-specifiers.rst:747
 msgid ""
 "The \"Major.Minor.Patch\" (described in this specification as "
 "\"major.minor.micro\") aspects of semantic versioning (clauses 1-8 in the "
@@ -31519,7 +31549,7 @@ msgstr ""
 "kongruas kun la versia skemo en ĉi tiu specifo, kaj ni rekomendas observi "
 "tian aspekton."
 
-#: ../source/specifications/version-specifiers.rst:755
+#: ../source/specifications/version-specifiers.rst:752
 msgid ""
 "Semantic versions containing a hyphen (pre-releases - clause 10) or a plus "
 "sign (builds - clause 11) are *not* compatible with this specification and "
@@ -31529,7 +31559,7 @@ msgstr ""
 "plusosigno (konstruoj – paragrafo 11) *ne* observas ĉi tiun specifon kaj "
 "estas malpermesata en la publika versia kampo."
 
-#: ../source/specifications/version-specifiers.rst:759
+#: ../source/specifications/version-specifiers.rst:756
 msgid ""
 "One possible mechanism to translate such semantic versioning based source "
 "labels to compatible public versions is to use the ``.devN`` suffix to "
@@ -31539,18 +31569,18 @@ msgstr ""
 "kongrua publika versio estas uzi la sufikson ``.devN`` por specifi la taŭgan "
 "versian ordon."
 
-#: ../source/specifications/version-specifiers.rst:763
+#: ../source/specifications/version-specifiers.rst:760
 msgid ""
 "Specific build information may also be included in local version labels."
 msgstr ""
 "Specifaj konstruaj informoj povas ankaŭ esti inkluzivitaj en lokaj versiaj "
 "etikedoj."
 
-#: ../source/specifications/version-specifiers.rst:769
+#: ../source/specifications/version-specifiers.rst:766
 msgid "DVCS based version labels"
 msgstr "Versiaj etikedoj per distribuita versikontrola sistemo"
 
-#: ../source/specifications/version-specifiers.rst:771
+#: ../source/specifications/version-specifiers.rst:768
 msgid ""
 "Many build tools integrate with distributed version control systems like Git "
 "and Mercurial in order to add an identifying hash to the version identifier. "
@@ -31562,7 +31592,7 @@ msgstr ""
 "oni ne povas fidinde ordigi haketaĵojn, oni ne permesas tiajn versiojn en la "
 "publika versio-kampo."
 
-#: ../source/specifications/version-specifiers.rst:776
+#: ../source/specifications/version-specifiers.rst:773
 msgid ""
 "As with semantic versioning, the public ``.devN`` suffix may be used to "
 "uniquely identify such releases for publication, while the original DVCS "
@@ -31572,17 +31602,17 @@ msgstr ""
 "identigas tiajn eldonojn publike, dum la originala versikontrolsistema "
 "etikedo povas esti unu el la projektaj metadatenoj."
 
-#: ../source/specifications/version-specifiers.rst:780
+#: ../source/specifications/version-specifiers.rst:777
 msgid ""
 "Identifying hash information may also be included in local version labels."
 msgstr ""
 "Loka versia etikedo ankaŭ povas inkluzivi identigan haketaĵan informon."
 
-#: ../source/specifications/version-specifiers.rst:784
+#: ../source/specifications/version-specifiers.rst:781
 msgid "Olson database versioning"
 msgstr "Versiado laŭ Olson-datenbanko"
 
-#: ../source/specifications/version-specifiers.rst:786
+#: ../source/specifications/version-specifiers.rst:783
 msgid ""
 "The ``pytz`` project inherits its versioning scheme from the corresponding "
 "Olson timezone database versioning scheme: the year followed by a lowercase "
@@ -31592,7 +31622,7 @@ msgstr ""
 "horzono-datenbanko Olson: la jaron, sekvitan de minuskla litero de la versio "
 "de la datenbanko en tiu jaro."
 
-#: ../source/specifications/version-specifiers.rst:790
+#: ../source/specifications/version-specifiers.rst:787
 msgid ""
 "This can be translated to a compliant public version identifier as ``<year>."
 "<serial>``, where the serial starts at zero or one (for the '<year>a' "
@@ -31603,7 +31633,7 @@ msgstr ""
 "<numero>``, en kiu la numero komenciĝas ĉe nulo aŭ unuo (por la eldono "
 "``<jaro>a``) kaj alkrementiĝas por ĉiu sekva datenbanka ĝisdatigo en la jaro."
 
-#: ../source/specifications/version-specifiers.rst:795
+#: ../source/specifications/version-specifiers.rst:792
 msgid ""
 "As with other translated version identifiers, the corresponding Olson "
 "database version could be recorded in the project metadata."
@@ -31611,7 +31641,7 @@ msgstr ""
 "Samkiel aliaj tradukitaj versiaj identigiloj, la respondanta versio de la "
 "Olson-datenbanko povas esti registrita en la projektaj metadatenoj."
 
-#: ../source/specifications/version-specifiers.rst:802
+#: ../source/specifications/version-specifiers.rst:799
 msgid ""
 "A version specifier consists of a series of version clauses, separated by "
 "commas. For example::"
@@ -31619,39 +31649,39 @@ msgstr ""
 "Versi-specifilo konsistas el serio de versio-kondiĉoj apartigitaj per komoj. "
 "Ekzemple::"
 
-#: ../source/specifications/version-specifiers.rst:807
+#: ../source/specifications/version-specifiers.rst:804
 msgid "The comparison operator determines the kind of version clause:"
 msgstr "La kompara operatoro determinas la specon de versia kondiĉo:"
 
-#: ../source/specifications/version-specifiers.rst:809
+#: ../source/specifications/version-specifiers.rst:806
 msgid "``~=``: `Compatible release`_ clause"
 msgstr "``~=``: Kondiĉo `Kongrua eldono <Compatible release>`_"
 
-#: ../source/specifications/version-specifiers.rst:810
+#: ../source/specifications/version-specifiers.rst:807
 msgid "``==``: `Version matching`_ clause"
 msgstr "``==``: Kondiĉo `Versia egaleco <Version matching>`_"
 
-#: ../source/specifications/version-specifiers.rst:811
+#: ../source/specifications/version-specifiers.rst:808
 msgid "``!=``: `Version exclusion`_ clause"
 msgstr "``!=``: Kondiĉo `Ekskluzivo de versio <Version exclusion>`_"
 
-#: ../source/specifications/version-specifiers.rst:812
+#: ../source/specifications/version-specifiers.rst:809
 msgid "``<=``, ``>=``: `Inclusive ordered comparison`_ clause"
 msgstr ""
 "``<=``, ``>=``: Kondiĉo `Inkluziva orda komparo <Inclusive ordered "
 "comparison>`_"
 
-#: ../source/specifications/version-specifiers.rst:813
+#: ../source/specifications/version-specifiers.rst:810
 msgid "``<``, ``>``: `Exclusive ordered comparison`_ clause"
 msgstr ""
 "``<``, ``>``: Kondiĉo `Ekskluziva orda komparo <Exclusive ordered "
 "comparison>`_"
 
-#: ../source/specifications/version-specifiers.rst:814
+#: ../source/specifications/version-specifiers.rst:811
 msgid "``===``: `Arbitrary equality`_ clause."
 msgstr "``===``: Kondiĉo `Arbitra egaleco <Arbitrary equality>`_."
 
-#: ../source/specifications/version-specifiers.rst:816
+#: ../source/specifications/version-specifiers.rst:813
 msgid ""
 "The comma (\",\") is equivalent to a logical **and** operator: a candidate "
 "version must match all given version clauses in order to match the specifier "
@@ -31661,7 +31691,7 @@ msgstr ""
 "devas kongrui kun ĉiuj donitaj versio-kondiĉoj por kongrui kun la tuta "
 "specifilo."
 
-#: ../source/specifications/version-specifiers.rst:820
+#: ../source/specifications/version-specifiers.rst:817
 msgid ""
 "Whitespace between a conditional operator and the following version "
 "identifier is optional, as is the whitespace around the commas."
@@ -31669,7 +31699,7 @@ msgstr ""
 "Blanka spaco inter kondiĉa operatoro kaj la sekva versia identigilo estas "
 "nedeviga; same pri la blanka spaco ĉirkaŭ komo."
 
-#: ../source/specifications/version-specifiers.rst:823
+#: ../source/specifications/version-specifiers.rst:820
 msgid ""
 "When multiple candidate versions match a version specifier, the preferred "
 "version SHOULD be the latest version as determined by the consistent "
@@ -31678,7 +31708,7 @@ msgid ""
 "in `Handling of pre-releases`_."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:829
+#: ../source/specifications/version-specifiers.rst:826
 msgid ""
 "Except where specifically noted below, local version identifiers MUST NOT be "
 "permitted in version specifiers, and local version labels MUST be ignored "
@@ -31688,11 +31718,11 @@ msgstr ""
 "esti uzata en versio-specifilo, kaj oni DEVAS plene ignori lokan versian "
 "etikedon dum kontrolado ĉu kandidata versio kongruas kun iu versio-specifilo."
 
-#: ../source/specifications/version-specifiers.rst:838
+#: ../source/specifications/version-specifiers.rst:835
 msgid "Compatible release"
 msgstr "Kongrua eldono"
 
-#: ../source/specifications/version-specifiers.rst:840
+#: ../source/specifications/version-specifiers.rst:837
 msgid ""
 "A compatible release clause consists of the compatible release operator "
 "``~=`` and a version identifier. It matches any candidate version that is "
@@ -31702,7 +31732,7 @@ msgstr ""
 "kaj versio-identigilo. Ĝi kongruas kun kandidata versio atendate kongrua kun "
 "la specifita versio."
 
-#: ../source/specifications/version-specifiers.rst:844
+#: ../source/specifications/version-specifiers.rst:841
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_. Local version identifiers are NOT permitted in this "
@@ -31712,7 +31742,7 @@ msgstr ""
 "skemo <Version scheme>`_. Loka versio-identigilo estas MALPERMESATA en ĉi "
 "tiu versio-specifilo."
 
-#: ../source/specifications/version-specifiers.rst:848
+#: ../source/specifications/version-specifiers.rst:845
 msgid ""
 "For a given release identifier ``V.N``, the compatible release clause is "
 "approximately equivalent to the pair of comparison clauses::"
@@ -31720,7 +31750,7 @@ msgstr ""
 "Por iu eldono-specifilo ``V.N``, la kondiĉo pri kongrua eldono estas "
 "proksimume ekvivalenta al la jena paro de kondiĉoj::"
 
-#: ../source/specifications/version-specifiers.rst:853
+#: ../source/specifications/version-specifiers.rst:850
 msgid ""
 "This operator MUST NOT be used with a single segment version number such as "
 "``~=1``."
@@ -31728,11 +31758,11 @@ msgstr ""
 "Oni DEVAS NE uzi ĉi tiun operatoron kun unusegmenta versia numero kiel "
 "``~=1``."
 
-#: ../source/specifications/version-specifiers.rst:856
+#: ../source/specifications/version-specifiers.rst:853
 msgid "For example, the following groups of version clauses are equivalent::"
 msgstr "Ekzemple, la jenaj grupoj de versio-kondiĉoj estas ekvivalentaj::"
 
-#: ../source/specifications/version-specifiers.rst:864
+#: ../source/specifications/version-specifiers.rst:861
 msgid ""
 "If a pre-release, post-release or developmental release is named in a "
 "compatible release clause as ``V.N.suffix``, then the suffix is ignored when "
@@ -31742,7 +31772,7 @@ msgstr ""
 "kongrua eldono kiel ``V.N.sufikso``, do la sufikso estas ignorita dum "
 "determinado de la postulata prefiksa kongrueco::"
 
-#: ../source/specifications/version-specifiers.rst:874
+#: ../source/specifications/version-specifiers.rst:871
 msgid ""
 "The padding rules for release segment comparisons means that the assumed "
 "degree of forward compatibility in a compatible release clause can be "
@@ -31752,11 +31782,11 @@ msgstr ""
 "la supozata grado de kongrueco en kondiĉo pri kongruaj eldonoj estas "
 "modifebla per nuloj ĉe la komenco de la versio-specifilo::"
 
-#: ../source/specifications/version-specifiers.rst:886
+#: ../source/specifications/version-specifiers.rst:883
 msgid "Version matching"
 msgstr "Versia egaleco"
 
-#: ../source/specifications/version-specifiers.rst:888
+#: ../source/specifications/version-specifiers.rst:885
 msgid ""
 "A version matching clause includes the version matching operator ``==`` and "
 "a version identifier."
@@ -31764,7 +31794,7 @@ msgstr ""
 "Versio-egaleca kondiĉo inkluzivas la versio-egalecan operatoron ``==`` kaj "
 "versian identigilon."
 
-#: ../source/specifications/version-specifiers.rst:891
+#: ../source/specifications/version-specifiers.rst:888
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_, but a trailing ``.*`` is permitted on public version "
@@ -31774,7 +31804,7 @@ msgstr ""
 "en `Versia skemo <Version scheme>`_, sed sufiksa ``.*`` estas permesata post "
 "publika versio-identigilo jene."
 
-#: ../source/specifications/version-specifiers.rst:895
+#: ../source/specifications/version-specifiers.rst:892
 msgid ""
 "By default, the version matching operator is based on a strict equality "
 "comparison: the specified version must be exactly the same as the requested "
@@ -31783,7 +31813,7 @@ msgid ""
 "length."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:901
+#: ../source/specifications/version-specifiers.rst:898
 msgid ""
 "Whether or not strict version matching is appropriate depends on the "
 "specific use case for the version specifier. Automated tools SHOULD at least "
@@ -31794,7 +31824,7 @@ msgstr ""
 "versio-specifilo. Aŭtomata ilo almenaŭ AVERTU pri maltaŭga strikta versio-"
 "egaleco kaj POVAS malakcepti ĝin."
 
-#: ../source/specifications/version-specifiers.rst:906
+#: ../source/specifications/version-specifiers.rst:903
 msgid ""
 "Prefix matching may be requested instead of strict comparison, by appending "
 "a trailing ``.*`` to the version identifier in the version matching clause. "
@@ -31804,8 +31834,8 @@ msgid ""
 "(or the lack thereof) in the release segment are also ignored."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:913
-#: ../source/specifications/version-specifiers.rst:974
+#: ../source/specifications/version-specifiers.rst:910
+#: ../source/specifications/version-specifiers.rst:971
 msgid ""
 "For example, given the version ``1.1.post1``, the following clauses would "
 "match or not as shown::"
@@ -31813,7 +31843,7 @@ msgstr ""
 "Ekzemple, pri la versio ``1.1.post1``, la ĉi-subaj kondiĉoj estas plenumitaj "
 "aŭ ne jene::"
 
-#: ../source/specifications/version-specifiers.rst:920
+#: ../source/specifications/version-specifiers.rst:917
 msgid ""
 "For purposes of prefix matching, the pre-release segment is considered to "
 "have an implied preceding ``.``, so given the version ``1.1a1``, the "
@@ -31823,7 +31853,7 @@ msgstr ""
 "prefiksan ``.``. Tial, pri la versio ``1.1a1``, kaj jenaj kondiĉoj kongruus "
 "aŭ ne kongruus jene::"
 
-#: ../source/specifications/version-specifiers.rst:928
+#: ../source/specifications/version-specifiers.rst:925
 msgid ""
 "An exact match is also considered a prefix match (this interpretation is "
 "implied by the usual zero padding rules for the release segment of version "
@@ -31834,7 +31864,7 @@ msgstr ""
 "konsekvenco de la nulo-antaŭmeta regulo pri la eldonsegmento de versio-"
 "identigilo). Pri la versio ``1.1``, la jenaj kondiĉoj kongruus aŭ ne jene::"
 
-#: ../source/specifications/version-specifiers.rst:940
+#: ../source/specifications/version-specifiers.rst:937
 msgid ""
 "It is invalid to have a prefix match containing a development or local "
 "release such as ``1.0.dev1.*`` or ``1.0+foo1.*``. If present, the "
@@ -31843,7 +31873,7 @@ msgid ""
 "either in a prefix match wouldn't make any sense."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:946
+#: ../source/specifications/version-specifiers.rst:943
 msgid ""
 "The use of ``==`` (without at least the wildcard suffix) when defining "
 "dependencies for published distributions is strongly discouraged as it "
@@ -31853,7 +31883,7 @@ msgid ""
 "distribution index."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:953
+#: ../source/specifications/version-specifiers.rst:950
 msgid ""
 "If the specified version identifier is a public version identifier (no local "
 "version label), then the local version label of any candidate versions MUST "
@@ -31863,7 +31893,7 @@ msgstr ""
 "versio-etikedo), do la loka versio-etikedo de iu ajn kandidata versio DEVAS "
 "ignoriĝi dum komputado de kongrueco inter versioj."
 
-#: ../source/specifications/version-specifiers.rst:957
+#: ../source/specifications/version-specifiers.rst:954
 msgid ""
 "If the specified version identifier is a local version identifier, then the "
 "local version labels of candidate versions MUST be considered when matching "
@@ -31872,11 +31902,11 @@ msgid ""
 "strict string equality comparison."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:965
+#: ../source/specifications/version-specifiers.rst:962
 msgid "Version exclusion"
 msgstr "Ekskluzivo de versio"
 
-#: ../source/specifications/version-specifiers.rst:967
+#: ../source/specifications/version-specifiers.rst:964
 msgid ""
 "A version exclusion clause includes the version exclusion operator ``!=`` "
 "and a version identifier."
@@ -31884,7 +31914,7 @@ msgstr ""
 "Versi-ekskluzivada kondiĉo konsistas el la versio-ekskluzivada operatoro ``!"
 "=`` kaj versia identigilo."
 
-#: ../source/specifications/version-specifiers.rst:970
+#: ../source/specifications/version-specifiers.rst:967
 msgid ""
 "The allowed version identifiers and comparison semantics are the same as "
 "those of the `Version matching`_ operator, except that the sense of any "
@@ -31894,11 +31924,11 @@ msgstr ""
 "kiel tiuj de la operatoro de `Versia egaleco <Version matching>`_, krom ke "
 "la senco de kongrueco estas mala."
 
-#: ../source/specifications/version-specifiers.rst:983
+#: ../source/specifications/version-specifiers.rst:980
 msgid "Inclusive ordered comparison"
 msgstr "Inkluziva ordita komparo"
 
-#: ../source/specifications/version-specifiers.rst:985
+#: ../source/specifications/version-specifiers.rst:982
 msgid ""
 "An inclusive ordered comparison clause includes a comparison operator and a "
 "version identifier, and will match any version where the comparison is "
@@ -31907,12 +31937,12 @@ msgid ""
 "`Version scheme`_."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:991
+#: ../source/specifications/version-specifiers.rst:988
 msgid "The inclusive ordered comparison operators are ``<=`` and ``>=``."
 msgstr "La operatoroj de inkluziva orda komparo estas ``<=`` kaj ``>=``."
 
-#: ../source/specifications/version-specifiers.rst:993
-#: ../source/specifications/version-specifiers.rst:1023
+#: ../source/specifications/version-specifiers.rst:990
+#: ../source/specifications/version-specifiers.rst:1020
 msgid ""
 "As with version matching, the release segment is zero padded as necessary to "
 "ensure the release segments are compared with the same length."
@@ -31921,16 +31951,16 @@ msgstr ""
 "nuloj, kiom necesas por certigi, ke la eldonsegmentoj kompariĝas je la sama "
 "longo."
 
-#: ../source/specifications/version-specifiers.rst:996
-#: ../source/specifications/version-specifiers.rst:1026
+#: ../source/specifications/version-specifiers.rst:993
+#: ../source/specifications/version-specifiers.rst:1023
 msgid "Local version identifiers are NOT permitted in this version specifier."
 msgstr "Loka versia identigilo NE estas permesata en ĉi tiu versispecifilo."
 
-#: ../source/specifications/version-specifiers.rst:1000
+#: ../source/specifications/version-specifiers.rst:997
 msgid "Exclusive ordered comparison"
 msgstr "Ekskluziva ordita komparo"
 
-#: ../source/specifications/version-specifiers.rst:1002
+#: ../source/specifications/version-specifiers.rst:999
 msgid ""
 "The exclusive ordered comparisons ``>`` and ``<`` are similar to the "
 "inclusive ordered comparisons in that they rely on the relative position of "
@@ -31940,7 +31970,7 @@ msgid ""
 "specified version."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1008
+#: ../source/specifications/version-specifiers.rst:1005
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** allow a post-release of "
 "the given version unless ``V`` itself is a post release. You may mandate "
@@ -31955,7 +31985,7 @@ msgstr ""
 "``>V.postN``. Ekzemple, ``>1.7`` permesas ``1.7.1`` sed ne ``1.7.0.post1``; "
 "``>1.7.post2`` permesas ``1.7.1`` kaj ``1.7.0.post3`` sed ne ``1.7.0``."
 
-#: ../source/specifications/version-specifiers.rst:1015
+#: ../source/specifications/version-specifiers.rst:1012
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** match a local version "
 "of the specified version."
@@ -31963,7 +31993,7 @@ msgstr ""
 "La ekskluziva orda komparo ``>V`` **DEVAS NE** kongrui kun loka versio de la "
 "specifita versio."
 
-#: ../source/specifications/version-specifiers.rst:1018
+#: ../source/specifications/version-specifiers.rst:1015
 msgid ""
 "The exclusive ordered comparison ``<V`` **MUST NOT** allow a pre-release of "
 "the specified version unless the specified version is itself a pre-release. "
@@ -31971,11 +32001,11 @@ msgid ""
 "release may be accomplished by using ``<V.rc1`` or similar."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1030
+#: ../source/specifications/version-specifiers.rst:1027
 msgid "Arbitrary equality"
 msgstr "Arbitra egaleco"
 
-#: ../source/specifications/version-specifiers.rst:1032
+#: ../source/specifications/version-specifiers.rst:1029
 msgid ""
 "Arbitrary equality comparisons are simple string equality operations which "
 "do not take into account any of the semantic information such as zero "
@@ -31985,7 +32015,7 @@ msgid ""
 "does."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1038
+#: ../source/specifications/version-specifiers.rst:1035
 msgid ""
 "The primary use case for arbitrary equality is to allow for specifying a "
 "version which cannot otherwise be represented by this specification. This "
@@ -31994,12 +32024,12 @@ msgid ""
 "which is otherwise incompatible with this specification."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1044
+#: ../source/specifications/version-specifiers.rst:1041
 msgid ""
 "An example would be ``===foobar`` which would match a version of ``foobar``."
 msgstr "Ekzemplo estas ``===foobar``, kiu kongruas kun la versio ``foobar``."
 
-#: ../source/specifications/version-specifiers.rst:1046
+#: ../source/specifications/version-specifiers.rst:1043
 msgid ""
 "This operator may also be used to explicitly require an unpatched version of "
 "a project such as ``===1.0`` which would not match for a version "
@@ -32009,7 +32039,7 @@ msgstr ""
 "de projekto, kiel ``===1.0```, kiu ne kongruus kun versio "
 "``1.0+downstream1``."
 
-#: ../source/specifications/version-specifiers.rst:1050
+#: ../source/specifications/version-specifiers.rst:1047
 msgid ""
 "Use of this operator is heavily discouraged and tooling MAY display a "
 "warning when it is used."
@@ -32017,11 +32047,11 @@ msgstr ""
 "Uzado de tiu operatoro estas evitindega, kaj ilo POVAS averti, kiam ĝi estas "
 "uzita."
 
-#: ../source/specifications/version-specifiers.rst:1055
+#: ../source/specifications/version-specifiers.rst:1052
 msgid "Handling of pre-releases"
 msgstr "Pritraktado de antaŭeldonoj"
 
-#: ../source/specifications/version-specifiers.rst:1057
+#: ../source/specifications/version-specifiers.rst:1054
 msgid ""
 "Pre-releases of any kind, including developmental releases, are implicitly "
 "excluded from all version specifiers, *unless* they are already present on "
@@ -32029,15 +32059,15 @@ msgid ""
 "version that satisfies the version specifier is a pre-release."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1062
+#: ../source/specifications/version-specifiers.rst:1059
 msgid "By default, dependency resolution tools SHOULD:"
 msgstr "Implicite, dependecsolviloj FARU la jenon:"
 
-#: ../source/specifications/version-specifiers.rst:1064
+#: ../source/specifications/version-specifiers.rst:1061
 msgid "accept already installed pre-releases for all version specifiers"
 msgstr "akcepti jam instalitajn antaŭeldonojn por ĉiuj versispecifiloj"
 
-#: ../source/specifications/version-specifiers.rst:1065
+#: ../source/specifications/version-specifiers.rst:1062
 msgid ""
 "accept remotely available pre-releases for version specifiers where there is "
 "no final or post release that satisfies the version specifier"
@@ -32045,11 +32075,11 @@ msgstr ""
 "akcepti fore disponeblajn antaŭeldonojn por versispecifiloj, kiam mankas "
 "finan eldonon aŭ posteldonon plenumantan la versispecifilon"
 
-#: ../source/specifications/version-specifiers.rst:1067
+#: ../source/specifications/version-specifiers.rst:1064
 msgid "exclude all other pre-releases from consideration"
 msgstr "malakcepti ĉiujn aliajn antaŭeldonojn"
 
-#: ../source/specifications/version-specifiers.rst:1069
+#: ../source/specifications/version-specifiers.rst:1066
 msgid ""
 "Dependency resolution tools MAY issue a warning if a pre-release is needed "
 "to satisfy a version specifier."
@@ -32057,7 +32087,7 @@ msgstr ""
 "Dependeco-solvilo POVAS averti, se antaŭeldono necesas por plenumi versio-"
 "specifilon."
 
-#: ../source/specifications/version-specifiers.rst:1072
+#: ../source/specifications/version-specifiers.rst:1069
 msgid ""
 "Dependency resolution tools SHOULD also allow users to request the following "
 "alternative behaviours:"
@@ -32065,11 +32095,11 @@ msgstr ""
 "Dependeco-solviloj ankaŭ PERMESU uzantojn peti la jenajn alternativajn "
 "kondutojn:"
 
-#: ../source/specifications/version-specifiers.rst:1075
+#: ../source/specifications/version-specifiers.rst:1072
 msgid "accepting pre-releases for all version specifiers"
 msgstr "akcepti antaŭeldonojn por ĉiuj versispecifiloj"
 
-#: ../source/specifications/version-specifiers.rst:1076
+#: ../source/specifications/version-specifiers.rst:1073
 msgid ""
 "excluding pre-releases for all version specifiers (reporting an error or "
 "warning if a pre-release is already installed locally, or if a pre-release "
@@ -32079,7 +32109,7 @@ msgstr ""
 "averton, se antaŭeldono jam estas instalita loke, aŭ se antaŭeldono estas la "
 "nura maniero plenumi iun specifilon)"
 
-#: ../source/specifications/version-specifiers.rst:1080
+#: ../source/specifications/version-specifiers.rst:1077
 msgid ""
 "Dependency resolution tools MAY also allow the above behaviour to be "
 "controlled on a per-distribution basis."
@@ -32087,7 +32117,7 @@ msgstr ""
 "Dependeco-solvilo ankaŭ POVAS permesi regadon de la ĉi-supra konduto por "
 "specifaj distribuoj."
 
-#: ../source/specifications/version-specifiers.rst:1083
+#: ../source/specifications/version-specifiers.rst:1080
 msgid ""
 "Post-releases and final releases receive no special treatment in version "
 "specifiers - they are always included unless explicitly excluded."
@@ -32096,20 +32126,20 @@ msgstr ""
 "specifilo – ili estas ĉiam inkluzivitaj, se ili ne estas eksplicite "
 "ekskluzivitaj."
 
-#: ../source/specifications/version-specifiers.rst:1090
+#: ../source/specifications/version-specifiers.rst:1087
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
 msgstr "``~=3.1``: versio 3.1 aŭ pli nova, sed ne versio 4.0 nek pli nova."
 
-#: ../source/specifications/version-specifiers.rst:1091
+#: ../source/specifications/version-specifiers.rst:1088
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
 msgstr ""
 "``~=3.1.2``: versio 3.1.2 aŭ pli nova, sed ne versio 3.2.0 nek pli nova."
 
-#: ../source/specifications/version-specifiers.rst:1092
+#: ../source/specifications/version-specifiers.rst:1089
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
 msgstr "``~=3.1a1``: versio 3.1a1 aŭ pli nova, sed ne versio 4.0 nek pli nova."
 
-#: ../source/specifications/version-specifiers.rst:1093
+#: ../source/specifications/version-specifiers.rst:1090
 msgid ""
 "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, "
 "post releases, developmental releases and any 3.1.x maintenance releases."
@@ -32118,7 +32148,7 @@ msgstr ""
 "antaŭeldonojn, posteldonojn, evoluajn eldonojn kaj ajnajn riparajn eldonojn "
 "3.1.x."
 
-#: ../source/specifications/version-specifiers.rst:1095
+#: ../source/specifications/version-specifiers.rst:1092
 msgid ""
 "``== 3.1.*``: any version that starts with 3.1. Equivalent to the "
 "``~=3.1.0`` compatible release clause."
@@ -32126,7 +32156,7 @@ msgstr ""
 "``== 3.1.*``: ajna versio komenciĝanta per 3.1. Ekvivalenta al la kongrua-"
 "versia kondiĉo ``~=3.1.0``."
 
-#: ../source/specifications/version-specifiers.rst:1097
+#: ../source/specifications/version-specifiers.rst:1094
 msgid ""
 "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not "
 "version 3.2.0 or later."
@@ -32134,11 +32164,11 @@ msgstr ""
 "``~=3.1.0, != 3.1.3``: versio 3.1.0 aŭ pli nova, sed ne versio 3.1.3, nek "
 "versio 3.2.0, nek pli nova."
 
-#: ../source/specifications/version-specifiers.rst:1102
+#: ../source/specifications/version-specifiers.rst:1099
 msgid "Direct references"
 msgstr "Rektaj referencoj"
 
-#: ../source/specifications/version-specifiers.rst:1104
+#: ../source/specifications/version-specifiers.rst:1101
 msgid ""
 "Some automated tools may permit the use of a direct reference as an "
 "alternative to a normal version specifier. A direct reference consists of "
@@ -32148,7 +32178,7 @@ msgstr ""
 "specifilo. Rekta referenco konsistas el la specifilo ``@`` kaj eksplicita "
 "retadreso."
 
-#: ../source/specifications/version-specifiers.rst:1108
+#: ../source/specifications/version-specifiers.rst:1105
 msgid ""
 "Whether or not direct references are appropriate depends on the specific use "
 "case for the version specifier. Automated tools SHOULD at least issue "
@@ -32159,7 +32189,7 @@ msgstr ""
 "specifilo. Aŭtomata ilo almenaŭ AVERTU pri tio kaj POVAS malakcepti tion, "
 "kiam rekta referenco estis uzita maltaŭge."
 
-#: ../source/specifications/version-specifiers.rst:1113
+#: ../source/specifications/version-specifiers.rst:1110
 msgid ""
 "Public index servers SHOULD NOT allow the use of direct references in "
 "uploaded distributions. Direct references are intended as a tool for "
@@ -32169,7 +32199,7 @@ msgstr ""
 "distribuo. Rekta referenco estas por integriloj de programoj, ne por "
 "eldonantoj."
 
-#: ../source/specifications/version-specifiers.rst:1117
+#: ../source/specifications/version-specifiers.rst:1114
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
 "reference may be an sdist or a wheel binary archive. The exact URLs and "
@@ -32179,15 +32209,15 @@ msgstr ""
 "distribuon aŭ duuman arĥivon wheel. La permesataj formoj de subtenataj "
 "retadresoj kaj celoj dpeendas de la ilo."
 
-#: ../source/specifications/version-specifiers.rst:1121
+#: ../source/specifications/version-specifiers.rst:1118
 msgid "For example, a local source archive may be referenced directly::"
 msgstr "Ekzemple, oni povas rekte referenci lokan fontan arĥivon::"
 
-#: ../source/specifications/version-specifiers.rst:1125
+#: ../source/specifications/version-specifiers.rst:1122
 msgid "Alternatively, a prebuilt archive may also be referenced::"
 msgstr "Alternative, oni povas referenci antaŭkonstruitan arĥivon::"
 
-#: ../source/specifications/version-specifiers.rst:1129
+#: ../source/specifications/version-specifiers.rst:1126
 msgid ""
 "All direct references that do not refer to a local file URL SHOULD specify a "
 "secure transport mechanism (such as ``https``) AND include an expected hash "
@@ -32206,7 +32236,7 @@ msgstr ""
 "minimume AVERTU kaj POVAS rifuzi dependi de la URL. Se rekta referenco ankaŭ "
 "uzas nesekuran transporton, aŭtomata ilo NE DEPENDU de la URL."
 
-#: ../source/specifications/version-specifiers.rst:1138
+#: ../source/specifications/version-specifiers.rst:1135
 msgid ""
 "It is RECOMMENDED that only hashes which are unconditionally provided by the "
 "latest version of the standard library's :py:mod:`hashlib` module be used "
@@ -32219,7 +32249,7 @@ msgstr ""
 "norma biblioteko. Aktuale, tiaj haketaĵoj estas ``'md5'``, ``'sha1'``, "
 "``'sha224'``, ``'sha256'``, ``'sha384'`` kaj ``'sha512'``."
 
-#: ../source/specifications/version-specifiers.rst:1144
+#: ../source/specifications/version-specifiers.rst:1141
 msgid ""
 "For source archive and wheel references, an expected hash value may be "
 "specified by including a ``<hash-algorithm>=<expected-hash>`` entry as part "
@@ -32229,7 +32259,7 @@ msgstr ""
 "haketaĵan valoron inkluzivante eron ``<haketada-algoritmo>=<atendata-"
 "haketaĵo>`` kiel parton de la URL-fragmento."
 
-#: ../source/specifications/version-specifiers.rst:1148
+#: ../source/specifications/version-specifiers.rst:1145
 msgid ""
 "For version control references, the ``VCS+protocol`` scheme SHOULD be used "
 "to identify both the version control system and the secure transport, and a "
@@ -32238,7 +32268,7 @@ msgid ""
 "systems that do not provide hash based commit identifiers."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1154
+#: ../source/specifications/version-specifiers.rst:1151
 msgid ""
 "To handle version control systems that do not support including commit or "
 "tag references directly in the URL, that information may be appended to the "
@@ -32250,7 +32280,7 @@ msgstr ""
 "fino de la retadreso laŭ la notacio ``@<haketaĵo-de-enmeto>`` aŭ "
 "``@<tag>#<haketaĵo-de-enmeto>``."
 
-#: ../source/specifications/version-specifiers.rst:1161
+#: ../source/specifications/version-specifiers.rst:1158
 msgid ""
 "This isn't *quite* the same as the existing VCS reference notation supported "
 "by pip. Firstly, the distribution name is moved in front rather than "
@@ -32267,15 +32297,15 @@ msgstr ""
 "inkluzivu haketaĵon por malhelpi falsadon (estas facile krei fideponejon kun "
 "iu deponejo; estas malpli facile krei fideponejon kun specifa *haketaĵo*)."
 
-#: ../source/specifications/version-specifiers.rst:1169
+#: ../source/specifications/version-specifiers.rst:1166
 msgid "Remote URL examples::"
 msgstr "Ekzemploj de foraj retadresoj::"
 
-#: ../source/specifications/version-specifiers.rst:1177
+#: ../source/specifications/version-specifiers.rst:1174
 msgid "File URLs"
 msgstr "Dosieraj retadresoj"
 
-#: ../source/specifications/version-specifiers.rst:1179
+#: ../source/specifications/version-specifiers.rst:1176
 msgid ""
 "File URLs take the form of ``file://<host>/<path>``. If the ``<host>`` is "
 "omitted it is assumed to be ``localhost`` and even if the ``<host>`` is "
@@ -32287,7 +32317,7 @@ msgstr ""
 "``<gastiganto>`` mankas, la tria suprenstreko DEVAS tamen ekzisti. La "
 "``<vojo>`` difinas la dosierlokan vojon ĉe la dosiersistemo atingota."
 
-#: ../source/specifications/version-specifiers.rst:1184
+#: ../source/specifications/version-specifiers.rst:1181
 msgid ""
 "On the various \\*nix operating systems the only allowed values for "
 "``<host>`` is for it to be omitted, ``localhost``, or another FQDN that the "
@@ -32299,7 +32329,7 @@ msgstr ""
 "nomregno (FQDN), kiu egalas la gastiganton de la aktuala maŝino. Alivorte, "
 "sur Unikso, la skemo ``file://`` nur povas atingi vojojn ĉe la loka maŝino."
 
-#: ../source/specifications/version-specifiers.rst:1189
+#: ../source/specifications/version-specifiers.rst:1186
 msgid ""
 "On Windows the file format should include the drive letter if applicable as "
 "part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \\*nix "
@@ -32319,11 +32349,11 @@ msgstr ""
 "web.archive.org/web/20130321051043/http://blogs.msdn.com/b/ie/archive/"
 "2006/12/06/file-uris-in-windows.aspx>`_."
 
-#: ../source/specifications/version-specifiers.rst:1200
+#: ../source/specifications/version-specifiers.rst:1197
 msgid "Summary of differences from pkg_resources.parse_version"
 msgstr "Resumo pri diferencoj de pkg_resources.parse_version"
 
-#: ../source/specifications/version-specifiers.rst:1202
+#: ../source/specifications/version-specifiers.rst:1199
 msgid ""
 "Note: this comparison is to ``pkg_resources.parse_version`` as it existed at "
 "the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 "
@@ -32333,7 +32363,7 @@ msgstr ""
 "estis verkita. Post la aprobo de la PEP, setuptools 6.0 kaj postaj versioj "
 "adoptis la konduton priskribitan ĉi tie."
 
-#: ../source/specifications/version-specifiers.rst:1206
+#: ../source/specifications/version-specifiers.rst:1203
 msgid ""
 "Local versions sort differently, this specification requires that they sort "
 "as greater than the same version without a local version, whereas "
@@ -32343,7 +32373,7 @@ msgstr ""
 "versio estu pli granda ol la sama versio sen loka versio, dum "
 "``pkg_resources.parse_version`` konsideras ĝin kiel markon de antaŭeldono."
 
-#: ../source/specifications/version-specifiers.rst:1210
+#: ../source/specifications/version-specifiers.rst:1207
 msgid ""
 "This specification purposely restricts the syntax which constitutes a valid "
 "version while ``pkg_resources.parse_version`` attempts to provide some "
@@ -32352,7 +32382,7 @@ msgstr ""
 "Ĉiu tiu specifo intence restriktas la sintakson de valida versio, dum "
 "``pkg_resources.parse_version`` provas analizi *iun ajn* signoĉenon."
 
-#: ../source/specifications/version-specifiers.rst:1214
+#: ../source/specifications/version-specifiers.rst:1211
 msgid ""
 "``pkg_resources.parse_version`` allows arbitrarily deeply nested version "
 "signifiers like ``1.0.dev1.post1.dev5``. This specification however allows "
@@ -32362,11 +32392,11 @@ msgstr ""
 "``1.0.dev1.post1.dev5``. Ĉi tiu specifo, tamen, nur permesas nur unu uzon de "
 "ĉiu tipo, en difinita ordo."
 
-#: ../source/specifications/version-specifiers.rst:1223
+#: ../source/specifications/version-specifiers.rst:1220
 msgid "Appendix: Parsing version strings with regular expressions"
 msgstr "Apendico: Sintaksanalizi versian tekston per regulaj esprimoj"
 
-#: ../source/specifications/version-specifiers.rst:1225
+#: ../source/specifications/version-specifiers.rst:1222
 msgid ""
 "As noted earlier in the :ref:`public-version-identifiers` section, published "
 "version identifiers SHOULD use the canonical format. This section provides "
@@ -32375,7 +32405,7 @@ msgid ""
 "normalization."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1231
+#: ../source/specifications/version-specifiers.rst:1228
 msgid ""
 "To test whether a version identifier is in the canonical format, you can use "
 "the following function:"
@@ -32383,7 +32413,7 @@ msgstr ""
 "Por kontroli, ĉu versia identigilo estas en la kanona formo, oni povas uzi "
 "la jenan funkcion:"
 
-#: ../source/specifications/version-specifiers.rst:1240
+#: ../source/specifications/version-specifiers.rst:1237
 msgid ""
 "To extract the components of a version identifier, use the following regular "
 "expression (as defined by the `packaging <https://github.com/pypa/"
@@ -32393,21 +32423,21 @@ msgstr ""
 "esprimon (difinitan de la projekto `packaging <https://github.com/pypa/"
 "packaging>`_):"
 
-#: ../source/specifications/version-specifiers.rst:1287
+#: ../source/specifications/version-specifiers.rst:1284
 msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr "Aŭgusto 2014: Ĉi tiu specifo estis aprobita per :pep:`440`."
 
-#: ../source/specifications/version-specifiers.rst:1288
+#: ../source/specifications/version-specifiers.rst:1285
 msgid ""
 "May 2025: Clarify that development releases are a form of pre-release when "
 "they are handled."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1290
+#: ../source/specifications/version-specifiers.rst:1287
 msgid "Nov 2025: Make arbitrary equality case insensitivity explicit."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1291
+#: ../source/specifications/version-specifiers.rst:1288
 msgid "Jan 2026: The use of epochs was discouraged."
 msgstr ""
 
@@ -34569,6 +34599,13 @@ msgstr ""
 "kaj estas **altnivelaĵo** (ne pridiskutata en ĉi tiu lernilo). Se vi estas "
 "komencanto pri Python-pakado, recomendate estas nur uzi *ordinarajn pakojn* "
 "kaj ``__init__.py`` (eĉ se tiu dosiero estas malplena)."
+
+#~ msgid ""
+#~ "Source distributions using a local version identifier SHOULD provide the "
+#~ "``python.integrator`` extension metadata (as defined in :pep:`459`)."
+#~ msgstr ""
+#~ "Fonta distribuo uzanta lokan versian identigilon PROVIZU la etendaĵan "
+#~ "metadatenon ``python.integrator`` (laŭ :pep:`459`)."
 
 #~ msgid ""
 #~ "This document describes the dependency specifiers format as originally "
