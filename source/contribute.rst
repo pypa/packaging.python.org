@@ -188,7 +188,7 @@ Scope
 The guide is meant to answer questions and solve problems with accurate and
 focused recommendations.
 
-The guide isn't meant to be comprehensive, and it's not meant to replace
+The guide isn't meant to be comprehensive and it's not meant to replace
 individual projects' documentation. For example, pip has dozens of commands,
 options, and settings. The pip documentation describes each of them in detail,
 while this guide describes only the parts of pip that are needed to complete the
