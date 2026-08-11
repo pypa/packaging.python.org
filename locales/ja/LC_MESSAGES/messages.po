@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 14:38+0000\n"
+"POT-Creation-Date: 2026-07-22 20:53+0000\n"
 "PO-Revision-Date: 2026-06-24 22:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -16933,8 +16933,12 @@ msgstr ""
 "が、オペレーティングシステムレベルのパッケージはサポートしていません。"
 
 #: ../source/overview.rst:282
+#, fuzzy
+#| msgid ""
+#| "`ActiveState ActivePython <https://www.activestate.com/products/python/>`_"
 msgid ""
-"`ActiveState ActivePython <https://www.activestate.com/products/python/>`_"
+"`ActiveState ActivePython <https://www.activestate.com/platform/supported-"
+"languages/python>`_"
 msgstr ""
 "`ActiveState ActivePython <https://www.activestate.com/products/python/>`_"
 
@@ -18196,7 +18200,7 @@ msgstr ""
 #: ../source/specifications/entry-points.rst:163
 #: ../source/specifications/externally-managed-environments.rst:472
 #: ../source/specifications/glob-patterns.rst:118
-#: ../source/specifications/inline-script-metadata.rst:213
+#: ../source/specifications/inline-script-metadata.rst:224
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:440
 #: ../source/specifications/pylock-toml.rst:841
@@ -18303,7 +18307,7 @@ msgstr ""
 
 #: ../source/specifications/build-details/index.rst:28
 #: ../source/specifications/build-details/v1.0.rst:16
-#: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/inline-script-metadata.rst:111
 #: ../source/specifications/pylock-toml.rst:737
 msgid "Example"
 msgstr "例"
@@ -20862,7 +20866,7 @@ msgstr ""
 "がすべての依存関係グループの内容の正当性を検証することだからです。"
 
 #: ../source/specifications/dependency-groups.rst:157
-#: ../source/specifications/inline-script-metadata.rst:123
+#: ../source/specifications/inline-script-metadata.rst:134
 msgid "Reference Implementation"
 msgstr "参照実装"
 
@@ -24740,11 +24744,37 @@ msgstr ""
 "ツール類は、この仕様によって標準化されていないタイプを伴ったメタデータブロッ"
 "クから読み取ることがあってはなりません。"
 
-#: ../source/specifications/inline-script-metadata.rst:74
+#: ../source/specifications/inline-script-metadata.rst:73
+msgid ""
+"Note that the specification only requires that *top-level* comment blocks "
+"are recognised as containing metadata. However, parsing Python code is non-"
+"trivial, and therefore:"
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:77
+msgid ""
+"Tools MAY choose to do a simple textual scan, rather than a full Python "
+"parse."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:78
+msgid ""
+"As a result of the previous point, the behaviour of scripts that contain "
+"data that looks like metadata within another Python construct such as a "
+"multi-line string is tool-dependent and should not be relied on."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:81
+msgid ""
+"The canonical regular expression provided above is an example of an "
+"implementation that does a simple textual scan."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:85
 msgid "script type"
 msgstr "スクリプトのタイプ"
 
-#: ../source/specifications/inline-script-metadata.rst:76
+#: ../source/specifications/inline-script-metadata.rst:87
 msgid ""
 "The first type of metadata block is named ``script``, which contains script "
 "metadata (dependency data and tool configuration)."
@@ -24752,7 +24782,7 @@ msgstr ""
 "メタデータブロックのひとつめのタイプは ``script`` という名前で、スクリプトメ"
 "タデータ (依存関係のデータとツールの設定) を格納しています。"
 
-#: ../source/specifications/inline-script-metadata.rst:79
+#: ../source/specifications/inline-script-metadata.rst:90
 msgid ""
 "This document MAY include the top-level fields ``dependencies`` and "
 "``requires-python``, and MAY optionally include a ``[tool]`` table."
@@ -24761,7 +24791,7 @@ msgstr ""
 "ルドとして ``dependencies`` と ``requires-python`` を含むことができ、また、オ"
 "プションとして ``[tool]`` テーブルを含んでいても構いません。"
 
-#: ../source/specifications/inline-script-metadata.rst:82
+#: ../source/specifications/inline-script-metadata.rst:93
 msgid ""
 "The ``[tool]`` table MAY be used by any tool, script runner or otherwise, to "
 "configure behavior. It has the same semantics as the :ref:`[tool] table in "
@@ -24771,11 +24801,11 @@ msgstr ""
 "も、振る舞いを設定するのに使用して構いません。 :ref:`pyproject.toml内の "
 "[tool] テーブル <pyproject-tool-table>` と同一のセマンティクスを持ちます。"
 
-#: ../source/specifications/inline-script-metadata.rst:86
+#: ../source/specifications/inline-script-metadata.rst:97
 msgid "The top-level fields are:"
 msgstr "トップレベルのフィールドは:"
 
-#: ../source/specifications/inline-script-metadata.rst:88
+#: ../source/specifications/inline-script-metadata.rst:99
 msgid ""
 "``dependencies``: A list of strings that specifies the runtime dependencies "
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
@@ -24785,7 +24815,7 @@ msgstr ""
 "ぞれの項目は正当な :ref:`依存関係指定子 <dependency-specifiers>` でなければな"
 "りません。"
 
-#: ../source/specifications/inline-script-metadata.rst:91
+#: ../source/specifications/inline-script-metadata.rst:102
 msgid ""
 "``requires-python``: A string that specifies the Python version(s) with "
 "which the script is compatible. The value of this field MUST be a "
@@ -24795,7 +24825,7 @@ msgstr ""
 "指定する文字列。このフィールドの値は正当な :ref:`バージョン指定子 <version-"
 "specifiers>` でなければなりません。"
 
-#: ../source/specifications/inline-script-metadata.rst:95
+#: ../source/specifications/inline-script-metadata.rst:106
 msgid ""
 "Script runners MUST error if the specified ``dependencies`` cannot be "
 "provided. Script runners SHOULD error if no version of Python that satisfies "
@@ -24806,11 +24836,11 @@ msgstr ""
 "たバージョンの Python を提供できない場合には、スクリプトを走らせる側でエラー"
 "を起こすべきです。"
 
-#: ../source/specifications/inline-script-metadata.rst:102
+#: ../source/specifications/inline-script-metadata.rst:113
 msgid "The following is an example of a script with embedded metadata:"
 msgstr "組み込まれたメタデータを伴うスクリプトの例を以下に示します:"
 
-#: ../source/specifications/inline-script-metadata.rst:125
+#: ../source/specifications/inline-script-metadata.rst:136
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
@@ -24818,7 +24848,7 @@ msgstr ""
 "3.11 およびそれ以降の Python でどのようにメタデータを読み取るのかについて例を"
 "以下に示します。"
 
-#: ../source/specifications/inline-script-metadata.rst:151
+#: ../source/specifications/inline-script-metadata.rst:162
 msgid ""
 "Often tools will edit dependencies like package managers or dependency "
 "update automation in CI. The following is a crude example of modifying the "
@@ -24828,7 +24858,7 @@ msgstr ""
 "構のように、依存関係を編集するでしょう。以下に、 ``tomlkit`` library__ を使っ"
 "て内容を書き換える際のおおまかな例を示します。"
 
-#: ../source/specifications/inline-script-metadata.rst:182
+#: ../source/specifications/inline-script-metadata.rst:193
 msgid ""
 "Note that this example used a library that preserves TOML formatting. This "
 "is not a requirement for editing by any means but rather is a \"nice to "
@@ -24838,7 +24868,7 @@ msgstr ""
 "してください。これは、決して編集することに対する要求事項というわけではなく、"
 "むしろ \"あったらいいね <nice to have>\" 的なものです。"
 
-#: ../source/specifications/inline-script-metadata.rst:186
+#: ../source/specifications/inline-script-metadata.rst:197
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
@@ -24846,12 +24876,12 @@ msgstr ""
 "任意のメタデータブロックのストリームをどのように読み取るかの例を以下に示しま"
 "す。"
 
-#: ../source/specifications/inline-script-metadata.rst:205
+#: ../source/specifications/inline-script-metadata.rst:216
 #: ../source/specifications/simple-repository-api.rst:925
 msgid "Recommendations"
 msgstr "推奨事項"
 
-#: ../source/specifications/inline-script-metadata.rst:207
+#: ../source/specifications/inline-script-metadata.rst:218
 msgid ""
 "Tools that support managing different versions of Python should attempt to "
 "use the highest available version of Python that is compatible with the "
@@ -24861,13 +24891,13 @@ msgstr ""
 "``requires-python`` メタデータと互換性のある Python のバージョンのうちの利用"
 "可能な最も新しい版を使うことを試みるべきです。"
 
-#: ../source/specifications/inline-script-metadata.rst:215
+#: ../source/specifications/inline-script-metadata.rst:226
 msgid ""
 "October 2023: This specification was conditionally approved "
 "through :pep:`723`."
 msgstr "2023年10月: :pep:`723` を通じて、この仕様が条件付きで承認されました。"
 
-#: ../source/specifications/inline-script-metadata.rst:216
+#: ../source/specifications/inline-script-metadata.rst:227
 msgid ""
 "January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata "
 "block type was renamed to ``script``, and the ``[run]`` table was dropped, "
@@ -29973,7 +30003,8 @@ msgstr ""
 msgid ""
 "See :pep:`833` for additional information about the HTML representation's "
 "status."
-msgstr "HTML 表現の状態に関するさらなる情報については、 :pep:`833` を見てください。"
+msgstr ""
+"HTML 表現の状態に関するさらなる情報については、 :pep:`833` を見てください。"
 
 #: ../source/specifications/simple-repository-api.rst:134
 msgid ""
