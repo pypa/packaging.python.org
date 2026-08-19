@@ -1,8 +1,10 @@
 # -- Project information ---------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import json
 import os
 import pathlib
+import re
 import sys
 
 _ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -165,6 +167,18 @@ linkcheck_ignore = [
     # Temporarily ignored due to expired TLS cert.
     r"https://kivy.org/.*",
 ]
+
+if _linkcheck_baseline := os.getenv("LINKCHECK_BASELINE"):
+    _baseline_path = pathlib.Path(_linkcheck_baseline)
+    if _baseline_path.is_file():
+        for _record in _baseline_path.read_text(encoding="utf-8").splitlines():
+            try:
+                _uri = json.loads(_record).get("uri")
+            except json.JSONDecodeError:
+                continue
+            if _uri:
+                linkcheck_ignore.append(rf"^{re.escape(_uri)}$")
+
 linkcheck_retries = 2
 linkcheck_timeout = 30
 # Ignore anchors for common targets when we know they likely won't be found
