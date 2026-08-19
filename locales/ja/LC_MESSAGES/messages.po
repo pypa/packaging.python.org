@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-11 10:39+0000\n"
-"PO-Revision-Date: 2026-08-10 20:01+0000\n"
+"POT-Creation-Date: 2026-08-19 11:32+0000\n"
+"PO-Revision-Date: 2026-08-14 01:51+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ja/>\n"
@@ -11632,7 +11632,14 @@ msgstr ""
 "ければならず、また、配布物のパッケージ群をビルドするための追加のジョブも定義"
 "しなければなりません。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:107
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:109
+msgid ""
+"Keep the build job separate from the publishing jobs. Building distributions "
+"in a publishing job is unsupported; publishing jobs should only download the "
+"already-built artifacts and upload them."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:113
 msgid ""
 "First, we'll define the job for building the dist packages of your project "
 "and storing them for later use:"
@@ -11640,7 +11647,7 @@ msgstr ""
 "最初に、あなたのプロジェクトの dist パッケージをビルドして、その後の使用のた"
 "めに保存するジョブを定義しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:112
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 msgid ""
 "If you adapt this workflow to build multiple platform-specific wheels, use "
 "uniquely named artifacts for each build job and adjust the download step "
@@ -11653,7 +11660,7 @@ msgstr ""
 "GitHub Actions examples`_ がもっと完全な wheel マトリクスレイアウトをお見せし"
 "ます。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:122
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:128
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate the newest available Python 3 release."
@@ -11661,7 +11668,7 @@ msgstr ""
 "これによって、あなたのリポジトリを CI ランナーにダウンロードして、利用可能な"
 "最新の Python 3 リリースをインストールしアクティベートすることになります。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:125
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:131
 msgid ""
 "And now we can build the dists from source and store them. In this example, "
 "we'll use the ``build`` package. So add this to the steps list:"
@@ -11670,11 +11677,11 @@ msgstr ""
 "できます。この例では、パッケージを ``build`` することになります。ですから、こ"
 "れをステップリストに加えましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:141
 msgid "Defining a workflow job environment"
 msgstr "ワークフローのジョブ環境を定義する"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:137
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:143
 msgid ""
 "Now, let's add initial setup for our job that will publish to PyPI. It's a "
 "process that will execute commands that we'll define later. In this guide, "
@@ -11693,7 +11700,7 @@ msgstr ""
 "トなしの PyPI への信頼ある公開を実装するために必要となる OpenID Connect の"
 "トークンを取得することを可能にするものでもあります。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:151
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
 msgid ""
 "This will also ensure that the PyPI publishing workflow is only triggered if "
 "the current commit is tagged."
@@ -11701,15 +11708,15 @@ msgstr ""
 "これは、当該コミットがタグ付きである時にだけ PyPI 公開 <publishing> ワークフ"
 "ローが起動されることをも保証するものです。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:155
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:161
 msgid "Publishing the distribution to PyPI"
 msgstr "PyPI へ配布物を公開する <publishng>"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
 msgid "Finally, add the following steps at the end:"
 msgstr "最後に、次の手続きを末尾に追加しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:170
 msgid ""
 "This step uses the `pypa/gh-action-pypi-publish`_ GitHub Action: after the "
 "stored distribution package has been downloaded by the `download-artifact`_ "
@@ -11721,7 +11728,7 @@ msgstr ""
 "Action: を使って、 ``dist/`` フォルダの内容物を無条件に PyPI へアップロードし"
 "ます。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:171
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:177
 msgid ""
 "Starting with version `v1.11.0 <https://github.com/pypa/gh-action-pypi-"
 "publish/releases/tag/v1.11.0>`_, `pypa/gh-action-pypi-publish`_ generates "
@@ -11733,11 +11740,11 @@ msgstr ""
 "に対する :pep:`740` 互換の証明書を生成しアップロードするようになりました。手"
 "動の署名手順はもはや必要ありません。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:179
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:185
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "TestPyPI へ公開 <publish> するもうひとつのワークフロー"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:181
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:187
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -11745,7 +11752,7 @@ msgstr ""
 "さて、これらのステップを繰り返して、 ``jobs`` セクションに TestPyPI パッケー"
 "ジインデックスに公開 <publish> するようなもうひとつのジョブを作成しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:191
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:197
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -11756,22 +11763,22 @@ msgstr ""
 "いて、使われるとすればリリースの公開 <publish> パイプラインが健全であることを"
 "示すためであることが多いのです。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:195
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:201
 msgid "The whole CI/CD workflow"
 msgstr "CI/CD ワークフローの全体像"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:197
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:203
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "この段落には、上述のガイド文書に従った場合のワークフローの全体像を披露しま"
 "す。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:205
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:211
 msgid "That's all, folks!"
 msgstr "これでできましたよ、皆さん!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:207
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:213
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -11784,7 +11791,7 @@ msgstr ""
 "にテストビルドを提供するためにも、あなたのリリースパイプラインが健全な状態に"
 "保たれていることを確認するためにも役に立ちます!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:215
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:221
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -11799,7 +11806,7 @@ msgstr ""
 "で :ref:`pypiserver` のような PyPI と互換のあるサーバを使うように構成すること"
 "かもしれません。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:223
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:229
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -13360,6 +13367,10 @@ msgid ""
 "optional features (such as an ``all`` extra hosting dependencies from both "
 "``gui`` and ``cli``):"
 msgstr ""
+"他の追加物を持つような現在のプロジェクトへ参照し返すような追加物を定義するこ"
+"ともできます。 (``gui`` と ``cli`` の両方からの依存関係をホストする ``all`` "
+"追加物のような) いくつかのオプションの機能を一体化した便利な追加物向けに有用"
+"です。"
 
 #: ../source/guides/writing-pyproject-toml.rst:189
 msgid ""
@@ -13367,6 +13378,9 @@ msgid ""
 "referenced extra's dependencies, which can otherwise fall out of sync after "
 "a few years of maintenance and bug fixes:"
 msgstr ""
+"一体化された追加物は、参照された先の追加物のそれぞれの依存関係のコピーを手動"
+"で維持管理する必要はなく、その代わりに数年後のメンテナンスやバグ修正の時に同"
+"期から外れて行くでしょう:"
 
 #: ../source/guides/writing-pyproject-toml.rst:203
 msgid ""
@@ -13374,6 +13388,9 @@ msgid ""
 "including :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` "
 "and :ref:`pipenv`."
 msgstr ""
+":ref:`pip` ・ :ref:`uv` ・ :ref:`poetry` ・ :ref:`hatch` ・ :ref:`pdm` "
+"や :ref:`pipenv` を含む、ほとんどのパッケージ管理機構は、今や、このような種類"
+"の追加物をサポートしています。"
 
 #: ../source/guides/writing-pyproject-toml.rst:210
 #: ../source/specifications/pylock-toml.rst:95
@@ -28945,6 +28962,12 @@ msgid ""
 "including :ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` "
 "and :ref:`pipenv`."
 msgstr ""
+"追加物の中の依存関係指定子は、 (例えば、 ``all = [\"your-project-name[gui, "
+"cli]\"]`` のような) 現在のプロジェクトから他の追加物へ自己参照をしても構いま"
+"せん。例を見たければ、 :ref:`自己参照用追加物 <self-referential-extras>` を見"
+"て下さい。 :ref:`pip` ・ :ref:`uv` ・ :ref:`poetry` ・ :ref:`hatch` "
+"・ :ref:`pdm` や :ref:`pipenv` を含む、ほとんどのパッケージ管理機構は、今や、"
+"この種の追加物をサポートしています。"
 
 #: ../source/specifications/pyproject-toml.rst:520
 msgid ""
@@ -29154,9 +29177,10 @@ msgid ""
 "statically as well as being listed in ``dynamic``, *unless* the key "
 "represents a list or arbitrary table that can be extended, listed below."
 msgstr ""
-"以下に列挙するように、そのキーが展開可能な知るとないし任意のテーブルでない限"
-"り、メタデータ内のあるキーが静的に指定されていて、かつ、 ``dynamic`` にも挙げ"
-"てある場合には、ビルド用バックエンドはエラーを発生させなければなりません。"
+"以下に列挙するように、そのキーが展開可能な知るとないし任意のテーブル *でない"
+"限り* 、メタデータ内のあるキーが静的に指定されていて、かつ、 ``dynamic`` にも"
+"挙げてある場合には、ビルド用バックエンドはエラーを発生させなければなりませ"
+"ん。"
 
 #: ../source/specifications/pyproject-toml.rst:637
 msgid ""
@@ -29203,12 +29227,20 @@ msgid ""
 "new keys and MAY append to the values of existing keys (in the case of a "
 "list), but MUST NOT change or remove the entries given statically."
 msgstr ""
+"ビルド用バックエンドは、その値に *追加* だけを行うことができます; 静的に指定"
+"されたエントリについて削除・順序変更や修正を行ってはなりません。 (``optional-"
+"dependencies`` や ``entry-points`` のような) テーブルについては、これは、バッ"
+"クエンドは新しいキーを追加することや (リストの場合は) 既存のキーにその値を追"
+"加することは許されるが、静的に与えられたエントリを修正したり削除したりするこ"
+"とは許されないということです。"
 
 #: ../source/specifications/pyproject-toml.rst:673
 msgid ""
 "A build back-end SHOULD raise an error if a key is listed in ``dynamic`` and "
 "it does not support extending that key."
 msgstr ""
+"あるキーが ``dynamic`` に列挙されていて、しかも、そのキーを拡張することをサ"
+"ポートしていないなら、ビルド用バックエンドはエラーを発生させるべきです。"
 
 #: ../source/specifications/pyproject-toml.rst:680
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
@@ -29288,12 +29320,17 @@ msgid ""
 "listed in ``dynamic``, with build back-ends only able to append entries, "
 "through :pep:`808`."
 msgstr ""
+"2026年5月: ビルド用バックエンドがエントリを追加することしかできないという形"
+"で、リストやテーブルのキーが静的に与えられると同時に ``dynamic`` に列挙される"
+"ことを :pep:`808` を通じて許可した。"
 
 #: ../source/specifications/pyproject-toml.rst:722
 msgid ""
 "August 2026: Document self-referential extra as a supported feature by many "
 "modern package managers of Python."
 msgstr ""
+"2026年8月: 自己参照型追加物が多くの近代的な Python のパッケージ管理機構によっ"
+"てサポートされた機能であることを文書化しました。"
 
 #: ../source/specifications/recording-installed-packages.rst:7
 msgid "Recording installed projects"
