@@ -57,7 +57,7 @@ install the PyPI package ``foo`` if you see ``import foo``; this may install an
 unintended, and potentially even malicious package.)
 
 A distribution package could provide an import package with a different
-name. An example of this is the popular Pillow_ library for image
+name. An example of this is the popular :pypi:`Pillow` library for image
 processing. Its distribution package name is ``Pillow``, but it provides
 the import package ``PIL``. This is for historical reasons: Pillow
 started as a fork of the PIL library, thus it kept the import name
@@ -72,7 +72,7 @@ Import packages with the same name can be provided by several
 distribution packages. Again, forks are a common reason for this.
 
 Conversely, a distribution package can provide several import packages,
-although this is less common. An example is the attrs_ distribution
+although this is less common. An example is the :pypi:`attrs` distribution
 package, which provides both an ``attrs`` import package with a newer
 API, and an ``attr`` import package with an older but supported API.
 
@@ -106,5 +106,3 @@ precise rules are given in the :ref:`name normalization specification
 
 .. _distro: https://en.wikipedia.org/wiki/Linux_distribution
 .. _PyPI: https://pypi.org
-.. _Pillow: https://pypi.org/project/Pillow
-.. _attrs: https://pypi.org/project/attrs
