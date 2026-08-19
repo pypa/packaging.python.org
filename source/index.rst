@@ -29,7 +29,7 @@ tools.
 This guide is maintained on `GitHub`_ by the :doc:`Python Packaging Authority <pypa:index>`. We
 happily accept :doc:`contributions and feedback <contribute>`. 😊
 
-.. _GitHub: 
+.. _GitHub:
  ?stay=yes ://github.com/pypa/packaging.python.org
 
 
