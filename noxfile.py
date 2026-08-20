@@ -113,6 +113,6 @@ def sphinx_lint(session):
     Check for reST format issues in source rst files,
     accepting another path as positional argument.
     """
-    session.install("sphinx-lint==1.0.0")
+    session.install("sphinx-lint==1.0.2")
     target = session.posargs or ["source"]
     session.run("sphinx-lint", *target)
