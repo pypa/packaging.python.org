@@ -1,3 +1,93 @@
+import streamlit as st
+import pandas as pd
+
+st.set_page_config(page_title="Macro Tracker App", layout="wide")
+
+st.title("Macronutrient Calculator & Tracker")
+
+# Sidebar for User Profile & Macro Calculation
+st.sidebar.header("User Profile")
+weight = st.sidebar.number_input("Weight (kg)", value=70.0, step=0.5)
+height = st.sidebar.number_input("Height (cm)", value=175.0, step=0.5)
+age = st.sidebar.number_input("Age", value=25, step=1)
+gender = st.sidebar.selectbox("Gender", ["Male", "Female"])
+activity = st.sidebar.selectbox("Activity Level", ["Sedentary", "Lightly Active", "Moderately Active", "Very Active"])
+goal = st.sidebar.selectbox("Goal", ["Lose Weight", "Maintain", "Build Muscle"])
+
+# BMR calculation using Mifflin-St Jeor Equation
+if gender == "Male":
+    bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
+else:
+    bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
+
+activity_multipliers = {
+    "Sedentary": 1.2,
+    "Lightly Active": 1.375,
+    "Moderately Active": 1.55,
+    "Very Active": 1.725
+}
+
+tdee = bmr * activity_multipliers[activity]
+
+if goal == "Lose Weight":
+    target_calories = tdee - 500
+elif goal == "Build Muscle":
+    target_calories = tdee + 300
+else:
+    target_calories = tdee
+
+# Macro distribution (30% Protein, 40% Carbs, 30% Fat)
+protein_grams = (target_calories * 0.30) / 4
+carb_grams = (target_calories * 0.40) / 4
+fat_grams = (target_calories * 0.30) / 9
+
+st.header("Your Daily Targets")
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Calories", f"{int(target_calories)} kcal")
+col2.metric("Protein", f"{int(protein_grams)} g")
+col3.metric("Carbs", f"{int(carb_grams)} g")
+col4.metric("Fat", f"{int(fat_grams)} g")
+
+# Food Log Section
+st.markdown("---")
+st.header("Daily Food Log")
+
+if 'food_log' not in st.session_state:
+    st.session_state.food_log = pd.DataFrame(columns=["Food Item", "Calories", "Protein (g)", "Carbs (g)", "Fat (g)"])
+
+with st.form("food_form", clear_on_submit=True):
+    col_f1, col_f2, col_f3, col_f4, col_f5 = st.columns(5)
+    with col_f1:
+        food_name = st.text_input("Food Item")
+    with col_f2:
+        cals = st.number_input("Calories", min_value=0, value=0)
+    with col_f3:
+        p = st.number_input("Protein (g)", min_value=0.0, value=0.0)
+    with col_f4:
+        c = st.number_input("Carbs (g)", min_value=0.0, value=0.0)
+    with col_f5:
+        f = st.number_input("Fat (g)", min_value=0.0, value=0.0)
+    
+    submitted = st.form_submit_button("Add Food Item")
+    if submitted and food_name:
+        new_row = pd.DataFrame([[food_name, cals, p, c, f]], columns=st.session_state.food_log.columns)
+        st.session_state.food_log = pd.concat([st.session_state.food_log, new_row], ignore_index=True)
+
+if not st.session_state.food_log.empty:
+    st.dataframe(st.session_state.food_log, use_container_width=True)
+    
+    total_cals = st.session_state.food_log["Calories"].sum()
+    total_p = st.session_state.food_log["Protein (g)"].sum()
+    total_c = st.session_state.food_log["Carbs (g)"].sum()
+    total_f = st.session_state.food_log["Fat (g)"].sum()
+    
+    st.subheader("Progress Summary")
+    st.write(f"Calories: {total_cals} / {int(target_calories)} kcal")
+    st.progress(min(total_cals / target_calories, 1.0))
+    
+    if st.button("Clear Log"):
+        st.session_state.food_log = pd.DataFrame(columns=["Food Item", "Calories", "Protein (g)", "Carbs (g)", "Fat (g)"])
+        st.rerun()
 .. _installing-packages:
 
 ===================
