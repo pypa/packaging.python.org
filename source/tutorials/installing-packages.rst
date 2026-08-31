@@ -67,7 +67,7 @@ with st.form("food_form", clear_on_submit=True):
         c = st.number_input("Carbs (g)", min_value=0.0, value=0.0)
     with col_f5:
         f = st.number_input("Fat (g)", min_value=0.0, value=0.0)
-    
+
     submitted = st.form_submit_button("Add Food Item")
     if submitted and food_name:
         new_row = pd.DataFrame([[food_name, cals, p, c, f]], columns=st.session_state.food_log.columns)
@@ -75,16 +75,16 @@ with st.form("food_form", clear_on_submit=True):
 
 if not st.session_state.food_log.empty:
     st.dataframe(st.session_state.food_log, use_container_width=True)
-    
+
     total_cals = st.session_state.food_log["Calories"].sum()
     total_p = st.session_state.food_log["Protein (g)"].sum()
     total_c = st.session_state.food_log["Carbs (g)"].sum()
     total_f = st.session_state.food_log["Fat (g)"].sum()
-    
+
     st.subheader("Progress Summary")
     st.write(f"Calories: {total_cals} / {int(target_calories)} kcal")
     st.progress(min(total_cals / target_calories, 1.0))
-    
+
     if st.button("Clear Log"):
         st.session_state.food_log = pd.DataFrame(columns=["Food Item", "Calories", "Protein (g)", "Carbs (g)", "Fat (g)"])
         st.rerun()
