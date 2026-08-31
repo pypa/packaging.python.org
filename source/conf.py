@@ -1,8 +1,10 @@
 # -- Project information ---------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import json
 import os
 import pathlib
+import re
 import sys
 
 _ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -167,6 +169,21 @@ linkcheck_ignore = [
 ]
 linkcheck_retries = 2
 linkcheck_timeout = 30
+
+# On pull requests, ignore links that were already checked on the default
+# branch. The cached JSONL report is refreshed after successful default-branch
+# linkcheck runs, so newly introduced links remain blocking.
+if os.getenv("GITHUB_EVENT_NAME") == "pull_request":
+    previous_linkcheck_report = pathlib.Path("build/output.json")
+    if previous_linkcheck_report.exists():
+        for line in previous_linkcheck_report.read_text(encoding="utf-8").splitlines():
+            try:
+                uri = json.loads(line)["uri"]
+            except (json.JSONDecodeError, KeyError, TypeError):
+                continue
+            if isinstance(uri, str):
+                linkcheck_ignore.append(rf"^{re.escape(uri)}$")
+
 # Ignore anchors for common targets when we know they likely won't be found
 linkcheck_anchors_ignore_for_url = [
     # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
