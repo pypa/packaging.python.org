@@ -135,20 +135,15 @@ Downloading packages
 
 ``pypi.org`` is the default host for downloading packages.
 
-If you have configured pip to use a custom ``index-url``, that setting can
-override the default PyPI index. Check your pip configuration files if pip
-continues to use the old PyPI URL after migration. The command ``pip config
-list -v`` can be used to show the configuration files pip is loading.
+If downloads still use the old ``pypi.python.org`` host, check whether your
+installer is configured to override its default package index. Configuration
+files, environment variables, and command-line options can all change the
+index used by an installer. Remove or update any override that points at the
+old host, using that installer's documentation to locate its active
+configuration.
 
-For example, a configuration containing::
-
-    [global]
-    index-url = https://pypi.python.org/pypi
-
-should be updated to use the current PyPI URL::
-
-    [global]
-    index-url = https://pypi.org/simple
+For pip, see its :ref:`configuration documentation <pip:config-file>` for the
+supported configuration files, environment variables, and commands.
 
 Managing published packages and releases
 ----------------------------------------
