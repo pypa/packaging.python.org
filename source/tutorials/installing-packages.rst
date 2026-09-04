@@ -1,4 +1,76 @@
-.. _installing-packages:
+..import 'dart:async';
+import 'dart:io';
+import 'dart:math';
+
+/// A CLI implementation of the logic previously described in the Python script.
+/// Since the original Python code relied on OpenCV and Tkinter (GUI), 
+/// this Dart CLI version provides a robust, idiomatic alternative for
+/// managing ephemeral data handling logic in a console environment.
+
+class EphemeralManager {
+  final String _tempStoragePath = 'temp_snap.jpg';
+
+  /// Simulates capturing a snapshot. 
+  /// In a CLI environment, we create a dummy file.
+  Future<void> captureSnap() async {
+    try {
+      print('Capturing snapshot...');
+      await File(_tempStoragePath).writeAsString('IMAGE_DATA_CONTENT');
+      print('Snapshot saved successfully.');
+    } catch (e) {
+      throw Exception('Failed to capture snapshot: $e');
+    }
+  }
+
+  /// Displays the "snap" and deletes it after the duration.
+  Future<void> showEphemeral(int duration) async {
+    if (!await File(_tempStoragePath).exists()) {
+      print('No snapshot found to display.');
+      return;
+    }
+
+    print('Displaying ephemeral snap for $duration seconds...');
+    
+    for (int i = duration; i > 0; i--) {
+      print('Viewing... $i seconds remaining.');
+      await Future.delayed(const Duration(seconds: 1));
+    }
+
+    await _cleanup();
+  }
+
+  Future<void> _cleanup() async {
+    final file = File(_tempStoragePath);
+    if (await file.exists()) {
+      await file.delete();
+      print('Snap expired and deleted.');
+    }
+  }
+}
+
+Future<void> main() async {
+  final manager = EphemeralManager();
+
+  print('--- Simple Ephemeral Snap CLI ---');
+  print('1. Capture Snap');
+  print('2. Quit');
+
+  stdout.write('Choose an option: ');
+  final choice = stdin.readLineSync();
+
+  if (choice == '1') {
+    try {
+      await manager.captureSnap();
+      await manager.showEphemeral(5);
+    } catch (e) {
+      stderr.writeln('Error occurred: $e');
+    }
+  } else {
+    print('Exiting application.');
+  }
+
+  exit(0);
+} _installing-packages:
 
 ===================
 Installing Packages
