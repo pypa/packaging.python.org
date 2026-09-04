@@ -1,4 +1,267 @@
-.. _installing-packages:
+import pygame
+import random
+import math
+
+pygame.init()
+
+WIDTH, HEIGHT = 1000, 650
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Battle Royale")
+
+clock = pygame.time.Clock()
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (20, 20, 20)
+GREEN = (50, 200, 80)
+RED = (220, 50, 50)
+BLUE = (60, 120, 255)
+YELLOW = (240, 210, 50)
+GRAY = (100, 100, 100)
+
+# Player
+player = pygame.Rect(480, 300, 35, 35)
+player_speed = 5
+health = 100
+
+# Bullets
+bullets = []
+
+# Enemies
+enemies = []
+for _ in range(12):
+    x = random.randint(50, WIDTH - 80)
+    y = random.randint(50, HEIGHT - 80)
+    enemies.append(pygame.Rect(x, y, 30, 30))
+
+# Safe zone
+zone_x = WIDTH // 2
+zone_y = HEIGHT // 2
+zone_radius = 300
+
+font = pygame.font.SysFont("Arial", 24)
+big_font = pygame.font.SysFont("Arial", 55)
+
+running = True
+game_over = False
+victory = False
+
+while running:
+
+    clock.tick(60)
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            running = False
+
+        # Shoot
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+
+            dx = mouse_x - player.centerx
+            dy = mouse_y - player.centery
+
+            distance = math.hypot(dx, dy)
+
+            if distance != 0:
+                dx /= distance
+                dy /= distance
+
+                bullets.append([
+                    player.centerx,
+                    player.centery,
+                    dx * 12,
+                    dy * 12
+                ])
+
+    if not game_over:
+
+        # ---------------- PLAYER MOVEMENT ----------------
+
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w] or keys[pygame.K_UP]:
+            player.y -= player_speed
+
+        if keys[pygame.K_s] or keys[pygame.K_DOWN]:
+            player.y += player_speed
+
+        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+            player.x -= player_speed
+
+        if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+            player.x += player_speed
+
+        player.clamp_ip(screen.get_rect())
+
+        # ---------------- BULLETS ----------------
+
+        for bullet in bullets[:]:
+
+            bullet[0] += bullet[2]
+            bullet[1] += bullet[3]
+
+            bullet_rect = pygame.Rect(
+                bullet[0],
+                bullet[1],
+                8,
+                8
+            )
+
+            if not screen.get_rect().colliderect(bullet_rect):
+                bullets.remove(bullet)
+                continue
+
+            # Hit enemies
+            for enemy in enemies[:]:
+
+                if bullet_rect.colliderect(enemy):
+
+                    enemies.remove(enemy)
+
+                    if bullet in bullets:
+                        bullets.remove(bullet)
+
+                    break
+
+        # ---------------- ENEMY AI ----------------
+
+        for enemy in enemies:
+
+            dx = player.centerx - enemy.centerx
+            dy = player.centery - enemy.centery
+
+            distance = math.hypot(dx, dy)
+
+            if distance > 0:
+                dx /= distance
+                dy /= distance
+
+            enemy.x += int(dx * 1.2)
+            enemy.y += int(dy * 1.2)
+
+            # Enemy damages player
+            if enemy.colliderect(player):
+                health -= 0.25
+
+        # ---------------- SAFE ZONE ----------------
+
+        distance_from_zone = math.hypot(
+            player.centerx - zone_x,
+            player.centery - zone_y
+        )
+
+        if distance_from_zone > zone_radius:
+            health -= 0.15
+
+        # Slowly shrink zone
+        zone_radius -= 0.01
+
+        if health <= 0:
+            health = 0
+            game_over = True
+            victory = False
+
+        if len(enemies) == 0:
+            game_over = True
+            victory = True
+
+    # ================= DRAW =================
+
+    screen.fill((45, 120, 55))
+
+    # Safe zone
+    pygame.draw.circle(
+        screen,
+        BLUE,
+        (zone_x, zone_y),
+        int(zone_radius),
+        5
+    )
+
+    # Enemies
+    for enemy in enemies:
+        pygame.draw.rect(screen, RED, enemy)
+
+    # Player
+    pygame.draw.rect(screen, BLUE, player)
+
+    # Bullets
+    for bullet in bullets:
+        pygame.draw.circle(
+            screen,
+            YELLOW,
+            (int(bullet[0]), int(bullet[1])),
+            4
+        )
+
+    # Health bar
+    pygame.draw.rect(
+        screen,
+        BLACK,
+        (20, 20, 204, 24)
+    )
+
+    pygame.draw.rect(
+        screen,
+        GREEN,
+        (22, 22, int(health * 2), 20)
+    )
+
+    health_text = font.render(
+        f"HP: {int(health)}",
+        True,
+        WHITE
+    )
+
+    screen.blit(health_text, (20, 50))
+
+    # Enemy count
+    enemy_text = font.render(
+        f"Enemies: {len(enemies)}",
+        True,
+        WHITE
+    )
+
+    screen.blit(enemy_text, (20, 80))
+
+    # Controls
+    controls = font.render(
+        "WASD = Move | Mouse = Shoot",
+        True,
+        WHITE
+    )
+
+    screen.blit(controls, (20, HEIGHT - 40))
+
+    # Game over
+    if game_over:
+
+        if victory:
+            text = big_font.render(
+                "BOOYAH! YOU WIN!",
+                True,
+                YELLOW
+            )
+        else:
+            text = big_font.render(
+                "YOU WERE ELIMINATED",
+                True,
+                RED
+            )
+
+        screen.blit(
+            text,
+            (
+                WIDTH // 2 - text.get_width() // 2,
+                HEIGHT // 2 - text.get_height() // 2
+            )
+        )
+
+    pygame.display.flip()
+
+pygame.quit().. _installing-packages:
 
 ===================
 Installing Packages
