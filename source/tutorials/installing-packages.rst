@@ -3,14 +3,14 @@ import 'dart:io';
 import 'dart:math';
 
 /// A CLI implementation of the logic previously described in the Python script.
-/// Since the original Python code relied on OpenCV and Tkinter (GUI), 
+/// Since the original Python code relied on OpenCV and Tkinter (GUI),
 /// this Dart CLI version provides a robust, idiomatic alternative for
 /// managing ephemeral data handling logic in a console environment.
 
 class EphemeralManager {
   final String _tempStoragePath = 'temp_snap.jpg';
 
-  /// Simulates capturing a snapshot. 
+  /// Simulates capturing a snapshot.
   /// In a CLI environment, we create a dummy file.
   Future<void> captureSnap() async {
     try {
@@ -30,7 +30,7 @@ class EphemeralManager {
     }
 
     print('Displaying ephemeral snap for $duration seconds...');
-    
+
     for (int i = duration; i > 0; i--) {
       print('Viewing... $i seconds remaining.');
       await Future.delayed(const Duration(seconds: 1));
