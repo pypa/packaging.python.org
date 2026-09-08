@@ -52,11 +52,12 @@ directory with autoindex enabled. For an example using the built in Web server
 in `Twisted`_, you would simply run ``twistd -n web --path .`` and then
 instruct users to add the URL to their installer's configuration.
 
-An automatically generated directory listing usually doesn't include artifact
-hashes. Without hashes in the repository links, tools may be unable to record
-them in lock files. To include a SHA-256 hash, generate an ``index.html`` file
-in each project directory and append the hash to each artifact URL as described
-by the :ref:`Simple Repository API <simple-repository-html-project-detail>`:
+A bare, automatically generated directory listing, such as one produced by a
+generic autoindex module, may not include artifact hashes. Without hashes in
+the repository links, tools may be unable to record them in lock files. To
+include a SHA-256 hash, generate an ``index.html`` file in each project
+directory and append the hash to each artifact URL as described by the
+:ref:`Simple Repository API <simple-repository-html-project-detail>`:
 
 .. code-block:: html
 
@@ -71,7 +72,9 @@ by the :ref:`Simple Repository API <simple-repository-html-project-detail>`:
 
 Replace ``3571b...`` with the full SHA-256 digest of the artifact. You can use
 :ref:`dumb-pypi` to generate a static repository with hashes and other Simple
-Repository API metadata from a directory of package artifacts.
+Repository API metadata from a directory of package artifacts. Full repository
+implementations should prefer the JSON variant of the Simple Repository API,
+which requires a (possibly empty) ``hashes`` mapping for each file.
 
 Existing projects
 =================
