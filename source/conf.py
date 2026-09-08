@@ -230,6 +230,7 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "python-guide": ("https://docs.python-guide.org", None),
     "setuptools": ("https://setuptools.pypa.io/en/latest/", None),
+    "setuptools-scm": ("https://setuptools-scm.rtfd.io/latest", None),
     "spack": ("https://spack.readthedocs.io/en/latest/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
     "tox": ("https://tox.wiki/en/latest/", None),
