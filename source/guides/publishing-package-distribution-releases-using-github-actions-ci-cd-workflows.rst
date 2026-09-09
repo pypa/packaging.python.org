@@ -104,6 +104,12 @@ We will have to define two jobs to publish to PyPI
 and TestPyPI respectively, and an additional job to
 build the distribution packages.
 
+.. important::
+
+   Keep the build job separate from the publishing jobs. Building
+   distributions in a publishing job is unsupported; publishing jobs should
+   only download the already-built artifacts and upload them.
+
 First, we'll define the job for building the dist packages of
 your project and storing them for later use:
 
