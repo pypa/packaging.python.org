@@ -129,6 +129,9 @@ specializing the presentation of ``Project-URL`` metadata:
    * - ``funding`` (Funding)
      - Funding Information
      - ``sponsor``, ``donate``, ``donation``
+   * - ``security`` (Security Policy)
+     - The project's security policy or vulnerability reporting page
+     - ``securitypolicy``
 
 Package metadata consumers may choose to render aliased labels the same as
 their "parent" well known label, or further specialize them.
