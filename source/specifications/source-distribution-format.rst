@@ -74,10 +74,19 @@ at their respective paths relative to the root directory of the sdist
 No other content of a sdist is required or defined. Build systems can store
 whatever information they need in the sdist to build the project.
 
-The tarball must use the modern POSIX.1-2001 pax tar format, which specifies
-UTF-8 based file names. In particular, source distribution files must be readable
+The tarball MUST use the modern POSIX.1-2001 pax tar format, which specifies
+UTF-8 based file names. In particular, source distribution files MUST be readable
 using the standard library tarfile module with the open flag 'r:gz'.
 
+Source distributions MUST NOT use non-pax features, even if those features are
+structurally compatible with the pax standard. Installers and other consumers SHOULD
+reject source distributions that are not strictly pax-conforming.
+
+Examples of non-pax features include GNU-style or legacy ("V7")-style tar members
+and sparse member encodings (e.g. ``GNU.sparse`` extensions or ``S`` typeflag members).
+
+The use of pax-style vendor extensions (such as ``SCHILY.xattr`` or ``LIBARCHIVE.xattr``)
+is NOT RECOMMENDED for interoperability reasons.
 
 .. _sdist-archive-features:
 
