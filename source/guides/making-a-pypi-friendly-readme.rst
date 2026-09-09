@@ -1,5 +1,5 @@
 Making a PyPI-friendly README
-=============================
+=============================,
 
 README files can help your users understand your project and can be used to set your project's description on PyPI.
 This guide helps you create a README in a PyPI-friendly format and include your README in your package so it appears on PyPI.
