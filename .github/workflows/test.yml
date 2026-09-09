@@ -37,7 +37,7 @@ jobs:
         - noxenv: linkcheck
           # Don't block PRs, merge groups, or non-main pushes on unrelated linkcheck failures.
           continue-on-error: >-
-            ${{ toJSON(github.event_name == 'pull_request' || github.event_name == 'merge_group' ||
+            ${{ toJSON(contains(['merge_group', 'pull_request'], github.event_name) ||
               (github.event_name == 'push' && github.ref_name != github.event.repository.default_branch)) }}
 
     steps:
