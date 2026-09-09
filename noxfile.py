@@ -33,10 +33,12 @@ def build(session, autobuild=False):
     Make the website.
     """
     session.install("-r", "requirements.txt")
-
-    if autobuild:
-        command = "sphinx-autobuild"
-        extra_args = "--host", "0.0.0.0"
+if autobuild:
+    command = "sphinx-autobuild"
+    extra_args = (
+        "--host",
+        "0.0.0.0",
+    )
     else:
         # NOTE: This branch adds options that are unsupported by autobuild
         command = "sphinx-build"
