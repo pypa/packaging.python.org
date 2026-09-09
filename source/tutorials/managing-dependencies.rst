@@ -70,7 +70,7 @@ tutorial) and run:
     cd myproject
     pipenv install requests
 
-Pipenv will install the `Requests`_ library and create a ``Pipfile``
+Pipenv will install the :pypi:`Requests <requests>` library and create a ``Pipfile``
 for you in your project's directory. The :ref:`Pipfile` is used to track which
 dependencies your project needs in case you need to re-install them, such as
 when you share your project with others. You should get output similar to this
@@ -101,9 +101,6 @@ when you share your project with others. You should get output similar to this
     Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
     Adding requests to Pipfile's [packages]...
-
-.. _Requests: https://pypi.org/project/requests/
-
 
 Using installed packages
 ------------------------

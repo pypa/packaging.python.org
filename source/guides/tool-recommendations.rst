@@ -74,11 +74,11 @@ in alphabetical order:
 - :doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate from :ref:`Flit`.
   A minimal and opinionated build backend. It does not support plugins.
 
-- Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports plugins.
+- :pypi:`Hatchling <hatchling>` -- developed with but separate from :ref:`Hatch`. Supports plugins.
 
 - PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports plugins.
 
-- Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports
+- :pypi:`Poetry-core <poetry-core>` -- developed with but separate from :ref:`Poetry`. Supports
   plugins.
 
   Unlike other backends on this list, Poetry-core does not support the standard
@@ -185,6 +185,4 @@ alphabetical order:
 - :doc:`tox <tox:index>`.
 
 
-.. _hatchling: https://pypi.org/project/hatchling/
 .. _pdm-backend: https://backend.pdm-project.org
-.. _poetry-core: https://pypi.org/project/poetry-core/

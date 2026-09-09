@@ -82,7 +82,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 - **Type**: Array of strings
 - **Required?**: no
-- **Inspiration**: uv_
+- **Inspiration**: :pypi:`uv`
 - A list of :ref:`dependency-specifiers-environment-markers` for
   which the lock file is considered compatible with.
 - Tools SHOULD write exclusive/non-overlapping environment markers to ease in
@@ -96,7 +96,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 - **Type**: string
 - **Required?**: no
-- **Inspiration**: PDM_, Poetry_, uv_
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`
 - Specifies the :ref:`core-metadata-requires-python` for the minimum
   Python version compatible for any environment supported by the lock file
   (i.e. the minimum viable Python version for the lock file).
@@ -153,7 +153,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 - **Type**: Array of strings
 - **Required?**: no; defaults to ``[]``
-- **Inspiration**: Poetry_, PDM_
+- **Inspiration**: :pypi:`Poetry <poetry>`, :pypi:`PDM <pdm>`
 - The name of synthetic dependency groups to represent what should be installed
   by default (e.g. what
   :ref:`[project.dependencies] <pyproject-toml-dependencies>` implicitly
@@ -187,7 +187,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 - **Type**: array of tables
 - **Required?**: yes
-- **Inspiration**: PDM_, Poetry_, uv_
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`
 - An array containing all packages that *may* be installed.
 - Packages MAY be listed multiple times with varying data, but all packages to
   be installed MUST narrow down to a single entry at install time.
@@ -228,7 +228,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 - **Type**: string
 - **Required?**: no
-- **Inspiration**: PDM_
+- **Inspiration**: :pypi:`PDM <pdm>`
 - The
   :ref:`environment marker <dependency-specifiers-environment-markers>`
   which specify when the package should be installed.
@@ -253,7 +253,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 - **Type**: array of tables
 - **Required?**: no
-- **Inspiration**: PDM_, Poetry_, uv_
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`
 - Records the other entries in :ref:`pylock-packages` which are direct
   dependencies of this package.
 - Each entry is a table which contains the minimum information required to tell
@@ -478,7 +478,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 - **Type**: integer
 - **Required?**: no
-- **Inspiration**: uv_, :ref:`simple-repository-api`
+- **Inspiration**: :pypi:`uv`, :ref:`simple-repository-api`
 - The size of the archive file.
 - Tools SHOULD provide the file size when reasonably possible (e.g. the file
   size is available via the Content-Length_ header from a HEAD_ HTTP request).
@@ -503,7 +503,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 - **Type**: Table of strings
 - **Required?**: yes
-- **Inspiration**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`, :ref:`simple-repository-api`
 - A table listing known hash values of the file where the key is the hash
   algorithm and the value is the hash value.
 - The table MUST contain at least one entry.
@@ -528,7 +528,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 - **Type**: string
 - **Required?**: no
-- **Inspiration**: uv_
+- **Inspiration**: :pypi:`uv`
 - The base URL for the package index from :ref:`simple-repository-api`
   where the sdist and/or wheels were found (e.g. ``https://pypi.org/simple/``).
 - When possible, this SHOULD be specified to assist with generating
@@ -546,7 +546,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 - **Type**: table
 - **Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`,
   :ref:`pylock-packages-directory`, and :ref:`pylock-packages-archive`
-- **Inspiration**: uv_
+- **Inspiration**: :pypi:`uv`
 - Details of a :ref:`source-distribution-format-sdist` for the
   package.
 - Tools MAY choose to not support sdist files, both from a locking
@@ -563,7 +563,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 - **Required?**: no, not when the last component of
   :ref:`pylock-packages-sdist-path`/ :ref:`pylock-packages-sdist-url` would be
   the same value
-- **Inspiration**: PDM_, Poetry_, uv_
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`
 - The file name of the :ref:`source-distribution-format-sdist` file.
 - If specified, this key's value takes precedence over the file name found in
   either :ref:`pylock-packages-sdist-url` or :ref:`pylock-packages-sdist-path`.
@@ -618,7 +618,7 @@ See :ref:`pylock-packages-archive-hashes`.
 - **Type**: array of tables
 - **Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`,
   :ref:`pylock-packages-directory`, and :ref:`pylock-packages-archive`
-- **Inspiration**: PDM_, Poetry_, uv_
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`
 - For recording the wheel files as specified by
   :ref:`binary-distribution-format` for the package.
 - Tools MUST support wheel files, both from a locking and installation
@@ -634,7 +634,7 @@ See :ref:`pylock-packages-archive-hashes`.
 - **Required?**: no, not when the last component of
   :ref:`pylock-packages-wheels-path`/ :ref:`pylock-packages-wheels-url` would be
   the same value
-- **Inspiration**: PDM_, Poetry_, uv_
+- **Inspiration**: :pypi:`PDM <pdm>`, :pypi:`Poetry <poetry>`, :pypi:`uv`
 - The file name of the :ref:`binary-distribution-format` file.
 - If specified, this key's value takes precedence over the file name found in
   either :ref:`pylock-packages-wheels-url` or :ref:`pylock-packages-wheels-path`.
@@ -847,12 +847,8 @@ History
 .. _Content-Length: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length
 .. _Dependabot: https://docs.github.com/en/code-security/dependabot
 .. _HEAD: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
-.. _PDM: https://pypi.org/project/pdm/
-.. _pip-tools: https://pypi.org/project/pip-tools/
-.. _Poetry: https://pypi.org/project/poetry/
 .. _requirements file:
 .. _requirements files: https://pip.pypa.io/en/stable/reference/requirements-file-format/
 .. _software bill of materials: https://www.cisa.gov/sbom
 .. _TOML: https://toml.io/
-.. _uv: https://pypi.org/project/uv/
 .. _URL: https://url.spec.whatwg.org/

@@ -86,18 +86,18 @@ with a single-source strategy, there are a number of options.
 Tools for single-source Python packages
 ----------------------------------------
 
-`six <https://pypi.org/project/six/>`_ is a tool developed by Benjamin Peterson
-for wrapping over the differences between Python 2 and Python 3. The six_
+:pypi:`six` is a tool developed by Benjamin Peterson
+for wrapping over the differences between Python 2 and Python 3. The :pypi:`six`
 package has enjoyed widespread use and may be regarded as a reliable way to
 write a single-source Python module that can be use in both Python 2 and 3.
-The six_ module can be used from as early as Python 2.5. A tool called
-`modernize <https://pypi.org/project/modernize>`_, developed by Armin
+The :pypi:`six` module can be used from as early as Python 2.5. A tool called
+:pypi:`modernize`, developed by Armin
 Ronacher, can be used to automatically apply the code modifications provided
-by six_.
+by :pypi:`six`.
 
-Similar to six_, `python-future <http://python-future.org/overview.html>`_ is
+Similar to :pypi:`six`, `python-future <http://python-future.org/overview.html>`_ is
 a package that provides a compatibility layer between Python 2 and Python 3
-source code; however, unlike six_, this package aims to provide
+source code; however, unlike :pypi:`six`, this package aims to provide
 interoperability between Python 2 and Python 3 with a language syntax that
 matches one of the two Python versions: one may
 use
@@ -107,12 +107,12 @@ use
 
 Because of the bi-directionality, python-future_ offers a pathway to
 converting a Python 2 package to Python 3 syntax module-by-module. However, in
-contrast to six_, python-future_ is supported only from Python 2.6. Similar to
-modernize_ for six_, python-future_ comes with two scripts called ``futurize``
+contrast to :pypi:`six`, python-future_ is supported only from Python 2.6. Similar to
+:pypi:`modernize` for :pypi:`six`, python-future_ comes with two scripts called ``futurize``
 and ``pasteurize`` that can be applied to either a Python 2 module or a Python
 3 module respectively.
 
-Use of six_ or python-future_ adds an additional runtime dependency to your
+Use of :pypi:`six` or python-future_ adds an additional runtime dependency to your
 package: with python-future_, the ``futurize`` script can be called with the
 ``--stage1`` option to apply only the changes that Python 2.6+ already
 provides for forward-compatibility to Python 3. Any remaining compatibility
