@@ -1,0 +1,59 @@
+name: Check new documentation links
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  new-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+
+      - name: Collect added documentation lines
+        shell: python
+        run: |
+          import os
+          from pathlib import Path
+          import subprocess
+
+          # Compare the merge result with its base parent, not the PR parent.
+          diff = subprocess.check_output(
+              ["git", "diff", "--no-ext-diff", "--no-textconv", "--unified=0",
+               "HEAD^1", "HEAD", "--", "*.md", "*.rst"],
+              text=True, encoding="utf-8",
+          )
+          added = []
+          in_hunk = False
+          for line in diff.splitlines():
+              if line.startswith("diff --git "):
+                  in_hunk = False
+              elif line.startswith("@@ "):
+                  in_hunk = True
+              elif in_hunk and line.startswith("+"):
+                  added.append(line[1:])
+
+          # Never load configuration or write results inside the PR checkout.
+          directory = Path(os.environ["RUNNER_TEMP"]) / "new-links"
+          directory.mkdir()
+          (directory / "added-lines.txt").write_text("\n".join(added), encoding="utf-8")
+          (directory / "lychee.toml").write_text("", encoding="utf-8")
+
+      - name: Check links in added lines
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
+        with:
+          workingDirectory: ${{ runner.temp }}/new-links
+          args: --config lychee.toml --verbose --no-progress --scheme http --scheme https --exclude-all-private added-lines.txt
+          token: ""
+          fail: true
+          failIfEmpty: false
