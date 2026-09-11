@@ -142,9 +142,6 @@ index used by an installer. Remove or update any override that points at the
 old host, using that installer's documentation to locate its active
 configuration.
 
-For pip, see its :ref:`configuration documentation <pip:config-file>` for the
-supported configuration files, environment variables, and commands.
-
 Managing published packages and releases
 ----------------------------------------
 
