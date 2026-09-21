@@ -1,8 +1,10 @@
 # -- Project information ---------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import json
 import os
 import pathlib
+import re
 import sys
 
 _ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -165,6 +167,16 @@ linkcheck_ignore = [
     # Temporarily ignored due to expired TLS cert.
     r"https://kivy.org/.*",
 ]
+if (
+    os.getenv("GITHUB_ACTIONS") == "true"
+    and os.getenv("GITHUB_EVENT_NAME") in {"pull_request", "merge_group"}
+    and (baseline := pathlib.Path("build/output.json")).exists()
+):
+    with baseline.open() as f:
+        linkcheck_ignore.extend(
+            re.escape(json.loads(line)["uri"])
+            for line in f
+        )
 linkcheck_retries = 2
 linkcheck_timeout = 30
 # Ignore anchors for common targets when we know they likely won't be found
