@@ -22,7 +22,7 @@
     .. code-block:: toml
 
         [build-system]
-        requires = ["flit_core >= 3.12.0, <4"]
+        requires = ["flit_core >= 3.12.0, <5"]
         build-backend = "flit_core.buildapi"
 
 .. tab:: PDM
@@ -38,5 +38,5 @@
     .. code-block:: toml
 
         [build-system]
-        requires = ["uv_build >= 0.12.1, <0.13.0"]
+        requires = ["uv_build >= 0.12.10, <0.13.0"]
         build-backend = "uv_build"

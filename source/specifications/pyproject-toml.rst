@@ -505,6 +505,11 @@ marker clause on the related ``Requires-Dist`` entries to check the extra name.
 Optional dependencies are thus only considered for installation if installation
 if the associated extra name is requested.
 
+Dependency specifiers in an extra may self-reference other extras from the
+current project (e.g. ``all = ["your-project-name[gui, cli]"]``). See
+:ref:`self-referential extras <self-referential-extras>` for an example.
+Most package managers now support this kind of extra, including
+:ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`.
 
 .. _pyproject-toml-import-names:
 
@@ -713,5 +718,8 @@ History
 - May 2026: Allowed list and table keys to be specified statically as well
   as listed in ``dynamic``, with build back-ends only able to append
   entries, through :pep:`808`.
+
+- August 2026: Document self-referential extra as a supported feature by many
+  modern package managers of Python.
 
 .. _TOML: https://toml.io
