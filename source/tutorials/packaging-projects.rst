@@ -414,6 +414,11 @@ After the command completes, you should see output similar to this:
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 kB • 00:00 • ?
 
+.. tip::
+
+   If Twine reports an invalid username or password, see PyPI's
+   `help on invalid authentication errors <https://pypi.org/help/#invalid-auth>`_.
+
 Once uploaded, your package should be viewable on TestPyPI; for example:
 ``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
 
