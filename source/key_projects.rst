@@ -746,6 +746,19 @@ pywharf
 pywharf is a :term:`package index <Package Index>` server, serving files
 locally or from `GitHub <https://github.com/>`_.
 
+.. _rye:
+
+Rye
+===
+
+`Docs <https://rye.astral.sh/>`__ |
+`GitHub <https://github.com/astral-sh/rye>`__ |
+`PyPI <https://pypi.org/project/rye/>`__
+
+.. warning:: Not maintained, project archived. Use :ref:`uv` instead.
+
+Rye is a comprehensive project and package management solution for Python.
+
 .. _scikit-build:
 
 scikit-build
