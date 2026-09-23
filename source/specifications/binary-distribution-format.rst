@@ -206,21 +206,21 @@ in both fields) consist of:
        Tag: py3-none-any
        Build: 1
 
-#. ``Wheel-Version`` is the version number of the Wheel specification.
-#. ``Generator`` is the name and optionally the version of the software
-   that produced the archive.
-#. ``Root-Is-Purelib`` is true if the top level directory of the archive
-   should be installed into purelib; otherwise the root should be installed
-   into platlib.
-#. ``Tag`` is the wheel's expanded compatibility tags; in the example the
-   filename would contain ``py2.py3-none-any``.
-#. ``Build`` is the build number and is omitted if there is no build number.
-#. A wheel installer should warn if Wheel-Version is greater than the
-   version it supports, and must fail if Wheel-Version has a greater
-   major version than the version it supports.
-#. Wheel, being an installation format that is intended to work across
-   multiple versions of Python, does not generally include .pyc files.
-#. Wheel does not contain setup.py or setup.cfg.
+    #. ``Wheel-Version`` is the version number of the Wheel specification.
+    #. ``Generator`` is the name and optionally the version of the software
+       that produced the archive.
+    #. ``Root-Is-Purelib`` is true if the top level directory of the archive
+       should be installed into purelib; otherwise the root should be installed
+       into platlib.
+    #. ``Tag`` is the wheel's expanded compatibility tags; in the example the
+       filename would contain ``py2.py3-none-any``.
+    #. ``Build`` is the build number and is omitted if there is no build number.
+    #. A wheel installer should warn if ``Wheel-Version`` is greater than the
+       version it supports, and must fail if ``Wheel-Version`` has a greater
+       major version than the version it supports.
+#. Wheel files, being an installation format that is intended to work across
+   multiple versions of Python, do not generally include ``.pyc`` files.
+#. Wheels files do not contain ``pyproject.toml``, ``setup.py`` or ``setup.cfg``.
 
 This version of the wheel specification is based on the distutils install
 schemes and does not define how to install files to other locations.
