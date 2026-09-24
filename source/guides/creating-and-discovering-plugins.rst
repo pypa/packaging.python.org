@@ -19,7 +19,7 @@ Using naming convention
 
 If all of the plugins for your application follow the same naming convention,
 you can use :func:`pkgutil.iter_modules` to discover all of the top-level
-modules that match the naming convention. For example, `Flask`_ uses the
+modules that match the naming convention. For example, :pypi:`Flask` uses the
 naming convention ``flask_{plugin_name}``. If you wanted to automatically
 discover all of the Flask plugins installed:
 
@@ -35,7 +35,7 @@ discover all of the Flask plugins installed:
         if name.startswith('flask_')
     }
 
-If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins installed
+If you had both the :pypi:`Flask-SQLAlchemy` and :pypi:`Flask-Talisman <flask-talisman>` plugins installed
 then ``discovered_plugins`` would be:
 
 .. code-block:: python
@@ -48,11 +48,6 @@ then ``discovered_plugins`` would be:
 Using naming convention for plugins also allows you to query
 the Python Package Index's :ref:`simple repository API <simple-repository-api>`
 for all packages that conform to your naming convention.
-
-.. _Flask: https://pypi.org/project/Flask/
-.. _Flask-SQLAlchemy: https://pypi.org/project/Flask-SQLAlchemy/
-.. _Flask-Talisman: https://pypi.org/project/flask-talisman
-
 
 Using namespace packages
 ========================

@@ -126,8 +126,8 @@ in their installed packages. This has the added advantage of permitting users to
 run tests after installing them, for example to check for regressions
 after upgrading a dependency. Yet another approach is to split tests or test
 data into a separate Python package. Such an approach was taken by
-the cryptography_ project, with the large test vectors being split
-to cryptography-vectors_ package.
+the :pypi:`cryptography` project, with the large test vectors being split
+to :pypi:`cryptography-vectors` package.
 
 A good idea is to use your source distribution in the release workflow.
 For example, the :ref:`build` tool does exactly that — it first builds a source
@@ -351,9 +351,9 @@ Some specific suggestions are:
   of the installed package!
 
 - Make the test suite work offline. Mock network interactions, using
-  packages such as responses_ or vcrpy_. If that is not possible, make it
+  packages such as :pypi:`responses` or :pypi:`vcrpy`. If that is not possible, make it
   possible to easily disable the tests using Internet access, e.g. via a pytest_
-  marker. Use pytest-socket_ to verify that your tests work offline. This
+  marker. Use :pypi:`pytest-socket` to verify that your tests work offline. This
   often makes your own test workflows faster and more reliable as well.
 
 - Make your tests work without a specialized setup, or perform the necessary
@@ -389,14 +389,14 @@ Some specific suggestions are:
 
 - If your test suite takes significant time to run, support testing
   in parallel. Downstreams often maintain a large number of packages,
-  and testing them all takes a lot of time. Using pytest-xdist_ can help them
+  and testing them all takes a lot of time. Using :pypi:`pytest-xdist` can help them
   avoid bottlenecks.
 
 - Ideally, support running your test suite via ``pytest``. pytest_ has many
   command-line arguments that are truly helpful to downstreams, such as
   the ability to conveniently deselect tests, rerun flaky tests
-  (via pytest-rerunfailures_), add a timeout to prevent tests from hanging
-  (via pytest-timeout_) or run tests in parallel (via pytest-xdist_).
+  (via :pypi:`pytest-rerunfailures`), add a timeout to prevent tests from hanging
+  (via :pypi:`pytest-timeout`) or run tests in parallel (via :pypi:`pytest-xdist`).
   Note that test suites don't need to be *written* with ``pytest`` to be
   *executed* with ``pytest``: ``pytest`` is able to find and execute almost
   all test cases that are compatible with the standard library's ``unittest``
@@ -468,14 +468,6 @@ as well. Some specific suggestions are:
   to make it easier to cherry-pick changes to earlier releases when necessary.
 
 
-.. _responses: https://pypi.org/project/responses/
-.. _vcrpy: https://pypi.org/project/vcrpy/
-.. _pytest-socket: https://pypi.org/project/pytest-socket/
-.. _pytest-xdist: https://pypi.org/project/pytest-xdist/
 .. _pytest: https://pytest.org/
-.. _pytest-rerunfailures: https://pypi.org/project/pytest-rerunfailures/
-.. _pytest-timeout: https://pypi.org/project/pytest-timeout/
 .. _Django: https://www.djangoproject.com/
 .. _NumPy: https://numpy.org/
-.. _cryptography: https://pypi.org/project/cryptography/
-.. _cryptography-vectors: https://pypi.org/project/cryptography-vectors/
