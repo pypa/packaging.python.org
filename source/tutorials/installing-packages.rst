@@ -110,7 +110,7 @@ check this by running:
         py -m pip --version
 
 If you installed Python from source, with an installer from `python.org`_, or
-via `Homebrew`_ you should already have pip. If you're on Linux and installed
+via `Homebrew`_, you should already have pip. If you're on Linux and installed
 using your OS package manager, you may have to install pip separately, see
 :doc:`/guides/installing-using-linux-tools`.
 
@@ -144,9 +144,9 @@ If that still doesn't allow you to run ``python -m pip``:
 
      Be cautious if you're using a Python install that's managed by your
      operating system or another package manager. get-pip.py does not
-     coordinate with those tools, and may leave your system in an
+     coordinate with those tools and may leave your system in an
      inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
-     to install in ``/usr/local`` which is designed for locally-installed
+     to install in ``/usr/local`` which is designed for locally installed
      software.
 
 
@@ -188,7 +188,7 @@ but here's the basic :doc:`venv <python:library/venv>` [3]_ command to use on a 
         py -m venv tutorial_env
         tutorial_env\Scripts\activate
 
-This will create a new virtual environment in the ``tutorial_env`` subdirectory,
+This will create a new virtual environment in the ``tutorial_env`` subdirectory
 and configure the current shell to use it as the default ``python`` environment.
 
 
@@ -200,7 +200,7 @@ Creating Virtual Environments
 Python "Virtual Environments" allow Python :term:`packages <Distribution
 Package>` to be installed in an isolated location for a particular application,
 rather than being installed globally. If you are looking to safely install
-global command line tools,
+global command-line tools,
 see :doc:`/guides/installing-stand-alone-command-line-tools`.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
@@ -217,7 +217,7 @@ Also, what if you can’t install :term:`packages <Distribution Package>` into t
 global site-packages directory? For instance, on a shared host.
 
 In all these cases, virtual environments can help you. They have their own
-installation directories and they don’t share libraries with other virtual
+installation directories and don’t share libraries with other virtual
 environments.
 
 Currently, there are two common tools for creating Python virtual environments:
@@ -284,7 +284,7 @@ script directly from the command shell like so:
 
 Managing multiple virtual environments directly can become tedious, so the
 :ref:`dependency management tutorial <managing-dependencies>` introduces a
-higher level tool, :ref:`Pipenv`, that automatically manages a separate
+higher-level tool :ref:`Pipenv` that automatically manages a separate
 virtual environment for each project and application that you work on.
 
 
@@ -375,7 +375,7 @@ Source Distributions vs Wheels
 :ref:`pip` can install from either :term:`Source Distributions (sdist) <Source
 Distribution (or "sdist")>` or :term:`Wheels <Wheel>`, but if both are present
 on PyPI, pip will prefer a compatible :term:`wheel <Wheel>`. You can override
-pip`s default behavior by e.g. using its :ref:`--no-binary
+pip's default behavior by e.g. using its :ref:`--no-binary
 <pip:install_--no-binary>` option.
 
 :term:`Wheels <Wheel>` are a pre-built :term:`distribution <Distribution
@@ -391,7 +391,7 @@ in the future.
 Upgrading packages
 ==================
 
-Upgrade an already installed ``SomeProject`` to the latest from PyPI.
+Upgrade an already installed ``SomeProject`` to the latest from PyPI:
 
 .. tab:: Unix/macOS
 
@@ -425,12 +425,12 @@ current user, use the ``--user`` flag:
 
         py -m pip install --user SomeProject
 
-For more information see the `User Installs
+For more information, see the `User Installs
 <https://pip.pypa.io/en/latest/user_guide/#user-installs>`_ section
 from the pip docs.
 
 Note that the ``--user`` flag has no effect when inside a virtual environment
-- all installation commands will affect the virtual environment.
+– all installation commands will affect the virtual environment.
 
 If ``SomeProject`` defines any command-line scripts or console entry points,
 ``--user`` will cause them to be installed inside the `user base`_'s binary
@@ -443,13 +443,13 @@ directory to your :envvar:`PATH`:
 - On Linux and macOS you can find the user base binary directory by running
   ``python -m site --user-base`` and adding ``bin`` to the end. For example,
   this will typically print ``~/.local`` (with ``~`` expanded to the absolute
-  path to your home directory) so you'll need to add ``~/.local/bin`` to your
+  path to your home directory), so you'll need to add ``~/.local/bin`` to your
   ``PATH``.  You can set your ``PATH`` permanently by `modifying ~/.profile`_.
 
 - On Windows you can find the user base binary directory by running ``py -m
   site --user-site`` and replacing ``site-packages`` with ``Scripts``. For
   example, this could return
-  ``C:\Users\Username\AppData\Roaming\Python36\site-packages`` so you would
+  ``C:\Users\Username\AppData\Roaming\Python36\site-packages``, so you would
   need to set your ``PATH`` to include
   ``C:\Users\Username\AppData\Roaming\Python36\Scripts``. You can set your user
   ``PATH`` permanently in the `Control Panel`_. You may need to log out for the
@@ -463,7 +463,7 @@ Requirements files
 ==================
 
 Install a list of requirements specified in a :ref:`Requirements File
-<pip:Requirements Files>`.
+<pip:Requirements Files>`:
 
 .. tab:: Unix/macOS
 
@@ -480,8 +480,7 @@ Install a list of requirements specified in a :ref:`Requirements File
 Installing from VCS
 ===================
 
-Install a project from VCS in "editable" mode.  For a full breakdown of the
-syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
+Install a project from VCS in "editable" mode:
 
 .. tab:: Unix/macOS
 
@@ -501,10 +500,12 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
         py -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
         py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
 
+For a full breakdown of the syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
+
 Installing from other Indexes
 =============================
 
-Install from an alternate index
+Install from an alternate index:
 
 .. tab:: Unix/macOS
 
@@ -519,7 +520,7 @@ Install from an alternate index
         py -m pip install --index-url http://my.package.repo/simple/ SomeProject
 
 Search an additional index during install, in addition to :term:`PyPI <Python
-Package Index (PyPI)>`
+Package Index (PyPI)>`:
 
 .. tab:: Unix/macOS
 
@@ -540,7 +541,7 @@ Installing from a local src tree
 Installing from local src in
 :doc:`Development Mode <setuptools:userguide/development_mode>`,
 i.e. in such a way that the project appears to be installed, but yet is
-still editable from the src tree.
+still editable from the src tree:
 
 .. tab:: Unix/macOS
 
@@ -554,7 +555,7 @@ still editable from the src tree.
 
         py -m pip install -e <path>
 
-You can also install normally from src
+You can also install normally from src:
 
 .. tab:: Unix/macOS
 
@@ -571,7 +572,7 @@ You can also install normally from src
 Installing from local archives
 ==============================
 
-Install a particular source archive file.
+Install a particular source archive file:
 
 .. tab:: Unix/macOS
 
@@ -586,7 +587,7 @@ Install a particular source archive file.
         py -m pip install ./downloads/SomeProject-1.0.4.tar.gz
 
 Install from a local directory containing archives (and don't check :term:`PyPI
-<Python Package Index (PyPI)>`)
+<Python Package Index (PyPI)>`):
 
 .. tab:: Unix/macOS
 
@@ -607,10 +608,10 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 Installing from other sources
 =============================
 
-To install from other data sources (for example Amazon S3 storage)
+To install from other data sources (for example, Amazon S3 storage),
 you can create a helper application that presents the data
-in a format compliant with the :ref:`simple repository API <simple-repository-api>`:,
-and use the ``--extra-index-url`` flag to direct pip to use that index.
+in a format compliant with the :ref:`simple repository API <simple-repository-api>`
+and use the ``--extra-index-url`` flag to direct pip to use that index:
 
 .. code-block:: bash
 
@@ -621,8 +622,8 @@ and use the ``--extra-index-url`` flag to direct pip to use that index.
 Installing Prereleases
 ======================
 
-Find pre-release and development versions, in addition to stable versions.  By
-default, pip only finds stable versions.
+Find pre-release and development versions, in addition to stable versions (by
+default, pip only finds stable versions):
 
 .. tab:: Unix/macOS
 
@@ -678,4 +679,4 @@ you know publishes one, you can include it in the pip installation command:
 
 .. [4] The compatible release specifier was accepted in :pep:`440`
        and support was released in :ref:`setuptools` v8.0 and
-       :ref:`pip` v6.0
+       :ref:`pip` v6.0.
