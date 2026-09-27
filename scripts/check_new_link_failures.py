@@ -41,7 +41,9 @@ def _broken_urls(report: Path) -> dict[str, str]:
         raise SystemExit(f"linkcheck report not found: {report}")
 
     broken: dict[str, str] = {}
-    for number, raw_line in enumerate(report.read_text(encoding="utf-8").splitlines(), 1):
+    for number, raw_line in enumerate(
+        report.read_text(encoding="utf-8").splitlines(), 1
+    ):
         if not raw_line.strip():
             continue
         try:
