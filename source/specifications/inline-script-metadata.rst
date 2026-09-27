@@ -219,6 +219,21 @@ Tools that support managing different versions of Python should attempt to use
 the highest available version of Python that is compatible with the script's
 ``requires-python`` metadata, if defined.
 
+If a string literal contains lines that look like inline metadata, a simple
+textual scan may mistake them for metadata. Put the opening marker inside a
+quoted line; Python joins adjacent string literals:
+
+.. code:: python
+
+    source_code = ("""
+    """
+    "# /// script"
+    """
+    # dependencies = ["requests"]
+    # ///
+    import requests
+    """)
+
 
 History
 =======
