@@ -281,10 +281,9 @@ script directly from the command shell like so:
    <DIR>\Scripts\activate
 
 
-
 Managing multiple virtual environments directly can become tedious, so the
-:ref:`dependency management tutorial <managing-dependencies>` introduces a
-higher-level tool :ref:`Pipenv` that automatically manages a separate
+:ref:`dependency management tutorial <managing-dependencies>` introduces
+:ref:`Pipenv`, a higher-level tool that automatically manages a separate
 virtual environment for each project and application that you work on.
 
 
