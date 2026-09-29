@@ -323,8 +323,9 @@ You can also specify the format explicitly, like this:
 ``license`` and ``license-files``
 ---------------------------------
 
-:pep:`639` defines two fields for modern license metadata. They serve
-different purposes and can be used independently:
+The :ref:`Core Metadata specification <core-metadata-license>` defines two fields
+for modern license metadata. They serve different purposes and can be used
+independently:
 
 - ``license`` declares an :term:`SPDX license expression <License Expression>`
   consisting of one or more :term:`license identifiers <License Identifier>`.
