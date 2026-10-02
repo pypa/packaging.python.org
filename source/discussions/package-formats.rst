@@ -8,7 +8,7 @@ This page discusses the file formats that are used to distribute Python packages
 and the differences between them.
 
 You will find files in two formats on package indices such as PyPI_: **source
-distributions**, or **sdists** for short, and **binary distributions**, commonly
+distributions**, or **sdists** for short, and **built distributions**, commonly
 called **wheels**.  For example, the `PyPI page for pip 23.3.1 <pip-pypi_>`_
 lets you download two files, ``pip-23.3.1.tar.gz`` and
 ``pip-23.3.1-py3-none-any.whl``.  The former is an sdist, the latter is a
