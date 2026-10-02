@@ -129,10 +129,9 @@ Each version compatibility change should have its own release.
 
 .. tip::
 
-        When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible places (like the testing environment). Tools like pyupgrade_ or `ruff <https://docs.astral.sh/ruff/linter/>`_ can automate some of this work.
+        When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible places (like the testing environment). Tools like :pypi:`pyupgrade` or `ruff <https://docs.astral.sh/ruff/linter/>`_ can automate some of this work.
 
 .. _discourse-discussion: https://discuss.python.org/t/requires-python-upper-limits/12663
-.. _pyupgrade: https://pypi.org/project/pyupgrade/
 .. _dependency-management: https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#python-requirement
 
 .. [#] Support for the Metadata 1.2 specification has been added in Pip 9.0.

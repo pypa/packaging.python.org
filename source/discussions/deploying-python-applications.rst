@@ -57,7 +57,7 @@ Windows
 Pynsist
 ^^^^^^^
 
-`Pynsist <https://pypi.org/project/pynsist>`__ is a tool that bundles Python
+:pypi:`Pynsist <pynsist>` is a tool that bundles Python
 programs together with the Python-interpreter into a single installer based on
 NSIS. In most cases, packaging only requires the user to choose a version of
 the Python-interpreter and declare the dependencies of the program. The tool
@@ -88,7 +88,7 @@ Windows
 py2exe
 ^^^^^^
 
-`py2exe <https://pypi.org/project/py2exe/>`__ is a distutils extension which
+:pypi:`py2exe` is a distutils extension which
 allows to build standalone Windows executable programs (32-bit and 64-bit)
 from Python scripts. Python versions included in the official development
 cycle are supported (refers to `Status of Python branches`__). py2exe can
@@ -105,7 +105,7 @@ macOS
 py2app
 ^^^^^^
 
-`py2app <https://pypi.org/project/py2app/>`__ is a Python setuptools
+:pypi:`py2app` is a Python setuptools
 command which will allow you to make standalone macOS application
 bundles and plugins from Python scripts. Note that py2app MUST be used
 on macOS to build applications, it cannot create Mac applications on other
@@ -117,7 +117,7 @@ Unix (including Linux and macOS)
 pex
 ^^^
 
-`pex <https://pypi.org/project/pex/>`__ is  a library for generating .pex
+:pypi:`pex` is  a library for generating .pex
 (Python EXecutable) files which are executable Python environments in the
 spirit of virtualenvs. pex is an expansion upon the ideas outlined in :pep:`441`
 and makes the deployment of Python applications as simple as cp. pex files may
