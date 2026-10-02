@@ -39,13 +39,14 @@
 # monios <xiaotbl114514@outlook.com>, 2025.
 # reducedradius <137701630+flytothehighest@users.noreply.github.com>, 2026.
 # Haozhe Xu <xuhaozhepy@outlook.com>, 2026.
+# B10112 <B10112@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-11 10:39+0000\n"
-"PO-Revision-Date: 2026-08-14 01:51+0000\n"
-"Last-Translator: Haozhe Xu <xuhaozhepy@outlook.com>\n"
+"PO-Revision-Date: 2026-08-17 03:52+0000\n"
+"Last-Translator: B10112 <B10112@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/pypa/packaging-python-org/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1526,13 +1527,15 @@ msgstr "在未被上游测试所覆盖的第三方平台上进行的测试。"
 msgid ""
 "Finding subtle bugs that can only be reproduced with particular hardware, "
 "system package versions, and so on."
-msgstr ""
+msgstr "找出那些只在特定硬件、系统包版本等环境下才能重现的隐蔽漏洞。"
 
 #: ../source/discussions/downstream-packaging.rst:317
 msgid ""
 "Testing the released package against newer (or older) dependency versions "
 "than the ones present during upstream release testing."
 msgstr ""
+"对已发布的软件包进行测试时，使用比上游发布测试时所采用的依赖版本更新（或更旧"
+"）的版本。"
 
 #: ../source/discussions/downstream-packaging.rst:320
 msgid ""
@@ -1541,12 +1544,16 @@ msgid ""
 "different installed packages, including packages that are not dependencies "
 "of your package, but nevertheless can cause issues."
 msgstr ""
+"在尽可能接近生产环境的环境中测试该软件包。这可以检测出由不同已安装包之间复杂"
+"交互所导致的问题，包括那些并非你软件包依赖项、但仍然可能引发问题的包。"
 
 #: ../source/discussions/downstream-packaging.rst:325
 msgid ""
 "Testing the released package against newer Python versions (including newer "
 "point releases), or less tested Python implementations such as PyPy."
 msgstr ""
+"针对较新版本的 Python（包括新的次要/补丁版本），或测试覆盖较少的 Python 实现"
+"（如 PyPy），对已发布的软件包进行测试。"
 
 #: ../source/discussions/downstream-packaging.rst:328
 msgid ""
@@ -1558,6 +1565,10 @@ msgid ""
 "downstream packagers are doing their best to double-check their results, and "
 "help upstream maintainers triage and fix the bugs that they reported."
 msgstr ""
+"诚然，下游测试有时可能会产生误报，或者报告一些上游项目无意支持的场景。然而，"
+"更多时候它确实能提前预警问题，或发现那些否则会给上游项目用户带来麻烦的隐蔽缺"
+"陷。尽管错误确实难免，但绝大多数下游打包者都在尽力反复核验自己的结果，并帮助"
+"上游维护者对报告的问题进行诊断和修复。"
 
 #: ../source/discussions/downstream-packaging.rst:339
 msgid ""
@@ -1568,12 +1579,15 @@ msgid ""
 "use for everyone, not just downstream packagers. Some specific suggestions "
 "are:"
 msgstr ""
+"上游项目可以做许多事情来帮助下游重新打包者高效、有效地测试他们的软件包，其中"
+"就包括上文提到的一些建议。这些改进通常能让测试套件对所有人来说都更可靠、更易"
+"用，而不仅仅是对下游打包者。以下是一些具体建议："
 
 #: ../source/discussions/downstream-packaging.rst:345
 msgid ""
 "Include the test files and fixtures in the source distribution, or make it "
 "possible to easily download them separately."
-msgstr ""
+msgstr "在源代码分发包中包含测试文件及测试夹具，或者使其能够单独轻松下载。"
 
 #: ../source/discussions/downstream-packaging.rst:348
 msgid ""
@@ -1582,6 +1596,9 @@ msgid ""
 "modifications performed during testing and temporary test files may end up "
 "being part of the installed package!"
 msgstr ""
+"测试期间不要向包目录中写入任何内容。下游测试环境有时会在已安装的包之上直接运"
+"行测试，而测试过程中所做的修改以及临时测试文件最终可能会被误纳入已安装的包中"
+"！"
 
 #: ../source/discussions/downstream-packaging.rst:353
 msgid ""
@@ -1591,6 +1608,10 @@ msgid ""
 "Use pytest-socket_ to verify that your tests work offline. This often makes "
 "your own test workflows faster and more reliable as well."
 msgstr ""
+"使测试套件能够在离线状态下工作。使用诸如 responses_ 或 vcrpy_ 之类的包来模拟"
+"网络交互。如果无法做到，则应提供便捷的方式禁用需要互联网访问的测试，例如通过 "
+"pytest_ 标记。可使用 pytest-socket_ 来验证你的测试确实在离线状态下运行。这样"
+"做通常也能让你的测试工作流更快、更可靠。"
 
 #: ../source/discussions/downstream-packaging.rst:359
 msgid ""
@@ -1599,6 +1620,8 @@ msgid ""
 "system services such as databases — in an extreme case, you could crash a "
 "production service!"
 msgstr ""
+"让测试无需专门配置即可运行，或将必要配置作为测试固件的一部分来执行。切勿假设"
+"你可以连接到数据库等系统服务——在极端情况下，这可能导致生产服务崩溃！"
 
 #: ../source/discussions/downstream-packaging.rst:364
 msgid ""
@@ -1606,6 +1629,8 @@ msgid ""
 "well. Either skip them if the needed packages are not installed, or add "
 "markers to make deselecting easy."
 msgstr ""
+"如果你的软件包有可选依赖，那么这些依赖对应的测试也应当是可选的。如果所需的包"
+"未安装，则跳过这些测试；或者添加标记，以便于轻松取消选择它们。"
 
 #: ../source/discussions/downstream-packaging.rst:368
 msgid ""
