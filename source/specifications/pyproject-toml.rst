@@ -14,10 +14,11 @@
 The ``pyproject.toml`` file acts as a configuration file for packaging-related
 tools (as well as other tools).
 
-The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
+The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Four
 tables are currently specified, namely
 :ref:`[build-system] <pyproject-build-system-table>`,
-:ref:`[project] <pyproject-project-table>` and
+:ref:`[project] <pyproject-project-table>`,
+:ref:`[dependency-groups] <dependency-groups>` and
 :ref:`[tool] <pyproject-tool-table>`. Other tables are reserved for future
 use (tool-specific configuration should use the ``[tool]`` table).
 
