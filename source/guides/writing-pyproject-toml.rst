@@ -323,11 +323,14 @@ You can also specify the format explicitly, like this:
 ``license`` and ``license-files``
 ---------------------------------
 
-As per :pep:`639`, licenses should be declared with two fields:
+The :ref:`Core Metadata specification <core-metadata-license>` defines two fields
+for modern license metadata. They serve different purposes and can be used
+independently:
 
-- ``license`` is an :term:`SPDX license expression <License Expression>`
+- ``license`` declares an :term:`SPDX license expression <License Expression>`
   consisting of one or more :term:`license identifiers <License Identifier>`.
-- ``license-files`` is a list of license file glob patterns.
+- ``license-files`` declares the license and other legal files that should be
+  included in distribution metadata, using a list of glob patterns.
 
 A previous PEP had specified ``license`` to be a table with a ``file`` or a
 ``text`` key, this format is now deprecated. Most :term:`build backends<build
@@ -343,11 +346,15 @@ backend>` now support the new format as shown in the following table.
      - poetry-core
      - uv-build
    * - 1.27.0
-     - 77.0.3
+     - 77.0.0
      - 3.12
      - 2.4.0
      - 2.2.0
      - 0.7.19
+
+The table records the first backend release that introduced :pep:`639`
+support; it is not a recommendation to pin projects to those historical
+versions. Prefer a current supported backend release when possible.
 
 
 .. _license:
