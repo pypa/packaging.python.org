@@ -147,11 +147,22 @@ also be considered:
 Alternatives to handcoded wrapper modules
 -----------------------------------------
 
-The C ABI (Application Binary Interface) is a common standard for sharing
-functionality between multiple applications. One of the strengths of the
-CPython C API (Application Programming Interface) is allowing Python users
-to tap into that functionality. However, wrapping modules by hand is quite
-tedious, so a number of other alternative approaches should be considered.
+The C API (Application Programming Interface) is the source-level
+contract used when compiling code: it defines functions, types, constants,
+and how callers use them. The C ABI (Application Binary Interface) is the
+corresponding binary-level contract used by already-compiled code, including
+details such as exported symbols, calling conventions, and data layout.
+
+CPython exposes a rich C API, but extensions built against the full API are
+normally tied to the CPython minor version and platform they were compiled
+for because the full ABI is not stable across minor releases. Extensions
+that only use CPython's Limited API can instead target the
+:ref:`Stable ABI <cpython-stable-abi>`, which allows a single ``abi3`` wheel
+to work across multiple Python 3 minor versions on the same platform.
+
+These interfaces make it possible for Python users to tap into native
+libraries. However, wrapping modules by hand is quite tedious, so a number
+of other alternative approaches should be considered.
 
 The approaches described below don't simplify the distribution case at all,
 but they *can* significantly reduce the maintenance burden of keeping
