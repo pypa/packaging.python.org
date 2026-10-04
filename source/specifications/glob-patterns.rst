@@ -15,7 +15,7 @@ Valid glob patterns
 For PyPA purposes, a *valid glob pattern* MUST be a string matched against
 filesystem entries as specified below:
 
-- Alphanumeric characters, spaces (`` ``), underscores (``_``), hyphens (``-``),
+- Alphanumeric characters, spaces (:literal:`\ `), underscores (``_``), hyphens (``-``),
   and dots (``.``) MUST be matched verbatim.
 
 - Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]``
