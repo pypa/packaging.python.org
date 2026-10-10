@@ -336,7 +336,7 @@ A previous PEP had specified ``license`` to be a table with a ``file`` or a
 ``text`` key, this format is now deprecated. Most :term:`build backends<build
 backend>` now support the new format as shown in the following table.
 
-.. list-table:: build backend versions that introduced :pep:`639` support
+.. list-table:: build backend versions introducing the standardized license fields
    :header-rows: 1
 
    * - hatchling
@@ -352,9 +352,10 @@ backend>` now support the new format as shown in the following table.
      - 2.2.0
      - 0.7.19
 
-The table records the first backend release that introduced :pep:`639`
-support; it is not a recommendation to pin projects to those historical
-versions. Prefer a current supported backend release when possible.
+The table records the first backend release implementing the license fields
+in the :ref:`Core Metadata specification <core-metadata-license>`; it is not
+a recommendation to pin projects to those historical versions. Prefer a
+current supported backend release when possible.
 
 
 .. _license:
