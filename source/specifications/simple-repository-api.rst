@@ -486,7 +486,7 @@ The format of this URL is ``/<project>/`` where the ``<project>`` is replaced by
 name for that project, so a project named "Silly_Walk" would
 have a URL like ``/silly-walk/``.
 
-This URL must respond with a JSON encoded dictionary that has five keys:
+This URL must respond with a JSON encoded dictionary that has up to five keys:
 
 - ``name``: The normalized name of the project.
 - ``project-status``: An optional dictionary, containing the following:
