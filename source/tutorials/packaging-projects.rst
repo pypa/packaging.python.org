@@ -5,6 +5,12 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index (PyPI).
 
+The example is an **importable Python package**. If your main goal is to turn a
+Python program into an installed command such as ``my-tool``, start with the
+:doc:`command-line tools guide </guides/creating-command-line-tools>`. That
+guide covers executable entry points; you can then use the build and publishing
+steps from this tutorial for the resulting project.
+
 .. tip::
 
    If you have trouble running the commands in this tutorial, please copy the command
@@ -67,6 +73,19 @@ Open that file and enter the following content:
 
     def add_one(number):
         return number + 1
+
+Because this tutorial leaves :file:`__init__.py` empty, ``add_one`` belongs
+to the ``example`` module rather than being exposed directly on the package.
+After installation, use it through that module, for example:
+
+.. code-block:: pycon
+
+    >>> from example_package_YOUR_USERNAME_HERE import example
+    >>> example.add_one(2)
+    3
+
+A package can choose to re-export selected names from :file:`__init__.py`,
+but doing so is an API-design choice and is not required for packaging.
 
 If you are unfamiliar with Python's :term:`modules <Module>` and
 :term:`import packages <Import Package>`, take a few minutes to read over the
