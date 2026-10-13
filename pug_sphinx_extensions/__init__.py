@@ -1,15 +1,32 @@
 import os
 import pathlib
+import re
 import urllib
 
+from docutils import nodes
 import sphinx.application
 import sphinx.util.logging
+from sphinx.transforms.post_transforms import SphinxPostTransform
 
 
 DOMAIN = "packaging.python.org"
 
 
 logger = sphinx.util.logging.getLogger(__name__)
+
+
+_LATEX_EMOJI_RE = re.compile(r"[ \t]*[😊✨🌟🍰🚀🐍📦](?:[ \t]+[😊✨🌟🍰🚀🐍📦])*")
+
+
+class LatexEmojiTransform(SphinxPostTransform):
+    default_priority = 500
+    formats = ("latex",)
+
+    def run(self, **kwargs: object) -> None:
+        for text_node in self.document.findall(nodes.Text):
+            sanitized = _LATEX_EMOJI_RE.sub("", text_node.astext())
+            if sanitized != text_node.astext():
+                text_node.parent.replace(text_node, nodes.Text(sanitized))
 
 
 def resolve_local_html_link(app: sphinx.application.Sphinx, url_path: str) -> str:
@@ -79,6 +96,7 @@ def rewrite_local_uri(app: sphinx.application.Sphinx, uri: str) -> str:
 
 def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     app.connect("linkcheck-process-uri", rewrite_local_uri)
+    app.add_post_transform(LatexEmojiTransform)
 
     return {
         "parallel_read_safe": True,
