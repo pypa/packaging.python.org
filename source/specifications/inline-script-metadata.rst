@@ -49,7 +49,9 @@ is a single fully valid block:
     # ///
 
 A starting line MUST NOT be placed between another starting line and its ending
-line. In such cases tools MAY produce an error. Unclosed blocks MUST be ignored.
+line. The reference regular expression treats a second starting line as content
+of the existing block, not as a new block. Tools MAY produce an error in this
+case. Unclosed blocks MUST be ignored.
 
 When there are multiple comment blocks of the same ``TYPE`` defined, tools MUST
 produce an error.
