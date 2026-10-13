@@ -228,6 +228,15 @@ The CPython :doc:`Extending and Embedding <python:extending/index>`
 guide includes an introduction to writing a
 :doc:`custom extension module in C <python:extending/extending>`.
 
+For practical examples of reference-count ownership, error handling, and
+creating safe extension objects, see the
+`Python Extension Patterns guide <https://pythonextensionpatterns.readthedocs.io/en/latest/>`_.
+
+If you maintain a *legacy* C extension that must run on both Python 2 and
+Python 3, the `py3c porting guide <https://py3c.readthedocs.io/en/latest/>`_
+documents compatibility macros and migration steps. Python 2 has reached
+end-of-life; new extensions should target supported Python 3 releases.
+
 FIXME: Elaborate that all this is one of the reasons why you probably
 *don't* want to handcode your extension modules :)
 
