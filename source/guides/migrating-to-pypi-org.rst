@@ -135,6 +135,21 @@ Downloading packages
 
 ``pypi.org`` is the default host for downloading packages.
 
+Check for an old index URL in your pip configuration as well as in your upload
+tool configuration. For example, an old :file:`pip.conf` (or :file:`pip.ini`
+on Windows) might contain:
+
+.. code-block:: ini
+
+    [global]
+    index-url = https://pypi.python.org/pypi/
+
+Remove that override to use pip's current default index, or update it to
+``https://pypi.org/simple/``. Run ``python -m pip config debug`` to find
+which pip configuration files are active and where an override comes from.
+Keep intentional custom package-index or mirror settings unchanged.
+
+
 Managing published packages and releases
 ----------------------------------------
 
