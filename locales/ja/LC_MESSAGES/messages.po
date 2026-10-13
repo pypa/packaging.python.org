@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-09 16:20+0000\n"
+"POT-Creation-Date: 2026-09-22 14:24+0000\n"
 "PO-Revision-Date: 2026-09-10 06:04+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -5822,7 +5822,7 @@ msgstr ""
 "ド統計をビジュアライズする公開のアプリケーションを提供します。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:345
-#: ../source/specifications/dependency-specifiers.rst:713
+#: ../source/specifications/dependency-specifiers.rst:716
 msgid "References"
 msgstr "参考文献"
 
@@ -18240,7 +18240,7 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:382
 #: ../source/specifications/core-metadata.rst:1043
 #: ../source/specifications/dependency-groups.rst:250
-#: ../source/specifications/dependency-specifiers.rst:680
+#: ../source/specifications/dependency-specifiers.rst:681
 #: ../source/specifications/direct-url-data-structure.rst:292
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:163
@@ -21912,19 +21912,33 @@ msgstr ""
 "マーカ評価環境は、これらのフィールドを定義する必要はありません。"
 
 #: ../source/specifications/dependency-specifiers.rst:458
+#, fuzzy
+#| msgid ""
+#| "The ``extra`` field is also special, as it expects set-like behaviour, "
+#| "but predates the addition of ``Set of strings`` as a defined marker field "
+#| "type. Accordingly, ``extra == \"name\"`` in a dependency declaration is "
+#| "similar to ``\"name\" in extras``, while ``extra != \"name\"`` is similar "
+#| "to ``\"name\" not in extras``. For dependency marker evaluations, the set "
+#| "of extra names used for these comparisons is the full set of requested "
+#| "extras for *that particular package*, whether requested directly in a top "
+#| "level dependency declaration, or indirectly in a transitive dependency "
+#| "declaration. Other comparison operations on ``extra`` are not defined and "
+#| "publishing tools SHOULD emit an error, index servers MAY disallow uploads "
+#| "containing such environment markers, while locking and installation tools "
+#| "SHOULD evaluate them as False."
 msgid ""
 "The ``extra`` field is also special, as it expects set-like behaviour, but "
 "predates the addition of ``Set of strings`` as a defined marker field type. "
-"Accordingly, ``extra == \"name\"`` in a dependency declaration is similar to "
-"``\"name\" in extras``, while ``extra != \"name\"`` is similar to ``\"name\" "
-"not in extras``. For dependency marker evaluations, the set of extra names "
-"used for these comparisons is the full set of requested extras for *that "
-"particular package*, whether requested directly in a top level dependency "
-"declaration, or indirectly in a transitive dependency declaration. Other "
-"comparison operations on ``extra`` are not defined and publishing tools "
-"SHOULD emit an error, index servers MAY disallow uploads containing such "
-"environment markers, while locking and installation tools SHOULD evaluate "
-"them as False."
+"It only supports one operation, ``extra == \"name\"``, which is similar to "
+"``\"name\" in extras``. ``extra != \"name\"`` SHOULD NOT be used anymore and "
+"MAY be rejected or evaluated to false. For dependency marker evaluations, "
+"the set of extra names used for these comparisons is the full set of "
+"requested extras for *that particular package*, whether requested directly "
+"in a top level dependency declaration, or indirectly in a transitive "
+"dependency declaration. Other comparison operations on ``extra`` are not "
+"defined and publishing tools SHOULD emit an error, index servers MAY "
+"disallow uploads containing such environment markers, while locking and "
+"installation tools SHOULD evaluate them as False."
 msgstr ""
 "集合のような動作を期待するけれども、定義済みのマーカフィールドタイプとしての "
 "``Set of strings`` の追加よりも先行しているので、 ``extra`` フィールドもまた"
@@ -21939,7 +21953,7 @@ msgstr ""
 "んが、ロッキングとインストールツール類はそれらを False として評価するべきで"
 "す。"
 
-#: ../source/specifications/dependency-specifiers.rst:470
+#: ../source/specifications/dependency-specifiers.rst:471
 msgid ""
 "Unlike the newer ``extras`` field, environment markers using this field "
 "SHOULD be accepted by both publishing tools and index servers. Marker "
@@ -21958,7 +21972,7 @@ msgstr ""
 "ルの ``packages.marker`` フィールドでは許されませんし、インストールツールはそ"
 "のような比較を含むロックファイルを正当でないものとして拒否するべきです。"
 
-#: ../source/specifications/dependency-specifiers.rst:479
+#: ../source/specifications/dependency-specifiers.rst:480
 msgid ""
 "The ``implementation_version`` marker variable is derived "
 "from :py:data:`sys.implementation.version <sys.implementation>`:"
@@ -21967,23 +21981,23 @@ msgstr ""
 "は、 :py:data:`sys.implementation.version <sys.implementation>` から派生した"
 "ものです :"
 
-#: ../source/specifications/dependency-specifiers.rst:499
+#: ../source/specifications/dependency-specifiers.rst:500
 msgid "Complete Grammar"
 msgstr "完全な文法"
 
-#: ../source/specifications/dependency-specifiers.rst:501
+#: ../source/specifications/dependency-specifiers.rst:502
 msgid "The complete parsley grammar::"
 msgstr "完全な parsley 文法::"
 
-#: ../source/specifications/dependency-specifiers.rst:608
+#: ../source/specifications/dependency-specifiers.rst:609
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr "テストプログラム - もし ``grammar`` 文字列内に文法があれば:"
 
-#: ../source/specifications/dependency-specifiers.rst:682
+#: ../source/specifications/dependency-specifiers.rst:683
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されました。"
 
-#: ../source/specifications/dependency-specifiers.rst:683
+#: ../source/specifications/dependency-specifiers.rst:684
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
 "change_>`_ from ``platform.python_version()[:3]`` to "
@@ -21997,7 +22011,7 @@ msgstr ""
 "``'.'.join(platform.python_version_tuple()[:2])`` へ `変更されました <python-"
 "version-change_>`_ 。 [#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:688
+#: ../source/specifications/dependency-specifiers.rst:689
 msgid ""
 "March 2022: Standardised the normalization of extra names at publication "
 "time (for core metadata 2.3 and later) through :pep:`685`"
@@ -22005,7 +22019,7 @@ msgstr ""
 "2022年3月: :pep:`685` を通じて、 (コアとなるメタデータ 2.3 およびそれ以降の) "
 "公開時点での余分 <extra> な名称の標準化を規格化しました。"
 
-#: ../source/specifications/dependency-specifiers.rst:690
+#: ../source/specifications/dependency-specifiers.rst:691
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
 "commas, matching with the behavior of the Python implementation that has "
@@ -22014,7 +22028,7 @@ msgstr ""
 "2024年6月: 2022年遅くから使われるようになった Python 実装の動作に合致するよう"
 "に、末尾のカンマを許容する形に ``version_many`` の定義が変更された。"
 
-#: ../source/specifications/dependency-specifiers.rst:693
+#: ../source/specifications/dependency-specifiers.rst:694
 msgid ""
 "April 2025: Added ``extras`` and ``dependency_groups`` marker field "
 "for :ref:`lock-file-spec` as approved through :pep:`751`."
@@ -22022,7 +22036,7 @@ msgstr ""
 "2025年4月: :ref:`lock-file-spec` に ``extras`` と ``dependency_groups`` の"
 "マーカフィールドを追加することが :pep:`751` を通じて承認された。"
 
-#: ../source/specifications/dependency-specifiers.rst:695
+#: ../source/specifications/dependency-specifiers.rst:696
 #: ../source/specifications/name-normalization.rst:56
 msgid ""
 "August 2025: The suggested name validation regex was fixed to match the "
@@ -22033,7 +22047,7 @@ msgstr ""
 "規表現が決定された (以前は ``\\Z`` の代わりに ``$`` で終端していたので、誤っ"
 "て後続する行末コード <newlines> を許容していた)"
 
-#: ../source/specifications/dependency-specifiers.rst:698
+#: ../source/specifications/dependency-specifiers.rst:699
 msgid ""
 "December 2025: Ensure ``===`` is before ``==`` in grammar, to allow "
 "arbitrary equality comparisons to be parsed."
@@ -22042,7 +22056,7 @@ msgstr ""
 "ことを許すために、 ``==`` より前に ``===`` を (評価することを) 文法上で確実に"
 "しました。"
 
-#: ../source/specifications/dependency-specifiers.rst:700
+#: ../source/specifications/dependency-specifiers.rst:701
 msgid ""
 "January 2026: Amend the definition of environment marker comparison "
 "operations to restrict version comparison semantics to fields where they "
@@ -22063,7 +22077,7 @@ msgstr ""
 "れによって、名ばかりだった仕様にツール類が実際に動作する方法を伴った行をもた"
 "らしました。 [#marker_comparison_logic]_"
 
-#: ../source/specifications/dependency-specifiers.rst:708
+#: ../source/specifications/dependency-specifiers.rst:709
 msgid ""
 "January 2026: fix outdated references to other documents that were "
 "inadvertently retained from :pep:`508`"
@@ -22071,7 +22085,14 @@ msgstr ""
 "2026年1月: :pep:`508` から不注意に残されていた、他の文書への古くて役に立たな"
 "くなった参照を修正しました。"
 
-#: ../source/specifications/dependency-specifiers.rst:715
+#: ../source/specifications/dependency-specifiers.rst:711
+msgid ""
+"July 2026: Explain that ``extra != \"name\"`` is not (properly) supported "
+"(https://discuss.python.org/t/ban-negative-extras-for-extras-marker/"
+"108022/24)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:718
 msgid ""
 "pip, the recommended installer for Python packages (http://"
 "pip.readthedocs.org/en/stable/)"
@@ -22079,11 +22100,11 @@ msgstr ""
 "Python のパッケージをインストールする際に推奨されるツールである pip (http://"
 "pip.readthedocs.org/en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:718
+#: ../source/specifications/dependency-specifiers.rst:721
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr "parsley PEG ライブラリ。 (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:721
+#: ../source/specifications/dependency-specifiers.rst:724
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
@@ -22092,7 +22113,7 @@ msgstr ""
 "Python の将来のバージョンでは、環境マーカ変数の ``python_version`` の定義が問"
 "題をはらむかもしれません。 (https://github.com/python/peps/issues/560)"
 
-#: ../source/specifications/dependency-specifiers.rst:725
+#: ../source/specifications/dependency-specifiers.rst:728
 msgid ""
 "Resolving inconsistencies between actual tool behavior and the nominal "
 "definitions of environment marker field comparisons (https://"
