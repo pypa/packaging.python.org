@@ -135,6 +135,13 @@ Downloading packages
 
 ``pypi.org`` is the default host for downloading packages.
 
+If downloads still use the old ``pypi.python.org`` host, check whether your
+installer is configured to override its default package index. Configuration
+files, environment variables, and command-line options can all change the
+index used by an installer. Remove or update any override that points at the
+old host, using that installer's documentation to locate its active
+configuration.
+
 Managing published packages and releases
 ----------------------------------------
 
