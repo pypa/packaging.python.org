@@ -18,77 +18,43 @@ Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_ren
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
   or `CommonMark <https://commonmark.org/>`_)
 
-It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
+It's customary to save your README file in the root of your project, in the same directory as your :file:`pyproject.toml` file.
 
 
 Including your README in your package's metadata
 ------------------------------------------------
 
-To include your README's contents as your package description,
-set your project's ``Description`` and ``Description-Content-Type`` metadata,
-typically in your project's :file:`setup.py` file.
+To include your README as your project's long description on PyPI, declare
+the ``readme`` key in the ``[project]`` table of :file:`pyproject.toml`.
+Build backends use this value to populate the distribution's ``Description``
+and ``Description-Content-Type`` core metadata fields.
 
 .. seealso::
 
+   * :ref:`declaring-project-metadata`
    * :ref:`description-optional`
    * :ref:`description-content-type-optional`
 
-For example, to set these values in a package's :file:`setup.py` file,
-use ``setup()``'s ``long_description`` and ``long_description_content_type``.
+For Markdown or reStructuredText files, the simplest form is the README path:
 
-Set the value of ``long_description`` to the contents (not the path) of the README file itself.
-Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
-such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdown``.
+.. code-block:: toml
 
-.. note::
+   [project]
+   name = "an-example-package"
+   # other project metadata omitted
+   readme = "README.md"
 
-   If you're using GitHub-flavored Markdown to write a project's description, ensure you upgrade
-   the following tools:
+When the file name has a recognized ``.md`` or ``.rst`` extension, the
+content type is inferred automatically. For another file name or format,
+provide both the file path and content type explicitly:
 
-   .. tab:: Unix/macOS
+.. code-block:: toml
 
-      .. code-block:: bash
+   [project]
+   readme = { file = "README", content-type = "text/plain" }
 
-         python3 -m pip install --user --upgrade setuptools wheel twine
-
-   .. tab:: Windows
-
-      .. code-block:: bat
-
-         py -m pip install --user --upgrade setuptools wheel twine
-
-   The minimum required versions of the respective tools are:
-
-   - ``setuptools >= 38.6.0``
-   - ``wheel >= 0.31.0``
-   - ``twine >= 1.11.0``
-
-   It's recommended that you use ``twine`` to upload the project's distribution packages:
-
-   .. code-block:: bash
-
-      twine upload dist/*
-
-For example, see this :file:`setup.py` file,
-which reads the contents of :file:`README.md` as ``long_description``
-and identifies the markup as GitHub-flavored Markdown:
-
-.. code-block:: python
-
-   from setuptools import setup
-
-   # read the contents of your README file
-   from pathlib import Path
-   this_directory = Path(__file__).parent
-   long_description = (this_directory / "README.md").read_text()
-
-   setup(
-       name='an_example_package',
-       # other arguments omitted
-       long_description=long_description,
-       long_description_content_type='text/markdown'
-   )
-
+The referenced README should remain in the project source tree so the build
+backend can read it when producing package metadata.
 
 Validating reStructuredText markup
 ----------------------------------
@@ -103,8 +69,7 @@ messages like "``Error: Unknown interpreted text role "py:func".``".
 
 You can check your README for markup errors before uploading as follows:
 
-1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
-   version 1.12.0 or higher is required:
+1. Install or upgrade `twine <https://github.com/pypa/twine>`_:
 
    .. tab:: Unix/macOS
 
