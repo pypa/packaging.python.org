@@ -16,4 +16,5 @@ Building and Publishing
    making-a-pypi-friendly-readme
    publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
    modernize-setup-py-project
+   windows-applications-embedding
    licensing-examples-and-user-scenarios
