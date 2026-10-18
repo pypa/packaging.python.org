@@ -69,7 +69,8 @@ messages like "``Error: Unknown interpreted text role "py:func".``".
 
 You can check your README for markup errors before uploading as follows:
 
-1. Install or upgrade `twine <https://github.com/pypa/twine>`_:
+1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
+   version 1.12.0 or higher is required:
 
    .. tab:: Unix/macOS
 
