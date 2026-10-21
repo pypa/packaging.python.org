@@ -14,13 +14,15 @@
 # Joseph Hale <me@jhale.dev>, 2025.
 # Jonathan-den <jonathan.obed@gmail.com>, 2025.
 # azxc1 <fernandozzz1707@gmail.com>, 2026.
+# Zuleybys Pacheco <ganargedeandrade@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-12 19:20+0000\n"
-"PO-Revision-Date: 2026-09-27 03:51+0000\n"
-"Last-Translator: azxc1 <fernandozzz1707@gmail.com>\n"
+"PO-Revision-Date: 2026-10-18 13:41+0000\n"
+"Last-Translator: Zuleybys Pacheco "
+"<ganargedeandrade@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/es/>\n"
 "Language: es\n"
@@ -28,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1430,6 +1432,11 @@ msgid ""
 "Downstreams use frontends that use local provisioning for Python "
 "dependencies."
 msgstr ""
+"Nota: Este punto no aplica a las dependencias de Python que se especifican "
+"en los metadatos del paquete y que son obtenidas durante el proceso de "
+"compilación e instalación por parte de los interfaces(como :ref:build o "
+":ref:pip). Las distribuciones descendentes (Downstreams) utilizan interfaces "
+"que emplean aprovisionamiento local para las dependencias de Python."
 
 #: ../source/discussions/downstream-packaging.rst:192
 msgid ""
@@ -1440,12 +1447,22 @@ msgid ""
 "disable all Internet access. This could be done e.g. by checking whether a "
 "``NO_NETWORK`` environment variable is set to a non-empty value."
 msgstr ""
+"Lo ideal es que los scripts de compilación personalizados ni siquiera "
+"intenten acceder a Internet, a menos que se solicite explícitamente. Si "
+"falta algún recurso y es necesario descargarlo, primero deben pedirle "
+"permiso al usuario. Si esto no es factible, la siguiente mejor opción es "
+"proporcionar un interruptor para desactivar (opt-out) todo acceso a "
+"Internet. Esto se puede lograr, por ejemplo, verificando si la variable de "
+"entorno NO_NETWORK tiene asignado un valor que no esté vacío."
 
 #: ../source/discussions/downstream-packaging.rst:199
 msgid ""
 "Since downstreams frequently also run tests and build documentation, the "
 "above should ideally extend to these processes as well."
 msgstr ""
+"Dado que las distribuciones descendentes (downstreams) también suelen "
+"ejecutar pruebas y compilar la documentación, lo ideal es que lo anterior "
+"también se extienda a estos procesos."
 
 #: ../source/discussions/downstream-packaging.rst:202
 msgid ""
@@ -1453,10 +1470,14 @@ msgid ""
 "absolutely must *verify their authenticity* (usually against a hash), to "
 "protect against the file being substituted by a malicious party."
 msgstr ""
+"Asimismo, recuerda que si vas a obtener recursos remotos, es absolutamente "
+"necesario que verifiques su autenticidad (por lo general, mediante un hash) "
+"para protegerte contra la sustitución del archivo por parte de un agente "
+"malintencionado."
 
 #: ../source/discussions/downstream-packaging.rst:210
 msgid "Support building against system dependencies"
-msgstr ""
+msgstr "Soporte para compilación con dependencias del sistema"
 
 #: ../source/discussions/downstream-packaging.rst:215
 msgid ""
@@ -1464,14 +1485,23 @@ msgid ""
 "in C or C++. Trying to use the system versions of these dependencies in "
 "upstream packaging may cause a number of problems for end users:"
 msgstr ""
+"Algunos proyectos de Python tienen dependencias que no son de Python, como "
+"bibliotecas escritas en C o C++. Intentar usar las versiones del sistema de "
+"estas dependencias en el empaquetado ascendente (upstream) puede ocasionar "
+"varios problemas para los usuarios finales:"
 
 #: ../source/discussions/downstream-packaging.rst:219
+#, fuzzy
 msgid ""
 "The published wheels require a binary-compatible version of the used library "
 "to be present on the user's system. If the library is missing or an "
 "incompatible version is installed, the Python package may fail with errors "
 "that are not clear to inexperienced users, or even misbehave at runtime."
 msgstr ""
+"The published wheels require a binary-compatible version of the used library "
+"to be present on the user's system. If the library is missing or an "
+"incompatible version is installed, the Python package may fail with errors "
+"that are not clear to inexperienced users, or even misbehave at runtime."
 
 #: ../source/discussions/downstream-packaging.rst:224
 msgid ""
