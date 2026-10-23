@@ -173,6 +173,19 @@ indexing and hosting upstream projects, it MUST NOT allow the use of local
 version identifiers.
 
 
+.. _version-identifier-length:
+
+Version identifier length
+-------------------------
+
+Version identifiers for new releases MUST NOT exceed 128 characters after
+:ref:`normalization <version-specifiers-normalization>`, including any local
+version label.
+
+Installation tools MUST NOT reject otherwise valid versions solely because
+they exceed this limit.
+
+
 Final releases
 --------------
 
@@ -1286,3 +1299,5 @@ History
   they are handled.
 - Nov 2025: Make arbitrary equality case insensitivity explicit.
 - Jan 2026: The use of epochs was discouraged.
+- Oct 2026: Limit version identifiers for new releases to 128 characters after
+  normalization.
