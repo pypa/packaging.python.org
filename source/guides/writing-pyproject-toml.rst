@@ -481,7 +481,7 @@ sidebar of your PyPI project page.
 
     See :ref:`well-known-labels` for a listing
     of labels that PyPI and other packaging tools are specifically aware of,
-    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_
+    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-links>`_
     for PyPI-specific URL processing.
 
 .. code-block:: toml
