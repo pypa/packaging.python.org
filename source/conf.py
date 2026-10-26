@@ -35,6 +35,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
     "sphinx-jsonschema",
+    "notfound.extension",
 ]
 
 nitpicky = True
@@ -250,3 +251,10 @@ todo_include_todos = True
 
 copybutton_prompt_text = r">>> |\.\.\. |\$ |> "
 copybutton_prompt_is_regexp = True
+
+# -- Options for sphinx-notfound-page --------------------------------------------------
+# https://sphinx-notfound-page.readthedocs.io/en/latest/configuration.html
+
+# Local builds are served from the root, RtD seves from /<language>/<version>/
+if not RTD_BUILD:
+    notfound_urls_prefix = "/"
