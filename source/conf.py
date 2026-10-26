@@ -5,6 +5,9 @@ import os
 import pathlib
 import sys
 
+from docutils import nodes
+from notfound.utils import replace_uris
+
 _ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.append(os.fspath(_ROOT))
 
@@ -35,6 +38,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
     "sphinx-jsonschema",
+    "notfound.extension",
 ]
 
 nitpicky = True
@@ -250,3 +254,20 @@ todo_include_todos = True
 
 copybutton_prompt_text = r">>> |\.\.\. |\$ |> "
 copybutton_prompt_is_regexp = True
+
+# -- Options for sphinx-notfound-page --------------------------------------------------
+# https://sphinx-notfound-page.readthedocs.io/en/latest/configuration.html
+
+# Local builds are served from the root, RtD seves from /<language>/<version>/
+if not RTD_BUILD:
+    notfound_urls_prefix = "/"
+
+
+def fix_notfound_links(app, doctree, docname):
+    # The extension only makes theme links absolute, not links in the page body
+    if app.builder.format == "html" and docname == app.config.notfound_pagename:
+        replace_uris(app, doctree, nodes.reference, "refuri")
+
+
+def setup(app):
+    app.connect("doctree-resolved", fix_notfound_links)
