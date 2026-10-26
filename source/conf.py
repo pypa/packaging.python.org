@@ -164,6 +164,8 @@ linkcheck_ignore = [
     r"https://blog\.ganssle\.io/.*",
     # Temporarily ignored due to expired TLS cert.
     r"https://kivy.org/.*",
+    # Archived snapshots don't change, and the Wayback Machine rate-limits CI (429).
+    r"https://web\.archive\.org/.*",
 ]
 linkcheck_retries = 2
 linkcheck_timeout = 30
