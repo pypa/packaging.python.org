@@ -487,19 +487,19 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
     .. code-block:: bash
 
-        python3 -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git          # from git
-        python3 -m pip install -e SomeProject @ hg+https://hg.repo/some_pkg                # from mercurial
-        python3 -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
-        python3 -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
+        python3 -m pip install -e "SomeProject @ git+https://git.repo/some_pkg.git"          # from git
+        python3 -m pip install -e "SomeProject @ hg+https://hg.repo/some_pkg"                # from mercurial
+        python3 -m pip install -e "SomeProject @ svn+svn://svn.repo/some_pkg/trunk/"         # from svn
+        python3 -m pip install -e "SomeProject @ git+https://git.repo/some_pkg.git@feature"  # from a branch
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git          # from git
-        py -m pip install -e SomeProject @ hg+https://hg.repo/some_pkg                # from mercurial
-        py -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
-        py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
+        py -m pip install -e "SomeProject @ git+https://git.repo/some_pkg.git"          # from git
+        py -m pip install -e "SomeProject @ hg+https://hg.repo/some_pkg"                # from mercurial
+        py -m pip install -e "SomeProject @ svn+svn://svn.repo/some_pkg/trunk/"         # from svn
+        py -m pip install -e "SomeProject @ git+https://git.repo/some_pkg.git@feature"  # from a branch
 
 Installing from other Indexes
 =============================
