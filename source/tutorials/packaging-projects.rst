@@ -369,7 +369,7 @@ https://test.pypi.org/manage/account/#api-tokens, setting the "Scope" to "Entire
 account". **Don't close the page until you have copied and saved the token — you
 won't see that token again.**
 
-.. _API token: https://test.pypi.org/help/#apitoken
+.. _API token: https://docs.pypi.org/publishing/publishing-to-pypi/#using-an-api-token
 
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
