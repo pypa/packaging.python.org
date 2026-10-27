@@ -116,7 +116,7 @@ normally tied to the CPython feature release and platform they were compiled
 against because the full ABI is not stable across feature releases.
 Extensions that only use CPython's Limited API can instead target the
 :ref:`Stable ABI <cpython-stable-abi>`, which allows a single ``abi3`` wheel
-to work across multiple Python 3 minor versions on the same platform.
+to work across multiple Python 3 feature releases on the same platform.
 
 Alternatives to handcoded accelerator modules
 ---------------------------------------------
