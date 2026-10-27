@@ -895,9 +895,6 @@ A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more
 information, see the section on :ref:`Creating and using Virtual Environments`.
 
-
-----
-
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _`AWS S3`: https://aws.amazon.com/s3/
