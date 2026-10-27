@@ -112,9 +112,9 @@ corresponding binary-level contract used by already-compiled code, including
 details such as exported symbols, calling conventions, and data layout.
 
 CPython exposes a rich C API, but extensions built against the full API are
-normally tied to the CPython minor version and platform they were compiled
-for because the full ABI is not stable across minor releases. Extensions
-that only use CPython's Limited API can instead target the
+normally tied to the CPython feature release and platform they were compiled
+against because the full ABI is not stable across feature releases.
+Extensions that only use CPython's Limited API can instead target the
 :ref:`Stable ABI <cpython-stable-abi>`, which allows a single ``abi3`` wheel
 to work across multiple Python 3 minor versions on the same platform.
 
