@@ -74,7 +74,7 @@ distlib
 relate to packaging and distribution of Python software.  ``distlib``
 implements several relevant PEPs (Python Enhancement Proposal
 standards) and is useful for developers of third-party packaging tools
-to make and upload binary and source :term:`distributions
+to make and upload built and source :term:`distributions
 <Distribution Package>`, achieve interoperability, resolve
 dependencies, manage package resources, and do other similar
 functions.
@@ -373,9 +373,9 @@ creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
 
 See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool
-that package developers use to check and fix Python packages they are
-making in the binary wheel format. It provides functionality to
-discover dependencies, check metadata for compliance, and repair the
+that package developers use to check and fix wheels containing native code.
+It provides functionality to discover dependencies, check metadata for
+compliance, and repair the
 wheel and metadata to properly link and include external shared
 libraries in a package.
 

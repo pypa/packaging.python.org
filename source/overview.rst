@@ -112,8 +112,10 @@ advantages for pure-Python libraries.
    a drop-in replacement for PIL, just by changing your project's
    ``install_requires`` or ``requirements.txt``.
 
-Python binary distributions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _python-binary-distributions:
+
+Python built distributions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So much of Python's practical power comes from its ability to
 integrate with the software ecosystem, in particular libraries written
@@ -126,7 +128,7 @@ compiled artifacts. In fact, Python's package installer, ``pip``,
 always prefers wheels because installation is always faster, so even
 pure-Python packages work better with wheels.
 
-Binary distributions are best when they come with source distributions
+Built distributions are best when they come with source distributions
 to match. Even if you don't upload wheels of your code for every
 operating system, by uploading the sdist, you're enabling users of
 other platforms to still build it for themselves. Default to
