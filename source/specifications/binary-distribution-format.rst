@@ -1,6 +1,7 @@
 .. highlight:: text
 
 .. _binary-distribution-format:
+.. _wheel-distribution-format:
 
 =========================
 Wheel distribution format

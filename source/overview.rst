@@ -113,6 +113,7 @@ advantages for pure-Python libraries.
    ``install_requires`` or ``requirements.txt``.
 
 .. _python-binary-distributions:
+.. _python-built-distributions:
 
 Python built distributions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
