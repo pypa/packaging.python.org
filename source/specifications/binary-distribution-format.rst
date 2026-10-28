@@ -1,13 +1,13 @@
 .. highlight:: text
 
 .. _binary-distribution-format:
+.. _wheel-distribution-format:
 
-==========================
-Binary distribution format
-==========================
+=========================
+Wheel distribution format
+=========================
 
-This page specifies the binary distribution format for Python packages,
-also called the wheel format.
+This page specifies the wheel format for Python packages.
 
 A wheel is a ZIP-format archive with a specially formatted file name and
 the ``.whl`` extension.  It contains a single distribution nearly as it

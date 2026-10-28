@@ -50,7 +50,7 @@ distro
 
     This document uses the short term "distro," because the term
     "distribution" has another meaning in Python packaging contexts: a
-    source or binary distribution package of a single piece of Python
+    source or built distribution package of a single piece of Python
     language software, that is, in the sense of
     ``setuptools.dist.Distribution`` or "sdist". To avoid confusion,
     this document does not use the plain term "distribution" at all.
