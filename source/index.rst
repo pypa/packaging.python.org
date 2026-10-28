@@ -83,7 +83,6 @@ The :doc:`discussions/index` section provides in-depth explanations and discussi
 about topics, such as:
 
 * :doc:`discussions/deploying-python-applications`
-* :doc:`discussions/pip-vs-easy-install`
 
 Reference
 =========

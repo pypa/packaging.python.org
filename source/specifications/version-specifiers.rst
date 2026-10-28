@@ -19,18 +19,18 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 document are to be interpreted as described in :rfc:`2119`.
 
 "Build tools" are automated tools intended to run on development systems,
-producing source and binary distribution archives. Build tools may also be
+producing source and built distribution archives. Build tools may also be
 invoked by integration tools in order to build software distributed as
-sdists rather than prebuilt binary archives.
+sdists rather than built distribution archives.
 
 "Index servers" are active distribution registries which publish version and
 dependency metadata and place constraints on the permitted metadata.
 
 "Publication tools" are automated tools intended to run on development
-systems and upload source and binary distribution archives to index servers.
+systems and upload source and built distribution archives to index servers.
 
 "Installation tools" are integration tools specifically intended to run on
-deployment targets, consuming source and binary distribution archives from
+deployment targets, consuming source and built distribution archives from
 an index server or other designated location and deploying them to the target
 system.
 
@@ -1112,7 +1112,7 @@ uploaded distributions. Direct references are intended as a tool for
 software integrators rather than publishers.
 
 Depending on the use case, some appropriate targets for a direct URL
-reference may be an sdist or a wheel binary archive. The exact URLs and
+reference may be an sdist or a wheel. The exact URLs and
 targets supported will be tool dependent.
 
 For example, a local source archive may be referenced directly::

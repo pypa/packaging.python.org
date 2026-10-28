@@ -105,6 +105,8 @@ htmlhelp_basename = "pythonpackagingguide-authdoc"
 # -- Options for LaTeX output ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
 
+# pdflatex fails on emoji; xelatex only warns about missing glyphs.
+latex_engine = "xelatex"
 latex_elements = {}
 latex_documents = [
     (

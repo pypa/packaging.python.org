@@ -120,7 +120,7 @@ sample project <https://github.com/pypa/sampleproject>`_ has removed its manifes
 file, since all the necessary files have been included by :ref:`setuptools` 43.0.0
 and newer.
 
-.. note:: :file:`MANIFEST.in` does not affect binary distributions such as wheels.
+.. note:: :file:`MANIFEST.in` does not affect built distributions such as wheels.
 
 LICENSE.txt
 ~~~~~~~~~~~

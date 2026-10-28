@@ -74,7 +74,7 @@ distlib
 relate to packaging and distribution of Python software.  ``distlib``
 implements several relevant PEPs (Python Enhancement Proposal
 standards) and is useful for developers of third-party packaging tools
-to make and upload binary and source :term:`distributions
+to make and upload built and source :term:`distributions
 <Distribution Package>`, achieve interoperability, resolve
 dependencies, manage package resources, and do other similar
 functions.
@@ -268,7 +268,6 @@ process, to check that their package descriptions will properly
 display on PyPI.
 
 .. _setuptools:
-.. _easy_install:
 
 Setuptools
 ==========
@@ -278,10 +277,10 @@ Setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
 
-Setuptools (which includes ``easy_install``) is a collection of
-enhancements to the Python distutils that allow you to more easily
-build and distribute Python :term:`distributions <Distribution
-Package>`, especially ones that have dependencies on other packages.
+Setuptools is a collection of enhancements to the Python distutils
+that allow you to more easily build and distribute Python
+:term:`distributions <Distribution Package>`, especially ones that
+have dependencies on other packages.
 
 .. _trove-classifiers:
 
@@ -373,9 +372,9 @@ creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
 
 See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool
-that package developers use to check and fix Python packages they are
-making in the binary wheel format. It provides functionality to
-discover dependencies, check metadata for compliance, and repair the
+that package developers use to check and fix wheels containing native code.
+It provides functionality to discover dependencies, check metadata for
+compliance, and repair the
 wheel and metadata to properly link and include external shared
 libraries in a package.
 

@@ -39,7 +39,7 @@ Source distribution file name
 
 The file name of a sdist was standardised in :pep:`625`. The file name must be in
 the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised according to
-the same rules as for binary distributions (see :ref:`binary-distribution-format`),
+the same rules as for wheels (see :ref:`binary-distribution-format`),
 and ``{version}`` is the canonicalized form of the project version (see
 :ref:`version-specifiers`).
 

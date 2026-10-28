@@ -54,7 +54,7 @@ Why?
 ~~~~
 
 The vast majority of downstream packagers prefer to build packages from source,
-rather than use the upstream-provided binary packages. In some cases, using
+rather than use the upstream-provided wheels. In some cases, using
 sources is actually required for the package to be included in the distribution.
 This is also true of pure Python packages that provide universal wheels.
 The reasons for using source distributions may include:
