@@ -268,7 +268,6 @@ process, to check that their package descriptions will properly
 display on PyPI.
 
 .. _setuptools:
-.. _easy_install:
 
 Setuptools
 ==========
@@ -278,10 +277,10 @@ Setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
 
-Setuptools (which includes ``easy_install``) is a collection of
-enhancements to the Python distutils that allow you to more easily
-build and distribute Python :term:`distributions <Distribution
-Package>`, especially ones that have dependencies on other packages.
+Setuptools is a collection of enhancements to the Python distutils
+that allow you to more easily build and distribute Python
+:term:`distributions <Distribution Package>`, especially ones that
+have dependencies on other packages.
 
 .. _trove-classifiers:
 
