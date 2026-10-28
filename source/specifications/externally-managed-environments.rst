@@ -82,16 +82,10 @@ Python-specific package manager
     A tool for installing, upgrading, and/or removing Python packages
     in a manner that conforms to Python packaging standards.
     The most popular Python-specific package
-    manager is pip_; other examples include the old `Easy
-    Install command <easy-install_>`_ as well as direct usage of a
-    ``setup.py`` command.
+    manager is pip_. Another popular example is uv_.
 
     .. _pip: https://pip.pypa.io/en/stable/
-    .. _easy-install: https://setuptools.readthedocs.io/en/latest/deprecated/easy_install.html
-
-    (Note that the ``easy_install`` command was removed in
-    setuptools version 52, released 23 January 2021.)
-
+    .. _uv: https://docs.astral.sh/uv/
 
     (Conda_ is a bit of a special case, as the ``conda``
     command can install much more than just Python packages, making it
