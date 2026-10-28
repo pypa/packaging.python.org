@@ -1,0 +1,194 @@
+
+import time
+import requests
+from itertools import combinations
+
+BASE_URL = "https://api.bybit.com"
+START_COIN = "USDT"
+START_AMOUNT = 1000.0
+
+# Replace with your actual fee from Bybit.
+TAKER_FEE = 0.001
+MIN_NET_EDGE_PCT = 0.20
+REFRESH_SECONDS = 5
+TIMEOUT = 10
+
+session = requests.Session()
+
+
+def get_json(path, params):
+    response = session.get(
+        BASE_URL + path, params=params, timeout=TIMEOUT
+    )
+    response.raise_for_status()
+    data = response.json()
+    if data.get("retCode") != 0:
+        raise RuntimeError(data.get("retMsg", "Bybit API error"))
+    return data["result"]
+
+
+def load_markets():
+    instruments = get_json(
+        "/v5/market/instruments-info",
+        {"category": "spot"}
+    )["list"]
+
+    tickers = get_json(
+        "/v5/market/tickers",
+        {"category": "spot"}
+    )["list"]
+
+    prices = {t["symbol"]: t for t in tickers}
+    markets = {}
+
+    for item in instruments:
+        symbol = item["symbol"]
+        if item.get("status") != "Trading":
+            continue
+
+        ticker = prices.get(symbol)
+        if not ticker:
+            continue
+
+        try:
+            bid = float(ticker["bid1Price"])
+            ask = float(ticker["ask1Price"])
+        except (ValueError, KeyError, TypeError):
+            continue
+
+        if bid <= 0 or ask <= 0:
+            continue
+
+        base = item["baseCoin"]
+        quote = item["quoteCoin"]
+
+        markets[symbol] = {
+            "base": base,
+            "quote": quote,
+            "bid": bid,
+            "ask": ask,
+            "bid_size": float(ticker.get("bid1Size") or 0),
+            "ask_size": float(ticker.get("ask1Size") or 0),
+        }
+
+    return markets
+
+
+def build_graph(markets):
+    # Edge format: (next_coin, rate, symbol, direction)
+    graph = {}
+
+    for symbol, m in markets.items():
+        base, quote = m["base"], m["quote"]
+
+        # Sell base for quote at the best bid.
+        graph.setdefault(base, []).append(
+            (quote, m["bid"], symbol, "SELL_BASE")
+        )
+
+        # Buy base using quote at the best ask.
+        graph.setdefault(quote, []).append(
+            (base, 1.0 / m["ask"], symbol, "BUY_BASE")
+        )
+
+    return graph
+
+
+def find_triangles(graph):
+    # Find unique three-edge cycles returning to USDT.
+    triangles = set()
+
+    for first in graph.get(START_COIN, []):
+        a = first[0]
+        if a == START_COIN:
+            continue
+
+        for second in graph.get(a, []):
+            b = second[0]
+            if b in (START_COIN, a):
+                continue
+
+            for third in graph.get(b, []):
+                if third[0] != START_COIN:
+                    continue
+
+                symbols = (
+                    first[2], second[2], third[2]
+                )
+
+                # Each leg must use a different market.
+                if len(set(symbols)) != 3:
+                    continue
+
+                triangles.add((
+                    START_COIN, a, b, START_COIN,
+                    first, second, third
+                ))
+
+    return list(triangles)
+
+
+def scan():
+    markets = load_markets()
+    graph = build_graph(markets)
+    results = []
+
+    for cycle in find_triangles(graph):
+        _, a, b, _, *legs = cycle
+
+        amount = START_AMOUNT
+        details = []
+
+        for coin_to, rate, symbol, direction in legs:
+            before = amount
+            amount = before * rate * (1 - TAKER_FEE)
+            details.append(
+                f"{symbol} ({direction})"
+            )
+
+        profit = amount - START_AMOUNT
+        edge_pct = profit / START_AMOUNT * 100
+
+        results.append({
+            "route": f"{START_COIN} -> {a} -> {b} -> {START_COIN}",
+            "markets": details,
+            "final": amount,
+            "profit": profit,
+            "edge_pct": edge_pct,
+        })
+
+    results.sort(
+        key=lambda x: x["edge_pct"], reverse=True
+    )
+
+    print(f"\nMarkets loaded: {len(markets)}")
+    print(f"Starting balance: {START_AMOUNT:.2f} USDT")
+
+    shown = 0
+    for r in results:
+        if r["edge_pct"] < MIN_NET_EDGE_PCT:
+            continue
+
+        print("\nCANDIDATE - VERIFY ORDER BOOK DEPTH")
+        print("Route:", r["route"])
+        print("Pairs:", " | ".join(r["markets"]))
+        print(f"Estimated final: {r['final']:.4f} USDT")
+        print(f"Estimated profit: {r['profit']:.4f} USDT")
+        print(f"Estimated net edge: {r['edge_pct']:.4f}%")
+        shown += 1
+
+        if shown >= 20:
+            break
+
+    if shown == 0:
+        print("No candidates passed the threshold.")
+
+
+if __name__ == "__main__":
+    while True:
+        try:
+            scan()
+        except Exception as exc:
+            print("Scanner error:", exc)
+
+        time.sleep(REFRESH_SECONDS)
