@@ -20,7 +20,6 @@ Python Packaging User Guide
    glossary
    support
    contribute
-   news
 
 Welcome to the *Python Packaging User Guide*, a collection of tutorials and
 references to help you distribute and install Python packages with modern
