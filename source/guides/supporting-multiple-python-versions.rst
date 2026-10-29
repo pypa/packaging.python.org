@@ -22,8 +22,8 @@ Supporting multiple Python versions
   - DONE Travis and Shining Panda CI (Shining Panda no longer available)
   - DONE Appveyor
   - DONE Ned Batchelder's "What's in Which Python"
-    - http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html
-      - http://nedbatchelder.com/blog/201109/whats_in_which_python.html
+    - http://nedbatchelder.com/blog/201310/whats_in_which_python_3
+      - http://nedbatchelder.com/blog/201109/whats_in_which_python
   - Lennart Regebro's "Porting to Python 3"
   - Greg Hewgill's script to identify the minimum version of Python
     required to run a particular script:
@@ -95,7 +95,7 @@ The six_ module can be used from as early as Python 2.5. A tool called
 Ronacher, can be used to automatically apply the code modifications provided
 by six_.
 
-Similar to six_, `python-future <http://python-future.org/overview.html>`_ is
+Similar to six_, `python-future <https://python-future.org/overview.html>`_ is
 a package that provides a compatibility layer between Python 2 and Python 3
 source code; however, unlike six_, this package aims to provide
 interoperability between Python 2 and Python 3 with a language syntax that
@@ -122,9 +122,9 @@ What's in which Python?
 -----------------------
 
 Ned Batchelder provides a list of changes in each Python release for
-`Python 2 <https://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__,
-`Python 3.0-3.3 <https://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__ and
-`Python 3.4-3.6 <https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html>`__.
+`Python 2 <https://nedbatchelder.com/blog/201109/whats_in_which_python>`__,
+`Python 3.0-3.3 <https://nedbatchelder.com/blog/201310/whats_in_which_python_3>`__ and
+`Python 3.4-3.6 <https://nedbatchelder.com/blog/201803/whats_in_which_python_3436>`__.
 These lists may be used to check whether any changes between Python versions
 may affect your package.
 

@@ -240,7 +240,7 @@ machines of developers and data scientists.
 
 Technologies which support this model:
 
-* :gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)
+* :gh:`PEX <pex-tool/pex>` (Python EXecutable)
 * :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
 * :gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)
 
@@ -275,8 +275,8 @@ analytical, and other data-oriented environments, even making its way
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
-* `Building libraries and applications with conda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
-* `Transitioning a native Python package to Anaconda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
+* `Building libraries and applications with conda <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
 
 A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level

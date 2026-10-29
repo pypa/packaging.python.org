@@ -682,7 +682,7 @@ Arbitrary tool configuration: the ``[tool]`` table
 The ``[tool]`` table is where any tool related to your Python
 project, not just build tools, can have users specify configuration
 data as long as they use a sub-table within ``[tool]``, e.g. the
-`flit <https://pypi.python.org/pypi/flit>`_ tool would store its
+`flit <https://pypi.org/project/flit/>`_ tool would store its
 configuration in ``[tool.flit]``.
 
 A mechanism is needed to allocate names within the ``tool.*``
