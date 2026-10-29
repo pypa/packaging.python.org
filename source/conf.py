@@ -165,6 +165,7 @@ linkcheck_ignore = [
     r"https://typer\.tiangolo\.com/.*",
     r"https://www.npmjs.com/.*",
     r"https://docutils\.sourceforge\.io/.*",
+    r"https://hosted\.weblate\.org/.*",
     # Temporarily ignored due to expired TLS cert.
     # Ref: https://github.com/pypa/packaging.python.org/issues/1998
     r"https://blog\.ganssle\.io/.*",

@@ -727,7 +727,7 @@ addition, it would be beneficial if any possible new major version to the API ca
 be added without disrupting existing clients expecting the previous API version.
 
 To enable this, this spec standardizes on the use of HTTP's
-`Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation>`_.
+`Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation>`_.
 
 While this spec won't fully describe the entirety of server-driven content
 negotiation, the flow is roughly:

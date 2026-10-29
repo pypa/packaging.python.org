@@ -134,4 +134,4 @@ Existing projects
 .. [2] Can be configured to fall back to PyPI (or another package index)
        if a requested package is missing.
 
-.. _Twisted: https://twistedmatrix.com/
+.. _Twisted: https://twisted.org/

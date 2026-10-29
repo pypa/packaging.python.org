@@ -614,7 +614,7 @@ A full example
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
 .. _pypi-pip: https://pypi.org/project/pip
-.. _pypi-search-pip: https://pypi.org/search?q=pip
+.. _pypi-search-pip: https://pypi.org/search/?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 .. _pytest: https://pytest.org
