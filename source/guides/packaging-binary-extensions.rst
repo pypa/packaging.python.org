@@ -134,7 +134,7 @@ also be considered:
   need to create your own accelerator module.
 
 * for long running applications, the JIT compiled `PyPy interpreter
-  <https://www.pypy.org/>`__ may offer a suitable alternative to the standard
+  <https://pypy.org/>`__ may offer a suitable alternative to the standard
   CPython runtime. The main barrier to adopting PyPy is typically reliance
   on other binary extension modules - while PyPy does emulate the CPython
   C API, modules that rely on that cause problems for the PyPy JIT, and the

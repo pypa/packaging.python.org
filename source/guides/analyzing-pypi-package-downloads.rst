@@ -41,7 +41,7 @@ limited resources.
 Public dataset
 ==============
 
-As an alternative, the `Linehaul project <https://github.com/pypa/linehaul-cloud-function/>`__
+As an alternative, the `Linehaul project <https://github.com/pypi/linehaul-cloud-function/>`__
 streams download logs from PyPI to `Google BigQuery`_ [#]_, where they are
 stored as a public dataset.
 
@@ -61,7 +61,7 @@ per month `using the BigQuery free tier without a credit card
 
 For more detailed instructions on how to get started with BigQuery, check out
 the `BigQuery quickstart guide
-<https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`__.
+<https://docs.cloud.google.com/bigquery/docs/sandbox>`__.
 
 
 Data schema
@@ -351,7 +351,7 @@ References
 .. _Google BigQuery: https://cloud.google.com/bigquery
 .. _BigQuery web UI: https://console.cloud.google.com/bigquery
 .. _pypinfo: https://github.com/ofek/pypinfo
-.. _google-cloud-bigquery: https://cloud.google.com/bigquery/docs/reference/libraries
+.. _google-cloud-bigquery: https://docs.cloud.google.com/bigquery/docs/reference/libraries
 .. _pandas-gbq: https://pandas-gbq.readthedocs.io/en/latest/
 .. _Pandas: https://pandas.pydata.org/
 .. _ClickHouse: https://github.com/ClickHouse/ClickHouse

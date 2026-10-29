@@ -844,9 +844,9 @@ History
 - March 2026: Clarify file name precedence for archives, sdists, and wheels.
 
 
-.. _Content-Length: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length
+.. _Content-Length: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Length
 .. _Dependabot: https://docs.github.com/en/code-security/dependabot
-.. _HEAD: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
+.. _HEAD: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/HEAD
 .. _PDM: https://pypi.org/project/pdm/
 .. _pip-tools: https://pypi.org/project/pip-tools/
 .. _Poetry: https://pypi.org/project/poetry/
