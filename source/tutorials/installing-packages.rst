@@ -307,6 +307,16 @@ composed of a project name followed by an optional :term:`version specifier
 found in the :ref:`Version specifier specification <version-specifiers>`.
 Below are some examples.
 
+Spaces within a requirement specifier are allowed, including around version
+operators and commas. They can make manually maintained requirements easier to
+read. For example, both ``pip ~= 23.1`` and
+``resolvelib > 0.5, != 0.6.0`` are valid requirement specifiers.
+In a requirements file, write them directly, one per line. When passing a
+specifier containing spaces to ``pip install`` on the command line, quote
+the entire requirement so the shell passes it as one argument (for example,
+``python -m pip install "pip ~= 23.1"``).
+
+
 To install the latest version of "SomeProject":
 
 .. tab:: Unix/macOS
