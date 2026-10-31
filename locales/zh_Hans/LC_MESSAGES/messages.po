@@ -48,7 +48,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 12:18+0000\n"
+"POT-Creation-Date: 2026-10-28 20:57+0000\n"
 "PO-Revision-Date: 2026-10-28 12:10+0000\n"
 "Last-Translator: Hosted Weblate user 54392 "
 "<hamburger2048@users.noreply.hosted.weblate.org>\n"
@@ -285,8 +285,8 @@ msgid ""
 "guide:starting/installation>` to install Python 3.14 on your operating "
 "system."
 msgstr ""
-"Python 3.14。我们的构建脚本通常仅使用 Python 3.14 进行测试。请参阅 "
-":doc:`Hitchhiker's Guide to Python installation instructions <python-"
+"Python 3.14。我们的构建脚本通常仅使用 Python 3.14 进行测试。请参"
+"阅 :doc:`Hitchhiker's Guide to Python installation instructions <python-"
 "guide:starting/installation>` 将 Python 3.14 安装于你的操作系统中。"
 
 #: ../source/contribute.rst:140
@@ -638,7 +638,7 @@ msgid "2021-8-24"
 msgstr "2021-8-24"
 
 #: ../source/discussions/deploying-python-applications.rst:11
-#: ../source/specifications/externally-managed-environments.rst:130
+#: ../source/specifications/externally-managed-environments.rst:124
 #: ../source/specifications/platform-compatibility-tags.rst:14
 msgid "Overview"
 msgstr "总览"
@@ -749,7 +749,7 @@ msgid "Unix (including Linux and macOS)"
 msgstr "Unix（包括 Linux 和 macOS）"
 
 #: ../source/discussions/deploying-python-applications.rst:118
-#: ../source/key_projects.rst:576
+#: ../source/key_projects.rst:575
 msgid "pex"
 msgstr "pex"
 
@@ -1047,11 +1047,19 @@ msgid "Why?"
 msgstr "为什么？"
 
 #: ../source/discussions/downstream-packaging.rst:56
+#, fuzzy
+#| msgid ""
+#| "The vast majority of downstream packagers prefer to build packages from "
+#| "source, rather than use the upstream-provided binary packages. In some "
+#| "cases, using sources is actually required for the package to be included "
+#| "in the distribution. This is also true of pure Python packages that "
+#| "provide universal wheels. The reasons for using source distributions may "
+#| "include:"
 msgid ""
 "The vast majority of downstream packagers prefer to build packages from "
-"source, rather than use the upstream-provided binary packages. In some "
-"cases, using sources is actually required for the package to be included in "
-"the distribution. This is also true of pure Python packages that provide "
+"source, rather than use the upstream-provided wheels. In some cases, using "
+"sources is actually required for the package to be included in the "
+"distribution. This is also true of pure Python packages that provide "
 "universal wheels. The reasons for using source distributions may include:"
 msgstr ""
 "绝大多数下游打包者倾向于从源代码构建软件包，而不是使用上游提供的二进制软件"
@@ -2007,10 +2015,10 @@ msgid ""
 msgstr ""
 "在像 PyPI_ 这样的包索引中，你会找到两种格式的文件：**源分发**，简称 "
 "**sdists**；以及 **成品分发包**，通常称为 **wheels**。例如，` pip 23.3.1 的 "
-"PyPI 页面 <pip-pypi_>`_ 允许你下载两个文件，``pip-23.3.1.tar.gz`` 和 ``pip-"
-"23.3.1-py3-none-any.whl``。前者是一个 sdist，后者是一个 wheel。如下面所解释的"
-"，这两者有不同的用途。当在 PyPI（或其他地方）发布包时，你应该始终上传一个 "
-"sdist 和一个或多个 wheel 文件。"
+"PyPI 页面 <pip-pypi_>`_ 允许你下载两个文件，``pip-23.3.1.tar.gz`` 和 "
+"``pip-23.3.1-py3-none-any.whl``。前者是一个 sdist，后者是一个 wheel。如下面所"
+"解释的，这两者有不同的用途。当在 PyPI（或其他地方）发布包时，你应该始终上传一"
+"个 sdist 和一个或多个 wheel 文件。"
 
 #: ../source/discussions/package-formats.rst:21
 msgid "What is a source distribution?"
@@ -2362,164 +2370,6 @@ msgid ""
 msgstr ""
 "在某些情况下，wheels 可以作为可导入的运行时格式使用，尽管 :ref:`目前尚未得到"
 "官方支持 <binary-distribution-format-import-wheel>`。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:6
-msgid "pip vs easy_install"
-msgstr "pip 与 easy_install"
-
-#: ../source/discussions/pip-vs-easy-install.rst:9
-msgid ""
-":ref:`easy_install <easy_install>`, now `deprecated`_, was released in 2004 "
-"as part of :ref:`setuptools`. It was notable at the time for "
-"installing :term:`packages <Distribution Package>` from :term:`PyPI <Python "
-"Package Index (PyPI)>` using requirement specifiers, and automatically "
-"installing dependencies."
-msgstr ""
-":ref:`easy_install <easy_install>`，现 `已弃用`_，作为 :ref:`setuptools` 的一"
-"部分于 2004 年发布。当时值得注意的是，使用需求说明符从 :term:`PyPI <Python "
-"Package Index (PyPI)>` 安装 :term:`分发包 <Distribution Package>`，并自动安装"
-"依赖项。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:14
-msgid ""
-":ref:`pip` came later in 2008, as an alternative to :ref:`easy_install "
-"<easy_install>`, although still largely built on top of :ref:`setuptools` "
-"components.  It was notable at the time for *not* installing packages "
-"as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but rather simply as "
-"'flat' packages from :term:`sdists <Source Distribution (or \"sdist\")>`), "
-"and introducing the idea of :ref:`Requirements Files <pip:Requirements "
-"Files>`, which gave users the power to easily replicate environments."
-msgstr ""
-":ref:`pip` 作为 :ref:`easy_install <easy_install>` 的替代品于 2008 年出现，尽"
-"管其仍然主要构建在 :ref:`setuptools` 组件之上。当时它引人关注的原因是 *不* 将"
-"软件包作为 :term:`Eggs <Egg>` 安装或不从 :term:`Eggs <Egg>` 安装软件包（只作"
-"为来自 :term:`sdists <Source Distribution (or \"sdist\")>` 的 'flat' 包进行安"
-"装 ），并引入 :ref:`Requirements Files <pip:Requirements Files>` 的概念，使用"
-"户能够轻松复制环境。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:22
-msgid ""
-"Here's a breakdown of the important differences between pip and the "
-"deprecated easy_install:"
-msgstr "下面是 pip 和被废弃的 easy_install 之间的重要区别的分类："
-
-#: ../source/discussions/pip-vs-easy-install.rst:25
-msgid "**pip**"
-msgstr "**pip**"
-
-#: ../source/discussions/pip-vs-easy-install.rst:25
-msgid "**easy_install**"
-msgstr "**easy_install**"
-
-#: ../source/discussions/pip-vs-easy-install.rst:27
-msgid "Installs from :term:`Wheels <Wheel>`"
-msgstr "从 :term:`Wheels <Wheel>` 安装"
-
-#: ../source/discussions/pip-vs-easy-install.rst:27
-#: ../source/discussions/pip-vs-easy-install.rst:38
-#: ../source/discussions/pip-vs-easy-install.rst:44
-#: ../source/discussions/pip-vs-easy-install.rst:48
-#: ../source/discussions/pip-vs-easy-install.rst:54
-#: ../source/discussions/pip-vs-easy-install.rst:57
-msgid "Yes"
-msgstr "有"
-
-#: ../source/discussions/pip-vs-easy-install.rst:27
-#: ../source/discussions/pip-vs-easy-install.rst:30
-#: ../source/discussions/pip-vs-easy-install.rst:32
-#: ../source/discussions/pip-vs-easy-install.rst:35
-#: ../source/discussions/pip-vs-easy-install.rst:38
-#: ../source/discussions/pip-vs-easy-install.rst:44
-#: ../source/discussions/pip-vs-easy-install.rst:48
-#: ../source/discussions/pip-vs-easy-install.rst:51
-#: ../source/discussions/pip-vs-easy-install.rst:54
-#: ../source/discussions/pip-vs-easy-install.rst:57
-msgid "No"
-msgstr "没有"
-
-#: ../source/discussions/pip-vs-easy-install.rst:30
-msgid "Uninstall Packages"
-msgstr "卸载软件包"
-
-#: ../source/discussions/pip-vs-easy-install.rst:30
-msgid "Yes (``python -m pip uninstall``)"
-msgstr "有(``python -m pip uninstall``)"
-
-#: ../source/discussions/pip-vs-easy-install.rst:32
-msgid "Dependency Overrides"
-msgstr "依赖性覆盖"
-
-#: ../source/discussions/pip-vs-easy-install.rst:32
-msgid "Yes (:ref:`Requirements Files <pip:Requirements Files>`)"
-msgstr "有(:ref:`Requirements Files <pip:Requirements Files>`)"
-
-#: ../source/discussions/pip-vs-easy-install.rst:35
-msgid "List Installed Packages"
-msgstr "列出已安装的软件包"
-
-#: ../source/discussions/pip-vs-easy-install.rst:35
-msgid "Yes (``python -m pip list`` and ``python -m pip freeze``)"
-msgstr "有(``python -m pip list`` and ``python -m pip freeze``)"
-
-#: ../source/discussions/pip-vs-easy-install.rst:38
-msgid ":pep:`438` Support"
-msgstr ":pep:`438` 支持"
-
-#: ../source/discussions/pip-vs-easy-install.rst:41
-msgid "Installation format"
-msgstr "安装格式"
-
-#: ../source/discussions/pip-vs-easy-install.rst:41
-msgid "'Flat' packages with :file:`egg-info` metadata."
-msgstr "带有 :file:`egg-info` 元数据的“Flat”包。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:41
-msgid "Encapsulated Egg format"
-msgstr "封装的 Egg 格式"
-
-#: ../source/discussions/pip-vs-easy-install.rst:44
-msgid "sys.path modification"
-msgstr "sys.path 修改"
-
-#: ../source/discussions/pip-vs-easy-install.rst:48
-msgid "Installs from :term:`Eggs <Egg>`"
-msgstr "从 :term:`Eggs <Egg>` 安装"
-
-#: ../source/discussions/pip-vs-easy-install.rst:51
-msgid "`pylauncher support`_"
-msgstr "`pylauncher 支持`_"
-
-#: ../source/discussions/pip-vs-easy-install.rst:51
-msgid "Yes [1]_"
-msgstr "有 [1]_"
-
-#: ../source/discussions/pip-vs-easy-install.rst:54
-msgid ":ref:`Multi-version Installs`"
-msgstr ":ref:`多版本安装 <Multi-version Installs>`"
-
-#: ../source/discussions/pip-vs-easy-install.rst:57
-msgid "Exclude scripts during install"
-msgstr "安装时排除脚本"
-
-#: ../source/discussions/pip-vs-easy-install.rst:60
-msgid "per project index"
-msgstr "每个项目索引"
-
-#: ../source/discussions/pip-vs-easy-install.rst:60
-msgid "Only in virtualenv"
-msgstr "仅在 virtualenv 中"
-
-#: ../source/discussions/pip-vs-easy-install.rst:60
-msgid "Yes, via setup.cfg"
-msgstr "有，通过 setup.cfg"
-
-#: ../source/discussions/pip-vs-easy-install.rst:68
-msgid ""
-"https://setuptools.readthedocs.io/en/latest/deprecated/"
-"easy_install.html#natural-script-launcher"
-msgstr ""
-"https://setuptools.readthedocs.io/en/latest/deprecated/"
-"easy_install.html#natural-script-launcher"
 
 #: ../source/discussions/setup-py-deprecated.rst:6
 msgid "Is ``setup.py`` deprecated?"
@@ -5939,8 +5789,10 @@ msgstr ""
 "要的文件已经被 :ref:`setuptools` 43.0.0 和更新的版本所包含。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:123
-msgid ""
-":file:`MANIFEST.in` does not affect binary distributions such as wheels."
+#, fuzzy
+#| msgid ""
+#| ":file:`MANIFEST.in` does not affect binary distributions such as wheels."
+msgid ":file:`MANIFEST.in` does not affect built distributions such as wheels."
 msgstr ":file:`MANIFEST.in` 不影响诸如 wheels 这样的二进制分发。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:126
@@ -7370,7 +7222,7 @@ msgstr ""
 "其中一些发行版可能与基于 ``pip`` 和 ``virtualenv`` 的标准工具链不兼容。"
 
 #: ../source/guides/installing-scientific-packages.rst:100
-#: ../source/key_projects.rst:812
+#: ../source/key_projects.rst:811
 msgid "Spack"
 msgstr "Spack"
 
@@ -11470,12 +11322,17 @@ msgid "Write a \"pip vs. Conda\" comparison, here or in a new discussion."
 msgstr "在此处或在一个新的讨论页面中撰写 \"pip 与 Conda\" 的对比。"
 
 #: ../source/guides/tool-recommendations.rst:47
+#, fuzzy
+#| msgid ""
+#| "Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is "
+#| "deprecated in favor of pip (see :ref:`pip vs easy_install` for details). "
+#| "Likewise, do **not** use ``python setup.py install`` or ``python setup.py "
+#| "develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
+#| "background and :ref:`modernize-setup-py-project` for migration advice)."
 msgid ""
-"Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is "
-"deprecated in favor of pip (see :ref:`pip vs easy_install` for details). "
-"Likewise, do **not** use ``python setup.py install`` or ``python setup.py "
-"develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
-"background and :ref:`modernize-setup-py-project` for migration advice)."
+"Do **not** use ``python setup.py install`` or ``python setup.py develop``, "
+"which are deprecated (see :ref:`setup-py-deprecated` for background "
+"and :ref:`modernize-setup-py-project` for migration advice)."
 msgstr ""
 "请 **不要** 使用 ``easy_install`` （它是 :ref:`setuptools` 的一部分），该工具"
 "已被弃用，由 pip 取而代之（详见 :ref:`pip vs easy_install`）。同样，请 **不要"
@@ -11483,11 +11340,11 @@ msgstr ""
 "被弃用（背景参见 :ref:`setup-py-deprecated`，迁移建议参见 :ref:`modernize-"
 "setup-py-project`）。"
 
-#: ../source/guides/tool-recommendations.rst:55
+#: ../source/guides/tool-recommendations.rst:53
 msgid "Lock files"
 msgstr "锁定文件"
 
-#: ../source/guides/tool-recommendations.rst:57
+#: ../source/guides/tool-recommendations.rst:55
 msgid ""
 ":ref:`pip-tools` and :ref:`Pipenv` are two recognized tools to create lock "
 "files, which contain the exact versions of all packages installed into an "
@@ -11496,11 +11353,11 @@ msgstr ""
 ":ref:`pip-tools` 和 :ref:`Pipenv` 是两个公认的用于创建锁定文件的工具。锁定文"
 "件中记录了安装到环境里的所有软件包的确切版本，用于保证可重现性。"
 
-#: ../source/guides/tool-recommendations.rst:63
+#: ../source/guides/tool-recommendations.rst:61
 msgid "Build backends"
 msgstr "构建后端"
 
-#: ../source/guides/tool-recommendations.rst:67
+#: ../source/guides/tool-recommendations.rst:65
 msgid ""
 "Please, remember: this document does not seek to steer the reader towards a "
 "particular tool, only to enumerate common tools. Different use cases often "
@@ -11509,7 +11366,7 @@ msgstr ""
 "请记住：本文档并不试图把读者引导向某个特定的工具，而只是列举常见的工具。不同"
 "的使用场景往往需要专门的工作流。"
 
-#: ../source/guides/tool-recommendations.rst:71
+#: ../source/guides/tool-recommendations.rst:69
 msgid ""
 "Popular :term:`build backends <build backend>` for pure-Python packages "
 "include, in alphabetical order:"
@@ -11517,7 +11374,7 @@ msgstr ""
 "纯 Python 软件包常用的 :term:`构建后端 <build backend>` 包括（按字母顺序排"
 "列）："
 
-#: ../source/guides/tool-recommendations.rst:74
+#: ../source/guides/tool-recommendations.rst:72
 msgid ""
 ":doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate "
 "from :ref:`Flit`. A minimal and opinionated build backend. It does not "
@@ -11526,25 +11383,25 @@ msgstr ""
 ":doc:`Flit-core <flit:pyproject_toml>` -- 与 :ref:`Flit` 一同开发，但相互独"
 "立。这是一个极简而有主见的构建后端，不支持插件。"
 
-#: ../source/guides/tool-recommendations.rst:77
+#: ../source/guides/tool-recommendations.rst:75
 msgid ""
 "Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports "
 "plugins."
 msgstr "Hatchling_ -- 与 :ref:`Hatch` 一同开发，但相互独立。支持插件。"
 
-#: ../source/guides/tool-recommendations.rst:79
+#: ../source/guides/tool-recommendations.rst:77
 msgid ""
 "PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports "
 "plugins."
 msgstr "PDM-backend_ -- 与 :ref:`PDM` 一同开发，但相互独立。支持插件。"
 
-#: ../source/guides/tool-recommendations.rst:81
+#: ../source/guides/tool-recommendations.rst:79
 msgid ""
 "Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports "
 "plugins."
 msgstr "Poetry-core_ -- 与 :ref:`Poetry` 一同开发，但相互独立。支持插件。"
 
-#: ../source/guides/tool-recommendations.rst:84
+#: ../source/guides/tool-recommendations.rst:82
 msgid ""
 "Unlike other backends on this list, Poetry-core does not support the "
 "standard :ref:`[project] table <writing-pyproject-toml>` (it uses a "
@@ -11553,12 +11410,12 @@ msgstr ""
 "与列表中的其他后端不同，Poetry-core 不支持标准的 :ref:`[project] 表 <writing-"
 "pyproject-toml>`，而是采用另一种格式，写在 ``[tool.poetry]`` 表中。"
 
-#: ../source/guides/tool-recommendations.rst:88
+#: ../source/guides/tool-recommendations.rst:86
 msgid ""
 ":ref:`setuptools`, which used to be the only build backend. Supports plugins."
 msgstr ":ref:`setuptools`，它曾是唯一的构建后端。支持插件。"
 
-#: ../source/guides/tool-recommendations.rst:92
+#: ../source/guides/tool-recommendations.rst:90
 msgid ""
 "If you use setuptools, please be aware that some features that predate "
 "standardisation efforts are now deprecated and only *temporarily kept* for "
@@ -11567,7 +11424,7 @@ msgstr ""
 "如果你使用 setuptools，请注意，一些早于标准化工作的特性如今已被弃用，仅为兼容"
 "性而 *暂时保留*。"
 
-#: ../source/guides/tool-recommendations.rst:96
+#: ../source/guides/tool-recommendations.rst:94
 msgid ""
 "In particular, do **not** use direct ``python setup.py`` invocations. On the "
 "other hand, configuring setuptools with a :file:`setup.py` file is still "
@@ -11582,19 +11439,26 @@ msgstr ""
 "（或 :file:`setup.cfg`），只有在需要编程式配置时才保留 :file:`setup.py`。参"
 "见 :ref:`setup-py-deprecated`。"
 
-#: ../source/guides/tool-recommendations.rst:103
+#: ../source/guides/tool-recommendations.rst:101
+#, fuzzy
+#| msgid ""
+#| "Other examples of deprecated features you should **not** use include the "
+#| "``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] "
+#| "table <pyproject-guide-build-system-table>` in :file:`pyproject.toml` "
+#| "instead), and the ``easy_install`` command (cf. :ref:`pip vs "
+#| "easy_install`)."
 msgid ""
-"Other examples of deprecated features you should **not** use include the "
+"Another example of a deprecated feature you should **not** use is the "
 "``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] "
 "table <pyproject-guide-build-system-table>` in :file:`pyproject.toml` "
-"instead), and the ``easy_install`` command (cf. :ref:`pip vs easy_install`)."
+"instead)."
 msgstr ""
 "其他一些你 **不应** 使用的已弃用特性包括：``setup()`` 的 ``setup_requires`` "
 "参数（请改用 :file:`pyproject.toml` 中的 :ref:`[build-system] 表 <pyproject-"
 "guide-build-system-table>`），以及 ``easy_install`` 命令（参见 :ref:`pip vs "
 "easy_install`）。"
 
-#: ../source/guides/tool-recommendations.rst:108
+#: ../source/guides/tool-recommendations.rst:105
 msgid ""
 "Do **not** use :ref:`distutils`, which is deprecated, and has been removed "
 "from the standard library in Python 3.12, although it still remains "
@@ -11603,11 +11467,11 @@ msgstr ""
 "请 **不要** 使用 :ref:`distutils`，它已被弃用，并已在 Python 3.12 中从标准库"
 "移除，不过仍然可以从 setuptools 获取。"
 
-#: ../source/guides/tool-recommendations.rst:115
+#: ../source/guides/tool-recommendations.rst:112
 msgid "Build backends for extension modules"
 msgstr "扩展模块的构建后端"
 
-#: ../source/guides/tool-recommendations.rst:117
+#: ../source/guides/tool-recommendations.rst:114
 msgid ""
 "For packages with :term:`extension modules <extension module>`, it is best "
 "to use a build system with dedicated support for the language the extension "
@@ -11616,14 +11480,14 @@ msgstr ""
 "对于带有 :term:`扩展模块 <extension module>` 的软件包，最好使用对扩展所用的编"
 "程语言提供专门支持的构建系统，例如："
 
-#: ../source/guides/tool-recommendations.rst:121
+#: ../source/guides/tool-recommendations.rst:118
 msgid ""
 ":ref:`setuptools` -- natively supports C and C++ (with third-party plugins "
 "for Go and Rust),"
 msgstr ""
 ":ref:`setuptools` -- 原生支持 C 和 C++（通过第三方插件支持 Go 和 Rust），"
 
-#: ../source/guides/tool-recommendations.rst:122
+#: ../source/guides/tool-recommendations.rst:119
 msgid ""
 ":ref:`meson-python` -- C, C++, Fortran, Rust, and other languages supported "
 "by Meson,"
@@ -11631,7 +11495,7 @@ msgstr ""
 ":ref:`meson-python` -- 支持 C、C++、Fortran、Rust 以及 Meson 所支持的其他语"
 "言，"
 
-#: ../source/guides/tool-recommendations.rst:123
+#: ../source/guides/tool-recommendations.rst:120
 msgid ""
 ":ref:`scikit-build-core` -- C, C++, Fortran, and other languages supported "
 "by CMake,"
@@ -11639,15 +11503,15 @@ msgstr ""
 ":ref:`scikit-build-core` -- 支持 C、C++、Fortran 以及 CMake 所支持的其他语"
 "言，"
 
-#: ../source/guides/tool-recommendations.rst:124
+#: ../source/guides/tool-recommendations.rst:121
 msgid ":ref:`maturin` -- Rust, via Cargo."
 msgstr ":ref:`maturin` -- 支持 Rust，通过 Cargo。"
 
-#: ../source/guides/tool-recommendations.rst:128
+#: ../source/guides/tool-recommendations.rst:125
 msgid "Building distributions"
 msgstr "构建发行版"
 
-#: ../source/guides/tool-recommendations.rst:130
+#: ../source/guides/tool-recommendations.rst:127
 msgid ""
 "The standard tool to build :term:`source distributions <source distribution "
 "(or \"sdist\")>` and :term:`wheels <wheel>` for uploading to PyPI "
@@ -11659,7 +11523,7 @@ msgstr ""
 "在 :file:`pyproject.toml` 中 :ref:`声明 <pyproject-guide-build-system-"
 "table>` 的那个构建后端。"
 
-#: ../source/guides/tool-recommendations.rst:135
+#: ../source/guides/tool-recommendations.rst:132
 msgid ""
 "Do **not** use ``python setup.py sdist`` and ``python setup.py bdist_wheel`` "
 "for this task. All direct invocations of :file:`setup.py` "
@@ -11669,7 +11533,7 @@ msgstr ""
 "bdist_wheel``。所有对 :file:`setup.py` 的直接调用都已被 :ref:`弃用 <setup-py-"
 "deprecated>`。"
 
-#: ../source/guides/tool-recommendations.rst:139
+#: ../source/guides/tool-recommendations.rst:136
 msgid ""
 "If you have :term:`extension modules <extension module>` and want to "
 "distribute wheels for multiple platforms, use :ref:`cibuildwheel` as part of "
@@ -11678,11 +11542,11 @@ msgstr ""
 "如果你的项目带有 :term:`扩展模块 <extension module>`，并且想为多个平台分发 "
 "wheel 包，请在 CI 环境中使用 :ref:`cibuildwheel` 来构建可分发的 wheel 包。"
 
-#: ../source/guides/tool-recommendations.rst:145
+#: ../source/guides/tool-recommendations.rst:142
 msgid "Uploading to PyPI"
 msgstr "上传到 PyPI"
 
-#: ../source/guides/tool-recommendations.rst:147
+#: ../source/guides/tool-recommendations.rst:144
 msgid ""
 "For projects hosted on or published via supported CI/CD platforms, it is "
 "recommended to use the :ref:`Trusted Publishing <trusted-publishing>`, which "
@@ -11693,7 +11557,7 @@ msgstr ""
 "<trusted-publishing>`，它允许从 CI/CD 工作流中把软件包安全地上传到 PyPI，而无"
 "需手动配置 API 令牌。"
 
-#: ../source/guides/tool-recommendations.rst:152
+#: ../source/guides/tool-recommendations.rst:149
 msgid ""
 "As of November 2024, PyPI supports the following platforms as Trusted "
 "Publishing providers:"
@@ -11701,29 +11565,29 @@ msgstr ""
 "截至 2024 年 11 月，PyPI 支持以下平台作为可信发布（Trusted Publishing）提供"
 "方："
 
-#: ../source/guides/tool-recommendations.rst:155
+#: ../source/guides/tool-recommendations.rst:152
 msgid "GitHub Actions (on ``https://github.com``)"
 msgstr "GitHub Actions（在 ``https://github.com`` 上）"
 
-#: ../source/guides/tool-recommendations.rst:156
+#: ../source/guides/tool-recommendations.rst:153
 msgid "GitLab CI/CD (on ``https://gitlab.com``)"
 msgstr "GitLab CI/CD（在 ``https://gitlab.com`` 上）"
 
-#: ../source/guides/tool-recommendations.rst:157
+#: ../source/guides/tool-recommendations.rst:154
 msgid "ActiveState"
 msgstr "ActiveState"
 
-#: ../source/guides/tool-recommendations.rst:158
+#: ../source/guides/tool-recommendations.rst:155
 msgid "Google Cloud"
 msgstr "Google Cloud"
 
-#: ../source/guides/tool-recommendations.rst:160
+#: ../source/guides/tool-recommendations.rst:157
 msgid ""
 "The other available method is to upload the package manually "
 "using :ref:`twine`."
 msgstr "另一种可用的方法是使用 :ref:`twine` 手动上传软件包。"
 
-#: ../source/guides/tool-recommendations.rst:164
+#: ../source/guides/tool-recommendations.rst:161
 msgid ""
 "**Never** use ``python setup.py upload`` for this task. In addition to "
 "being :ref:`deprecated <setup-py-deprecated>`, it is insecure."
@@ -11731,11 +11595,11 @@ msgstr ""
 "**绝不要** 为此任务使用 ``python setup.py upload``。它除了 :ref:`已被弃用 "
 "<setup-py-deprecated>` 之外，也不安全。"
 
-#: ../source/guides/tool-recommendations.rst:169
+#: ../source/guides/tool-recommendations.rst:166
 msgid "Workflow tools"
 msgstr "工作流工具"
 
-#: ../source/guides/tool-recommendations.rst:171
+#: ../source/guides/tool-recommendations.rst:168
 msgid ""
 "These tools are environment managers that automatically manage virtual "
 "environments for a project. They also act as \"task runners\", allowing you "
@@ -11750,31 +11614,31 @@ msgstr ""
 "供了构建分发包并上传到 PyPI 的快捷方式，一些支持为应用程序生成锁定文件。它们"
 "通常会在底层调用上文提到的工具。按字母顺序排列："
 
-#: ../source/guides/tool-recommendations.rst:179
+#: ../source/guides/tool-recommendations.rst:176
 msgid ":ref:`Flit`,"
 msgstr ":ref:`Flit`,"
 
-#: ../source/guides/tool-recommendations.rst:180
+#: ../source/guides/tool-recommendations.rst:177
 msgid ":ref:`Hatch`,"
 msgstr ":ref:`Hatch`,"
 
-#: ../source/guides/tool-recommendations.rst:181
+#: ../source/guides/tool-recommendations.rst:178
 msgid ":doc:`nox <nox:index>`,"
 msgstr ":doc:`nox <nox:index>`，"
 
-#: ../source/guides/tool-recommendations.rst:182
+#: ../source/guides/tool-recommendations.rst:179
 msgid ":ref:`PDM`,"
 msgstr ":ref:`PDM`,"
 
-#: ../source/guides/tool-recommendations.rst:183
+#: ../source/guides/tool-recommendations.rst:180
 msgid ":ref:`Pipenv`,"
 msgstr ":ref:`Pipenv`,"
 
-#: ../source/guides/tool-recommendations.rst:184
+#: ../source/guides/tool-recommendations.rst:181
 msgid ":ref:`Poetry`,"
 msgstr ":ref:`Poetry`,"
 
-#: ../source/guides/tool-recommendations.rst:185
+#: ../source/guides/tool-recommendations.rst:182
 msgid ":doc:`tox <tox:index>`."
 msgstr ":doc:`tox <tox:index>`。"
 
@@ -12747,21 +12611,17 @@ msgstr ":doc:`discussions/index` 部分提供了对若干主题的深入解释�
 msgid ":doc:`discussions/deploying-python-applications`"
 msgstr ":doc:`discussions/deploying-python-applications`"
 
-#: ../source/index.rst:86
-msgid ":doc:`discussions/pip-vs-easy-install`"
-msgstr ":doc:`discussions/pip-vs-easy-install`"
-
-#: ../source/index.rst:89
+#: ../source/index.rst:88
 msgid "Reference"
 msgstr "参考"
 
-#: ../source/index.rst:91
+#: ../source/index.rst:90
 msgid ""
 "The :doc:`specifications/index` section for packaging interoperability "
 "specifications."
 msgstr "打包互操作性规范所在的 :doc:`specifications/index` 部分。"
 
-#: ../source/index.rst:92
+#: ../source/index.rst:91
 msgid ""
 "The list of :doc:`other projects <key_projects>` maintained by members of "
 "the Python Packaging Authority."
@@ -12769,7 +12629,7 @@ msgstr ""
 "清单，由 Python 打包管理机构成员维护的 :doc:`other projects <key_projects>` "
 "组成。"
 
-#: ../source/index.rst:93
+#: ../source/index.rst:92
 msgid "The :doc:`glossary` for definitions of terms used in Python packaging."
 msgstr "Python 打包中使用的术语定义所在的 :doc:`glossary`。"
 
@@ -12878,11 +12738,20 @@ msgstr ""
 "pypi.org/project/distlib>`__"
 
 #: ../source/key_projects.rst:73
+#, fuzzy
+#| msgid ""
+#| "``distlib`` is a library which implements low-level functions that relate "
+#| "to packaging and distribution of Python software.  ``distlib`` implements "
+#| "several relevant PEPs (Python Enhancement Proposal standards) and is "
+#| "useful for developers of third-party packaging tools to make and upload "
+#| "binary and source :term:`distributions <Distribution Package>`, achieve "
+#| "interoperability, resolve dependencies, manage package resources, and do "
+#| "other similar functions."
 msgid ""
 "``distlib`` is a library which implements low-level functions that relate to "
 "packaging and distribution of Python software.  ``distlib`` implements "
 "several relevant PEPs (Python Enhancement Proposal standards) and is useful "
-"for developers of third-party packaging tools to make and upload binary and "
+"for developers of third-party packaging tools to make and upload built and "
 "source :term:`distributions <Distribution Package>`, achieve "
 "interoperability, resolve dependencies, manage package resources, and do "
 "other similar functions."
@@ -13207,11 +13076,11 @@ msgstr ""
 "在发布管理流程中单独调用它，或通过 :ref:`twine` 来调用它，以检查软件包描述能"
 "否在 PyPI 上正常显示。"
 
-#: ../source/key_projects.rst:274
+#: ../source/key_projects.rst:273
 msgid "Setuptools"
 msgstr "Setuptools"
 
-#: ../source/key_projects.rst:276
+#: ../source/key_projects.rst:275
 msgid ""
 "`Docs <https://setuptools.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/setuptools/issues>`__ | `GitHub <https://github.com/pypa/"
@@ -13221,22 +13090,28 @@ msgstr ""
 "github.com/pypa/setuptools/issues>`__ | `GitHub <https://github.com/pypa/"
 "setuptools>`__ | `PyPI <https://pypi.org/project/setuptools>`__"
 
-#: ../source/key_projects.rst:281
+#: ../source/key_projects.rst:280
+#, fuzzy
+#| msgid ""
+#| "Setuptools (which includes ``easy_install``) is a collection of "
+#| "enhancements to the Python distutils that allow you to more easily build "
+#| "and distribute Python :term:`distributions <Distribution Package>`, "
+#| "especially ones that have dependencies on other packages."
 msgid ""
-"Setuptools (which includes ``easy_install``) is a collection of enhancements "
-"to the Python distutils that allow you to more easily build and distribute "
-"Python :term:`distributions <Distribution Package>`, especially ones that "
-"have dependencies on other packages."
+"Setuptools is a collection of enhancements to the Python distutils that "
+"allow you to more easily build and distribute Python :term:`distributions "
+"<Distribution Package>`, especially ones that have dependencies on other "
+"packages."
 msgstr ""
 "Setuptools（包含 ``easy_install``）是一组对 Python distutils 的增强，让你能够"
 "更轻松地构建和分发 Python :term:`分发包 <Distribution Package>`，尤其是那些依"
 "赖其他软件包的分发包。"
 
-#: ../source/key_projects.rst:289
+#: ../source/key_projects.rst:288
 msgid "trove-classifiers"
 msgstr "trove-classifiers"
 
-#: ../source/key_projects.rst:291
+#: ../source/key_projects.rst:290
 msgid ""
 "`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub "
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
@@ -13246,7 +13121,7 @@ msgstr ""
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
 "project/trove-classifiers/>`__"
 
-#: ../source/key_projects.rst:295
+#: ../source/key_projects.rst:294
 msgid ""
 "trove-classifiers is the canonical source for `classifiers on PyPI <https://"
 "pypi.org/classifiers/>`_, which project maintainers use "
@@ -13257,7 +13132,7 @@ msgstr ""
 "威来源；项目维护者用它来 :ref:`系统地描述自己的项目 <core-metadata-"
 "classifier>`，以便用户能在 PyPI 上更好地找到符合自身需求的项目。"
 
-#: ../source/key_projects.rst:300
+#: ../source/key_projects.rst:299
 msgid ""
 "The trove-classifiers package contains a list of valid classifiers and "
 "deprecated classifiers (which are paired with the classifiers that replace "
@@ -13276,11 +13151,11 @@ msgstr ""
 "<https://github.com/pypa/trove-classifiers/issues>`_ 承载着关于拟议分类器和新"
 "分类器请求的讨论。"
 
-#: ../source/key_projects.rst:314
+#: ../source/key_projects.rst:313
 msgid "twine"
 msgstr "twine"
 
-#: ../source/key_projects.rst:316
+#: ../source/key_projects.rst:315
 msgid ""
 "`Docs <https://twine.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/"
@@ -13290,7 +13165,7 @@ msgstr ""
 "github.com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/"
 "twine>`__ | `PyPI <https://pypi.org/project/twine>`__"
 
-#: ../source/key_projects.rst:321
+#: ../source/key_projects.rst:320
 msgid ""
 "Twine is the primary tool developers use to upload packages to the Python "
 "Package Index or other Python package indexes. It is a command-line program "
@@ -13302,11 +13177,11 @@ msgstr ""
 "具。它是一个命令行程序，会把程序文件和元数据传递给 web API。开发者选择它，是"
 "因为它是 PyPI 的官方上传工具，快速而安全，持续有人维护，并且稳定可靠。"
 
-#: ../source/key_projects.rst:331 ../source/overview.rst:405
+#: ../source/key_projects.rst:330 ../source/overview.rst:408
 msgid "virtualenv"
 msgstr "virtualenv"
 
-#: ../source/key_projects.rst:333
+#: ../source/key_projects.rst:332
 msgid ""
 "`Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ | `Issues "
 "<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
@@ -13316,7 +13191,7 @@ msgstr ""
 "<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
 "pypa/virtualenv>`__ | `PyPI <https://pypi.org/project/virtualenv/>`__"
 
-#: ../source/key_projects.rst:338
+#: ../source/key_projects.rst:337
 msgid ""
 "virtualenv is a tool for creating isolated Python :term:`Virtual "
 "Environments <Virtual Environment>`, like :ref:`venv`. Unlike :ref:`venv`, "
@@ -13332,11 +13207,11 @@ msgstr ""
 "了便于配置、维护、复制和排查虚拟环境问题的功能。更多信息请参"
 "阅 :ref:`Creating and using Virtual Environments` 一节。"
 
-#: ../source/key_projects.rst:350
+#: ../source/key_projects.rst:349
 msgid "Warehouse"
 msgstr "Warehouse"
 
-#: ../source/key_projects.rst:352
+#: ../source/key_projects.rst:351
 msgid ""
 "`Docs <https://warehouse.pypa.io/>`__ | `Issues <https://github.com/pypa/"
 "warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
@@ -13344,7 +13219,7 @@ msgstr ""
 "`文档 <https://warehouse.pypa.io/>`__ | `Issues <https://github.com/pypa/"
 "warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
 
-#: ../source/key_projects.rst:356
+#: ../source/key_projects.rst:355
 msgid ""
 "The current codebase powering the :term:`Python Package Index (PyPI)`. It is "
 "hosted at `pypi.org <https://pypi.org/>`_. The default source for :ref:`pip` "
@@ -13353,11 +13228,11 @@ msgstr ""
 "驱动 :term:`Python Package Index (PyPI)` 的当前代码库，托管在 `pypi.org "
 "<https://pypi.org/>`_。它是 :ref:`pip` 下载的默认来源。"
 
-#: ../source/key_projects.rst:364
+#: ../source/key_projects.rst:363
 msgid "wheel"
 msgstr "wheel"
 
-#: ../source/key_projects.rst:366
+#: ../source/key_projects.rst:365
 msgid ""
 "`Docs <https://wheel.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/"
@@ -13367,7 +13242,7 @@ msgstr ""
 "github.com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/"
 "wheel>`__ | `PyPI <https://pypi.org/project/wheel>`__"
 
-#: ../source/key_projects.rst:371
+#: ../source/key_projects.rst:370
 msgid ""
 "Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` "
 "extension for creating :term:`wheel distributions <Wheel>`.  Additionally, "
@@ -13377,28 +13252,36 @@ msgstr ""
 "建 :term:`wheel 分发包 <Wheel>`。此外，它还提供了自己的命令行实用程序，用于创"
 "建和安装 wheel。"
 
-#: ../source/key_projects.rst:375
+#: ../source/key_projects.rst:374
+#, fuzzy
+#| msgid ""
+#| "See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool that "
+#| "package developers use to check and fix Python packages they are making "
+#| "in the binary wheel format. It provides functionality to discover "
+#| "dependencies, check metadata for compliance, and repair the wheel and "
+#| "metadata to properly link and include external shared libraries in a "
+#| "package."
 msgid ""
 "See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool that "
-"package developers use to check and fix Python packages they are making in "
-"the binary wheel format. It provides functionality to discover dependencies, "
-"check metadata for compliance, and repair the wheel and metadata to properly "
-"link and include external shared libraries in a package."
+"package developers use to check and fix wheels containing native code. It "
+"provides functionality to discover dependencies, check metadata for "
+"compliance, and repair the wheel and metadata to properly link and include "
+"external shared libraries in a package."
 msgstr ""
 "另请参阅 `auditwheel <https://github.com/pypa/auditwheel>`__，这是一款供软件"
 "包开发者检查和修复其正在以二进制 wheel 格式构建的 Python 软件包的工具。它提供"
 "的功能包括：发现依赖项、检查元数据的合规性，以及修复 wheel 和元数据，以便正确"
 "地链接外部共享库并将其纳入软件包。"
 
-#: ../source/key_projects.rst:384
+#: ../source/key_projects.rst:383
 msgid "Non-PyPA Projects"
 msgstr "非 PyPA 项目"
 
-#: ../source/key_projects.rst:389
+#: ../source/key_projects.rst:388
 msgid "buildout"
 msgstr "buildout"
 
-#: ../source/key_projects.rst:391
+#: ../source/key_projects.rst:390
 msgid ""
 "`Docs <http://www.buildout.org/en/latest/>`__ | `Issues <https://"
 "bugs.launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/"
@@ -13408,7 +13291,7 @@ msgstr ""
 "bugs.launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/"
 "zc.buildout>`__ | `GitHub <https://github.com/buildout/buildout/>`__"
 
-#: ../source/key_projects.rst:396
+#: ../source/key_projects.rst:395
 msgid ""
 "Buildout is a Python-based build system for creating, assembling and "
 "deploying applications from multiple parts, some of which may be non-Python-"
@@ -13419,15 +13302,15 @@ msgstr ""
 "于 Python）创建、组装和部署应用。它让你可以创建一份 buildout 配置，并在日后重"
 "现同样的软件。"
 
-#: ../source/key_projects.rst:403
+#: ../source/key_projects.rst:402
 msgid "conda"
 msgstr "conda"
 
-#: ../source/key_projects.rst:405
+#: ../source/key_projects.rst:404
 msgid ":doc:`Docs <conda:index>`"
 msgstr ":doc:`文档 <conda:index>`"
 
-#: ../source/key_projects.rst:407
+#: ../source/key_projects.rst:406
 msgid ""
 "Conda is a package, dependency, and environment management system for any "
 "language — Python, R, Ruby, C/C++, Fortran, and more. It is written in "
@@ -13448,7 +13331,7 @@ msgstr ""
 "<https://github.com/conda-forge/miniforge>`_ 或 `pixi <https://pixi.sh/>`_ 等"
 "系统配合使用。它可用于 Windows、Mac 和 Linux 系统。"
 
-#: ../source/key_projects.rst:416
+#: ../source/key_projects.rst:415
 msgid ""
 "Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, "
 "but provides many of their combined features, such as package management, "
@@ -13459,7 +13342,7 @@ msgstr ""
 "项功能的组合，例如软件包管理、虚拟环境管理，以及二进制扩展和其他二进制代码的"
 "部署。"
 
-#: ../source/key_projects.rst:420
+#: ../source/key_projects.rst:419
 msgid ""
 "Conda does not install packages from PyPI -- it can only manage packages "
 "built specifically for conda, which can be made available on a \"conda "
@@ -13475,7 +13358,7 @@ msgstr ""
 "www.anaconda.com/>`__ 管理的“默认”频道外，还有来自社区支持的 `conda-forge 项"
 "目 <https://conda-forge.org/>`__ 的大量软件包"
 
-#: ../source/key_projects.rst:426
+#: ../source/key_projects.rst:425
 msgid ""
 "Note that :ref:`pip` can be installed into, and work side-by-side with conda "
 "for managing :term:`distributions <Distribution Package>` from PyPI. It is "
@@ -13490,11 +13373,11 @@ msgstr ""
 "build-pkgs-skeleton.html>`__ 之类的工具，从 Python 源码软件包构建 conda 软件"
 "包：这个工具可以自动用 PyPI 上可用的 Python 软件包制作 conda 软件包。"
 
-#: ../source/key_projects.rst:435
+#: ../source/key_projects.rst:434
 msgid "devpi"
 msgstr "devpi"
 
-#: ../source/key_projects.rst:437
+#: ../source/key_projects.rst:436
 msgid ""
 "`Docs <http://doc.devpi.net/latest/>`__ | :gh:`Issues <devpi/devpi/issues>` "
 "| `PyPI <https://pypi.org/project/devpi>`__"
@@ -13502,7 +13385,7 @@ msgstr ""
 "`文档 <http://doc.devpi.net/latest/>`__ | :gh:`Issues <devpi/devpi/issues>` "
 "| `PyPI <https://pypi.org/project/devpi>`__"
 
-#: ../source/key_projects.rst:441
+#: ../source/key_projects.rst:440
 msgid ""
 "devpi features a powerful PyPI-compatible server and PyPI proxy cache with a "
 "complementary command line tool to drive packaging, testing and release "
@@ -13516,11 +13399,11 @@ msgstr ""
 "的 web 界面。devpi 支持镜像 PyPI、带继承的多个 :term:`包索引 <Package "
 "Index>`、这些索引之间的同步、索引复制与故障转移，以及软件包上传。"
 
-#: ../source/key_projects.rst:452
+#: ../source/key_projects.rst:451
 msgid "dumb-pypi"
 msgstr "dumb-pypi"
 
-#: ../source/key_projects.rst:454
+#: ../source/key_projects.rst:453
 msgid ""
 "`GitHub <https://github.com/chriskuehl/dumb-pypi>`__ | `PyPI <https://"
 "pypi.org/project/dumb-pypi>`__"
@@ -13528,7 +13411,7 @@ msgstr ""
 "`GitHub <https://github.com/chriskuehl/dumb-pypi>`__ | `PyPI <https://"
 "pypi.org/project/dumb-pypi>`__"
 
-#: ../source/key_projects.rst:457
+#: ../source/key_projects.rst:456
 msgid ""
 "dumb-pypi is a simple :term:`package index <Package Index>` static file site "
 "generator, which then must be hosted by a static file webserver to become "
@@ -13539,11 +13422,11 @@ msgstr ""
 "成的站点随后必须由静态文件 web 服务器托管，才能成为包索引。它支持提供哈希、核"
 "心元数据以及 yank 状态。"
 
-#: ../source/key_projects.rst:464
+#: ../source/key_projects.rst:463
 msgid "enscons"
 msgstr "enscons"
 
-#: ../source/key_projects.rst:466
+#: ../source/key_projects.rst:465
 msgid ""
 ":gh:`Source <dholth/enscons>` | :gh:`Issues <dholth/enscons/issues>` | `PyPI "
 "<https://pypi.org/project/enscons>`__"
@@ -13551,7 +13434,7 @@ msgstr ""
 ":gh:`源码 <dholth/enscons>` | :gh:`问题 <dholth/enscons/issues>` | `PyPI "
 "<https://pypi.org/project/enscons>`__"
 
-#: ../source/key_projects.rst:470
+#: ../source/key_projects.rst:469
 msgid ""
 "Enscons is a Python packaging tool based on `SCons`_. It builds :ref:`pip`-"
 "compatible source distributions and wheels without using distutils or "
@@ -13568,11 +13451,11 @@ msgstr ""
 "加构建功能，而是把 Python 打包加到通用构建系统之上。Enscons 帮助你构建可"
 "由 :ref:`pip` 自动构建的 sdist，以及不依赖 enscons 的 wheel。"
 
-#: ../source/key_projects.rst:485
+#: ../source/key_projects.rst:484
 msgid "Flask-Pypi-Proxy"
 msgstr "Flask-Pypi-Proxy"
 
-#: ../source/key_projects.rst:487
+#: ../source/key_projects.rst:486
 msgid ""
 "`Docs <https://flask-pypi-proxy.readthedocs.io>`__ | :gh:`GitHub <tzulberti/"
 "Flask-PyPi-Proxy>` | `PyPI <https://pypi.org/project/Flask-Pypi-Proxy/>`__"
@@ -13580,23 +13463,23 @@ msgstr ""
 "`Docs <https://flask-pypi-proxy.readthedocs.io>`__ | :gh:`GitHub <tzulberti/"
 "Flask-PyPi-Proxy>` | `PyPI <https://pypi.org/project/Flask-Pypi-Proxy/>`__"
 
-#: ../source/key_projects.rst:491 ../source/key_projects.rst:685
-#: ../source/key_projects.rst:744
+#: ../source/key_projects.rst:490 ../source/key_projects.rst:684
+#: ../source/key_projects.rst:743
 msgid "Not maintained, project archived"
 msgstr "不再维护，项目已归档"
 
-#: ../source/key_projects.rst:493
+#: ../source/key_projects.rst:492
 msgid ""
 "Flask-Pypi-Proxy is a :term:`package index <Package Index>` as a cached "
 "proxy for PyPI."
 msgstr ""
 "Flask-Pypi-Proxy 是一个作为 PyPI 缓存代理的 :term:`包索引 <Package Index>`。"
 
-#: ../source/key_projects.rst:499
+#: ../source/key_projects.rst:498
 msgid "Hashdist"
 msgstr "Hashdist"
 
-#: ../source/key_projects.rst:501
+#: ../source/key_projects.rst:500
 msgid ""
 "`Docs <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/hashdist/hashdist/>`__"
@@ -13604,7 +13487,7 @@ msgstr ""
 "`文档 <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/hashdist/hashdist/>`__"
 
-#: ../source/key_projects.rst:504
+#: ../source/key_projects.rst:503
 msgid ""
 "Hashdist is a library for building non-root software distributions. Hashdist "
 "is trying to be “the Debian of choice for cases where Debian technology "
@@ -13620,11 +13503,11 @@ msgstr ""
 "体。它旨在解决科学软件的安装问题，并让软件包分发变得无状态、可缓存、可分支。"
 "一些研究人员在使用它，但自 2016 年起它就缺乏维护了。"
 
-#: ../source/key_projects.rst:516
+#: ../source/key_projects.rst:515
 msgid "Maturin"
 msgstr "Maturin"
 
-#: ../source/key_projects.rst:518
+#: ../source/key_projects.rst:517
 msgid ""
 "`Docs <https://www.maturin.rs>`__ | `GitHub <https://github.com/PyO3/"
 "maturin>`__"
@@ -13632,7 +13515,7 @@ msgstr ""
 "`文档 <https://www.maturin.rs>`__ | `GitHub <https://github.com/PyO3/"
 "maturin>`__"
 
-#: ../source/key_projects.rst:521
+#: ../source/key_projects.rst:520
 msgid ""
 "Maturin is a build backend for Rust extension modules, also written in Rust. "
 "It supports building wheels for python 3.7+ on Windows, Linux, macOS and "
@@ -13642,11 +13525,11 @@ msgstr ""
 "Windows、Linux、macOS 和 FreeBSD 上为 Python 3.7+ 构建 wheel，可以把 wheel 上"
 "传到 PyPI，并对 PyPy 和 GraalPy 提供基本支持。"
 
-#: ../source/key_projects.rst:529
+#: ../source/key_projects.rst:528
 msgid "meson-python"
 msgstr "meson-python"
 
-#: ../source/key_projects.rst:531
+#: ../source/key_projects.rst:530
 msgid ""
 "`Docs <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/mesonbuild/meson-python>`__"
@@ -13654,7 +13537,7 @@ msgstr ""
 "`文档 <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/mesonbuild/meson-python>`__"
 
-#: ../source/key_projects.rst:534
+#: ../source/key_projects.rst:533
 msgid ""
 "``meson-python`` is a build backend that uses the Meson_ build system. It "
 "enables Python package authors to use Meson_ as the build system for their "
@@ -13665,15 +13548,15 @@ msgstr ""
 "能够把 Meson_ 用作其软件包的构建系统。它支持包括 C 在内的多种语言，能够满足大"
 "多数复杂构建配置的需求。"
 
-#: ../source/key_projects.rst:544
+#: ../source/key_projects.rst:543
 msgid "multibuild"
 msgstr "multibuild"
 
-#: ../source/key_projects.rst:546
+#: ../source/key_projects.rst:545
 msgid "`GitHub <https://github.com/multi-build/multibuild>`__"
 msgstr "`GitHub <https://github.com/multi-build/multibuild>`__"
 
-#: ../source/key_projects.rst:548
+#: ../source/key_projects.rst:547
 msgid ""
 "Multibuild is a set of CI scripts for building and testing "
 "Python :term:`wheels <Wheel>` for Linux, macOS, and (less flexibly) Windows. "
@@ -13682,15 +13565,15 @@ msgstr ""
 "Multibuild 是一组 CI 脚本，用于为 Linux、macOS 以及（灵活性稍逊的）Windows 构"
 "建和测试 Python :term:`wheel <Wheel>`。另请参阅 :ref:`cibuildwheel`。"
 
-#: ../source/key_projects.rst:554
+#: ../source/key_projects.rst:553
 msgid "nginx_pypi_cache"
 msgstr "nginx_pypi_cache"
 
-#: ../source/key_projects.rst:556
+#: ../source/key_projects.rst:555
 msgid ":gh:`GitHub <hauntsaninja/nginx_pypi_cache>`"
 msgstr ":gh:`GitHub <hauntsaninja/nginx_pypi_cache>`"
 
-#: ../source/key_projects.rst:558
+#: ../source/key_projects.rst:557
 msgid ""
 "nginx_pypi_cache is a :term:`package index <Package Index>` caching proxy "
 "using `nginx <https://nginx.org/en/>`_."
@@ -13698,11 +13581,11 @@ msgstr ""
 "nginx_pypi_cache 是一个使用 `nginx <https://nginx.org/en/>`_ 的 :term:`包索"
 "引 <Package Index>` 缓存代理。"
 
-#: ../source/key_projects.rst:564
+#: ../source/key_projects.rst:563
 msgid "pdm"
 msgstr "pdm"
 
-#: ../source/key_projects.rst:566
+#: ../source/key_projects.rst:565
 msgid ""
 "`Docs <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-project/"
 "pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
@@ -13710,7 +13593,7 @@ msgstr ""
 "`文档 <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-project/"
 "pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
 
-#: ../source/key_projects.rst:570
+#: ../source/key_projects.rst:569
 msgid ""
 "PDM is a modern Python package manager. It uses :term:`pyproject.toml` to "
 "store project metadata as defined in :pep:`621`."
@@ -13718,7 +13601,7 @@ msgstr ""
 "PDM 是一个现代化的 Python 软件包管理器。它使用 :term:`pyproject.toml` 来存"
 "储 :pep:`621` 所定义的项目元数据。"
 
-#: ../source/key_projects.rst:578
+#: ../source/key_projects.rst:577
 msgid ""
 "`Docs <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
@@ -13726,7 +13609,7 @@ msgstr ""
 "`文档 <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
 
-#: ../source/key_projects.rst:582
+#: ../source/key_projects.rst:581
 msgid ""
 "Pex is a tool for generating :file:`.pex` (Python EXecutable) files, "
 "standalone Python environments in the spirit of :ref:`virtualenv`. PEX files "
@@ -13744,11 +13627,11 @@ msgstr ""
 "lock ...`` 生成的锁文件甚至另一个 PEX 创建而成。PEX 文件还可以选择内嵌一些工"
 "具，支持把 PEX 文件转换成标准的 venv、绘制依赖关系图等。"
 
-#: ../source/key_projects.rst:594
+#: ../source/key_projects.rst:593
 msgid "pip-tools"
 msgstr "pip-tools"
 
-#: ../source/key_projects.rst:596
+#: ../source/key_projects.rst:595
 msgid ""
 "`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/project/pip-"
@@ -13758,7 +13641,7 @@ msgstr ""
 "github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/project/pip-"
 "tools/>`__"
 
-#: ../source/key_projects.rst:600
+#: ../source/key_projects.rst:599
 msgid ""
 "pip-tools is a suite of tools meant for Python system administrators and "
 "release managers who particularly want to keep their builds deterministic "
@@ -13773,17 +13656,17 @@ msgstr ""
 "本，可以根据程序其他部分的信息方便地生成格式正确的需求列表，可以更新所有依赖"
 "项（这是 :ref:`pip` 目前尚未提供的功能），还可以为程序创建多层约束。"
 
-#: ../source/key_projects.rst:612
+#: ../source/key_projects.rst:611
 msgid "pip2pi"
 msgstr "pip2pi"
 
-#: ../source/key_projects.rst:614
+#: ../source/key_projects.rst:613
 msgid ""
 ":gh:`GitHub <wolever/pip2pi>` | `PyPI <https://pypi.org/project/pip2pi/>`__"
 msgstr ""
 ":gh:`GitHub <wolever/pip2pi>` | `PyPI <https://pypi.org/project/pip2pi/>`__"
 
-#: ../source/key_projects.rst:617
+#: ../source/key_projects.rst:616
 msgid ""
 "pip2pi is a :term:`package index <Package Index>` server where specific "
 "packages are manually synchronised."
@@ -13791,11 +13674,11 @@ msgstr ""
 "pip2pi 是一个 :term:`包索引 <Package Index>` 服务器，其中特定的软件包通过手动"
 "方式同步。"
 
-#: ../source/key_projects.rst:623
+#: ../source/key_projects.rst:622
 msgid "piwheels"
 msgstr "piwheels"
 
-#: ../source/key_projects.rst:625
+#: ../source/key_projects.rst:624
 msgid ""
 "`Website <https://www.piwheels.org/>`__ | :doc:`Docs <piwheels:index>` | "
 "`GitHub <https://github.com/piwheels/piwheels/>`__"
@@ -13803,7 +13686,7 @@ msgstr ""
 "`网站 <https://www.piwheels.org/>`__ | :doc:`Docs <piwheels:index>` | "
 "`GitHub <https://github.com/piwheels/piwheels/>`__"
 
-#: ../source/key_projects.rst:629
+#: ../source/key_projects.rst:628
 msgid ""
 "piwheels is a website, and software underpinning it, that fetches source "
 "code distribution packages from PyPI and compiles them into binary wheels "
@@ -13814,11 +13697,11 @@ msgstr ""
 "对树莓派（Raspberry Pi）计算机安装而优化的二进制 wheel。Raspberry Pi OS 预先"
 "将 pip 配置为在使用 PyPI 的同时把 piwheels.org 用作附加索引。"
 
-#: ../source/key_projects.rst:638
+#: ../source/key_projects.rst:637
 msgid "poetry"
 msgstr "poetry"
 
-#: ../source/key_projects.rst:640
+#: ../source/key_projects.rst:639
 msgid ""
 "`Docs <https://python-poetry.org/>`__ | `GitHub <https://github.com/python-"
 "poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
@@ -13826,7 +13709,7 @@ msgstr ""
 "`文档 <https://python-poetry.org/>`__ | `GitHub <https://github.com/python-"
 "poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
 
-#: ../source/key_projects.rst:644
+#: ../source/key_projects.rst:643
 msgid ""
 "poetry is a command-line tool to handle dependency installation and "
 "isolation as well as building and packaging of Python packages. It uses "
@@ -13840,17 +13723,17 @@ msgstr ""
 "己的依赖解析器。它试图通过本地缓存的依赖关系元数据来加速用户安装和依赖关系解"
 "决的体验。"
 
-#: ../source/key_projects.rst:654
+#: ../source/key_projects.rst:653
 msgid "proxpi"
 msgstr "proxpi"
 
-#: ../source/key_projects.rst:656
+#: ../source/key_projects.rst:655
 msgid ""
 ":gh:`GitHub <EpicWink/proxpi>` | `PyPI <https://pypi.org/project/proxpi/>`__"
 msgstr ""
 ":gh:`GitHub <EpicWink/proxpi>` | `PyPI <https://pypi.org/project/proxpi/>`__"
 
-#: ../source/key_projects.rst:659
+#: ../source/key_projects.rst:658
 msgid ""
 "proxpi is a simple :term:`package index <Package Index>` which proxies PyPI "
 "and other indexes with caching."
@@ -13858,11 +13741,11 @@ msgstr ""
 "proxpi 是一个简单的 :term:`包索引 <Package Index>`，会代理 PyPI 和其他索引并"
 "提供缓存。"
 
-#: ../source/key_projects.rst:665
+#: ../source/key_projects.rst:664
 msgid "Pulp-python"
 msgstr "Pulp-python"
 
-#: ../source/key_projects.rst:667
+#: ../source/key_projects.rst:666
 msgid ""
 "`Docs <https://docs.pulpproject.org/pulp_python/>`__ | :gh:`GitHub <pulp/"
 "pulp_python>` | `PyPI <https://pypi.org/project/pulp-python/>`__"
@@ -13870,7 +13753,7 @@ msgstr ""
 "`文档 <https://docs.pulpproject.org/pulp_python/>`__ | :gh:`GitHub <pulp/"
 "pulp_python>` | `PyPI <https://pypi.org/project/pulp-python/>`__"
 
-#: ../source/key_projects.rst:671
+#: ../source/key_projects.rst:670
 msgid ""
 "Pulp-python is the Python :term:`package index <Package Index>` plugin for "
 "`Pulp <https://pulpproject.org/>`_. Pulp-python supports mirrors backed by "
@@ -13880,11 +13763,11 @@ msgstr ""
 "<Package Index>` 插件。Pulp-python 支持由本地存储或 `AWS S3`_ 支撑的镜像、软"
 "件包上传，以及向多个包索引的代理。"
 
-#: ../source/key_projects.rst:679
+#: ../source/key_projects.rst:678
 msgid "PyPI Cloud"
 msgstr "PyPI Cloud"
 
-#: ../source/key_projects.rst:681
+#: ../source/key_projects.rst:680
 msgid ""
 "`Docs <https://pypicloud.readthedocs.io/>`__ | :gh:`GitHub <stevearc/"
 "pypicloud>` | `PyPI <https://pypi.org/project/pypicloud/>`__"
@@ -13892,7 +13775,7 @@ msgstr ""
 "`文档 <https://pypicloud.readthedocs.io/>`__ | :gh:`GitHub <stevearc/"
 "pypicloud>` | `PyPI <https://pypi.org/project/pypicloud/>`__"
 
-#: ../source/key_projects.rst:687
+#: ../source/key_projects.rst:686
 msgid ""
 "PyPI Cloud is a :term:`package index <Package Index>` server, backed by `AWS "
 "S3`_ or another cloud storage service, or local files. PyPI Cloud supports "
@@ -13903,11 +13786,11 @@ msgstr ""
 "S3`_ 或其他云存储服务，也可以是本地文件。PyPI Cloud 支持 PyPI 的重定向/缓存代"
 "理，还支持身份验证和授权。"
 
-#: ../source/key_projects.rst:695
+#: ../source/key_projects.rst:694
 msgid "pypiprivate"
 msgstr "pypiprivate"
 
-#: ../source/key_projects.rst:697
+#: ../source/key_projects.rst:696
 msgid ""
 ":gh:`GitHub <helpshift/pypiprivate>` | `PyPI <https://pypi.org/project/"
 "pypiprivate/>`__"
@@ -13915,7 +13798,7 @@ msgstr ""
 ":gh:`GitHub <helpshift/pypiprivate>` | `PyPI <https://pypi.org/project/"
 "pypiprivate/>`__"
 
-#: ../source/key_projects.rst:700
+#: ../source/key_projects.rst:699
 msgid ""
 "pypiprivate serves a local (or `AWS S3`_-hosted) directory of packages as "
 "a :term:`package index <Package Index>`."
@@ -13923,11 +13806,11 @@ msgstr ""
 "pypiprivate 把本地（或托管在 `AWS S3`_ 上的）软件包目录作为 :term:`包索引 "
 "<Package Index>` 提供服务。"
 
-#: ../source/key_projects.rst:706
+#: ../source/key_projects.rst:705
 msgid "pypiserver"
 msgstr "pypiserver"
 
-#: ../source/key_projects.rst:708
+#: ../source/key_projects.rst:707
 msgid ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI <https://"
 "pypi.org/project/pypiserver/>`__"
@@ -13935,7 +13818,7 @@ msgstr ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI <https://"
 "pypi.org/project/pypiserver/>`__"
 
-#: ../source/key_projects.rst:711
+#: ../source/key_projects.rst:710
 msgid ""
 "pypiserver is a minimalist application that serves as a private "
 "Python :term:`package index <Package Index>` (from a local directory) within "
@@ -13951,11 +13834,11 @@ msgstr ""
 "们，而不用公开发布。使用 pypiserver 的组织通常既从 pypiserver 也从 PyPI 下载"
 "软件包。"
 
-#: ../source/key_projects.rst:722
+#: ../source/key_projects.rst:721
 msgid "PyScaffold"
 msgstr "PyScaffold"
 
-#: ../source/key_projects.rst:724
+#: ../source/key_projects.rst:723
 msgid ""
 "`Docs <https://pyscaffold.org>`__ | `GitHub <https://github.com/pyscaffold/"
 "pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
@@ -13963,7 +13846,7 @@ msgstr ""
 "`文档 <https://pyscaffold.org>`__ | `GitHub <https://github.com/pyscaffold/"
 "pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
 
-#: ../source/key_projects.rst:728
+#: ../source/key_projects.rst:727
 msgid ""
 "PyScaffold is a project generator for bootstrapping Python packages, ready "
 "to be shared on PyPI and installable via :ref:`pip`. It relies on a set of "
@@ -13978,17 +13861,17 @@ msgstr ""
 "高效的环境，让开发者可以立即开始编码。PyScaffold 也可以用于现有项目，让打包变"
 "得更轻松。"
 
-#: ../source/key_projects.rst:739
+#: ../source/key_projects.rst:738
 msgid "pywharf"
 msgstr "pywharf"
 
-#: ../source/key_projects.rst:741
+#: ../source/key_projects.rst:740
 msgid ""
 ":gh:`GitHub <pywharf/pywharf>` | `PyPI <https://pypi.org/project/pywharf>`__"
 msgstr ""
 ":gh:`GitHub <pywharf/pywharf>` | `PyPI <https://pypi.org/project/pywharf>`__"
 
-#: ../source/key_projects.rst:746
+#: ../source/key_projects.rst:745
 msgid ""
 "pywharf is a :term:`package index <Package Index>` server, serving files "
 "locally or from `GitHub <https://github.com/>`_."
@@ -13996,11 +13879,11 @@ msgstr ""
 "pywharf 是一个 :term:`包索引 <Package Index>` 服务器，可以在本地或从 `GitHub "
 "<https://github.com/>`_ 提供文件服务。"
 
-#: ../source/key_projects.rst:752
+#: ../source/key_projects.rst:751
 msgid "scikit-build"
 msgstr "scikit-build"
 
-#: ../source/key_projects.rst:754
+#: ../source/key_projects.rst:753
 msgid ""
 "`Docs <https://scikit-build.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/project/"
@@ -14010,7 +13893,7 @@ msgstr ""
 "github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/project/"
 "scikit-build>`__"
 
-#: ../source/key_projects.rst:758
+#: ../source/key_projects.rst:757
 msgid ""
 "Scikit-build is a :ref:`setuptools` wrapper for CPython that builds C/C++/"
 "Fortran/Cython extensions It uses `cmake <https://pypi.org/project/cmake>`__ "
@@ -14026,11 +13909,11 @@ msgstr ""
 "提供更好的支持。为了加速和并行构建大型项目，用户可以安装同样可从 PyPI 获取的 "
 "`ninja <https://pypi.org/project/ninja>`__。"
 
-#: ../source/key_projects.rst:769
+#: ../source/key_projects.rst:768
 msgid "scikit-build-core"
 msgstr "scikit-build-core"
 
-#: ../source/key_projects.rst:771
+#: ../source/key_projects.rst:770
 msgid ""
 "`Docs <https://scikit-build-core.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/scikit-build/scikit-build-core/>`__ | `PyPI <https://"
@@ -14040,7 +13923,7 @@ msgstr ""
 "<https://github.com/scikit-build/scikit-build-core/>`__ | `PyPI <https://"
 "pypi.org/project/scikit-build-core>`__"
 
-#: ../source/key_projects.rst:775
+#: ../source/key_projects.rst:774
 msgid ""
 "Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython "
 "extensions.  It enables users to write extensions with `cmake <https://"
@@ -14054,11 +13937,11 @@ msgstr ""
 "编写扩展，为额外的编译器、构建系统、交叉编译，以及定位依赖项及其相关构建需求"
 "提供更好的支持。如果系统上没有 CMake/Ninja，就会自动从 PyPI 下载。"
 
-#: ../source/key_projects.rst:785
+#: ../source/key_projects.rst:784
 msgid "shiv"
 msgstr "shiv"
 
-#: ../source/key_projects.rst:787
+#: ../source/key_projects.rst:786
 msgid ""
 "`Docs <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
@@ -14066,7 +13949,7 @@ msgstr ""
 "`文档 <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
 
-#: ../source/key_projects.rst:791
+#: ../source/key_projects.rst:790
 msgid ""
 "shiv is a command line utility for building fully self contained Python "
 "zipapps as outlined in :pep:`441`, but with all their dependencies included. "
@@ -14077,11 +13960,11 @@ msgstr ""
 "zipapp，而且会将其全部依赖项一并包含在内。它的首要目标是让分发 Python 应用和"
 "命令行工具变得快速而简单。"
 
-#: ../source/key_projects.rst:799
+#: ../source/key_projects.rst:798
 msgid "simpleindex"
 msgstr "simpleindex"
 
-#: ../source/key_projects.rst:801
+#: ../source/key_projects.rst:800
 msgid ""
 ":gh:`GitHub <uranusjr/simpleindex>` | `PyPI <https://pypi.org/project/"
 "simpleindex/>`__"
@@ -14089,7 +13972,7 @@ msgstr ""
 ":gh:`GitHub <uranusjr/simpleindex>` | `PyPI <https://pypi.org/project/"
 "simpleindex/>`__"
 
-#: ../source/key_projects.rst:804
+#: ../source/key_projects.rst:803
 msgid ""
 "simpleindex is a :term:`package index <Package Index>` which routes URLs to "
 "multiple package indexes (including PyPI), serves local (or cloud-hosted, "
@@ -14100,7 +13983,7 @@ msgstr ""
 "（包括 PyPI），提供本地（或云端托管，例如 `AWS S3`_，需配合自定义插件）的软件"
 "包目录服务，并支持自定义插件。"
 
-#: ../source/key_projects.rst:814
+#: ../source/key_projects.rst:813
 msgid ""
 ":doc:`Docs <spack:index>` | `GitHub <https://github.com/spack/spack>`__ | "
 "`Paper <https://www.computer.org/csdl/proceedings-article/sc/"
@@ -14112,7 +13995,7 @@ msgstr ""
 "2015/2807623/12OmNBf94Xq>`__ | `幻灯片 <https://tgamblin.github.io/files/"
 "Gamblin-Spack-SC15-Talk.pdf>`__"
 
-#: ../source/key_projects.rst:819
+#: ../source/key_projects.rst:818
 msgid ""
 "A flexible package manager designed to support multiple versions, "
 "configurations, platforms, and compilers.  Spack is like Homebrew, but "
@@ -14127,18 +14010,18 @@ msgstr ""
 "版本、构建选项等。任意多个版本的软件包可以在同一系统上共存。Spack 为在集群和"
 "超级计算机上快速构建高性能科学应用而设计。"
 
-#: ../source/key_projects.rst:827
+#: ../source/key_projects.rst:826
 msgid ""
 "Spack is not in PyPI (yet), but it requires no installation and can be used "
 "immediately after cloning from GitHub."
 msgstr ""
 "Spack 不在 PyPI 中（目前），但它不需要安装，从 GitHub 克隆后可以立即使用。"
 
-#: ../source/key_projects.rst:833
+#: ../source/key_projects.rst:832
 msgid "uv"
 msgstr "uv"
 
-#: ../source/key_projects.rst:835
+#: ../source/key_projects.rst:834
 msgid ""
 "`Docs <https://docs.astral.sh/uv/>`__ | `GitHub <https://github.com/astral-"
 "sh/uv>`__ | `PyPI <https://pypi.org/project/uv/>`__"
@@ -14146,7 +14029,7 @@ msgstr ""
 "`Docs <https://docs.astral.sh/uv/>`__ | `GitHub <https://github.com/astral-"
 "sh/uv>`__ | `PyPI <https://pypi.org/project/uv/>`__"
 
-#: ../source/key_projects.rst:839
+#: ../source/key_projects.rst:838
 msgid ""
 "A Python package and project manager, written in Rust for high performance. "
 "It supports creating and managing virtual environments, installing packages, "
@@ -14155,11 +14038,11 @@ msgstr ""
 "一个用 Rust 编写、追求高性能的 Python 软件包和项目管理器。它支持创建和管理虚"
 "拟环境、安装软件包、锁定依赖项，以及管理 Python 版本和项目。"
 
-#: ../source/key_projects.rst:846
+#: ../source/key_projects.rst:845
 msgid "zest.releaser"
 msgstr "zest.releaser"
 
-#: ../source/key_projects.rst:848
+#: ../source/key_projects.rst:847
 msgid ""
 "`Docs <https://zestreleaser.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://pypi.org/project/"
@@ -14169,7 +14052,7 @@ msgstr ""
 "github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://pypi.org/project/"
 "zest.releaser/>`__"
 
-#: ../source/key_projects.rst:852
+#: ../source/key_projects.rst:851
 msgid ""
 "``zest.releaser`` is a Python package release tool providing an abstraction "
 "layer on top of :ref:`twine`. Python developers use ``zest.releaser`` to "
@@ -14180,15 +14063,15 @@ msgstr ""
 "个抽象层。Python 开发者使用 ``zest.releaser`` 来自动完成递增软件包版本号、更"
 "新变更日志、在源码管理系统中为发布打标签，以及把新软件包上传到 PyPI 等工作。"
 
-#: ../source/key_projects.rst:859
+#: ../source/key_projects.rst:858
 msgid "Standard Library Projects"
 msgstr "标准库项目"
 
-#: ../source/key_projects.rst:864
+#: ../source/key_projects.rst:863
 msgid "ensurepip"
 msgstr "ensurepip"
 
-#: ../source/key_projects.rst:866
+#: ../source/key_projects.rst:865
 msgid ""
 "`Docs <https://docs.python.org/3/library/ensurepip.html>`__ | `Issues "
 "<https://bugs.python.org/>`__"
@@ -14196,7 +14079,7 @@ msgstr ""
 "`文档 <https://docs.python.org/3/library/ensurepip.html>`__ | `问题 <https://"
 "bugs.python.org/>`__"
 
-#: ../source/key_projects.rst:869
+#: ../source/key_projects.rst:868
 msgid ""
 "A package in the Python Standard Library that provides support for "
 "bootstrapping :ref:`pip` into an existing Python installation or virtual "
@@ -14207,18 +14090,18 @@ msgstr ""
 "拟环境中提供支持。在大多数情况下，最终用户不会使用这个模块，而是在构建 "
 "Python 发行版时使用它。"
 
-#: ../source/key_projects.rst:877
+#: ../source/key_projects.rst:876
 msgid "http.server"
 msgstr "http.server"
 
-#: ../source/key_projects.rst:879
+#: ../source/key_projects.rst:878
 msgid ""
 ":doc:`Docs <python:library/http.server>` | :gh:`Issues <python/cpython/"
 "issues>`"
 msgstr ""
 ":doc:`文档 <python:library/http.server>` | :gh:`问题 <python/cpython/issues>`"
 
-#: ../source/key_projects.rst:882
+#: ../source/key_projects.rst:881
 msgid ""
 "A package and command-line interface which can host a directory as a "
 "website, for example as a :term:`package index <Package Index>` "
@@ -14227,11 +14110,11 @@ msgstr ""
 "一个软件包和命令行接口，可以把某个目录作为网站来托管，例如作为 :term:`包索引 "
 "<Package Index>`，参见 :ref:`Hosting your Own Simple Repository`。"
 
-#: ../source/key_projects.rst:889
+#: ../source/key_projects.rst:888
 msgid "venv"
 msgstr "venv"
 
-#: ../source/key_projects.rst:891
+#: ../source/key_projects.rst:890
 msgid ""
 "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
 "github.com/python/cpython/issues>`__"
@@ -14239,7 +14122,7 @@ msgstr ""
 "`文档 <https://docs.python.org/3/library/venv.html>`__ | `问题 <https://"
 "github.com/python/cpython/issues>`__"
 
-#: ../source/key_projects.rst:894
+#: ../source/key_projects.rst:893
 msgid ""
 "A package in the Python Standard Library (starting with Python 3.3) for "
 "creating :term:`Virtual Environments <Virtual Environment>`.  For more "
@@ -15109,11 +14992,13 @@ msgstr ""
 "Python 打包的这种超能力让 Pillow 可以直接替代 PIL，只需修改项目的 "
 "``install_requires`` 或 ``requirements.txt`` 即可。"
 
-#: ../source/overview.rst:116
-msgid "Python binary distributions"
+#: ../source/overview.rst:119
+#, fuzzy
+#| msgid "Python binary distributions"
+msgid "Python built distributions"
 msgstr "Python 二进制分发"
 
-#: ../source/overview.rst:118
+#: ../source/overview.rst:121
 msgid ""
 "So much of Python's practical power comes from its ability to integrate with "
 "the software ecosystem, in particular libraries written in C, C++, Fortran, "
@@ -15122,7 +15007,7 @@ msgstr ""
 "Python 许多实实在在的强大能力，都来自它与软件生态系统的集成，尤其是与用 C、C+"
 "+、Fortran、Rust 等语言编写的库的集成。"
 
-#: ../source/overview.rst:122
+#: ../source/overview.rst:125
 msgid ""
 "Not all developers have the right tools or experiences to build these "
 "components written in these compiled languages, so Python created "
@@ -15136,9 +15021,18 @@ msgstr ""
 "式。事实上，Python 的软件包安装器 ``pip`` 总是优先选择 wheel 包，因为安装速度"
 "总是更快，所以即使是纯 Python 软件包，使用 wheel 包也效果更好。"
 
-#: ../source/overview.rst:129
+#: ../source/overview.rst:132
+#, fuzzy
+#| msgid ""
+#| "Binary distributions are best when they come with source distributions to "
+#| "match. Even if you don't upload wheels of your code for every operating "
+#| "system, by uploading the sdist, you're enabling users of other platforms "
+#| "to still build it for themselves. Default to publishing both sdist and "
+#| "wheel archives together, *unless* you're creating artifacts for a very "
+#| "specific use case where you know the recipient only needs one or the "
+#| "other."
 msgid ""
-"Binary distributions are best when they come with source distributions to "
+"Built distributions are best when they come with source distributions to "
 "match. Even if you don't upload wheels of your code for every operating "
 "system, by uploading the sdist, you're enabling users of other platforms to "
 "still build it for themselves. Default to publishing both sdist and wheel "
@@ -15150,7 +15044,7 @@ msgstr ""
 "sdist 和 wheel 归档文件一同发布，*除非你是在为非常特定的用例创建产物，并且明"
 "确知道接收方只需要其中之一*。"
 
-#: ../source/overview.rst:137
+#: ../source/overview.rst:140
 msgid ""
 "Python and PyPI make it easy to upload both wheels and sdists together. Just "
 "follow the :doc:`tutorials/packaging-projects` tutorial."
@@ -15158,11 +15052,11 @@ msgstr ""
 "Python 和 PyPI 让同时上传 wheel 包和 sdist 变得非常容易。只需遵"
 "循 :doc:`tutorials/packaging-projects` 教程即可。"
 
-#: ../source/overview.rst:141
+#: ../source/overview.rst:144
 msgid "A summary of Python's packaging capabilities for tools and libraries."
 msgstr "对 Python 面向工具和库的打包能力的总结。"
 
-#: ../source/overview.rst:145
+#: ../source/overview.rst:148
 msgid ""
 "Python's recommended built-in library and tool packaging technologies. "
 "Excerpted from `The Packaging Gradient (2017) <https://www.youtube.com/watch?"
@@ -15171,11 +15065,11 @@ msgstr ""
 "Python 推荐的内置库和工具打包技术。摘自 `The Packaging Gradient (2017) "
 "<https://www.youtube.com/watch?v=iLVNWfPWAC8>`_。"
 
-#: ../source/overview.rst:152
+#: ../source/overview.rst:155
 msgid "Packaging Python applications"
 msgstr "打包 Python 应用程序"
 
-#: ../source/overview.rst:154
+#: ../source/overview.rst:157
 msgid ""
 "So far we've only discussed Python's native distribution tools. Based on our "
 "introduction, you would be correct to infer these built-in approaches only "
@@ -15186,7 +15080,7 @@ msgstr ""
 "推断出：这些内置方式只面向装有 Python 的环境，以及知道如何安装 Python 软件包"
 "的受众。"
 
-#: ../source/overview.rst:159
+#: ../source/overview.rst:162
 msgid ""
 "With the variety of operating systems, configurations, and people out there, "
 "this assumption is only safe when targeting a developer audience."
@@ -15194,7 +15088,7 @@ msgstr ""
 "鉴于现实中的操作系统、配置和人群五花八门，这一假设只有在面向开发者受众时才站"
 "得住脚。"
 
-#: ../source/overview.rst:163
+#: ../source/overview.rst:166
 msgid ""
 "Python's native packaging is mostly built for distributing reusable code, "
 "called libraries, between developers. You can piggyback **tools**, or basic "
@@ -15207,7 +15101,7 @@ msgstr ""
 "类的技术，在 Python 的库打包之上搭载 **工具** ，也就是面向开发者的基础应用程"
 "序。"
 
-#: ../source/overview.rst:169
+#: ../source/overview.rst:172
 msgid ""
 "Libraries are building blocks, not complete applications. For distributing "
 "applications, there's a whole new world of technologies out there."
@@ -15215,7 +15109,7 @@ msgstr ""
 "库是构建应用程序的积木，而不是完整的应用程序。要分发应用程序，还有一整个全新"
 "的技术世界。"
 
-#: ../source/overview.rst:173
+#: ../source/overview.rst:176
 msgid ""
 "The next few sections organize these application packaging options according "
 "to their dependencies on the target environment, so you can choose the right "
@@ -15224,11 +15118,11 @@ msgstr ""
 "接下来的几节将按照对目标环境的依赖程度来组织这些应用程序打包选项，方便你为自"
 "己的项目选出合适的方式。"
 
-#: ../source/overview.rst:178
+#: ../source/overview.rst:181
 msgid "Depending on a framework"
 msgstr "依赖于框架"
 
-#: ../source/overview.rst:180
+#: ../source/overview.rst:183
 msgid ""
 "Some types of Python applications, like web site backends and other network "
 "services, are common enough that they have frameworks to enable their "
@@ -15240,7 +15134,7 @@ msgstr ""
 "现了支持其开发和打包的框架。另一些类型的应用程序，例如动态 Web 前端和移动客户"
 "端，其目标环境足够复杂，使用框架不再是锦上添花，而是近乎必需。"
 
-#: ../source/overview.rst:186
+#: ../source/overview.rst:189
 msgid ""
 "In all these cases, it makes sense to work backwards, from the framework's "
 "packaging and deployment story. Some frameworks include a deployment system "
@@ -15252,18 +15146,18 @@ msgstr ""
 "署系统，封装了本指南其余部分介绍的各项技术。此时，你应当以所用框架的打包指南"
 "为准，以获得最简单、最可靠的生产体验。"
 
-#: ../source/overview.rst:192
+#: ../source/overview.rst:195
 msgid ""
 "If you ever wonder how these platforms and frameworks work under the hood, "
 "you can always read the sections beyond."
 msgstr ""
 "如果你曾好奇这些平台和框架在底层是如何工作的，随时可以继续阅读后面的章节。"
 
-#: ../source/overview.rst:196
+#: ../source/overview.rst:199
 msgid "Service platforms"
 msgstr "服务平台"
 
-#: ../source/overview.rst:198
+#: ../source/overview.rst:201
 msgid ""
 "If you're developing for a \"`Platform-as-a-Service <https://"
 "en.wikipedia.org/wiki/Platform_as_a_service>`_\" or \"PaaS\", you are going "
@@ -15277,7 +15171,7 @@ msgstr ""
 "自的打包指南。只要你遵循它们的模式，这类平台就会代为处理打包和部署。大多数软"
 "件并不符合这些模板，因此才有了下面列出的其他所有选项。"
 
-#: ../source/overview.rst:205
+#: ../source/overview.rst:208
 msgid ""
 "If you're developing software that will be deployed to machines you own, "
 "users' personal computers, or any other arrangement, read on."
@@ -15285,11 +15179,11 @@ msgstr ""
 "如果你开发的软件将被部署到你自己的机器、用户的个人电脑或任何其他环境中，请继"
 "续阅读。"
 
-#: ../source/overview.rst:209
+#: ../source/overview.rst:212
 msgid "Web browsers and mobile applications"
 msgstr "Web 浏览器和移动应用程序"
 
-#: ../source/overview.rst:211
+#: ../source/overview.rst:214
 msgid ""
 "Python's steady advances are leading it into new spaces. These days you can "
 "write a mobile app or web application frontend in Python. While the language "
@@ -15298,31 +15192,31 @@ msgstr ""
 "Python 的稳步发展正把它带入新的领域。如今，你可以用 Python 编写移动应用或 "
 "Web 应用前端。这门语言你可能早已熟悉，但相关的打包和部署实践却是全新的。"
 
-#: ../source/overview.rst:216
+#: ../source/overview.rst:219
 msgid ""
 "If you're planning on releasing to these new frontiers, you'll want to check "
 "out the following frameworks, and refer to their packaging guides:"
 msgstr ""
 "如果你打算向这些新领域发布软件，不妨了解以下框架，并参考它们的打包指南："
 
-#: ../source/overview.rst:220
+#: ../source/overview.rst:223
 #, fuzzy
 msgid "`Kivy <https://kivy.org/>`_"
 msgstr "`Poetry <https://python-poetry.org/>`_"
 
-#: ../source/overview.rst:221
+#: ../source/overview.rst:224
 msgid "`Beeware <https://pybee.org/>`_"
 msgstr "`Beeware <https://pybee.org/>`_"
 
-#: ../source/overview.rst:222
+#: ../source/overview.rst:225
 msgid "`Brython <https://brython.info/>`_"
 msgstr "`Brython <https://brython.info/>`_"
 
-#: ../source/overview.rst:223
+#: ../source/overview.rst:226
 msgid "`Flexx <https://flexx.readthedocs.io/en/latest/>`_"
 msgstr ""
 
-#: ../source/overview.rst:225
+#: ../source/overview.rst:228
 msgid ""
 "If you are *not* interested in using a framework or platform, or just wonder "
 "about some of the technologies and techniques utilized by the frameworks "
@@ -15331,11 +15225,11 @@ msgstr ""
 "如果你对使用框架或平台 *不* 感兴趣，或者只是想了解上述框架所用的一些技术和技"
 "巧，请继续阅读下文。"
 
-#: ../source/overview.rst:230
+#: ../source/overview.rst:233
 msgid "Depending on a pre-installed Python"
 msgstr "依赖于预安装的 Python"
 
-#: ../source/overview.rst:232
+#: ../source/overview.rst:235
 msgid ""
 "Pick an arbitrary computer, and depending on the context, there's a very "
 "good chance Python is already installed. Included by default in most Linux "
@@ -15347,28 +15241,28 @@ msgstr ""
 "一直默认包含在大多数 Linux 和 Mac 操作系统中，因此你可以合理地认为，你的数据"
 "中心里以及开发者和数据科学家的个人机器上早已装有 Python。"
 
-#: ../source/overview.rst:238
+#: ../source/overview.rst:241
 msgid "Technologies which support this model:"
 msgstr "支持这一模型的技术："
 
-#: ../source/overview.rst:240
+#: ../source/overview.rst:243
 msgid ":gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)"
 msgstr ""
 ":gh:`PEX <pantsbuild/pex#user-content-pex>` （Python EXecutable，Python 可执"
 "行文件）"
 
-#: ../source/overview.rst:241
+#: ../source/overview.rst:244
 msgid ""
 ":doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, "
 "requires Python 3.5+)"
 msgstr ""
 ":doc:`zipapp <python:library/zipapp>` （不帮助管理依赖项，需要 Python 3.5+）"
 
-#: ../source/overview.rst:242
+#: ../source/overview.rst:245
 msgid ":gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)"
 msgstr ":gh:`shiv <linkedin/shiv#user-content-shiv>` （需要 Python 3）"
 
-#: ../source/overview.rst:244
+#: ../source/overview.rst:247
 msgid ""
 "Of all the approaches here, depending on a pre-installed Python relies the "
 "most on the target environment. Of course, this also makes for the smallest "
@@ -15377,7 +15271,7 @@ msgstr ""
 "在本文介绍的所有方案中，依赖预安装 Python 的做法对目标环境的依赖程度最高。当"
 "然，它也因此能产出最小的软件包，小则只有个位数兆字节，甚至千字节。"
 
-#: ../source/overview.rst:249
+#: ../source/overview.rst:252
 msgid ""
 "In general, decreasing the dependency on the target system increases the "
 "size of our package, so the solutions here are roughly arranged by "
@@ -15386,11 +15280,11 @@ msgstr ""
 "总体而言，对目标系统的依赖越小，我们软件包的体积就越大，因此这里的各种方案大"
 "致按产出体积从小到大排列。"
 
-#: ../source/overview.rst:256
+#: ../source/overview.rst:259
 msgid "Depending on a separate software distribution ecosystem"
 msgstr "依赖于独立的软件分发生态系统"
 
-#: ../source/overview.rst:258
+#: ../source/overview.rst:261
 msgid ""
 "For a long time many operating systems, including Mac and Windows, lacked "
 "built-in package management. Only recently did these OSes gain so-called "
@@ -15401,7 +15295,7 @@ msgstr ""
 "理。直到最近，这些操作系统才出现了所谓的“应用商店”，但即便是这些商店，也以消"
 "费级应用为主，为开发者提供的帮助甚少。"
 
-#: ../source/overview.rst:263
+#: ../source/overview.rst:266
 msgid ""
 "Developers long sought remedies, and in this struggle, emerged with their "
 "own package management solutions, such as `Homebrew <https://brew.sh/>`_. "
@@ -15421,11 +15315,11 @@ msgstr ""
 "的环境 <https://web.archive.org/web/20190403064038/https://www.paypal-"
 "engineering.com/2016/09/07/python-packaging-at-paypal/>`_。"
 
-#: ../source/overview.rst:273
+#: ../source/overview.rst:276
 msgid "Instructions on building and publishing for the Anaconda ecosystem:"
 msgstr "在 Anaconda 生态系统中进行构建和发布的指南："
 
-#: ../source/overview.rst:275
+#: ../source/overview.rst:278
 msgid ""
 "`Building libraries and applications with conda <https://conda.io/projects/"
 "conda-build/en/latest/user-guide/tutorials/index.html>`_"
@@ -15433,7 +15327,7 @@ msgstr ""
 "`使用 conda 构建库和应用程序 <https://conda.io/projects/conda-build/en/"
 "latest/user-guide/tutorials/index.html>`_"
 
-#: ../source/overview.rst:276
+#: ../source/overview.rst:279
 msgid ""
 "`Transitioning a native Python package to Anaconda <https://conda.io/"
 "projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-"
@@ -15442,7 +15336,7 @@ msgstr ""
 "`将原生 Python 软件包迁移到 Anaconda <https://conda.io/projects/conda-build/"
 "en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_"
 
-#: ../source/overview.rst:278
+#: ../source/overview.rst:281
 msgid ""
 "A similar model involves installing an alternative Python distribution, but "
 "does not support arbitrary operating system-level packages:"
@@ -15450,7 +15344,7 @@ msgstr ""
 "还有一种类似的模式，即安装另一种 Python 发行版，但它不支持任意的操作系统级软"
 "件包："
 
-#: ../source/overview.rst:282
+#: ../source/overview.rst:285
 msgid ""
 "`ActiveState ActivePython <https://www.activestate.com/platform/supported-"
 "languages/python>`_"
@@ -15458,15 +15352,15 @@ msgstr ""
 "`ActiveState ActivePython <https://www.activestate.com/platform/supported-"
 "languages/python>`_"
 
-#: ../source/overview.rst:283
+#: ../source/overview.rst:286
 msgid "`WinPython <http://winpython.github.io/>`_"
 msgstr "`WinPython <http://winpython.github.io/>`_"
 
-#: ../source/overview.rst:288
+#: ../source/overview.rst:291
 msgid "Bringing your own Python executable"
 msgstr "自带 Python 可执行文件"
 
-#: ../source/overview.rst:290
+#: ../source/overview.rst:293
 msgid ""
 "Computing as we know it is defined by the ability to execute programs. Every "
 "operating system natively supports one or more formats of programs they can "
@@ -15475,7 +15369,7 @@ msgstr ""
 "我们今天所理解的计算，正是由执行程序的能力定义的。每种操作系统都原生支持一种"
 "或多种它能够原生执行的程序格式。"
 
-#: ../source/overview.rst:294
+#: ../source/overview.rst:297
 msgid ""
 "There are many techniques and technologies which turn your Python program "
 "into one of these formats, most of which involve embedding the Python "
@@ -15484,7 +15378,7 @@ msgstr ""
 "有许多技术和方法可以把你的 Python 程序转换为这些格式之一，其中大多数都涉及把 "
 "Python 解释器及其他所有依赖项嵌入到单个可执行文件中。"
 
-#: ../source/overview.rst:299
+#: ../source/overview.rst:302
 msgid ""
 "This approach, called *freezing*, offers wide compatibility and seamless "
 "user experience, though often requires multiple technologies, and a good "
@@ -15493,46 +15387,46 @@ msgstr ""
 "这种方法称为 *冻结* （freezing），能提供广泛的兼容性和无缝的用户体验，不过往"
 "往需要综合运用多种技术，并投入相当多的精力。"
 
-#: ../source/overview.rst:303
+#: ../source/overview.rst:306
 msgid "A selection of Python freezers:"
 msgstr "一些 Python 冻结工具："
 
-#: ../source/overview.rst:305
+#: ../source/overview.rst:308
 msgid ""
 "`pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - Cross-"
 "platform"
 msgstr ""
 "`pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - 跨平台"
 
-#: ../source/overview.rst:306
+#: ../source/overview.rst:309
 msgid ""
 "`cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - Cross-platform"
 msgstr "`cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - 跨平台"
 
-#: ../source/overview.rst:307
+#: ../source/overview.rst:310
 msgid ""
 "`constructor <https://github.com/conda/constructor>`_ - For command-line "
 "installers"
 msgstr ""
 "`constructor <https://github.com/conda/constructor>`_ - 用于命令行安装程序"
 
-#: ../source/overview.rst:308
+#: ../source/overview.rst:311
 msgid "`py2exe <http://www.py2exe.org/>`_ - Windows only"
 msgstr "`py2exe <http://www.py2exe.org/>`_ - 仅限 Windows"
 
-#: ../source/overview.rst:309
+#: ../source/overview.rst:312
 msgid "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only"
 msgstr "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - 仅限 Mac"
 
-#: ../source/overview.rst:310
+#: ../source/overview.rst:313
 msgid "`osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac"
 msgstr "`osnap <https://github.com/jamesabel/osnap>`_ - 适用于 Windows 和 Mac"
 
-#: ../source/overview.rst:311
+#: ../source/overview.rst:314
 msgid "`pynsist <https://pypi.org/project/pynsist/>`_ - Windows only"
 msgstr "`pynsist <https://pypi.org/project/pynsist/>`_ - 仅限 Windows"
 
-#: ../source/overview.rst:313
+#: ../source/overview.rst:316
 msgid ""
 "Most of the above imply single-user deployments. For multi-component server "
 "applications, see :gh:`Chef Omnibus <chef/omnibus#user-content--omnibus>`."
@@ -15540,11 +15434,11 @@ msgstr ""
 "上述大多数工具都意味着单用户部署。对于由多个组件组成的服务器应用程序，请参"
 "见 :gh:`Chef Omnibus <chef/omnibus#user-content--omnibus>`。"
 
-#: ../source/overview.rst:319
+#: ../source/overview.rst:322
 msgid "Bringing your own userspace"
 msgstr "自带用户空间"
 
-#: ../source/overview.rst:321
+#: ../source/overview.rst:324
 msgid ""
 "An increasing number of operating systems -- including Linux, Mac OS, and "
 "Windows -- can be set up to run applications packaged as lightweight images, "
@@ -15557,7 +15451,7 @@ msgstr ""
 "虚拟化 <https://en.wikipedia.org/wiki/Operating-system-"
 "level_virtualization>`_，即 *容器化*。"
 
-#: ../source/overview.rst:328
+#: ../source/overview.rst:331
 msgid ""
 "These techniques are mostly Python agnostic, because they package whole OS "
 "filesystems, not just Python or Python packages."
@@ -15565,7 +15459,7 @@ msgstr ""
 "这些技术大多与 Python 无关，因为它们打包的是整个操作系统的文件系统，而不仅仅"
 "是 Python 或 Python 软件包。"
 
-#: ../source/overview.rst:331
+#: ../source/overview.rst:334
 msgid ""
 "Adoption is most extensive among Linux servers, where the technology "
 "originated and where the technologies below work best:"
@@ -15573,27 +15467,27 @@ msgstr ""
 "这类技术在 Linux 服务器上采用得最为广泛；它们正是诞生于此，下列技术也最适合"
 "在 Linux 服务器环境中使用："
 
-#: ../source/overview.rst:334
+#: ../source/overview.rst:337
 msgid "`AppImage <https://appimage.org/>`_"
 msgstr "`AppImage <https://appimage.org/>`_"
 
-#: ../source/overview.rst:335
+#: ../source/overview.rst:338
 msgid "`Docker <https://www.fullstackpython.com/docker.html>`_"
 msgstr "`Docker <https://www.fullstackpython.com/docker.html>`_"
 
-#: ../source/overview.rst:336
+#: ../source/overview.rst:339
 msgid "`Flatpak <https://flatpak.org/>`_"
 msgstr "`Flatpak <https://flatpak.org/>`_"
 
-#: ../source/overview.rst:337
+#: ../source/overview.rst:340
 msgid "`Snapcraft <https://snapcraft.io/>`_"
 msgstr "`Snapcraft <https://snapcraft.io/>`_"
 
-#: ../source/overview.rst:340
+#: ../source/overview.rst:343
 msgid "Bringing your own kernel"
 msgstr "自带内核"
 
-#: ../source/overview.rst:342
+#: ../source/overview.rst:345
 msgid ""
 "Most desktop operating systems support some form of classical "
 "virtualization, running applications packaged as images containing a full "
@@ -15604,7 +15498,7 @@ msgstr ""
 "镜像自带完整的操作系统。运行这类虚拟机（VM）是一种成熟的做法，在数据中心环境"
 "中已十分普遍。"
 
-#: ../source/overview.rst:347
+#: ../source/overview.rst:350
 msgid ""
 "These techniques are mostly reserved for larger scale deployments in data "
 "centers, though certain complex applications can benefit from this "
@@ -15613,15 +15507,15 @@ msgstr ""
 "这些技术大多保留给数据中心里的大规模部署使用，不过某些复杂的应用程序也能从这"
 "种打包方式中受益。这些技术与 Python 无关，其中包括："
 
-#: ../source/overview.rst:351
+#: ../source/overview.rst:354
 msgid "KVM on Linux"
 msgstr "Linux 上的 KVM"
 
-#: ../source/overview.rst:352
+#: ../source/overview.rst:355
 msgid "Hyper-V on Windows"
 msgstr "Windows 上的 Hyper-V"
 
-#: ../source/overview.rst:353
+#: ../source/overview.rst:356
 msgid ""
 "`VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://"
 "en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats "
@@ -15631,7 +15525,7 @@ msgstr ""
 "en.wikipedia.org/wiki/Amazon_Machine_Image>`_ 以及 :doc:`其他格式 "
 "<openstack:user/formats>`"
 
-#: ../source/overview.rst:356
+#: ../source/overview.rst:359
 msgid ""
 "`OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud "
 "management system written in Python, with extensive VM support"
@@ -15639,11 +15533,11 @@ msgstr ""
 "`OpenStack <https://www.redhat.com/en/topics/openstack>`_ - 一个用 Python 编"
 "写的云管理系统，对虚拟机提供广泛支持"
 
-#: ../source/overview.rst:360
+#: ../source/overview.rst:363
 msgid "Bringing your own hardware"
 msgstr "自带硬件"
 
-#: ../source/overview.rst:362
+#: ../source/overview.rst:365
 msgid ""
 "The most all-encompassing way to ship your software would be to ship it "
 "already-installed on some hardware. This way, your software's user would "
@@ -15652,7 +15546,7 @@ msgstr ""
 "发布软件的最彻底方式，就是把它预装在某些硬件上再交付。这样，你的软件的用户所"
 "需要的就只有电力了。"
 
-#: ../source/overview.rst:366
+#: ../source/overview.rst:369
 msgid ""
 "Whereas the virtual machines described above are primarily reserved for the "
 "tech-savvy, you can find hardware appliances being used by everyone from the "
@@ -15661,7 +15555,7 @@ msgstr ""
 "上面介绍的虚拟机主要留给精通技术的人使用，而你会发现上到最先进的数据中心、下"
 "到最年幼的孩子，都在使用硬件设备。"
 
-#: ../source/overview.rst:370
+#: ../source/overview.rst:373
 msgid ""
 "Embed your code on an :gh:`Adafruit <adafruit/circuitpython>`, `MicroPython "
 "<https://micropython.org/>`_, or more-powerful hardware running Python, then "
@@ -15672,30 +15566,30 @@ msgstr ""
 "<https://micropython.org/>`_ 或其他运行 Python 的更强大的硬件，然后把它交付到"
 "数据中心或你的用户家中。它们即插即用，你也就大功告成了。"
 
-#: ../source/overview.rst:375
+#: ../source/overview.rst:378
 msgid "A summary of technologies used to package Python applications."
 msgstr "对打包 Python 应用程序所用技术的总结。"
 
-#: ../source/overview.rst:379
+#: ../source/overview.rst:382
 msgid ""
 "The simplified gamut of technologies used to package Python applications."
 msgstr "用于打包 Python 应用程序的各项技术的简化全景。"
 
-#: ../source/overview.rst:382
+#: ../source/overview.rst:385
 msgid "What about..."
 msgstr "那么，其他的呢……"
 
-#: ../source/overview.rst:384
+#: ../source/overview.rst:387
 msgid ""
 "The sections above can only summarize so much, and you might be wondering "
 "about some of the more conspicuous gaps."
 msgstr "上面的章节只能概述个大概，你可能还对一些较为明显的空缺心存疑惑。"
 
-#: ../source/overview.rst:388
+#: ../source/overview.rst:391
 msgid "Operating system packages"
 msgstr "操作系统软件包"
 
-#: ../source/overview.rst:390
+#: ../source/overview.rst:393
 msgid ""
 "As mentioned in :ref:`depending-on-a-separate-ecosystem` above, some "
 "operating systems have package managers of their own. If you're very sure of "
@@ -15715,13 +15609,13 @@ msgstr ""
 "使用 `FPM <https://fpm.readthedocs.io/en/latest/cli-"
 "reference.html#virtualenv>`_ 从同一份源码同时生成 deb 和 RPM 软件包。"
 
-#: ../source/overview.rst:401
+#: ../source/overview.rst:404
 msgid ""
 "In most deployment pipelines, the OS package manager is just one piece of "
 "the puzzle."
 msgstr "在大多数部署流水线中，操作系统的软件包管理器只是拼图里的一块。"
 
-#: ../source/overview.rst:407
+#: ../source/overview.rst:410
 msgid ""
 ":doc:`Virtualenvs <python-guide:dev/virtualenvs>` have been an indispensable "
 "tool for multiple generations of Python developer, but are slowly fading "
@@ -15736,7 +15630,7 @@ msgstr ""
 "和 `osnap <https://github.com/jamesabel/osnap>`_ 中被用作基础组件，这两者都以"
 "自包含的方式封装了虚拟环境。"
 
-#: ../source/overview.rst:416
+#: ../source/overview.rst:419
 msgid ""
 "For production deployments, do not rely on running ``python -m pip install`` "
 "from the Internet into a virtualenv, as one might do in a development "
@@ -15745,11 +15639,11 @@ msgstr ""
 "对于生产环境的部署，不要像在开发环境中那样，依赖从互联网执行 ``python -m pip "
 "install`` 把软件包安装到 virtualenv 里。上面的概述里有很多好得多的方案。"
 
-#: ../source/overview.rst:421
+#: ../source/overview.rst:424
 msgid "Security"
 msgstr "安全"
 
-#: ../source/overview.rst:423
+#: ../source/overview.rst:426
 msgid ""
 "The further down the gradient you come, the harder it gets to update "
 "components of your package. Everything is more tightly bound together."
@@ -15757,7 +15651,7 @@ msgstr ""
 "沿梯度往下走得越远，就越难更新你的软件包的各个组件。一切都更紧密地绑定在了一"
 "起。"
 
-#: ../source/overview.rst:426
+#: ../source/overview.rst:429
 msgid ""
 "For example, if a kernel security issue emerges, and you're deploying "
 "containers, the host system's kernel can be updated without requiring a new "
@@ -15773,11 +15667,11 @@ msgstr ""
 "追溯到尚无定论的 `静态链接与动态链接 <https://www.google.com/search?"
 "channel=fs&q=static+vs+dynamic+linking>`_ 之争。"
 
-#: ../source/overview.rst:435
+#: ../source/overview.rst:438
 msgid "Wrap up"
 msgstr "总结"
 
-#: ../source/overview.rst:437
+#: ../source/overview.rst:440
 msgid ""
 "Packaging in Python has a bit of a reputation for being a bumpy ride. This "
 "impression is mostly a byproduct of Python's versatility. Once you "
@@ -15789,14 +15683,18 @@ msgstr ""
 "你理解了各个打包方案之间的天然边界，你就会意识到，这种多样化的格局只是 "
 "Python 程序员为使用现有最均衡、最灵活的语言之一而付出的小小代价。"
 
-#: ../source/specifications/binary-distribution-format.rst:7
-msgid "Binary distribution format"
-msgstr "二进制分发格式"
+#: ../source/specifications/binary-distribution-format.rst:8
+#, fuzzy
+#| msgid "Source distribution format"
+msgid "Wheel distribution format"
+msgstr "源分发格式"
 
-#: ../source/specifications/binary-distribution-format.rst:9
-msgid ""
-"This page specifies the binary distribution format for Python packages, also "
-"called the wheel format."
+#: ../source/specifications/binary-distribution-format.rst:10
+#, fuzzy
+#| msgid ""
+#| "This page specifies the binary distribution format for Python packages, "
+#| "also called the wheel format."
+msgid "This page specifies the wheel format for Python packages."
 msgstr "本页面规定了 Python 软件包的二进制分发格式，它也称为 wheel 格式。"
 
 #: ../source/specifications/binary-distribution-format.rst:12
@@ -16587,7 +16485,7 @@ msgstr ""
 #: ../source/specifications/direct-url-data-structure.rst:292
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:163
-#: ../source/specifications/externally-managed-environments.rst:472
+#: ../source/specifications/externally-managed-environments.rst:466
 #: ../source/specifications/glob-patterns.rst:118
 #: ../source/specifications/inline-script-metadata.rst:224
 #: ../source/specifications/name-normalization.rst:50
@@ -21106,14 +21004,24 @@ msgstr ""
 "Homebrew 或 MacPorts。"
 
 #: ../source/specifications/externally-managed-environments.rst:51
+#, fuzzy
+#| msgid ""
+#| "This document uses the short term \"distro,\" because the term "
+#| "\"distribution\" has another meaning in Python packaging contexts: a "
+#| "source or binary distribution package of a single piece of Python "
+#| "language software, that is, in the sense of "
+#| "``setuptools.dist.Distribution`` or \"sdist\". To avoid confusion, this "
+#| "document does not use the plain term \"distribution\" at all. In the "
+#| "Python packaging sense, it uses the full phrase \"distribution package\" "
+#| "or just \"package\" (see below)."
 msgid ""
 "This document uses the short term \"distro,\" because the term "
 "\"distribution\" has another meaning in Python packaging contexts: a source "
-"or binary distribution package of a single piece of Python language "
-"software, that is, in the sense of ``setuptools.dist.Distribution`` or "
-"\"sdist\". To avoid confusion, this document does not use the plain term "
-"\"distribution\" at all. In the Python packaging sense, it uses the full "
-"phrase \"distribution package\" or just \"package\" (see below)."
+"or built distribution package of a single piece of Python language software, "
+"that is, in the sense of ``setuptools.dist.Distribution`` or \"sdist\". To "
+"avoid confusion, this document does not use the plain term \"distribution\" "
+"at all. In the Python packaging sense, it uses the full phrase "
+"\"distribution package\" or just \"package\" (see below)."
 msgstr ""
 "本文档使用 “distro” 这一简称，是因为 “distribution” 一词在 Python 打包语境中"
 "另有所指：某个 Python 语言软件的源码或二进制分发包，即 "
@@ -21172,26 +21080,23 @@ msgid "Python-specific package manager"
 msgstr "Python 软件包管理器"
 
 #: ../source/specifications/externally-managed-environments.rst:82
+#, fuzzy
+#| msgid ""
+#| "A tool for installing, upgrading, and/or removing Python packages in a "
+#| "manner that conforms to Python packaging standards. The most popular "
+#| "Python-specific package manager is pip_; other examples include the old "
+#| "`Easy Install command <easy-install_>`_ as well as direct usage of a "
+#| "``setup.py`` command."
 msgid ""
 "A tool for installing, upgrading, and/or removing Python packages in a "
 "manner that conforms to Python packaging standards. The most popular Python-"
-"specific package manager is pip_; other examples include the old `Easy "
-"Install command <easy-install_>`_ as well as direct usage of a ``setup.py`` "
-"command."
+"specific package manager is pip_. Another popular example is uv_."
 msgstr ""
 "以遵守 Python 打包标准的方式安装、升级和/或移除 Python 软件包的一个工具。最流"
 "行的 Python 专用软件包管理器是 pip_；其他例子还包括旧的 `Easy Install 命令 "
 "<easy-install_>`_ 以及直接使用 ``setup.py`` 命令。"
 
-#: ../source/specifications/externally-managed-environments.rst:92
-msgid ""
-"(Note that the ``easy_install`` command was removed in setuptools version "
-"52, released 23 January 2021.)"
-msgstr ""
-"（请注意，``easy_install`` 命令已在 2021 年 1 月 23 日发布的 setuptools 52 版"
-"本中被移除。）"
-
-#: ../source/specifications/externally-managed-environments.rst:96
+#: ../source/specifications/externally-managed-environments.rst:90
 msgid ""
 "(Conda_ is a bit of a special case, as the ``conda`` command can install "
 "much more than just Python packages, making it more like a distro package "
@@ -21204,11 +21109,11 @@ msgstr ""
 "的环境中操作，当其充当 Python 专用软件包管理器时，本文档中的大部分顾虑并不适"
 "用于 ``conda``。）"
 
-#: ../source/specifications/externally-managed-environments.rst:104
+#: ../source/specifications/externally-managed-environments.rst:98
 msgid "distro package manager"
 msgstr "发行版软件包管理器"
 
-#: ../source/specifications/externally-managed-environments.rst:105
+#: ../source/specifications/externally-managed-environments.rst:99
 msgid ""
 "A tool for installing, upgrading, and/or removing a distro's packages in an "
 "installed instance of that distro, which is capable of installing Python "
@@ -21228,7 +21133,7 @@ msgstr ""
 "满足 Python 专用软件包管理器要求的方式移除或升级它，通常会使发行版软件包管理"
 "器陷入不一致的状态。"
 
-#: ../source/specifications/externally-managed-environments.rst:117
+#: ../source/specifications/externally-managed-environments.rst:111
 msgid ""
 "This document also uses phrases like \"external package manager\" or "
 "\"system's package manager\" to refer to a distro package manager in certain "
@@ -21237,11 +21142,11 @@ msgstr ""
 "在某些语境下，本文档也会使用 “外部软件包管理器” 或 “系统软件包管理器” 等说法"
 "来指代发行版软件包管理器。"
 
-#: ../source/specifications/externally-managed-environments.rst:120
+#: ../source/specifications/externally-managed-environments.rst:114
 msgid "shadow"
 msgstr "遮蔽（shadow）"
 
-#: ../source/specifications/externally-managed-environments.rst:121
+#: ../source/specifications/externally-managed-environments.rst:115
 msgid ""
 "To shadow an installed Python package is to cause some other package to be "
 "preferred for imports without removing any files from the shadowed package. "
@@ -21256,11 +21161,11 @@ msgstr ""
 "在更靠后的某个 ``sys.path`` 条目中安装了模块 ``a.py``，那么 ``import a`` 返回"
 "的是前者的模块，此时我们就说 A 2.0 遮蔽了 A 1.0。"
 
-#: ../source/specifications/externally-managed-environments.rst:132
+#: ../source/specifications/externally-managed-environments.rst:126
 msgid "This specification is twofold."
 msgstr "本规范包含两部分内容。"
 
-#: ../source/specifications/externally-managed-environments.rst:134
+#: ../source/specifications/externally-managed-environments.rst:128
 msgid ""
 "First, it describes **a way for distributors of a Python interpreter to mark "
 "that interpreter as having its packages managed by means external to "
@@ -21275,7 +21180,7 @@ msgstr ""
 "就不应该以任何方式（添加、升级/降级或移除）更改解释器全局 ``sys.path`` 中已安"
 "装的软件包。它还为发行商提供了一种途径，用以说明如何以虚拟环境作为替代方案。"
 
-#: ../source/specifications/externally-managed-environments.rst:142
+#: ../source/specifications/externally-managed-environments.rst:136
 msgid ""
 "This is an opt-in mechanism: by default, the Python interpreter compiled "
 "from upstream sources will not be so marked, and so running ``pip install`` "
@@ -21286,7 +21191,7 @@ msgstr ""
 "释器不会被如此标记，因此，使用自行编译的解释器，或使用未显式标记其解释器的发"
 "行版时，运行 ``pip install`` 会一如既往地正常工作。"
 
-#: ../source/specifications/externally-managed-environments.rst:148
+#: ../source/specifications/externally-managed-environments.rst:142
 msgid ""
 "Second, it sets the rule that when installing packages to an interpreter's "
 "global context (either to an unmarked interpreter, or if overriding the "
@@ -21305,11 +21210,11 @@ msgstr ""
 "最终用户安装的非托管软件包，并确保安装非托管软件包不会删除（或覆盖）外部软件"
 "包管理器所拥有的文件。"
 
-#: ../source/specifications/externally-managed-environments.rst:160
+#: ../source/specifications/externally-managed-environments.rst:154
 msgid "Marking an interpreter as using an external package manager"
 msgstr "将解释器标记为使用外部软件包管理器"
 
-#: ../source/specifications/externally-managed-environments.rst:162
+#: ../source/specifications/externally-managed-environments.rst:156
 msgid ""
 "Before a Python-specific package installer (that is, a tool such as pip - "
 "not an external tool such as apt) installs a package into a certain Python "
@@ -21318,7 +21223,7 @@ msgstr ""
 "在 Python 专用软件包安装程序（也就是 pip 之类的工具，而不是 apt 之类的外部工"
 "具）将软件包安装到某个 Python 环境之前，它默认应该进行以下检查："
 
-#: ../source/specifications/externally-managed-environments.rst:167
+#: ../source/specifications/externally-managed-environments.rst:161
 msgid ""
 "Is it running outside of a virtual environment? It can determine this by "
 "whether ``sys.prefix == sys.base_prefix``."
@@ -21326,7 +21231,7 @@ msgstr ""
 "它是否运行在虚拟环境之外？它可以通过 ``sys.prefix == sys.base_prefix`` 是否成"
 "立来确定这一点。"
 
-#: ../source/specifications/externally-managed-environments.rst:170
+#: ../source/specifications/externally-managed-environments.rst:164
 msgid ""
 "Is there an ``EXTERNALLY-MANAGED`` file in the directory identified by "
 "``sysconfig.get_path(\"stdlib\", sysconfig.get_default_scheme())``?"
@@ -21334,7 +21239,7 @@ msgstr ""
 "在由 ``sysconfig.get_path(\"stdlib\", sysconfig.get_default_scheme())`` 标识"
 "的目录中，是否存在 ``EXTERNALLY-MANAGED`` 文件？"
 
-#: ../source/specifications/externally-managed-environments.rst:173
+#: ../source/specifications/externally-managed-environments.rst:167
 msgid ""
 "If both of these conditions are true, the installer should exit with an "
 "error message indicating that package installation into this Python "
@@ -21343,7 +21248,7 @@ msgstr ""
 "如果这两个条件都成立，安装程序就应该退出并输出一条错误消息，指出在虚拟环境之"
 "外已禁止向此 Python 解释器的目录安装软件包。"
 
-#: ../source/specifications/externally-managed-environments.rst:177
+#: ../source/specifications/externally-managed-environments.rst:171
 msgid ""
 "The installer should have a way for the user to override these rules, such "
 "as a command-line flag ``--break-system-packages``. This option should not "
@@ -21354,7 +21259,7 @@ msgstr ""
 "system-packages``。这个选项不应该默认启用，并且应该在一定程度上暗示使用它是有"
 "风险的。"
 
-#: ../source/specifications/externally-managed-environments.rst:182
+#: ../source/specifications/externally-managed-environments.rst:176
 msgid ""
 "The ``EXTERNALLY-MANAGED`` file is an INI-style metadata file intended to be "
 "parsable by the standard library configparser_ module. If the file can be "
@@ -21381,7 +21286,7 @@ msgstr ""
 "一个名为 ``Error-`` 加语言代码中下划线或连字符之前部分的键。如果这两者都找不"
 "到，或者语言代码为 ``None``，它就应该查找一个仅名为 ``Error`` 的键。"
 
-#: ../source/specifications/externally-managed-environments.rst:200
+#: ../source/specifications/externally-managed-environments.rst:194
 msgid ""
 "If the installer cannot find an error message in the file (either because "
 "the file cannot be parsed or because no suitable error key exists), then the "
@@ -21393,7 +21298,7 @@ msgstr ""
 "在合适的错误键），那么它就应该直接使用自己预定义的错误消息，而这条消息应该建"
 "议用户创建虚拟环境来安装软件包。"
 
-#: ../source/specifications/externally-managed-environments.rst:206
+#: ../source/specifications/externally-managed-environments.rst:200
 msgid ""
 "Software distributors who have a non-Python-specific package manager that "
 "manages libraries in the ``sys.path`` of their Python package should, in "
@@ -21406,7 +21311,7 @@ msgstr ""
 "提供一个 ``EXTERNALLY-MANAGED`` 文件。例如，Debian 可以在 ``/usr/lib/"
 "python3.9/EXTERNALLY-MANAGED`` 中提供一个内容大致如下的文件"
 
-#: ../source/specifications/externally-managed-environments.rst:230
+#: ../source/specifications/externally-managed-environments.rst:224
 msgid ""
 "which provides useful and distro-relevant information to a user trying to "
 "install a package. Optionally, translations can be provided in the same file:"
@@ -21414,7 +21319,7 @@ msgstr ""
 "它能为试图安装软件包的用户提供有用且与发行版相关的信息。此外，还可以选择在同"
 "一文件中提供译文："
 
-#: ../source/specifications/externally-managed-environments.rst:240
+#: ../source/specifications/externally-managed-environments.rst:234
 msgid ""
 "In certain contexts, such as single-application container images that aren't "
 "updated after creation, a distributor may choose not to ship an ``EXTERNALLY-"
@@ -21425,11 +21330,11 @@ msgstr ""
 "``EXTERNALLY-MANAGED`` 文件，这样用户无需手动覆盖这条规则即可安装任何想要的软"
 "件包（一如现状）。"
 
-#: ../source/specifications/externally-managed-environments.rst:247
+#: ../source/specifications/externally-managed-environments.rst:241
 msgid "Writing to only the target ``sysconfig`` scheme"
 msgstr "只写入目标 ``sysconfig`` 方案"
 
-#: ../source/specifications/externally-managed-environments.rst:249
+#: ../source/specifications/externally-managed-environments.rst:243
 msgid ""
 "Usually, a Python package installer installs to directories in a scheme "
 "returned by the ``sysconfig`` standard library package. Ordinarily, this is "
@@ -21441,7 +21346,7 @@ msgstr ""
 "回的方案，但根据配置的不同（例如 ``pip install --user``），它也可能使用别的方"
 "案。"
 
-#: ../source/specifications/externally-managed-environments.rst:255
+#: ../source/specifications/externally-managed-environments.rst:249
 msgid ""
 "Whenever the installer is installing to a ``sysconfig`` scheme, this "
 "specification declares that the installer should never modify or delete "
@@ -21455,7 +21360,7 @@ msgstr ""
 "安装在方案之外的某个目录里（也许属于另一个方案），那么它就应该不去动那些现有"
 "的文件。"
 
-#: ../source/specifications/externally-managed-environments.rst:262
+#: ../source/specifications/externally-managed-environments.rst:256
 msgid ""
 "If the installer does end up shadowing an existing installation during an "
 "upgrade, we recommend that it produces a warning at the end of its run."
@@ -21463,7 +21368,7 @@ msgstr ""
 "如果安装程序在升级过程中最终确实遮蔽了现有的安装，我们建议它在运行结束时给出"
 "一条警告。"
 
-#: ../source/specifications/externally-managed-environments.rst:266
+#: ../source/specifications/externally-managed-environments.rst:260
 msgid ""
 "If the installer is installing to a location outside of a ``sysconfig`` "
 "scheme (e.g., ``pip install --target``), then this subsection does not apply."
@@ -21471,11 +21376,11 @@ msgstr ""
 "如果安装程序正在安装到 ``sysconfig`` 方案之外的位置（例如 ``pip install --"
 "target``），那么本小节并不适用。"
 
-#: ../source/specifications/externally-managed-environments.rst:271
+#: ../source/specifications/externally-managed-environments.rst:265
 msgid "Recommendations for distros"
 msgstr "对发行版的建议"
 
-#: ../source/specifications/externally-managed-environments.rst:273
+#: ../source/specifications/externally-managed-environments.rst:267
 msgid ""
 "This section is non-normative. It provides best practices we believe distros "
 "should follow unless they have a specific reason otherwise."
@@ -21483,21 +21388,21 @@ msgstr ""
 "本节是非规范性的。其中给出的是我们认为发行版应该遵循的最佳实践，除非发行版有"
 "特定的理由另作处理。"
 
-#: ../source/specifications/externally-managed-environments.rst:277
+#: ../source/specifications/externally-managed-environments.rst:271
 msgid "Mark the installation as externally managed"
 msgstr "将安装环境标记为外部管理"
 
-#: ../source/specifications/externally-managed-environments.rst:279
+#: ../source/specifications/externally-managed-environments.rst:273
 msgid ""
 "Distros should create an ``EXTERNALLY-MANAGED`` file in their ``stdlib`` "
 "directory."
 msgstr "发行版应该在其 ``stdlib`` 目录中创建一个 ``EXTERNALLY-MANAGED`` 文件。"
 
-#: ../source/specifications/externally-managed-environments.rst:283
+#: ../source/specifications/externally-managed-environments.rst:277
 msgid "Guide users towards virtual environments"
 msgstr "给用户提供虚拟环境方面的指导"
 
-#: ../source/specifications/externally-managed-environments.rst:285
+#: ../source/specifications/externally-managed-environments.rst:279
 msgid ""
 "The file should contain a useful and distro-relevant error message "
 "indicating both how to install system-wide packages via the distro's package "
@@ -21513,7 +21418,7 @@ msgstr ""
 "venv`` 无法工作的状态下使用，那么该消息就应该清楚地说明如何让 ``python3 -m "
 "venv`` 正常工作。"
 
-#: ../source/specifications/externally-managed-environments.rst:293
+#: ../source/specifications/externally-managed-environments.rst:287
 msgid ""
 "Consider packaging pipx_, a tool for installing Python-language "
 "applications, and suggesting it in the error. pipx automatically creates a "
@@ -21534,11 +21439,11 @@ msgstr ""
 "pipx``。你还可以考虑作出安排，让你的发行版面向最终用户的 Python 软件包/环境"
 "（例如 Fedora 上的 ``python3`` 或 Debian 上的 ``python3-full``）依赖 pipx。"
 
-#: ../source/specifications/externally-managed-environments.rst:308
+#: ../source/specifications/externally-managed-environments.rst:302
 msgid "Keep the marker file in container images"
 msgstr "在容器镜像中保留标记文件"
 
-#: ../source/specifications/externally-managed-environments.rst:310
+#: ../source/specifications/externally-managed-environments.rst:304
 msgid ""
 "Distros that produce official images for single-application containers "
 "(e.g., Docker container images) should keep the ``EXTERNALLY-MANAGED`` file, "
@@ -21550,11 +21455,11 @@ msgstr ""
 "``EXTERNALLY-MANAGED`` 文件，最好采用这样的方式：即使镜像的用户在镜像内部安装"
 "软件包更新（想想 ``RUN apt-get dist-upgrade``），该文件也不会消失。"
 
-#: ../source/specifications/externally-managed-environments.rst:317
+#: ../source/specifications/externally-managed-environments.rst:311
 msgid "Create separate distro and local directories"
 msgstr "创建相互独立的发行版目录和本地目录"
 
-#: ../source/specifications/externally-managed-environments.rst:319
+#: ../source/specifications/externally-managed-environments.rst:313
 msgid ""
 "Distros should place two separate paths on the system interpreter's "
 "``sys.path``, one for distro-installed packages and one for packages "
@@ -21570,7 +21475,7 @@ msgstr ""
 "类的工具不会修改发行版安装的软件包。本地系统管理员的路径在 ``sys.path`` 上应"
 "该排在发行版路径之前，使本地安装的软件包优先于发行版软件包。"
 
-#: ../source/specifications/externally-managed-environments.rst:328
+#: ../source/specifications/externally-managed-environments.rst:322
 msgid ""
 "For example, Fedora and Debian (and their derivatives) both implement this "
 "split by using ``/usr/local`` for locally-installed packages and ``/usr`` "
@@ -21592,7 +21497,7 @@ msgstr ""
 "lib/python3/site-packages``，而 Debian 希望确保通过本地构建的解释器安装的软件"
 "包不会出现在发行版解释器的 ``sys.path`` 上。）"
 
-#: ../source/specifications/externally-managed-environments.rst:341
+#: ../source/specifications/externally-managed-environments.rst:335
 msgid ""
 "Note that the ``/usr/local`` vs. ``/usr`` split is analogous to how the "
 "``PATH`` environment variable typically includes ``/usr/local/bin:/usr/bin`` "
@@ -21603,7 +21508,7 @@ msgstr ""
 "``/usr/local/bin:/usr/bin``，非发行版软件默认也安装到 ``/usr/local``。这种划"
 "分方式为 `文件系统层次结构标准`__ 所推荐。"
 
-#: ../source/specifications/externally-managed-environments.rst:349
+#: ../source/specifications/externally-managed-environments.rst:343
 msgid ""
 "There are two ways you could do this. One is, if you are building and "
 "packaging Python libraries directly (e.g., your packaging helpers unpack a "
@@ -21614,7 +21519,7 @@ msgstr ""
 "包辅助工具会解包 wheel 或调用 ``setup.py install``），可以让这些工具使用一个"
 "不在某个 ``sysconfig`` 方案中、但仍在 ``sys.path`` 上的目录。"
 
-#: ../source/specifications/externally-managed-environments.rst:355
+#: ../source/specifications/externally-managed-environments.rst:349
 msgid ""
 "The other is to arrange for the default ``sysconfig`` scheme to change when "
 "running inside a package build versus when running on an installed system. "
@@ -21631,7 +21536,7 @@ msgstr ""
 "配置，并定义一个 ``get_preferred_schemes`` 函数，使其在从软件包构建内部被调用"
 "时返回不同的方案。这样你就可以在发行版打包过程中使用 ``pip install`` 了。"
 
-#: ../source/specifications/externally-managed-environments.rst:367
+#: ../source/specifications/externally-managed-environments.rst:361
 msgid ""
 "We propose adding a ``--scheme=...`` option to instruct pip to run against a "
 "specific scheme. (See `Implementation Notes`_ below for how pip currently "
@@ -21649,7 +21554,7 @@ msgstr ""
 "过 ``get_preferred_schemes``）。如果确有必要，也可以使用 ``pip uninstall --"
 "scheme=posix_distro`` 来让 pip 从系统管理的目录中移除软件包。"
 
-#: ../source/specifications/externally-managed-environments.rst:377
+#: ../source/specifications/externally-managed-environments.rst:371
 msgid ""
 "To install packages with pip, you would also need to either suppress the "
 "``EXTERNALLY-MANAGED`` marker file to allow pip to run or to override it on "
@@ -21660,7 +21565,7 @@ msgstr ""
 "pip 运行，或者在命令行上覆盖它。你可能希望像在容器镜像中那样，在构建 chroot "
 "环境中使用同样的方式来屏蔽标记文件。"
 
-#: ../source/specifications/externally-managed-environments.rst:383
+#: ../source/specifications/externally-managed-environments.rst:377
 msgid ""
 "The advantage of setting these up to be automatic (suppressing the marker "
 "file in your build environment and having ``get_preferred_schemes`` "
@@ -21678,13 +21583,13 @@ msgstr ""
 "保你的打包流程始终调用 ``pip install --scheme=posix_distro --break-system-"
 "packages``，这同样可行。"
 
-#: ../source/specifications/externally-managed-environments.rst:393
+#: ../source/specifications/externally-managed-environments.rst:387
 msgid ""
 "The best approach here depends a lot on your distro's conventions and "
 "mechanisms for packaging."
 msgstr "这里的最佳做法在很大程度上取决于你的发行版在打包方面的惯例和机制。"
 
-#: ../source/specifications/externally-managed-environments.rst:396
+#: ../source/specifications/externally-managed-environments.rst:390
 msgid ""
 "Similarly, the ``sysconfig`` paths that are not for importable Python code - "
 "that is, ``include``, ``platinclude``, ``scripts``, and ``data`` - should "
@@ -21706,17 +21611,17 @@ msgstr ""
 "``scripts`` 路径，把 ``/usr/bin`` 用作发行版打包的入口点所在路径，并把两者都"
 "放到 ``$PATH`` 上。"
 
-#: ../source/specifications/externally-managed-environments.rst:410
+#: ../source/specifications/externally-managed-environments.rst:404
 msgid "Implementation Notes"
 msgstr "实现注意事项"
 
-#: ../source/specifications/externally-managed-environments.rst:412
+#: ../source/specifications/externally-managed-environments.rst:406
 msgid ""
 "This section is non-normative and contains notes relevant to both the "
 "specification and potential implementations."
 msgstr "本节是非规范性的，包含与本规范和潜在实现都相关的注意事项。"
 
-#: ../source/specifications/externally-managed-environments.rst:415
+#: ../source/specifications/externally-managed-environments.rst:409
 msgid ""
 "Currently (as of May 2021), pip does not directly expose a way to choose a "
 "target ``sysconfig`` scheme, but it has three ways of looking up schemes "
@@ -21725,11 +21630,11 @@ msgstr ""
 "目前（截至 2021 年 5 月），pip 并没有直接提供选择目标 ``sysconfig`` 方案的途"
 "径，但它在安装时有三种查找方案的方式："
 
-#: ../source/specifications/externally-managed-environments.rst:419
+#: ../source/specifications/externally-managed-environments.rst:413
 msgid "``pip install``"
 msgstr "``pip install``"
 
-#: ../source/specifications/externally-managed-environments.rst:420
+#: ../source/specifications/externally-managed-environments.rst:414
 msgid ""
 "Calls ``sysconfig.get_default_scheme()``, which is usually (in upstream "
 "CPython and most current distros) the same as "
@@ -21738,23 +21643,23 @@ msgstr ""
 "调用 ``sysconfig.get_default_scheme()``，它通常（在上游 CPython 和大多数当前"
 "的发行版中）与 ``get_preferred_scheme('prefix')`` 相同。"
 
-#: ../source/specifications/externally-managed-environments.rst:424
+#: ../source/specifications/externally-managed-environments.rst:418
 msgid "``pip install --prefix=/some/path``"
 msgstr "``pip install --prefix=/some/path``"
 
-#: ../source/specifications/externally-managed-environments.rst:425
+#: ../source/specifications/externally-managed-environments.rst:419
 msgid "Calls ``sysconfig.get_preferred_scheme('prefix')``."
 msgstr "调用 ``sysconfig.get_preferred_scheme('prefix')``。"
 
-#: ../source/specifications/externally-managed-environments.rst:427
+#: ../source/specifications/externally-managed-environments.rst:421
 msgid "``pip install --user``"
 msgstr "``pip install --user``"
 
-#: ../source/specifications/externally-managed-environments.rst:428
+#: ../source/specifications/externally-managed-environments.rst:422
 msgid "Calls ``sysconfig.get_preferred_scheme('user')``."
 msgstr "调用 ``sysconfig.get_preferred_scheme('user')``。"
 
-#: ../source/specifications/externally-managed-environments.rst:430
+#: ../source/specifications/externally-managed-environments.rst:424
 msgid ""
 "Finally, ``pip install --target=/some/path`` writes directly to ``/some/"
 "path`` without looking up any schemes."
@@ -21762,7 +21667,7 @@ msgstr ""
 "最后，``pip install --target=/some/path`` 会直接写入 ``/some/path``，而不查找"
 "任何方案。"
 
-#: ../source/specifications/externally-managed-environments.rst:433
+#: ../source/specifications/externally-managed-environments.rst:427
 msgid ""
 "Debian currently carries a `patch to change the default install location "
 "inside a virtual environment`__, using a few heuristics (including checking "
@@ -21779,7 +21684,7 @@ msgstr ""
 "的影响，因为该补丁的实现实际上并没有更改默认的 ``sysconfig`` 方案，尤其没有更"
 "改 ``sysconfig.get_path(\"stdlib\")`` 的结果。"
 
-#: ../source/specifications/externally-managed-environments.rst:445
+#: ../source/specifications/externally-managed-environments.rst:439
 msgid ""
 "Fedora currently carries a `patch to change the default install location "
 "when not running inside rpmbuild`__, which they use to implement the two-"
@@ -21792,7 +21697,7 @@ msgstr ""
 "的那类钩子，只不过以 ``distutils`` 的代码补丁形式实现，而不是作为更改的 "
 "``sysconfig`` 方案来实现。"
 
-#: ../source/specifications/externally-managed-environments.rst:454
+#: ../source/specifications/externally-managed-environments.rst:448
 msgid ""
 "The implementation of ``is_virtual_environment`` above, as well as the logic "
 "to load the ``EXTERNALLY-MANAGED`` file and find the error message from it, "
@@ -21804,11 +21709,11 @@ msgstr ""
 "并从中找出错误消息的逻辑，不妨也加入标准库（分别加入 ``sys`` 和 "
 "``sysconfig``）以便集中它们的实现，不过目前还没有必要加入。"
 
-#: ../source/specifications/externally-managed-environments.rst:464
+#: ../source/specifications/externally-managed-environments.rst:458
 msgid "Copyright"
 msgstr "版权"
 
-#: ../source/specifications/externally-managed-environments.rst:466
+#: ../source/specifications/externally-managed-environments.rst:460
 msgid ""
 "This document is placed in the public domain or under the CC0-1.0-Universal "
 "license, whichever is more permissive."
@@ -21816,7 +21721,7 @@ msgstr ""
 "本文档被置于公共领域，或在 CC0-1.0-Universal 许可证下发布，以两者中更宽松者为"
 "准。"
 
-#: ../source/specifications/externally-managed-environments.rst:474
+#: ../source/specifications/externally-managed-environments.rst:468
 msgid "June 2022: This specification was approved through :pep:`668`."
 msgstr "2022 年 6 月：本规范通过 :pep:`668` 获得批准。"
 
@@ -29062,12 +28967,19 @@ msgid "Source distribution file name"
 msgstr "源分发文件名"
 
 #: ../source/specifications/source-distribution-format.rst:40
+#, fuzzy
+#| msgid ""
+#| "The file name of a sdist was standardised in :pep:`625`. The file name "
+#| "must be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is "
+#| "normalised according to the same rules as for binary distributions "
+#| "(see :ref:`binary-distribution-format`), and ``{version}`` is the "
+#| "canonicalized form of the project version (see :ref:`version-specifiers`)."
 msgid ""
 "The file name of a sdist was standardised in :pep:`625`. The file name must "
 "be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised "
-"according to the same rules as for binary distributions (see :ref:`binary-"
-"distribution-format`), and ``{version}`` is the canonicalized form of the "
-"project version (see :ref:`version-specifiers`)."
+"according to the same rules as for wheels (see :ref:`binary-distribution-"
+"format`), and ``{version}`` is the canonicalized form of the project version "
+"(see :ref:`version-specifiers`)."
 msgstr ""
 "sdist 的文件名在 :pep:`625` 中被标准化。文件名必须采用 ``{name}-"
 "{version}.tar.gz`` 的形式，其中 ``{name}`` 按照与二进制分发相同的规则进行规范"
@@ -29357,11 +29269,17 @@ msgstr ""
 "含义按 :rfc:`2119` 中所述理解。"
 
 #: ../source/specifications/version-specifiers.rst:21
+#, fuzzy
+#| msgid ""
+#| "\"Build tools\" are automated tools intended to run on development "
+#| "systems, producing source and binary distribution archives. Build tools "
+#| "may also be invoked by integration tools in order to build software "
+#| "distributed as sdists rather than prebuilt binary archives."
 msgid ""
 "\"Build tools\" are automated tools intended to run on development systems, "
-"producing source and binary distribution archives. Build tools may also be "
+"producing source and built distribution archives. Build tools may also be "
 "invoked by integration tools in order to build software distributed as "
-"sdists rather than prebuilt binary archives."
+"sdists rather than built distribution archives."
 msgstr ""
 "\"构建工具\"是一类旨在开发系统上运行的自动化工具，用于生成源分发和二进制分发"
 "归档文件。集成工具也可以调用构建工具，来构建以 sdist 而非预构建二进制归档形式"
@@ -29376,19 +29294,30 @@ msgstr ""
 "的元数据施加约束。"
 
 #: ../source/specifications/version-specifiers.rst:29
+#, fuzzy
+#| msgid ""
+#| "\"Publication tools\" are automated tools intended to run on development "
+#| "systems and upload source and binary distribution archives to index "
+#| "servers."
 msgid ""
 "\"Publication tools\" are automated tools intended to run on development "
-"systems and upload source and binary distribution archives to index servers."
+"systems and upload source and built distribution archives to index servers."
 msgstr ""
 "\"发布工具\"是一类旨在开发系统上运行的自动化工具，负责将源分发和二进制分发归"
 "档文件上传到索引服务器。"
 
 #: ../source/specifications/version-specifiers.rst:32
+#, fuzzy
+#| msgid ""
+#| "\"Installation tools\" are integration tools specifically intended to run "
+#| "on deployment targets, consuming source and binary distribution archives "
+#| "from an index server or other designated location and deploying them to "
+#| "the target system."
 msgid ""
 "\"Installation tools\" are integration tools specifically intended to run on "
-"deployment targets, consuming source and binary distribution archives from "
-"an index server or other designated location and deploying them to the "
-"target system."
+"deployment targets, consuming source and built distribution archives from an "
+"index server or other designated location and deploying them to the target "
+"system."
 msgstr ""
 "\"安装工具\"是一类专门用于在部署目标上运行的集成工具，它们从索引服务器或其他"
 "指定位置获取源分发和二进制分发归档文件，并将其部署到目标系统。"
@@ -31093,10 +31022,15 @@ msgstr ""
 "非发布者提供的工具。"
 
 #: ../source/specifications/version-specifiers.rst:1114
+#, fuzzy
+#| msgid ""
+#| "Depending on the use case, some appropriate targets for a direct URL "
+#| "reference may be an sdist or a wheel binary archive. The exact URLs and "
+#| "targets supported will be tool dependent."
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
-"reference may be an sdist or a wheel binary archive. The exact URLs and "
-"targets supported will be tool dependent."
+"reference may be an sdist or a wheel. The exact URLs and targets supported "
+"will be tool dependent."
 msgstr ""
 "视使用场景而定，直接 URL 引用的合适目标可以是源分发（sdist）或 wheel 二进制归"
 "档文件。具体支持哪些 URL 和目标取决于工具本身。"
@@ -33397,6 +33331,135 @@ msgstr ""
 "包称为 :doc:`命名空间包 </guides/packaging-namespace-packages>`，并被视为 **"
 "高级主题** （本教程未作介绍）。如果你刚刚开始接触 Python 打包，建议坚持使用 *"
 "常规软件包* 和 ``__init__.py``，即使该文件为空。"
+
+#~ msgid "pip vs easy_install"
+#~ msgstr "pip 与 easy_install"
+
+#~ msgid ""
+#~ ":ref:`easy_install <easy_install>`, now `deprecated`_, was released in "
+#~ "2004 as part of :ref:`setuptools`. It was notable at the time for "
+#~ "installing :term:`packages <Distribution Package>` from :term:`PyPI "
+#~ "<Python Package Index (PyPI)>` using requirement specifiers, and "
+#~ "automatically installing dependencies."
+#~ msgstr ""
+#~ ":ref:`easy_install <easy_install>`，现 `已弃用`_，作为 :ref:`setuptools` "
+#~ "的一部分于 2004 年发布。当时值得注意的是，使用需求说明符从 :term:`PyPI "
+#~ "<Python Package Index (PyPI)>` 安装 :term:`分发包 <Distribution "
+#~ "Package>`，并自动安装依赖项。"
+
+#~ msgid ""
+#~ ":ref:`pip` came later in 2008, as an alternative to :ref:`easy_install "
+#~ "<easy_install>`, although still largely built on top of :ref:`setuptools` "
+#~ "components.  It was notable at the time for *not* installing packages "
+#~ "as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but rather simply as "
+#~ "'flat' packages from :term:`sdists <Source Distribution (or "
+#~ "\"sdist\")>`), and introducing the idea of :ref:`Requirements Files "
+#~ "<pip:Requirements Files>`, which gave users the power to easily replicate "
+#~ "environments."
+#~ msgstr ""
+#~ ":ref:`pip` 作为 :ref:`easy_install <easy_install>` 的替代品于 2008 年出"
+#~ "现，尽管其仍然主要构建在 :ref:`setuptools` 组件之上。当时它引人关注的原因"
+#~ "是 *不* 将软件包作为 :term:`Eggs <Egg>` 安装或不从 :term:`Eggs <Egg>` 安装"
+#~ "软件包（只作为来自 :term:`sdists <Source Distribution (or \"sdist\")>` 的 "
+#~ "'flat' 包进行安装 ），并引入 :ref:`Requirements Files <pip:Requirements "
+#~ "Files>` 的概念，使用户能够轻松复制环境。"
+
+#~ msgid ""
+#~ "Here's a breakdown of the important differences between pip and the "
+#~ "deprecated easy_install:"
+#~ msgstr "下面是 pip 和被废弃的 easy_install 之间的重要区别的分类："
+
+#~ msgid "**pip**"
+#~ msgstr "**pip**"
+
+#~ msgid "**easy_install**"
+#~ msgstr "**easy_install**"
+
+#~ msgid "Installs from :term:`Wheels <Wheel>`"
+#~ msgstr "从 :term:`Wheels <Wheel>` 安装"
+
+#~ msgid "Yes"
+#~ msgstr "有"
+
+#~ msgid "No"
+#~ msgstr "没有"
+
+#~ msgid "Uninstall Packages"
+#~ msgstr "卸载软件包"
+
+#~ msgid "Yes (``python -m pip uninstall``)"
+#~ msgstr "有(``python -m pip uninstall``)"
+
+#~ msgid "Dependency Overrides"
+#~ msgstr "依赖性覆盖"
+
+#~ msgid "Yes (:ref:`Requirements Files <pip:Requirements Files>`)"
+#~ msgstr "有(:ref:`Requirements Files <pip:Requirements Files>`)"
+
+#~ msgid "List Installed Packages"
+#~ msgstr "列出已安装的软件包"
+
+#~ msgid "Yes (``python -m pip list`` and ``python -m pip freeze``)"
+#~ msgstr "有(``python -m pip list`` and ``python -m pip freeze``)"
+
+#~ msgid ":pep:`438` Support"
+#~ msgstr ":pep:`438` 支持"
+
+#~ msgid "Installation format"
+#~ msgstr "安装格式"
+
+#~ msgid "'Flat' packages with :file:`egg-info` metadata."
+#~ msgstr "带有 :file:`egg-info` 元数据的“Flat”包。"
+
+#~ msgid "Encapsulated Egg format"
+#~ msgstr "封装的 Egg 格式"
+
+#~ msgid "sys.path modification"
+#~ msgstr "sys.path 修改"
+
+#~ msgid "Installs from :term:`Eggs <Egg>`"
+#~ msgstr "从 :term:`Eggs <Egg>` 安装"
+
+#~ msgid "`pylauncher support`_"
+#~ msgstr "`pylauncher 支持`_"
+
+#~ msgid "Yes [1]_"
+#~ msgstr "有 [1]_"
+
+#~ msgid ":ref:`Multi-version Installs`"
+#~ msgstr ":ref:`多版本安装 <Multi-version Installs>`"
+
+#~ msgid "Exclude scripts during install"
+#~ msgstr "安装时排除脚本"
+
+#~ msgid "per project index"
+#~ msgstr "每个项目索引"
+
+#~ msgid "Only in virtualenv"
+#~ msgstr "仅在 virtualenv 中"
+
+#~ msgid "Yes, via setup.cfg"
+#~ msgstr "有，通过 setup.cfg"
+
+#~ msgid ""
+#~ "https://setuptools.readthedocs.io/en/latest/deprecated/"
+#~ "easy_install.html#natural-script-launcher"
+#~ msgstr ""
+#~ "https://setuptools.readthedocs.io/en/latest/deprecated/"
+#~ "easy_install.html#natural-script-launcher"
+
+#~ msgid ":doc:`discussions/pip-vs-easy-install`"
+#~ msgstr ":doc:`discussions/pip-vs-easy-install`"
+
+#~ msgid "Binary distribution format"
+#~ msgstr "二进制分发格式"
+
+#~ msgid ""
+#~ "(Note that the ``easy_install`` command was removed in setuptools version "
+#~ "52, released 23 January 2021.)"
+#~ msgstr ""
+#~ "（请注意，``easy_install`` 命令已在 2021 年 1 月 23 日发布的 setuptools "
+#~ "52 版本中被移除。）"
 
 #~ msgid "True"
 #~ msgstr "True"
