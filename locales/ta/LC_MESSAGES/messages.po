@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 01:56+0000\n"
+"POT-Creation-Date: 2026-10-27 07:36+0000\n"
 "PO-Revision-Date: 2025-07-19 06:36+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -9973,10 +9973,35 @@ msgstr ""
 "ஏற்றுதல் வழிமுறைகள் வட்டில் இருந்து நூலகங்களை மட்டுமே ஏற்ற முடியும்)."
 
 #: ../source/guides/packaging-binary-extensions.rst:106
+#, fuzzy
+#| msgid "Building binary extensions"
+msgid "How binary extension modules work"
+msgstr "பைனரி நீட்டிப்புகளை உருவாக்குதல்"
+
+#: ../source/guides/packaging-binary-extensions.rst:108
+msgid ""
+"The C API (Application Programming Interface) is the source-level contract "
+"used when compiling code: it defines functions, types, constants, and how "
+"callers use them. The C ABI (Application Binary Interface) is the "
+"corresponding binary-level contract used by already-compiled code, including "
+"details such as exported symbols, calling conventions, and data layout."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:114
+msgid ""
+"CPython exposes a rich C API, but extensions built against the full API are "
+"normally tied to the CPython feature release and platform they were compiled "
+"against because the full ABI is not stable across feature releases. "
+"Extensions that only use CPython's Limited API can instead target "
+"the :ref:`Stable ABI <cpython-stable-abi>`, which allows a single ``abi3`` "
+"wheel to work across multiple Python 3 feature releases on the same platform."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:122
 msgid "Alternatives to handcoded accelerator modules"
 msgstr "ஏண்ட்கோட் செய்யப்பட்ட முடுக்கி தொகுதிகளுக்கு மாற்று வழிகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:108
+#: ../source/guides/packaging-binary-extensions.rst:124
 msgid ""
 "When extension modules are just being used to make code run faster (after "
 "profiling has identified the code where the speed increase is worth "
@@ -9987,7 +10012,7 @@ msgstr ""
 "பராமரிப்பு முயற்சிக்கு மதிப்புள்ள குறியீட்டை விவரக்குறிப்பு அடையாளம் கண்டுள்ள பிறகு), பல "
 "மாற்றுகளும் கருத்தில் கொள்ளப்பட வேண்டும்:"
 
-#: ../source/guides/packaging-binary-extensions.rst:113
+#: ../source/guides/packaging-binary-extensions.rst:129
 msgid ""
 "look for existing optimised alternatives. The CPython standard library "
 "includes a number of optimised data structures and algorithms (especially in "
@@ -10003,7 +10028,7 @@ msgstr ""
 "பொருத்தமான தேர்வு உங்கள் சொந்த முடுக்கி தொகுதியை உருவாக்க வேண்டிய அவசியத்தைத் "
 "தவிர்க்கலாம்."
 
-#: ../source/guides/packaging-binary-extensions.rst:120
+#: ../source/guides/packaging-binary-extensions.rst:136
 msgid ""
 "for long running applications, the JIT compiled `PyPy interpreter <https://"
 "www.pypy.org/>`__ may offer a suitable alternative to the standard CPython "
@@ -10025,7 +10050,7 @@ msgstr ""
 "பொருள் having one live குறிப்பு instead of two often won't இடைவேளை anything, "
 "but இல்லை குறிப்புகள் instead of one is a major problem)."
 
-#: ../source/guides/packaging-binary-extensions.rst:130
+#: ../source/guides/packaging-binary-extensions.rst:146
 msgid ""
 "`Cython <https://cython.org/>`__ is a mature static compiler that can "
 "compile most Python code to C extension modules. The initial compilation "
@@ -10045,7 +10070,7 @@ msgstr ""
 "நுழைவதற்கு குறைக்கப்பட்ட தடையைக் கொண்டிருப்பதன் நன்மையைக் கொண்டுள்ளது (சி அல்லது சி ++ "
 "போன்ற பிற மொழிகளுடன் ஒப்பிடும்போது)."
 
-#: ../source/guides/packaging-binary-extensions.rst:139
+#: ../source/guides/packaging-binary-extensions.rst:155
 msgid ""
 "`Numba <http://numba.pydata.org/>`__ is a newer tool, created by members of "
 "the scientific Python community, that aims to leverage LLVM to allow "
@@ -10060,25 +10085,18 @@ msgstr ""
 "நேரம். குறியீடு இயங்கும் கணினியில் எல்.எல்.வி.எம் கிடைக்க வேண்டும், ஆனால் குறிப்பிடத்தக்க "
 "வேக அதிகரிப்புகளை வழங்க முடியும், குறிப்பாக திசையன்மயமாக்கலுக்கு ஏற்ற செயல்பாடுகளுக்கு."
 
-#: ../source/guides/packaging-binary-extensions.rst:148
+#: ../source/guides/packaging-binary-extensions.rst:164
 msgid "Alternatives to handcoded wrapper modules"
 msgstr "ஏண்ட்கோட் செய்யப்பட்ட ரேப்பர் தொகுதிகளுக்கு மாற்று வழிகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:150
+#: ../source/guides/packaging-binary-extensions.rst:166
 msgid ""
-"The C ABI (Application Binary Interface) is a common standard for sharing "
-"functionality between multiple applications. One of the strengths of the "
-"CPython C API (Application Programming Interface) is allowing Python users "
-"to tap into that functionality. However, wrapping modules by hand is quite "
-"tedious, so a number of other alternative approaches should be considered."
+"Binary extensions let Python programs use existing native libraries. "
+"However, maintaining handcoded wrapper modules is tedious, so alternative "
+"approaches should be considered."
 msgstr ""
-"சி பநிஇ (பயன்பாட்டு பைனரி இடைமுகம்) பல பயன்பாடுகளுக்கு இடையில் செயல்பாட்டைப் "
-"பகிர்வதற்கான பொதுவான தரமாகும். Cpython C பநிஇ (பயன்பாட்டு நிரலாக்க இடைமுகம்) இன் "
-"பலங்களில் ஒன்று பைத்தான் பயனர்களை அந்த செயல்பாட்டைத் தட்ட அனுமதிக்கிறது. இருப்பினும், "
-"தொகுதிகளை கையால் மடக்குவது மிகவும் கடினமானது, எனவே பல மாற்று அணுகுமுறைகள் கருத்தில் "
-"கொள்ளப்பட வேண்டும்."
 
-#: ../source/guides/packaging-binary-extensions.rst:156
+#: ../source/guides/packaging-binary-extensions.rst:170
 msgid ""
 "The approaches described below don't simplify the distribution case at all, "
 "but they *can* significantly reduce the maintenance burden of keeping "
@@ -10088,7 +10106,7 @@ msgstr ""
 "போர்வுற்ற தொகுதிகளை புதுப்பித்த நிலையில் வைத்திருப்பதற்கான பராமரிப்பு சுமையை கணிசமாகக் "
 "குறைக்க முடியும்."
 
-#: ../source/guides/packaging-binary-extensions.rst:160
+#: ../source/guides/packaging-binary-extensions.rst:174
 msgid ""
 "In addition to being useful for the creation of accelerator modules, `Cython "
 "<https://cython.org/>`__ is also widely used for creating wrapper modules "
@@ -10108,7 +10126,7 @@ msgstr ""
 "`_ சைதனுடன் தானியங்கி மடக்குதல். பைபி மற்றும் பிச்டன் போன்ற சிபிதான் போன்ற சி-ஏபிஐ "
 "வழங்கும் செயல்திறன் சார்ந்த பைதான் செயலாக்கங்களையும் இது ஆதரிக்கிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:171
+#: ../source/guides/packaging-binary-extensions.rst:185
 msgid ""
 ":doc:`pybind11 <pybind11:index>` is a pure C++11 library that provides a "
 "clean C++ interface to the CPython (and PyPy) C API. It does not require a "
@@ -10123,7 +10141,7 @@ msgstr ""
 "libs/python/doc/html/index.html> __, ஆனால் பூச்ட் நூலகங்கள் அல்லது பிசாம் "
 "தேவையில்லை ."
 
-#: ../source/guides/packaging-binary-extensions.rst:178
+#: ../source/guides/packaging-binary-extensions.rst:192
 msgid ""
 ":doc:`cffi <cffi:index>` is a project created by some of the PyPy developers "
 "to make it straightforward for developers that already know both Python and "
@@ -10134,7 +10152,7 @@ msgstr ""
 ". சி தொகுதியை அதன் தலைப்பு கோப்புகளின் அடிப்படையில் மடிக்க இது ஒப்பீட்டளவில் "
 "நேரடியானதாக அமைகிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:184
+#: ../source/guides/packaging-binary-extensions.rst:198
 msgid ""
 "One of the key advantages of ``cffi`` is that it is compatible with the PyPy "
 "JIT, allowing CFFI wrapper modules to participate fully in PyPy's tracing "
@@ -10144,7 +10162,7 @@ msgstr ""
 "ரேப்பர் தொகுதிகள் பைபியின் தடமறியும் JIT மேம்படுத்தல்களில் முழுமையாக பங்கேற்க "
 "அனுமதிக்கிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:188
+#: ../source/guides/packaging-binary-extensions.rst:202
 msgid ""
 "`SWIG <http://www.swig.org/>`__ is a wrapper interface generator that allows "
 "a variety of programming languages, including Python, to interface with C "
@@ -10154,7 +10172,7 @@ msgstr ""
 "பைதான் உள்ளிட்ட பல்வேறு நிரலாக்க மொழிகளை சி மற்றும் சி ++ குறியீட்டுடன் இடைமுகப்படுத்த "
 "அனுமதிக்கிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:192
+#: ../source/guides/packaging-binary-extensions.rst:206
 msgid ""
 "The standard library's ``ctypes`` module, while useful for getting access to "
 "C level interfaces when header information isn't available, suffers from the "
@@ -10178,11 +10196,11 @@ msgstr ""
 "முடியும் என்றாலும், அது அந்த வழியில் பயன்படுத்தப்படும்போது அதே இடைமுக முரண்பாடு "
 "சிக்கல்களால் `` ctypes`` போன்றவற்றால் பாதிக்கப்படுகிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:206
+#: ../source/guides/packaging-binary-extensions.rst:220
 msgid "Alternatives for low level system access"
 msgstr "குறைந்த அளவிலான கணினி அணுகலுக்கான மாற்று வழிகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:208
+#: ../source/guides/packaging-binary-extensions.rst:222
 msgid ""
 "For applications that need low level system access (regardless of the "
 "reason), a binary extension module often *is* the best way to go about it. "
@@ -10200,7 +10218,7 @@ msgstr ""
 "cffi` போன்ற ஒரு தொகுதி கூட இருந்தாலும் கூட தொடர்புடைய சி பநிஇ இடைமுகங்களுக்கான "
 "அணுகலைப் பெற `பயன்படுத்தப்படுகிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:216
+#: ../source/guides/packaging-binary-extensions.rst:230
 msgid ""
 "For cases where the extension module is manipulating the underlying "
 "operating system or hardware (rather than the CPython runtime), it may "
@@ -10216,11 +10234,11 @@ msgstr ""
 "ஒன்றைப் பயன்படுத்தி இடைமுகத்தை இறக்குமதி செய்யக்கூடிய பைதான் தொகுதியாகக் கிடைக்கச் "
 "செய்யுங்கள்."
 
-#: ../source/guides/packaging-binary-extensions.rst:225
+#: ../source/guides/packaging-binary-extensions.rst:239
 msgid "Implementing binary extensions"
 msgstr "பைனரி நீட்டிப்புகளை செயல்படுத்துகிறது"
 
-#: ../source/guides/packaging-binary-extensions.rst:227
+#: ../source/guides/packaging-binary-extensions.rst:241
 msgid ""
 "The CPython :doc:`Extending and Embedding <python:extending/index>` guide "
 "includes an introduction to writing a :doc:`custom extension module in C "
@@ -10230,7 +10248,7 @@ msgstr ""
 "வழிகாட்டியை எழுதுவதற்கான ஒரு அறிமுகம் அடங்கும்: doc: `C <பைதானில் தனிப்பயன் நீட்டிப்பு "
 "தொகுதி: நீட்டித்தல்/நீட்டித்தல்>`."
 
-#: ../source/guides/packaging-binary-extensions.rst:231
+#: ../source/guides/packaging-binary-extensions.rst:245
 msgid ""
 "FIXME: Elaborate that all this is one of the reasons why you probably "
 "*don't* want to handcode your extension modules :)"
@@ -10238,35 +10256,35 @@ msgstr ""
 "Fixme: உங்கள் நீட்டிப்பு தொகுதிகளை நீங்கள் கையால் வைக்க விரும்பாததற்கு இவை அனைத்தும் ஒரு "
 "காரணம் என்பதை விரிவாகக் கூறுங்கள் :)"
 
-#: ../source/guides/packaging-binary-extensions.rst:236
+#: ../source/guides/packaging-binary-extensions.rst:250
 msgid "Extension module lifecycle"
 msgstr "நீட்டிப்பு தொகுதி வாழ்க்கை சுழற்சி"
 
-#: ../source/guides/packaging-binary-extensions.rst:238
-#: ../source/guides/packaging-binary-extensions.rst:244
-#: ../source/guides/packaging-binary-extensions.rst:250
-#: ../source/guides/packaging-binary-extensions.rst:256
-#: ../source/guides/packaging-binary-extensions.rst:376
+#: ../source/guides/packaging-binary-extensions.rst:252
+#: ../source/guides/packaging-binary-extensions.rst:258
+#: ../source/guides/packaging-binary-extensions.rst:264
+#: ../source/guides/packaging-binary-extensions.rst:270
+#: ../source/guides/packaging-binary-extensions.rst:390
 msgid "FIXME: This section needs to be fleshed out."
 msgstr "Fixme: இந்த பகுதியை வெளியேற்ற வேண்டும்."
 
-#: ../source/guides/packaging-binary-extensions.rst:242
+#: ../source/guides/packaging-binary-extensions.rst:256
 msgid "Implications of shared static state and subinterpreters"
 msgstr "பகிரப்பட்ட நிலையான நிலை மற்றும் துணை விளக்கக்காரர்களின் தாக்கங்கள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:248
+#: ../source/guides/packaging-binary-extensions.rst:262
 msgid "Implications of the GIL"
 msgstr "கிலின் தாக்கங்கள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:254
+#: ../source/guides/packaging-binary-extensions.rst:268
 msgid "Memory allocation APIs"
 msgstr "நினைவக ஒதுக்கீடு பநிஇ கள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:262
+#: ../source/guides/packaging-binary-extensions.rst:276
 msgid "ABI Compatibility"
 msgstr "ABI பொருந்தக்கூடிய தன்மை"
 
-#: ../source/guides/packaging-binary-extensions.rst:264
+#: ../source/guides/packaging-binary-extensions.rst:278
 msgid ""
 "The CPython C API does not guarantee ABI stability between minor releases "
 "(3.2, 3.3, 3.4, etc.). This means that, typically, if you build an extension "
@@ -10278,7 +10296,7 @@ msgstr ""
 "நீட்டிப்பு தொகுதியை நீங்கள் உருவாக்கினால், பைத்தானின் அதே சிறிய பதிப்போடு வேலை செய்வது "
 "மட்டுமே பொறுப்பு அளிக்கப்படுகிறது, வேறு எந்த சிறிய பதிப்புகளுடனும் அல்ல."
 
-#: ../source/guides/packaging-binary-extensions.rst:270
+#: ../source/guides/packaging-binary-extensions.rst:284
 msgid ""
 "Python 3.2 introduced the Limited API, with is a well-defined subset of "
 "Python's C API. The symbols needed for the Limited API form the \"Stable "
@@ -10293,7 +10311,7 @@ msgstr ""
 "சக்கரங்கள் `` அபி 3`` பநிஇ குறிச்சொல்லைப் பயன்படுத்துகின்றன, அவை அனைத்து பைதான் 3. ஃச் "
 "பதிப்புகளுடன் பொருந்தக்கூடியவை என்பதை பிரதிபலிக்க."
 
-#: ../source/guides/packaging-binary-extensions.rst:277
+#: ../source/guides/packaging-binary-extensions.rst:291
 msgid ""
 "CPython's :doc:`C API stability<python:c-api/stable>` page provides detailed "
 "information about the API / ABI stability guarantees, how to use the Limited "
@@ -10303,19 +10321,19 @@ msgstr ""
 "ச்திரத்தன்மை உத்தரவாதங்கள், வரையறுக்கப்பட்ட பநிஇ மற்றும் \"வரையறுக்கப்பட்ட பநிஇ\" இன் "
 "சரியான உள்ளடக்கங்களை எவ்வாறு பயன்படுத்துவது என்பது பற்றிய விரிவான தகவல்களை வழங்குகிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:283
+#: ../source/guides/packaging-binary-extensions.rst:297
 msgid "Building binary extensions"
 msgstr "பைனரி நீட்டிப்புகளை உருவாக்குதல்"
 
-#: ../source/guides/packaging-binary-extensions.rst:285
+#: ../source/guides/packaging-binary-extensions.rst:299
 msgid "FIXME: Cover the build-backends available for building extensions."
 msgstr "Fixme: கட்டிட நீட்டிப்புகளுக்கு கிடைக்கக்கூடிய பில்ட்-பேக்கெண்டுகளை மறைக்கவும்."
 
-#: ../source/guides/packaging-binary-extensions.rst:288
+#: ../source/guides/packaging-binary-extensions.rst:302
 msgid "Building extensions for multiple platforms"
 msgstr "பல தளங்களுக்கான நீட்டிப்புகளை உருவாக்குதல்"
 
-#: ../source/guides/packaging-binary-extensions.rst:290
+#: ../source/guides/packaging-binary-extensions.rst:304
 msgid ""
 "If you plan to distribute your extension, you should provide :term:`wheels "
 "<Wheel>` for all the platforms you intend to support. These are usually "
@@ -10329,7 +10347,7 @@ msgstr ""
 "செய்யக்கூடிய இருமங்களை உருவாக்க உதவும் கருவிகள் உள்ளன; இவை பின்வருவனவற்றை "
 "உள்ளடக்குகின்றன: ref: `cibuildwheel` மற்றும்: ref:` மல்டிபில்ட்`."
 
-#: ../source/guides/packaging-binary-extensions.rst:296
+#: ../source/guides/packaging-binary-extensions.rst:310
 msgid ""
 "For most extensions, you will need to build wheels for all the platforms you "
 "intend to support. This means that the number of wheels you need to build is "
@@ -10338,7 +10356,7 @@ msgstr ""
 "பெரும்பாலான நீட்டிப்புகளுக்கு, நீங்கள் ஆதரிக்க விரும்பும் அனைத்து தளங்களுக்கும் சக்கரங்களை "
 "உருவாக்க வேண்டும். இதன் பொருள் நீங்கள் உருவாக்க வேண்டிய சக்கரங்களின் எண்ணிக்கை ::"
 
-#: ../source/guides/packaging-binary-extensions.rst:302
+#: ../source/guides/packaging-binary-extensions.rst:316
 msgid ""
 "Using CPython's :ref:`Stable ABI <cpython-stable-abi>` can help "
 "significantly reduce the number of wheels you need to provide, since a "
@@ -10352,11 +10370,11 @@ msgstr ""
 "நீக்குகிறது. பைத்தானின் ஒவ்வொரு புதிய சிறிய பதிப்பிற்கும் புதிய சக்கரங்களை உருவாக்க "
 "வேண்டிய அவசியத்தையும் இது நீக்குகிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:309
+#: ../source/guides/packaging-binary-extensions.rst:323
 msgid "Binary extensions for Windows"
 msgstr "சாளரங்களுக்கான பைனரி நீட்டிப்புகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:311
+#: ../source/guides/packaging-binary-extensions.rst:325
 msgid ""
 "Before it is possible to build a binary extension, it is necessary to ensure "
 "that you have a suitable compiler available. On Windows, Visual C is used to "
@@ -10372,7 +10390,7 @@ msgstr ""
 "<https://visualstudio.microsoft.com/downloads/> __ __ - எந்த அண்மைக் கால "
 "பதிப்பும் நன்றாக உள்ளது."
 
-#: ../source/guides/packaging-binary-extensions.rst:318
+#: ../source/guides/packaging-binary-extensions.rst:332
 msgid ""
 "One caveat: if you use Visual Studio 2019 or later, your extension will "
 "depend on an \"extra\" file, ``VCRUNTIME140_1.dll``, in addition to the "
@@ -10389,7 +10407,7 @@ msgstr ""
 "வாதத்தை ``/d2fh4 -`` சேர்க்கலாம். பைத்தானின் அண்மைக் கால பதிப்புகளில் இந்த கோப்பை "
 "உள்ளடக்கியிருக்கலாம்."
 
-#: ../source/guides/packaging-binary-extensions.rst:326
+#: ../source/guides/packaging-binary-extensions.rst:340
 msgid ""
 "Building for Python prior to 3.5 is discouraged, because older versions of "
 "Visual Studio are no longer available from Microsoft. If you do need to "
@@ -10409,11 +10427,11 @@ msgstr ""
 "நம்புவதைத் தவிர்க்கவும், மற்றும் பல. நீட்டிப்பு தொகுதிகளை உருவாக்குவதற்கான கருவிகள் "
 "பொதுவாக உங்களுக்காக இந்த விசயங்களைத் தவிர்க்கின்றன."
 
-#: ../source/guides/packaging-binary-extensions.rst:337
+#: ../source/guides/packaging-binary-extensions.rst:351
 msgid "Binary extensions for Linux"
 msgstr "லினக்சிற்கான பைனரி நீட்டிப்புகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:339
+#: ../source/guides/packaging-binary-extensions.rst:353
 msgid ""
 "Linux binaries must use a sufficiently old glibc to be compatible with older "
 "distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker "
@@ -10425,11 +10443,11 @@ msgstr ""
 "படங்கள் பொதுவான கட்டமைப்புகளில் பெரும்பாலான தற்போதைய லினக்ச் விநியோகங்களை ஆதரிக்கும் "
 "அளவுக்கு ஒரு GLIBC உடன் உருவாக்கும் சூழலை வழங்குகின்றன."
 
-#: ../source/guides/packaging-binary-extensions.rst:345
+#: ../source/guides/packaging-binary-extensions.rst:359
 msgid "Binary extensions for macOS"
 msgstr "MACOS க்கான பைனரி நீட்டிப்புகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:347
+#: ../source/guides/packaging-binary-extensions.rst:361
 msgid ""
 "Binary compatibility on macOS is determined by the target minimum deployment "
 "system, e.g. *10.9*, which is often specified with the "
@@ -10446,11 +10464,11 @@ msgstr ""
 "பைதான் விநியோகங்களுக்கான பொதுவான வரிசைப்படுத்தல் இலக்குகளுக்கு, `மேக்பிதான் ச்பின்னிங் "
 "சக்கரங்கள் விக்கி <https://github.com/macpython/wiki/wiki/spinning-wheels>` _."
 
-#: ../source/guides/packaging-binary-extensions.rst:357
+#: ../source/guides/packaging-binary-extensions.rst:371
 msgid "Publishing binary extensions"
 msgstr "பைனரி நீட்டிப்புகளை வெளியிடுகிறது"
 
-#: ../source/guides/packaging-binary-extensions.rst:359
+#: ../source/guides/packaging-binary-extensions.rst:373
 msgid ""
 "Publishing binary extensions through PyPI uses the same upload mechanisms as "
 "publishing pure Python packages. You build a wheel file for your extension "
@@ -10462,11 +10480,11 @@ msgstr ""
 "நீட்டிப்புக்கு ஒரு சக்கரக் கோப்பை உருவாக்கி, அதை பைபியில் பதிவேற்றவும்: டாக்: `ட்வைன் "
 "<கயிறு: குறியீட்டு>`."
 
-#: ../source/guides/packaging-binary-extensions.rst:365
+#: ../source/guides/packaging-binary-extensions.rst:379
 msgid "Avoid binary-only releases"
 msgstr "பைனரி மட்டும் வெளியீடுகளைத் தவிர்க்கவும்"
 
-#: ../source/guides/packaging-binary-extensions.rst:367
+#: ../source/guides/packaging-binary-extensions.rst:381
 msgid ""
 "It is strongly recommended that you publish your binary extensions as well "
 "as the source code that was used to build them. This allows users to build "
@@ -10480,15 +10498,15 @@ msgstr ""
 "களஞ்சியங்களுக்கான சொந்த உருவாக்க அமைப்புகளுக்குள் மூலத்திலிருந்து உருவாக்கும் சில லினக்ச் "
 "விநியோகங்களுக்கு இது தேவைப்படுகிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:374
+#: ../source/guides/packaging-binary-extensions.rst:388
 msgid "Weak linking"
 msgstr "பலவீனமான இணைப்பு"
 
-#: ../source/guides/packaging-binary-extensions.rst:379
+#: ../source/guides/packaging-binary-extensions.rst:393
 msgid "Additional resources"
 msgstr "கூடுதல் ஆதாரங்கள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:381
+#: ../source/guides/packaging-binary-extensions.rst:395
 msgid ""
 "Cross-platform development and distribution of extension modules is a "
 "complex topic, so this guide focuses primarily on providing pointers to "
@@ -10504,11 +10522,11 @@ msgstr ""
 "பைனரி இடைமுகங்களைப் பற்றி மேலும் புரிந்து கொள்ள விரும்பும் டெவலப்பர்களுக்காக "
 "வடிவமைக்கப்பட்டுள்ளன."
 
-#: ../source/guides/packaging-binary-extensions.rst:388
+#: ../source/guides/packaging-binary-extensions.rst:402
 msgid "Cross-platform wheel generation with scikit-build"
 msgstr "ச்கிகிட்-கட்டமைப்போடு குறுக்கு-தளம் சக்கர விளைவாக்கம்"
 
-#: ../source/guides/packaging-binary-extensions.rst:390
+#: ../source/guides/packaging-binary-extensions.rst:404
 msgid ""
 "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package "
 "helps abstract cross-platform build operations and provides additional "
@@ -10524,11 +10542,11 @@ msgstr ""
 "build.readthedocs.io/en/latest/generators.html>` _ பைதான் பைனரி விரிவாக்க "
 "தொகுதிகளிலும் கிடைக்கிறது."
 
-#: ../source/guides/packaging-binary-extensions.rst:398
+#: ../source/guides/packaging-binary-extensions.rst:412
 msgid "Introduction to C/C++ extension modules"
 msgstr "சி/சி ++ நீட்டிப்பு தொகுதிகள் அறிமுகம்"
 
-#: ../source/guides/packaging-binary-extensions.rst:400
+#: ../source/guides/packaging-binary-extensions.rst:414
 msgid ""
 "For a more in depth explanation of how extension modules are used by CPython "
 "on a Debian system, see the following articles:"
@@ -10536,27 +10554,27 @@ msgstr ""
 "டெபியன் அமைப்பில் CPython ஆல் நீட்டிப்பு தொகுதிகள் எவ்வாறு பயன்படுத்தப்படுகின்றன என்பதற்கான "
 "ஆழமான விளக்கத்திற்கு, பின்வரும் கட்டுரைகளைப் பார்க்கவும்:"
 
-#: ../source/guides/packaging-binary-extensions.rst:403
+#: ../source/guides/packaging-binary-extensions.rst:417
 msgid ""
 "`What are (c)python extension modules? <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
 msgstr "`(சி) பைதான் நீட்டிப்பு தொகுதிகள் என்றால் என்ன? இப்போது"
 
-#: ../source/guides/packaging-binary-extensions.rst:404
+#: ../source/guides/packaging-binary-extensions.rst:418
 msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
 msgstr "`கில் <https://thomasnyberg.com/reliakiss_the_gil.html>` _"
 
-#: ../source/guides/packaging-binary-extensions.rst:405
+#: ../source/guides/packaging-binary-extensions.rst:419
 msgid ""
 "`Writing cpython extension modules using C++ <https://thomasnyberg.com/"
 "cpp_extension_modules.html>`_"
 msgstr "C ++ <https://thomasnyberg.com/cpp_extension_modules.html> `_"
 
-#: ../source/guides/packaging-binary-extensions.rst:408
+#: ../source/guides/packaging-binary-extensions.rst:422
 msgid "Additional considerations for binary wheels"
 msgstr "பைனரி சக்கரங்களுக்கான கூடுதல் பரிசீலனைகள்"
 
-#: ../source/guides/packaging-binary-extensions.rst:410
+#: ../source/guides/packaging-binary-extensions.rst:424
 msgid ""
 "The `pypackaging-native <https://pypackaging-native.github.io/>`_ website "
 "has additional coverage of packaging Python packages with native code. It "
@@ -10568,7 +10586,7 @@ msgstr ""
 "உள்ளது. ஆழ்ந்த விளக்கங்கள் மற்றும் குறிப்புகளுடன், இதுபோன்ற திட்டங்களுக்கு மிக முக்கியமான "
 "பேக்கேசிங் சிக்கல்களின் கண்ணோட்டத்தை வழங்குவதை இது நோக்கமாகக் கொண்டுள்ளது."
 
-#: ../source/guides/packaging-binary-extensions.rst:415
+#: ../source/guides/packaging-binary-extensions.rst:429
 msgid ""
 "Examples of topics covered are non-Python compiled dependencies (\"native "
 "dependencies\"), the importance of the ABI (Application Binary Interface) of "
@@ -35597,6 +35615,20 @@ msgstr ""
 "கருதப்படுகிறது ** (இந்த டூட்டோரியலில் மறைக்கப்படவில்லை). நீங்கள் பைதான் பேக்கேசிங் மூலம் "
 "மட்டுமே தொடங்கினால், * வழக்கமான தொகுப்புகள் * மற்றும் `__init __. பை`` (கோப்பு "
 "காலியாக இருந்தாலும் கூட) ஒட்டிக்கொள்ள பரிந்துரைக்கப்படுகிறது."
+
+#~ msgid ""
+#~ "The C ABI (Application Binary Interface) is a common standard for sharing "
+#~ "functionality between multiple applications. One of the strengths of the "
+#~ "CPython C API (Application Programming Interface) is allowing Python "
+#~ "users to tap into that functionality. However, wrapping modules by hand "
+#~ "is quite tedious, so a number of other alternative approaches should be "
+#~ "considered."
+#~ msgstr ""
+#~ "சி பநிஇ (பயன்பாட்டு பைனரி இடைமுகம்) பல பயன்பாடுகளுக்கு இடையில் செயல்பாட்டைப் "
+#~ "பகிர்வதற்கான பொதுவான தரமாகும். Cpython C பநிஇ (பயன்பாட்டு நிரலாக்க இடைமுகம்) இன் "
+#~ "பலங்களில் ஒன்று பைத்தான் பயனர்களை அந்த செயல்பாட்டைத் தட்ட அனுமதிக்கிறது. இருப்பினும், "
+#~ "தொகுதிகளை கையால் மடக்குவது மிகவும் கடினமானது, எனவே பல மாற்று அணுகுமுறைகள் "
+#~ "கருத்தில் கொள்ளப்பட வேண்டும்."
 
 #~ msgid ""
 #~ "Source distributions using a local version identifier SHOULD provide the "
