@@ -39,6 +39,7 @@ extensions = [
     "sphinx_toolbox.collapse",
     "sphinx-jsonschema",
     "notfound.extension",
+    "sphinx_reredirects",
 ]
 
 nitpicky = True
@@ -272,5 +273,25 @@ def fix_notfound_links(app, doctree, docname):
         replace_uris(app, doctree, nodes.reference, "refuri")
 
 
+# -- Options for sphinx-reredirects ----------------------------------------------------
+# https://documatt.com/sphinx-reredirects/usage/
+
+redirects = {
+    "guides/using-manifest-in": "https://setuptools.pypa.io/en/latest/userguide/miscellaneous.html",
+    "tutorials/creating-documentation": "https://www.sphinx-doc.org/en/master/tutorial/",
+}
+
+# Internal redirects, made relative for the current builder (html or dirhtml)
+internal_redirects = {
+    "guides/single-sourcing-package-version": "discussions/single-source-version",
+}
+
+
+def add_internal_redirects(app):
+    for source, target in internal_redirects.items():
+        app.config.redirects[source] = app.builder.get_relative_uri(source, target)
+
+
 def setup(app):
+    app.connect("builder-inited", add_internal_redirects)
     app.connect("doctree-resolved", fix_notfound_links)
