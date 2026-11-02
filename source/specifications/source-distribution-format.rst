@@ -78,15 +78,15 @@ The tarball MUST use the modern POSIX.1-2001 pax tar format, which specifies
 UTF-8 based file names. In particular, source distribution files MUST be readable
 using the standard library tarfile module with the open flag 'r:gz'.
 
+The tarball MUST NOT use pax-style vendor extensions (such as ``SCHILY.xattr``
+or ``LIBARCHIVE.xattr``) for interoperability reasons.
+
 Source distributions MUST NOT use non-pax features, even if those features are
 structurally compatible with the pax standard. Installers and other consumers MAY
 warn on source distributions that are not strictly pax-conforming.
 
 Examples of non-pax features include GNU-style or legacy ("V7")-style tar members
 and sparse member encodings (e.g. ``GNU.sparse`` extensions or ``S`` typeflag members).
-
-The use of pax-style vendor extensions (such as ``SCHILY.xattr`` or ``LIBARCHIVE.xattr``)
-is NOT RECOMMENDED for interoperability reasons.
 
 .. _sdist-archive-features:
 
