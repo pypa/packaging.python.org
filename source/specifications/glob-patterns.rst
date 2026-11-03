@@ -2,7 +2,7 @@
 ``glob`` patterns
 =================
 
-Some PyPA specifications, e.g. :ref:`pyproject.toml's license-files
+Some Python packaging specifications, e.g. :ref:`pyproject.toml's license-files
 <pyproject-toml-license-files>`, accept certain types of *glob patterns*
 to match a given string containing wildcards and character ranges against
 files and directories. This specification defines which patterns are acceptable
@@ -12,7 +12,7 @@ and how they should be handled.
 Valid glob patterns
 ===================
 
-For PyPA purposes, a *valid glob pattern* MUST be a string matched against
+For this specification, a *valid glob pattern* MUST be a string matched against
 filesystem entries as specified below:
 
 - Alphanumeric characters, spaces (`` ``), underscores (``_``), hyphens (``-``),
