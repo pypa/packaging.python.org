@@ -248,6 +248,12 @@ intersphinx_mapping = {
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
 }
 
+# Local builds can skip external inventories when network access is restricted.
+# Sphinx injects `tags` when loading this configuration.
+if tags.has("skip-intersphinx"):  # noqa: F821
+    intersphinx_mapping = {}
+    suppress_warnings = ["ref.*"]
+
 # -- Options for todo extension --------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
 
