@@ -15,7 +15,7 @@ Python Packaging User Guide
    tutorials/index
    guides/index
    discussions/index
-   specifications/index
+   Specifications <specifications/index>
    key_projects
    glossary
    support
