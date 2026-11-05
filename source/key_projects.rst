@@ -469,23 +469,6 @@ enscons.
 
 .. _SCons: https://scons.org/
 
-.. _hashdist:
-
-Hashdist
-========
-
-`Docs <https://hashdist.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/hashdist/hashdist/>`__
-
-Hashdist is a library for building non-root software
-distributions. Hashdist is trying to be “the Debian of choice for
-cases where Debian technology doesn’t work”. The best way for
-Pythonistas to think about Hashdist may be a more powerful hybrid of
-:ref:`virtualenv` and :ref:`buildout`. It is aimed at solving the
-problem of installing scientific software, and making package
-distribution stateless, cached, and branchable. It is used by some
-researchers but has been lacking in maintenance since 2016.
-
 .. _maturin:
 
 Maturin
