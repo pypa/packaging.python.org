@@ -92,7 +92,7 @@ Existing projects
      - ✔
      - multiple proxied indexes
 
-   * - :ref:`nginx_pypi_cache`
+   * - `nginx_pypi_cache <https://github.com/hauntsaninja/nginx_pypi_cache>`__
      - ✔
      -
      - ✔

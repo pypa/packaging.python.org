@@ -507,16 +507,6 @@ multibuild
 Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
 Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
 
-.. _nginx_pypi_cache:
-
-nginx_pypi_cache
-================
-
-:gh:`GitHub <hauntsaninja/nginx_pypi_cache>`
-
-nginx_pypi_cache is a :term:`package index <Package Index>` caching proxy
-using `nginx <https://nginx.org/en/>`_.
-
 .. _pdm:
 
 pdm
