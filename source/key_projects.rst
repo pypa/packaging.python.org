@@ -611,17 +611,6 @@ Pulp-python is the Python :term:`package index <Package Index>` plugin for
 local or `AWS S3`_, package upload, and proxying to multiple package
 indexes.
 
-.. _pypiprivate:
-
-pypiprivate
-===========
-
-:gh:`GitHub <helpshift/pypiprivate>` |
-`PyPI <https://pypi.org/project/pypiprivate/>`__
-
-pypiprivate serves a local (or `AWS S3`_-hosted) directory of packages as a
-:term:`package index <Package Index>`.
-
 .. _pypiserver:
 
 pypiserver

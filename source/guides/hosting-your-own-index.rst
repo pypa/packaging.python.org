@@ -80,11 +80,6 @@ Existing projects
      -
      -
 
-   * - :ref:`pypiprivate`
-     -
-     -
-     -
-
    * - :ref:`pywharf`
      -
      -
