@@ -98,12 +98,6 @@ Existing projects
      - ✔
      - multiple proxied indexes
 
-   * - :ref:`flaskpypiproxy`
-     - ✔
-     -
-     - ✔
-     - unmaintained
-
    * - `Apache <https://httpd.apache.org/>`_
      - ✔
      -

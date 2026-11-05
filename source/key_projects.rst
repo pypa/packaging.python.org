@@ -469,20 +469,6 @@ enscons.
 
 .. _SCons: https://scons.org/
 
-.. _flaskpypiproxy:
-
-Flask-Pypi-Proxy
-================
-
-`Docs <https://flask-pypi-proxy.readthedocs.io>`__ |
-:gh:`GitHub <tzulberti/Flask-PyPi-Proxy>` |
-`PyPI <https://pypi.org/project/Flask-Pypi-Proxy/>`__
-
-.. warning:: Not maintained, project archived
-
-Flask-Pypi-Proxy is a :term:`package index <Package Index>` as a cached
-proxy for PyPI.
-
 .. _hashdist:
 
 Hashdist
