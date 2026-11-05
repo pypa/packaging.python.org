@@ -100,11 +100,6 @@ Existing projects
      -
      - also mirroring, proxying; plugin for Pulp
 
-   * - :ref:`pip2pi`
-     -
-     -
-     - also mirroring; manual synchronisation
-
    * - :ref:`dumb-pypi`
      -
      -

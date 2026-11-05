@@ -555,17 +555,6 @@ requirements from information in other parts of their program, update
 all dependencies (a feature :ref:`pip` currently does not provide), and
 create layers of constraints for the program to obey.
 
-.. _pip2pi:
-
-pip2pi
-=========
-
-:gh:`GitHub <wolever/pip2pi>` |
-`PyPI <https://pypi.org/project/pip2pi/>`__
-
-pip2pi is a :term:`package index <Package Index>` server where specific
-packages are manually synchronised.
-
 .. _piwheels:
 
 piwheels
