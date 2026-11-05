@@ -209,7 +209,7 @@ Pipenv
 `PyPI <https://pypi.org/project/pipenv>`__
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
-Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
+Python world. It harnesses `Pipfile`_, :ref:`pip`, and :ref:`virtualenv`
 into one single toolchain. It can autoimport ``requirements.txt`` and also
 check for CVEs in `Pipfile`_ using `safety <https://www.getsafety.com/cli/>`_.
 
@@ -219,16 +219,7 @@ imported packages on the command line. It also works well on Windows
 to ensure compliance with hash-locked dependency specifiers, and eases
 uninstallation of packages and dependencies.
 
-.. _Pipfile:
-
-Pipfile
-=======
-
-`Source <https://github.com/pypa/pipfile>`__
-
-:file:`Pipfile` and its sister :file:`Pipfile.lock` are a higher-level
-application-centric alternative to :ref:`pip`'s lower-level
-:file:`requirements.txt` file.
+.. _Pipfile: https://github.com/pypa/pipfile
 
 .. _pipx:
 
