@@ -644,19 +644,6 @@ environment so developers can start coding right away.
 PyScaffold can also be used with existing projects to make packaging
 easier.
 
-.. _pywharf:
-
-pywharf
-=======
-
-:gh:`GitHub <pywharf/pywharf>` |
-`PyPI <https://pypi.org/project/pywharf>`__
-
-.. warning:: Not maintained, project archived
-
-pywharf is a :term:`package index <Package Index>` server, serving files
-locally or from `GitHub <https://github.com/>`_.
-
 .. _scikit-build:
 
 scikit-build

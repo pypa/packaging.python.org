@@ -80,11 +80,6 @@ Existing projects
      -
      -
 
-   * - :ref:`pywharf`
-     -
-     -
-     - unmaintained; serve files in GitHub
-
    * - :ref:`pulppython`
      - ✔
      -
