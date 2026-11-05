@@ -74,12 +74,6 @@ Existing projects
      - ✔
      - custom plugin enables caching; re-routing to other package indexes
 
-   * - :ref:`pypicloud`
-     - ✔
-     -
-     - ✔
-     - unmaintained; authentication, authorisation
-
    * - :ref:`pulppython`
      -
      - ✔

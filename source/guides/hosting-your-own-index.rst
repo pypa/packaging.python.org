@@ -85,11 +85,6 @@ Existing projects
      -
      -
 
-   * - :ref:`pypicloud`
-     -
-     -
-     - unmaintained; also cached proxying; authentication, authorisation
-
    * - :ref:`pywharf`
      -
      -
