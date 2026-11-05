@@ -5,6 +5,9 @@ import os
 import pathlib
 import sys
 
+from docutils import nodes
+from notfound.utils import replace_uris
+
 _ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.append(os.fspath(_ROOT))
 
@@ -35,6 +38,8 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
     "sphinx-jsonschema",
+    "notfound.extension",
+    "sphinx_reredirects",
 ]
 
 nitpicky = True
@@ -101,6 +106,8 @@ htmlhelp_basename = "pythonpackagingguide-authdoc"
 # -- Options for LaTeX output ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
 
+# pdflatex fails on emoji; xelatex only warns about missing glyphs.
+latex_engine = "xelatex"
 latex_elements = {}
 latex_documents = [
     (
@@ -159,11 +166,14 @@ linkcheck_ignore = [
     r"https://typer\.tiangolo\.com/.*",
     r"https://www.npmjs.com/.*",
     r"https://docutils\.sourceforge\.io/.*",
+    r"https://hosted\.weblate\.org/.*",
     # Temporarily ignored due to expired TLS cert.
     # Ref: https://github.com/pypa/packaging.python.org/issues/1998
     r"https://blog\.ganssle\.io/.*",
     # Temporarily ignored due to expired TLS cert.
     r"https://kivy.org/.*",
+    # Archived snapshots don't change, and the Wayback Machine rate-limits CI (429).
+    r"https://web\.archive\.org/.*",
 ]
 linkcheck_retries = 2
 linkcheck_timeout = 30
@@ -209,9 +219,9 @@ extlinks = {
 intersphinx_mapping = {
     "boltons": ("https://boltons.readthedocs.io/en/latest/", None),
     "bottle": ("https://bottlepy.org/docs/dev/", None),
-    "build": ("https://pypa-build.readthedocs.io/en/stable/", None),
+    "build": ("https://build.pypa.io/en/stable/", None),
     "cffi": ("https://cffi.readthedocs.io/en/latest/", None),
-    "conda": ("https://conda.io/en/latest/", None),
+    "conda": ("https://docs.conda.io/en/latest/", None),
     "devpi": ("https://devpi.net/docs/devpi/devpi/latest/+doc", None),
     "dh-virtualenv": ("https://dh-virtualenv.readthedocs.io/en/latest/", None),
     "distlib": ("https://distlib.readthedocs.io/en/latest/", None),
@@ -230,13 +240,19 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "python-guide": ("https://docs.python-guide.org", None),
     "setuptools": ("https://setuptools.pypa.io/en/latest/", None),
-    "setuptools-scm": ("https://setuptools-scm.rtfd.io/latest", None),
+    "setuptools-scm": ("https://setuptools-scm.readthedocs.io/latest", None),
     "spack": ("https://spack.readthedocs.io/en/latest/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
     "tox": ("https://tox.wiki/en/latest/", None),
     "twine": ("https://twine.readthedocs.io/en/stable/", None),
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
 }
+
+# Local builds can skip external inventories when network access is restricted.
+# Sphinx injects `tags` when loading this configuration.
+if tags.has("skip-intersphinx"):  # noqa: F821
+    intersphinx_mapping = {}
+    suppress_warnings = ["ref.*"]
 
 # -- Options for todo extension --------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
@@ -248,3 +264,40 @@ todo_include_todos = True
 
 copybutton_prompt_text = r">>> |\.\.\. |\$ |> "
 copybutton_prompt_is_regexp = True
+
+# -- Options for sphinx-notfound-page --------------------------------------------------
+# https://sphinx-notfound-page.readthedocs.io/en/latest/configuration.html
+
+# Local builds are served from the root, RtD seves from /<language>/<version>/
+if not RTD_BUILD:
+    notfound_urls_prefix = "/"
+
+
+def fix_notfound_links(app, doctree, docname):
+    # The extension only makes theme links absolute, not links in the page body
+    if app.builder.format == "html" and docname == app.config.notfound_pagename:
+        replace_uris(app, doctree, nodes.reference, "refuri")
+
+
+# -- Options for sphinx-reredirects ----------------------------------------------------
+# https://documatt.com/sphinx-reredirects/usage/
+
+redirects = {
+    "guides/using-manifest-in": "https://setuptools.pypa.io/en/latest/userguide/miscellaneous.html",
+    "tutorials/creating-documentation": "https://www.sphinx-doc.org/en/master/tutorial/",
+}
+
+# Internal redirects, made relative for the current builder (html or dirhtml)
+internal_redirects = {
+    "guides/single-sourcing-package-version": "discussions/single-source-version",
+}
+
+
+def add_internal_redirects(app):
+    for source, target in internal_redirects.items():
+        app.config.redirects[source] = app.builder.get_relative_uri(source, target)
+
+
+def setup(app):
+    app.connect("builder-inited", add_internal_redirects)
+    app.connect("doctree-resolved", fix_notfound_links)

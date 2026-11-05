@@ -112,8 +112,11 @@ advantages for pure-Python libraries.
    a drop-in replacement for PIL, just by changing your project's
    ``install_requires`` or ``requirements.txt``.
 
-Python binary distributions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _python-binary-distributions:
+.. _python-built-distributions:
+
+Python built distributions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So much of Python's practical power comes from its ability to
 integrate with the software ecosystem, in particular libraries written
@@ -126,7 +129,7 @@ compiled artifacts. In fact, Python's package installer, ``pip``,
 always prefers wheels because installation is always faster, so even
 pure-Python packages work better with wheels.
 
-Binary distributions are best when they come with source distributions
+Built distributions are best when they come with source distributions
 to match. Even if you don't upload wheels of your code for every
 operating system, by uploading the sdist, you're enabling users of
 other platforms to still build it for themselves. Default to
@@ -237,7 +240,7 @@ machines of developers and data scientists.
 
 Technologies which support this model:
 
-* :gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)
+* :gh:`PEX <pex-tool/pex>` (Python EXecutable)
 * :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
 * :gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)
 
@@ -272,8 +275,8 @@ analytical, and other data-oriented environments, even making its way
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
-* `Building libraries and applications with conda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
-* `Transitioning a native Python package to Anaconda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
+* `Building libraries and applications with conda <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
 
 A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level

@@ -5,7 +5,6 @@ import urllib
 import sphinx.application
 import sphinx.util.logging
 
-
 DOMAIN = "packaging.python.org"
 
 

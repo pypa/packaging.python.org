@@ -44,10 +44,8 @@ For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
 .. todo:: Write a "pip vs. Conda" comparison, here or in a new discussion.
 
-Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is deprecated
-in favor of pip (see :ref:`pip vs easy_install` for details). Likewise, do
-**not** use ``python setup.py install`` or ``python setup.py develop``, which
-are also deprecated (see :ref:`setup-py-deprecated` for background and
+Do **not** use ``python setup.py install`` or ``python setup.py develop``, which
+are deprecated (see :ref:`setup-py-deprecated` for background and
 :ref:`modernize-setup-py-project` for migration advice).
 
 
@@ -100,10 +98,9 @@ in alphabetical order:
      :file:`setup.py` only if programmatic configuration is needed. See
      :ref:`setup-py-deprecated`.
 
-     Other examples of deprecated features you should **not** use include the
+     Another example of a deprecated feature you should **not** use is the
      ``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] table
-     <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead), and
-     the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
+     <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead).
 
 Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
 the standard library in Python 3.12, although it still remains available from

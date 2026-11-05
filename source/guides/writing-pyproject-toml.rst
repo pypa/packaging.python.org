@@ -481,7 +481,7 @@ sidebar of your PyPI project page.
 
     See :ref:`well-known-labels` for a listing
     of labels that PyPI and other packaging tools are specifically aware of,
-    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_
+    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-links>`_
     for PyPI-specific URL processing.
 
 .. code-block:: toml
@@ -614,7 +614,7 @@ A full example
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
 .. _pypi-pip: https://pypi.org/project/pip
-.. _pypi-search-pip: https://pypi.org/search?q=pip
+.. _pypi-search-pip: https://pypi.org/search/?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 .. _pytest: https://pytest.org

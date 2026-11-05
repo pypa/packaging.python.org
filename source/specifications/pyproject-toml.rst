@@ -37,8 +37,8 @@ The ``[build-system]`` table is used to store build-related data.
 Initially, only one key of the table is valid and is mandatory
 for the table: ``requires``. This key must have a value of a list
 of strings representing dependencies required to execute the
-build system. The strings in this list follow the :ref:`version specifier
-specification <version-specifiers>`.
+build system. The strings in this list follow the :ref:`dependency specifier
+specification <dependency-specifiers>`.
 
 An example ``[build-system]`` table for a project built with
 ``setuptools`` is:
@@ -683,7 +683,7 @@ Arbitrary tool configuration: the ``[tool]`` table
 The ``[tool]`` table is where any tool related to your Python
 project, not just build tools, can have users specify configuration
 data as long as they use a sub-table within ``[tool]``, e.g. the
-`flit <https://pypi.python.org/pypi/flit>`_ tool would store its
+`flit <https://pypi.org/project/flit/>`_ tool would store its
 configuration in ``[tool.flit]``.
 
 A mechanism is needed to allocate names within the ``tool.*``
