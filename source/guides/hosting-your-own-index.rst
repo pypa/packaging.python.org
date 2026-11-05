@@ -90,7 +90,7 @@ Existing projects
      -
      - not a server, but a static file site generator
 
-   * - :ref:`httpserver`
+   * - `http.server <https://docs.python.org/3/library/http.server.html>`__
      -
      -
      - standard-library

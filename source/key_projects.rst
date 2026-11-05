@@ -769,18 +769,6 @@ A package in the Python Standard Library that provides support for bootstrapping
 cases, end users won't use this module, but rather it will be used during the
 build of the Python distribution.
 
-.. _httpserver:
-
-http.server
-===========
-
-:doc:`Docs <python:library/http.server>` |
-:gh:`Issues <python/cpython/issues>`
-
-A package and command-line interface which can host a directory as a
-website, for example as a :term:`package index <Package Index>` (see
-:ref:`Hosting your Own Simple Repository`).
-
 .. _venv:
 
 venv
