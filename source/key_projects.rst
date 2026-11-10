@@ -74,7 +74,7 @@ distlib
 relate to packaging and distribution of Python software.  ``distlib``
 implements several relevant PEPs (Python Enhancement Proposal
 standards) and is useful for developers of third-party packaging tools
-to make and upload binary and source :term:`distributions
+to make and upload built and source :term:`distributions
 <Distribution Package>`, achieve interoperability, resolve
 dependencies, manage package resources, and do other similar
 functions.
@@ -211,7 +211,7 @@ Pipenv
 Pipenv is a project that aims to bring the best of all packaging worlds to the
 Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
 into one single toolchain. It can autoimport ``requirements.txt`` and also
-check for CVEs in `Pipfile`_ using `safety <https://pyup.io/safety>`_.
+check for CVEs in `Pipfile`_ using `safety <https://www.getsafety.com/cli/>`_.
 
 Pipenv aims to help users manage environments, dependencies, and
 imported packages on the command line. It also works well on Windows
@@ -268,7 +268,6 @@ process, to check that their package descriptions will properly
 display on PyPI.
 
 .. _setuptools:
-.. _easy_install:
 
 Setuptools
 ==========
@@ -278,10 +277,10 @@ Setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
 
-Setuptools (which includes ``easy_install``) is a collection of
-enhancements to the Python distutils that allow you to more easily
-build and distribute Python :term:`distributions <Distribution
-Package>`, especially ones that have dependencies on other packages.
+Setuptools is a collection of enhancements to the Python distutils
+that allow you to more easily build and distribute Python
+:term:`distributions <Distribution Package>`, especially ones that
+have dependencies on other packages.
 
 .. _trove-classifiers:
 
@@ -350,8 +349,8 @@ Warehouse
 =========
 
 `Docs <https://warehouse.pypa.io/>`__ |
-`Issues <https://github.com/pypa/warehouse/issues>`__ |
-`GitHub <https://github.com/pypa/warehouse>`__
+`Issues <https://github.com/pypi/warehouse/issues>`__ |
+`GitHub <https://github.com/pypi/warehouse>`__
 
 The current codebase powering the :term:`Python Package Index
 (PyPI)`. It is hosted at `pypi.org <https://pypi.org/>`_. The default
@@ -373,9 +372,9 @@ creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
 
 See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool
-that package developers use to check and fix Python packages they are
-making in the binary wheel format. It provides functionality to
-discover dependencies, check metadata for compliance, and repair the
+that package developers use to check and fix wheels containing native code.
+It provides functionality to discover dependencies, check metadata for
+compliance, and repair the
 wheel and metadata to properly link and include external shared
 libraries in a package.
 
@@ -408,10 +407,10 @@ Conda is a package, dependency, and environment management system for any langua
 Ruby, C/C++, Fortran, and more. It is written in Python and
 widely used in the Python scientific computing community, due to its support for non-Python
 compiled libraries and extensions. It is used as the basis of the `Anaconda
-<https://docs.anaconda.com/anaconda/>`__ Python distribution from Anaconda, Inc. It was originally
+<https://www.anaconda.com/docs/getting-started/concepts/anaconda-or-miniconda>`__ Python distribution from Anaconda, Inc. It was originally
 aimed at the scientific community, but can also be used on its own, or with the
 :doc:`miniconda <conda:miniconda>`, `miniforge <https://github.com/conda-forge/miniforge>`_ or
-`pixi <https://pixi.sh/>`_ systems. It is available for Windows, Mac and Linux systems.
+`pixi <https://pixi.prefix.dev/>`_ systems. It is available for Windows, Mac and Linux systems.
 
 Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, but provides
 many of their combined features, such as package management, virtual environment
@@ -575,8 +574,8 @@ project metadata as defined in :pep:`621`.
 pex
 ===
 
-`Docs <https://pex.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/pantsbuild/pex/>`__ |
+`Docs <https://docs.pex-tool.org/>`__ |
+`GitHub <https://github.com/pex-tool/pex/>`__ |
 `PyPI <https://pypi.org/project/pex>`__
 
 Pex is a tool for generating :file:`.pex` (Python EXecutable)
@@ -594,7 +593,7 @@ pip-tools
 =========
 
 `Docs <https://pip-tools.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/jazzband/pip-tools/>`__ |
+`GitHub <https://github.com/pypa/pip-tools/>`__ |
 `PyPI <https://pypi.org/project/pip-tools/>`__
 
 pip-tools is a suite of tools meant for Python system administrators
@@ -664,7 +663,7 @@ and other indexes with caching.
 Pulp-python
 ===========
 
-`Docs <https://docs.pulpproject.org/pulp_python/>`__ |
+`Docs <https://pulpproject.org/pulp_python/>`__ |
 :gh:`GitHub <pulp/pulp_python>` |
 `PyPI <https://pypi.org/project/pulp-python/>`__
 
@@ -894,9 +893,6 @@ venv
 A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more
 information, see the section on :ref:`Creating and using Virtual Environments`.
-
-
-----
 
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _pytest: https://docs.pytest.org/en/stable/

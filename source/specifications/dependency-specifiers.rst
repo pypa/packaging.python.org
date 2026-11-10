@@ -719,7 +719,7 @@ References
    (http://pip.readthedocs.org/en/stable/)
 
 .. [#parsley] The parsley PEG library.
-   (https://pypi.python.org/pypi/parsley/)
+   (https://pypi.org/project/Parsley/)
 
 .. [#future_versions] Future Python versions might be problematic with the
    definition of Environment Marker Variable ``python_version``

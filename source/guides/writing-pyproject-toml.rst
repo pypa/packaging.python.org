@@ -6,7 +6,7 @@ Writing your ``pyproject.toml``
 
 ``pyproject.toml`` is a configuration file used by packaging tools, as
 well as other tools such as linters, type checkers, etc. There are
-three possible TOML tables in this file.
+four possible TOML tables in this file.
 
 - The ``[build-system]`` table is **strongly recommended**. It allows
   you to declare which :term:`build backend` you use and which other
@@ -14,6 +14,10 @@ three possible TOML tables in this file.
 
 - The ``[project]`` table is the format that most build backends use to specify
   your project's basic metadata, such as the dependencies, your name, etc.
+
+- The ``[dependency-groups]`` table specifies dependencies for development tasks
+  such as testing and linting. See the
+  :ref:`Dependency Groups specification <dependency-groups>`.
 
 - The ``[tool]`` table has tool-specific subtables, e.g., ``[tool.hatch]``,
   ``[tool.black]``, ``[tool.mypy]``. We only touch upon this table here because
@@ -481,7 +485,7 @@ sidebar of your PyPI project page.
 
     See :ref:`well-known-labels` for a listing
     of labels that PyPI and other packaging tools are specifically aware of,
-    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_
+    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-links>`_
     for PyPI-specific URL processing.
 
 .. code-block:: toml
@@ -614,7 +618,7 @@ A full example
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
 .. _pypi-pip: https://pypi.org/project/pip
-.. _pypi-search-pip: https://pypi.org/search?q=pip
+.. _pypi-search-pip: https://pypi.org/search/?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 .. _pytest: https://pytest.org

@@ -457,7 +457,7 @@ directory to your :envvar:`PATH`:
 
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
 .. _modifying ~/.profile: https://stackoverflow.com/a/14638025
-.. _Control Panel: https://docs.microsoft.com/en-us/windows/win32/shell/user-environment-variables?redirectedfrom=MSDN
+.. _Control Panel: https://learn.microsoft.com/en-us/windows/win32/shell/user-environment-variables
 
 Requirements files
 ==================

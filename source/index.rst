@@ -15,12 +15,11 @@ Python Packaging User Guide
    tutorials/index
    guides/index
    discussions/index
-   specifications/index
+   Specifications <specifications/index>
    key_projects
    glossary
    support
    contribute
-   news
 
 Welcome to the *Python Packaging User Guide*, a collection of tutorials and
 references to help you distribute and install Python packages with modern
@@ -83,7 +82,6 @@ The :doc:`discussions/index` section provides in-depth explanations and discussi
 about topics, such as:
 
 * :doc:`discussions/deploying-python-applications`
-* :doc:`discussions/pip-vs-easy-install`
 
 Reference
 =========

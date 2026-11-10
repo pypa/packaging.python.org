@@ -130,9 +130,9 @@ written in Python, but is Python-agnostic. Conda manages Python itself as a
 package, so that :command:`conda update python` is possible, in contrast to
 pip, which only manages Python packages.
 
-Anaconda `Anaconda <https://docs.anaconda.com/anaconda/>`_ is a Python distribution published by Anaconda, Inc. It is a stable collection of Open Source packages for big data and scientific use, and a collection of Graphical Interface utilities for managing conda environments.
+Anaconda `Anaconda <https://www.anaconda.com/docs/getting-started/concepts/anaconda-or-miniconda>`_ is a Python distribution published by Anaconda, Inc. It is a stable collection of Open Source packages for big data and scientific use, and a collection of Graphical Interface utilities for managing conda environments.
 
-In addition to the full distribution provided by Anaconda, the conda package manager itself is available in  `miniconda <https://docs.anaconda.com/miniconda/>`_, `miniforge <https://github.com/conda-forge/miniforge>`_, and `pixi <https://pixi.sh/>`_.
+In addition to the full distribution provided by Anaconda, the conda package manager itself is available in  `miniconda <https://www.anaconda.com/docs/getting-started/concepts/anaconda-or-miniconda>`_, `miniforge <https://github.com/conda-forge/miniforge>`_, and `pixi <https://pixi.prefix.dev/>`_.
 
 
 Conda packages are available on multiple channels on Anaconda.org, including the
