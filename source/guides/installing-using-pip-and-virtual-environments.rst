@@ -103,8 +103,12 @@ Python interpreter:
 
     .. code-block:: bat
 
-        Get-Command python   # If using PowerShell
-        where python         # If using Command Prompt
+        where python
+
+..tab:: Windows (PowerShell)
+
+    .. code-block:: bat
+        Get-Command python
 
 While the virtual environment is active, the above command will output a
 filepath that includes the ``.venv`` directory, by ending with the following:
