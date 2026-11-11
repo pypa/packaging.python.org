@@ -149,20 +149,8 @@ Must build a .tar.gz source distribution and place it in the specified
 ``sdist_directory``. It must return the basename (not the full path) of the
 ``.tar.gz`` file it creates, as a unicode string.
 
-A .tar.gz source distribution (sdist) contains a single top-level directory called
-``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of the
-package. This directory must also contain the
-``pyproject.toml`` from the build directory, and a PKG-INFO file containing
-metadata in the format described in
-:pep:`345`. Although historically
-zip files have also been used as sdists, this hook should produce a gzipped
-tarball. This is already the more common format for sdists, and having a
-consistent format makes for simpler tooling.
-
-The generated tarball should use the modern POSIX.1-2001 pax tar format, which
-specifies UTF-8 based file names. This is not yet the default for the tarfile
-module shipped with Python 3.6, so backends using the tarfile module need to
-explicitly pass ``format=tarfile.PAX_FORMAT``.
+The source distribution must conform to :ref:`source-distribution-format`
+and contain the ``pyproject.toml`` from the build directory.
 
 Some backends may have extra requirements for creating sdists, such as version
 control tools. However, some frontends may prefer to make intermediate sdists
@@ -433,28 +421,11 @@ hood and apply duct tape when necessary.
 Source distributions
 ====================
 
-We continue with the legacy sdist format, adding some new restrictions.
-This format is mostly
-undefined, but basically comes down to: a file named
-``{NAME}-{VERSION}.{EXT}``, which unpacks into a buildable source tree
-called ``{NAME}-{VERSION}/``. Traditionally these have always
-contained ``setup.py``\-style source trees; we now allow them to also
-contain ``pyproject.toml``\-style source trees.
+The :ref:`source-distribution-format` specification defines the archive format.
 
 Integration frontends require that an sdist named
 ``{NAME}-{VERSION}.{EXT}`` will generate a wheel named
 ``{NAME}-{VERSION}-{COMPAT-INFO}.whl``.
-
-The new restrictions for sdists built by :pep:`517` backends are:
-
-- They will be gzipped tar archives, with the ``.tar.gz`` extension. Zip
-  archives, or other compression formats for tarballs, are not allowed at
-  present.
-- Tar archives must be created in the modern POSIX.1-2001 pax tar format, which
-  uses UTF-8 for file names.
-- The source tree contained in an sdist is expected to include the
-  ``pyproject.toml`` file.
-
 
 History
 ========
