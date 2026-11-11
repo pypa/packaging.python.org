@@ -106,6 +106,13 @@ def linkcheck(session):
 
 
 @nox.session()
+def tests(session):
+    """Test the linkcheck CI helpers and their Sphinx integration."""
+    session.install("-r", "requirements.txt", "pytest>=8,<10")
+    session.run("python", "-m", "pytest", "tests", *session.posargs)
+
+
+@nox.session()
 def checkqa(session):
     """
     Format the guide using pre-commit.
