@@ -50,93 +50,15 @@ combination of wheels and sdists. In a command like ``pip install
 lxml==2.4.0``, pip is acting as an integration frontend.
 
 
-.. _build-system-interface-source-trees:
-
-Source trees
-============
-
-There is an existing, legacy source tree format involving
-``setup.py``. We don't try to specify it further; its de facto
-specification is encoded in the source code and documentation of
-``distutils``, ``setuptools``, ``pip``, and other tools. We'll refer
-to it as the ``setup.py``\-style.
-
-Here we define a new style of source tree based around the
-``pyproject.toml`` file defined in :pep:`518`, extending the
-``[build-system]`` table in that file with one additional key,
-``build-backend``. Here's an example of how it would look::
-
-    [build-system]
-    # Defined by PEP 518:
-    requires = ["flit"]
-    # Defined by this specification:
-    build-backend = "flit.api:main"
-
-``build-backend`` is a string naming a Python object that will be
-used to perform the build (see below for details). This is formatted
-following the same ``module:object`` syntax as a ``setuptools`` entry
-point. For instance, if the string is ``"flit.api:main"`` as in the
-example above, this object would be looked up by executing the
-equivalent of::
-
-    import flit.api
-    backend = flit.api.main
-
-It's also legal to leave out the ``:object`` part, e.g. ::
-
-    build-backend = "flit.api"
-
-which acts like::
-
-    import flit.api
-    backend = flit.api
-
-Formally, the string should satisfy this grammar::
-
-    identifier = (letter | '_') (letter | '_' | digit)*
-    module_path = identifier ('.' identifier)*
-    object_path = identifier ('.' identifier)*
-    entry_point = module_path (':' object_path)?
-
-And we import ``module_path`` and then lookup
-``module_path.object_path`` (or just ``module_path`` if
-``object_path`` is missing).
-
-When importing the module path, we do *not* look in the directory containing the
-source tree, unless that would be on ``sys.path`` anyway (e.g. because it is
-specified in PYTHONPATH). Although Python automatically adds the working
-directory to ``sys.path`` in some situations, code to resolve the backend should
-not be affected by this.
-
-If the ``pyproject.toml`` file is absent, or the ``build-backend``
-key is missing, the source tree is not using this specification, and
-tools should revert to the legacy behaviour of running ``setup.py`` (either
-directly, or by implicitly invoking the ``setuptools.build_meta:__legacy__``
-backend).
-
-Where the ``build-backend`` key exists, this takes precedence and the source tree follows the format and
-conventions of the specified backend (as such no ``setup.py`` is needed unless the backend requires it).
-Projects may still wish to include a ``setup.py`` for compatibility with tools that do not use this spec.
-
-This specification also defines a ``backend-path`` key for use in ``pyproject.toml``, see
-the "In-Tree Build Backends" section below. This key would be used as follows::
-
-    [build-system]
-    # Defined by PEP 518:
-    requires = ["flit"]
-    # Defined by this specification:
-    build-backend = "local_backend"
-    backend-path = ["backend"]
-
-
 .. _build-system-interface-build-requirements:
 
 Build requirements
-------------------
+==================
 
-This specification places a number of additional requirements on the "build requirements"
-section of ``pyproject.toml``. These are intended to ensure that projects do
-not create impossible to satisfy conditions with their build requirements.
+This specification places additional requirements on the
+:ref:`build requirements <pyproject-build-system-requires>` declared in
+``pyproject.toml``. These are intended to ensure that projects do not create
+impossible to satisfy conditions with their build requirements.
 
 - Project build requirements will define a directed graph of requirements
   (project A needs B to build, B needs C and D, etc.) This graph MUST NOT
@@ -153,7 +75,8 @@ not create impossible to satisfy conditions with their build requirements.
 Note in particular that the requirement for no requirement cycles means that
 backends wishing to self-host (i.e., building a wheel for a backend uses that
 backend for the build) need to make special provision to avoid causing cycles.
-Typically this will involve specifying themselves as an in-tree backend, and
+Typically this will involve specifying themselves as an
+:ref:`in-tree backend <pyproject-build-system-backend-path>`, and
 avoiding external build dependencies (usually by vendoring them).
 
 
@@ -503,50 +426,6 @@ overrides the project's normal build-requirements.
 The general principle here is that we want to enforce hygiene on
 package *authors*, while still allowing *end-users* to open up the
 hood and apply duct tape when necessary.
-
-
-.. _build-system-interface-in-tree-build-backends:
-
-In-tree build backends
-----------------------
-
-In certain circumstances, projects may wish to include the source code for the
-build backend directly in the source tree, rather than referencing the backend
-via the ``requires`` key. Two specific situations where this would be expected
-are:
-
-- Backends themselves, which want to use their own features for building
-  themselves ("self-hosting backends")
-- Project-specific backends, typically consisting of a custom wrapper around a
-  standard backend, where the wrapper is too project-specific to be worth
-  distributing independently ("in-tree backends")
-
-Projects can specify that their backend code is hosted in-tree by including the
-``backend-path`` key in ``pyproject.toml``. This key contains a list of
-directories, which the frontend will add to the start of ``sys.path`` when
-loading the backend, and running the backend hooks.
-
-There are two restrictions on the content of the ``backend-path`` key:
-
-- Directories in ``backend-path`` are interpreted as relative to the project
-  root, and MUST refer to a location within the source tree (after relative
-  paths and symbolic links have been resolved).
-- The backend code MUST be loaded from one of the directories specified in
-  ``backend-path`` (i.e., it is not permitted to specify ``backend-path`` and
-  *not* have in-tree backend code).
-
-The first restriction is to ensure that source trees remain self-contained,
-and cannot refer to locations outside of the source tree. Frontends SHOULD
-check this condition (typically by resolving the location to an absolute path
-and resolving symbolic links, and then checking it against the project root),
-and fail with an error message if it is violated.
-
-The ``backend-path`` feature is intended to support the implementation of
-in-tree backends, and not to allow configuration of existing backends. The
-second restriction above is specifically to ensure that this is how the feature
-is used. Front ends MAY enforce this check, but are not required to. Doing so
-would typically involve checking the backend's ``__file__`` attribute against
-the locations in ``backend-path``.
 
 
 .. _build-system-interface-source-distributions:
