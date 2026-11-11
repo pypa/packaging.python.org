@@ -4,8 +4,9 @@
 Build system interface
 ======================
 
-This specification defines a standard interface between build frontends and
-build backends to build wheels and source distributions from source trees.
+This specification defines a standard interface between
+:term:`build frontends <Build Frontend>` and :term:`build backends <Build Backend>`
+to build wheels and source distributions from source trees.
 The project's build system is configured in the
 :ref:`[build-system] table <pyproject-build-system-table>` of
 :file:`pyproject.toml`.
@@ -85,9 +86,10 @@ avoiding external build dependencies (usually by vendoring them).
 Build backend interface
 =======================
 
-The build backend object is expected to have attributes which provide
-some or all of the following hooks. The common ``config_settings``
-argument is described after the individual hooks.
+The :ref:`build backend object <pyproject-build-system-build-backend>` is expected
+to have attributes which provide some or all of the following hooks. The common
+``config_settings`` argument is described in
+:ref:`build-system-interface-config-settings`.
 
 Mandatory hooks
 ---------------
@@ -122,7 +124,8 @@ or else raise an exception when it is set to anything other than ``None``.
 To ensure that wheels from different sources are built the same way, frontends
 may call ``build_sdist`` first, and then call ``build_wheel`` in the unpacked
 sdist. But if the backend indicates that it is missing some requirements for
-creating an sdist (see below), the frontend will fall back to calling
+creating an sdist (see :ref:`build-system-interface-build-sdist`),
+the frontend will fall back to calling
 ``build_wheel`` in the source directory.
 
 The source directory may be read-only. Backends should therefore be
@@ -176,9 +179,9 @@ get_requires_for_build_wheel
   def get_requires_for_build_wheel(config_settings=None):
       ...
 
-This hook MUST return an additional list of strings containing :pep:`508`
-dependency specifications, above and beyond those specified in the
-``pyproject.toml`` file, to be installed when calling the ``build_wheel`` or
+This hook MUST return an additional list of strings containing
+:ref:`dependency specifiers <dependency-specifiers>`, above and beyond those
+specified in the ``pyproject.toml`` file, to be installed when calling the ``build_wheel`` or
 ``prepare_metadata_for_build_wheel`` hooks.
 
 Example::
@@ -202,13 +205,13 @@ Must create a ``.dist-info`` directory containing wheel metadata
 inside the specified ``metadata_directory`` (i.e., creates a directory
 like ``{metadata_directory}/{package}-{version}.dist-info/``). This
 directory MUST be a valid ``.dist-info`` directory as defined in the
-wheel specification, except that it need not contain ``RECORD`` or
-signatures. The hook MAY also create other files inside this
+:ref:`wheel specification <binary-distribution-format>`, except that it need not
+contain ``RECORD`` or signatures. The hook MAY also create other files inside this
 directory, and a build frontend MUST preserve, but otherwise ignore, such files;
 the intention
 here is that in cases where the metadata depends on build-time
 decisions, the build backend may need to record these decisions in
-some convenient format for re-use by the actual wheel-building step.
+some convenient format for reuse by the actual wheel-building step.
 
 This must return the basename (not the full path) of the ``.dist-info``
 directory it creates, as a unicode string.
@@ -227,9 +230,9 @@ get_requires_for_build_sdist
   def get_requires_for_build_sdist(config_settings=None):
       ...
 
-This hook MUST return an additional list of strings containing :pep:`508`
-dependency specifications, above and beyond those specified in the
-``pyproject.toml`` file. These dependencies will be installed when calling the
+This hook MUST return an additional list of strings containing
+:ref:`dependency specifiers <dependency-specifiers>`, above and beyond those
+specified in the ``pyproject.toml`` file. These dependencies will be installed when calling the
 ``build_sdist`` hook.
 
 If not defined, the default implementation is equivalent to ``return []``.
@@ -369,7 +372,7 @@ environment that meets the above criteria. For example, simply
 installing all build-requirements into the global environment would be
 sufficient to build any compliant package -- but this would be
 sub-optimal for a number of reasons. This section contains
-non-normative advice to frontend implementors.
+non-normative advice to frontend implementers.
 
 A build frontend SHOULD, by default, create an isolated environment
 for each build, containing only the standard library and any

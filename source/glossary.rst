@@ -19,7 +19,7 @@ Glossary
         :term:`built distribution <Built Distribution>` from it.
         The build is delegated to the backend by a
         :term:`frontend <Build Frontend>`.
-        All backends offer a standardized interface.
+        All backends offer a :ref:`standardized interface <build-system-interface>`.
 
         Examples of build backends are
         :ref:`flit's flit-core <flit>`,
@@ -40,6 +40,7 @@ Glossary
         :term:`build backend <Build Backend>`.
 
         Examples of build frontends are :ref:`pip` and :ref:`build`.
+        See :ref:`build-system-interface` for the standardized interface they use.
 
 
     Built Distribution
@@ -207,7 +208,8 @@ Glossary
         packaged into a :term:`Distribution <Distribution Package>`.
 
         Since most projects create :term:`Distributions <Distribution Package>`
-        using either :pep:`518` ``build-system``, :ref:`distutils` or
+        using either the :ref:`[build-system] table <pyproject-build-system-table>`,
+        :ref:`distutils` or
         :ref:`setuptools`, another practical way to define projects currently
         is something that contains a :term:`pyproject.toml`, :term:`setup.py`,
         or :term:`setup.cfg` file at the root of the project source directory.
@@ -309,7 +311,7 @@ Glossary
     pyproject.toml
 
         The tool-agnostic :term:`Project` specification file.
-        Defined in :pep:`518`.
+        Defined in :ref:`pyproject-toml-spec`.
 
     Release
 

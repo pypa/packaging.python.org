@@ -94,9 +94,9 @@ key. Here's an example of how it would look::
 
 ``build-backend`` is a string naming a Python object that will be
 used to perform the build (see :ref:`build-system-interface` for details).
-This is formatted following the same ``module:object`` syntax as a ``setuptools`` entry
-point. For instance, if the string is ``"flit.api:main"`` as in the
-example above, this object would be looked up by executing the
+This is formatted following the same ``module:object`` syntax as an
+:ref:`entry point <entry-points>`. For instance, if the string is
+``"flit.api:main"`` as in the example above, this object would be looked up by executing the
 equivalent of::
 
     import flit.api
@@ -130,8 +130,8 @@ not be affected by this.
 
 If the ``pyproject.toml`` file is absent, or the ``build-backend``
 key is missing, the source tree is not using the :ref:`build-system-interface`
-specification, and tools should revert to the legacy behaviour of running ``setup.py`` (either
-directly, or by implicitly invoking the ``setuptools.build_meta:__legacy__``
+specification, and tools should revert to the legacy behaviour of running
+``setup.py`` (either directly, or by implicitly invoking the ``setuptools.build_meta:__legacy__``
 backend).
 
 Where the ``build-backend`` key exists, this takes precedence and the source tree follows the format and
