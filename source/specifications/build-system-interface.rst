@@ -1,12 +1,19 @@
 .. _build-system-interface:
 
-######################
+======================
 Build system interface
-######################
+======================
 
-=======================
- Terminology and goals
-=======================
+This specification defines a standard interface between build frontends and
+build backends to build wheels and source distributions from source trees.
+The project's build system is configured in the
+:ref:`[build-system] table <pyproject-build-system-table>` of
+:file:`pyproject.toml`.
+
+.. _build-system-interface-terminology:
+
+Terminology
+===========
 
 A *source tree* is something like a VCS checkout. We need a standard
 interface for installing from this format, to support usages like
@@ -43,9 +50,10 @@ combination of wheels and sdists. In a command like ``pip install
 lxml==2.4.0``, pip is acting as an integration frontend.
 
 
-==============
- Source trees
-==============
+.. _build-system-interface-source-trees:
+
+Source trees
+============
 
 There is an existing, legacy source tree format involving
 ``setup.py``. We don't try to specify it further; its de facto
@@ -61,7 +69,7 @@ Here we define a new style of source tree based around the
     [build-system]
     # Defined by PEP 518:
     requires = ["flit"]
-    # Defined by this PEP:
+    # Defined by this specification:
     build-backend = "flit.api:main"
 
 ``build-backend`` is a string naming a Python object that will be
@@ -110,21 +118,23 @@ Where the ``build-backend`` key exists, this takes precedence and the source tre
 conventions of the specified backend (as such no ``setup.py`` is needed unless the backend requires it).
 Projects may still wish to include a ``setup.py`` for compatibility with tools that do not use this spec.
 
-This PEP also defines a ``backend-path`` key for use in ``pyproject.toml``, see
+This specification also defines a ``backend-path`` key for use in ``pyproject.toml``, see
 the "In-Tree Build Backends" section below. This key would be used as follows::
 
     [build-system]
     # Defined by PEP 518:
     requires = ["flit"]
-    # Defined by this PEP:
+    # Defined by this specification:
     build-backend = "local_backend"
     backend-path = ["backend"]
 
 
-Build requirements
-==================
+.. _build-system-interface-build-requirements:
 
-This PEP places a number of additional requirements on the "build requirements"
+Build requirements
+------------------
+
+This specification places a number of additional requirements on the "build requirements"
 section of ``pyproject.toml``. These are intended to ensure that projects do
 not create impossible to satisfy conditions with their build requirements.
 
@@ -147,19 +157,22 @@ Typically this will involve specifying themselves as an in-tree backend, and
 avoiding external build dependencies (usually by vendoring them).
 
 
-=========================
- Build backend interface
-=========================
+.. _build-system-interface-backend-interface:
+
+Build backend interface
+=======================
 
 The build backend object is expected to have attributes which provide
 some or all of the following hooks. The common ``config_settings``
 argument is described after the individual hooks.
 
 Mandatory hooks
-===============
+---------------
+
+.. _build-system-interface-build-wheel:
 
 build_wheel
------------
+~~~~~~~~~~~
 
 ::
 
@@ -199,8 +212,10 @@ The backend may store intermediate artifacts in cache locations or
 temporary directories. The presence or absence of any caches should not
 make a material difference to the final result of the build.
 
+.. _build-system-interface-build-sdist:
+
 build_sdist
------------
+~~~~~~~~~~~
 
 ::
 
@@ -238,10 +253,12 @@ The backend does not need to define this exception type if it would never raise
 it.
 
 Optional hooks
-==============
+--------------
+
+.. _build-system-interface-get-requires-for-build-wheel:
 
 get_requires_for_build_wheel
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -260,8 +277,10 @@ Example::
 
 If not defined, the default implementation is equivalent to ``return []``.
 
+.. _build-system-interface-prepare-metadata-for-build-wheel:
+
 prepare_metadata_for_build_wheel
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -287,8 +306,10 @@ If a build frontend needs this information and the method is
 not defined, it should call ``build_wheel`` and look at the resulting
 metadata directly.
 
+.. _build-system-interface-get-requires-for-build-sdist:
+
 get_requires_for_build_sdist
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -303,19 +324,15 @@ dependency specifications, above and beyond those specified in the
 If not defined, the default implementation is equivalent to ``return []``.
 
 
-.. note:: Editable installs
+.. note::
 
-   This PEP originally specified another hook, ``install_editable``, to do an
-   editable install (as with ``pip install -e``). It was removed due to the
-   complexity of the topic, but may be specified in a later PEP.
+   Editable installs are specified separately in :pep:`660`.
 
-   Briefly, the questions to be answered include: what reasonable ways existing
-   of implementing an 'editable install'? Should the backend or the frontend
-   pick how to make an editable install? And if the frontend does, what does it
-   need from the backend to do so.
+
+.. _build-system-interface-config-settings:
 
 Config settings
-===============
+---------------
 
 ::
 
@@ -375,8 +392,10 @@ If a hook raises an exception, or causes the process to terminate,
 then this indicates an error.
 
 
+.. _build-system-interface-build-environment:
+
 Build environment
-=================
+-----------------
 
 One of the responsibilities of a build frontend is to set up the
 Python environment in which the build backend will run.
@@ -429,11 +448,10 @@ stdlib, or that are explicitly declared as build-requirements.
 
 Frontends should call each hook in a fresh subprocess, so that backends are
 free to change process global state (such as environment variables or the
-working directory). A Python library will be provided which frontends can use
-to easily call hooks this way.
+working directory).
 
 Recommendations for build frontends (non-normative)
----------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A build frontend MAY use any mechanism for setting up a build
 environment that meets the above criteria. For example, simply
@@ -487,8 +505,10 @@ package *authors*, while still allowing *end-users* to open up the
 hood and apply duct tape when necessary.
 
 
+.. _build-system-interface-in-tree-build-backends:
+
 In-tree build backends
-======================
+----------------------
 
 In certain circumstances, projects may wish to include the source code for the
 build backend directly in the source tree, rather than referencing the backend
@@ -529,9 +549,10 @@ would typically involve checking the backend's ``__file__`` attribute against
 the locations in ``backend-path``.
 
 
-======================
- Source distributions
-======================
+.. _build-system-interface-source-distributions:
+
+Source distributions
+====================
 
 We continue with the legacy sdist format, adding some new restrictions.
 This format is mostly
@@ -554,3 +575,17 @@ The new restrictions for sdists built by :pep:`517` backends are:
   uses UTF-8 for file names.
 - The source tree contained in an sdist is expected to include the
   ``pyproject.toml`` file.
+
+
+History
+========
+
+- September 2017: This specification was provisionally approved through :pep:`517`.
+- March 2019: Cycles in build requirements were explicitly prohibited, and
+  ``backend-path`` was added to support in-tree and self-hosting backends.
+- May 2019: Clarified that invoking ``setuptools.build_meta:__legacy__`` is an
+  acceptable alternative to directly invoking ``setup.py`` when ``build-backend``
+  is not specified.
+- June 2021: :pep:`517` was marked Final.
+- February 2023: Clarified that frontends should combine values for duplicate
+  ``config_settings`` keys into a list of strings.
