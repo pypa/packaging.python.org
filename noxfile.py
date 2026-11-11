@@ -4,6 +4,8 @@
 #   http://creativecommons.org/licenses/by-sa/3.0.
 
 
+import os
+
 import nox
 
 nox.options.sessions = []
@@ -77,6 +79,16 @@ def linkcheck(session):
     Check for broken links.
     """
     session.install("-r", "requirements.txt")
+    if base := os.getenv("LINKCHECK_BASE_REF"):
+        session.run(
+            "python",
+            "scripts/linkcheck.py",
+            "prepare",
+            "--base",
+            base,
+            "--report",
+            os.environ["LINKCHECK_BASELINE"],
+        )
     session.run(
         "sphinx-build",
         "-b",
