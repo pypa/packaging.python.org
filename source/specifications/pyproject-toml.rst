@@ -277,6 +277,8 @@ and all distribution files created by a build backend using the
 expression will differ then it should either be specified as dynamic or
 not set at all.
 
+.. _pyproject-toml-license-legacy:
+
 Legacy specification
 ''''''''''''''''''''
 

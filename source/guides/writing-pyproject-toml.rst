@@ -375,7 +375,8 @@ The full license list is available at the
 .. note:: If you get a build error that ``license`` should be a dict/table,
    your build backend doesn't yet support the new format. See the
    `above section <license-and-license-files_>`_ for more context.
-   The now deprecated format is `described in PEP 621 <https://peps.python.org/pep-0621/#license>`__.
+   The now deprecated format is described in
+   :ref:`the pyproject.toml specification <pyproject-toml-license-legacy>`.
 
 As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
