@@ -16,9 +16,7 @@ The project's build system is configured in the
 Terminology
 ===========
 
-A *source tree* is something like a VCS checkout. We need a standard
-interface for installing from this format, to support usages like
-``pip install some-directory/``.
+A *source tree* is something like a VCS checkout.
 
 A *source distribution* is a static snapshot representing a particular
 release of some source code, like ``lxml-3.4.4.tar.gz``. Source
@@ -262,11 +260,10 @@ For example, they might support some syntax like ``--package-config CC=gcc``.
 In case a user provides duplicate string-keys, build frontends SHOULD
 combine the corresponding string-values into a list of strings.
 Build frontends MAY also provide arbitrary other mechanisms
-for users to place entries in this dictionary. For example, ``pip``
-might choose to map a mix of modern and legacy command line arguments
-like::
+for users to place entries in this dictionary. For example, a frontend
+might map command line arguments like::
 
-  pip install                                           \
+  build-tool build                                     \
     --package-config CC=gcc                             \
     --global-option="--some-global-option"              \
     --build-option="--build-option1"                    \

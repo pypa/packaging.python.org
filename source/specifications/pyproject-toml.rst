@@ -72,7 +72,6 @@ that the project should be built (e.g., no setup.py/setup.cfg or other
 build configuration files, and no ``[project]`` table).
 
 .. _pyproject-build-system-build-backend:
-.. _build-system-interface-source-trees:
 
 ``build-backend``
 -----------------
@@ -80,36 +79,33 @@ build configuration files, and no ``[project]`` table).
 There is an existing, legacy source tree format involving
 ``setup.py``. We don't try to specify it further; its de facto
 specification is encoded in the source code and documentation of
-``distutils``, ``setuptools``, ``pip``, and other tools. We'll refer
-to it as the ``setup.py``\-style.
+``setuptools``, ``pip``, and other tools.
 
 Projects can select their build backend using the optional ``build-backend``
 key. Here's an example of how it would look::
 
     [build-system]
-    # Defined by PEP 518:
     requires = ["flit"]
-    # Defined by this specification:
-    build-backend = "flit.api:main"
+    build-backend = "flit.buildapi"
 
 ``build-backend`` is a string naming a Python object that will be
 used to perform the build (see :ref:`build-system-interface` for details).
 This is formatted following the same ``module:object`` syntax as an
 :ref:`entry point <entry-points>`. For instance, if the string is
-``"flit.api:main"`` as in the example above, this object would be looked up by executing the
-equivalent of::
+``"flit.buildapi"`` as in the example above, this object would
+be looked up by executing the equivalent of::
 
-    import flit.api
-    backend = flit.api.main
+    import flit.buildapi
+    backend = flit.buildapi
 
-It's also legal to leave out the ``:object`` part, e.g. ::
+It's also legal to specify an object within a module, e.g. ::
 
-    build-backend = "flit.api"
+    build-backend = "example_backend.build:backend"
 
 which acts like::
 
-    import flit.api
-    backend = flit.api
+    import example_backend.build
+    backend = example_backend.build.backend
 
 Formally, the string should satisfy this grammar::
 
@@ -140,7 +136,6 @@ Projects may still wish to include a ``setup.py`` for compatibility with tools
 that do not use the build system interface specification.
 
 .. _pyproject-build-system-backend-path:
-.. _build-system-interface-in-tree-build-backends:
 
 ``backend-path``
 ----------------
@@ -148,9 +143,7 @@ that do not use the build system interface specification.
 The optional ``backend-path`` key can be used as follows::
 
     [build-system]
-    # Defined by PEP 518:
     requires = ["flit"]
-    # Defined by this specification:
     build-backend = "local_backend"
     backend-path = ["backend"]
 
