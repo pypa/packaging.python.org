@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 01:56+0000\n"
+"POT-Creation-Date: 2026-10-27 07:36+0000\n"
 "PO-Revision-Date: 2026-10-02 03:32+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -9993,10 +9993,35 @@ msgstr ""
 "plejmulto de platformoj nur povas ŝargi bibliotekon el disko)."
 
 #: ../source/guides/packaging-binary-extensions.rst:106
+#, fuzzy
+#| msgid "Building binary extensions"
+msgid "How binary extension modules work"
+msgstr "Konstrui duumajn etendaĵojn"
+
+#: ../source/guides/packaging-binary-extensions.rst:108
+msgid ""
+"The C API (Application Programming Interface) is the source-level contract "
+"used when compiling code: it defines functions, types, constants, and how "
+"callers use them. The C ABI (Application Binary Interface) is the "
+"corresponding binary-level contract used by already-compiled code, including "
+"details such as exported symbols, calling conventions, and data layout."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:114
+msgid ""
+"CPython exposes a rich C API, but extensions built against the full API are "
+"normally tied to the CPython feature release and platform they were compiled "
+"against because the full ABI is not stable across feature releases. "
+"Extensions that only use CPython's Limited API can instead target "
+"the :ref:`Stable ABI <cpython-stable-abi>`, which allows a single ``abi3`` "
+"wheel to work across multiple Python 3 feature releases on the same platform."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:122
 msgid "Alternatives to handcoded accelerator modules"
 msgstr "Alternativoj al malaŭtomate koditaj akcelilaj moduloj"
 
-#: ../source/guides/packaging-binary-extensions.rst:108
+#: ../source/guides/packaging-binary-extensions.rst:124
 msgid ""
 "When extension modules are just being used to make code run faster (after "
 "profiling has identified the code where the speed increase is worth "
@@ -10007,7 +10032,7 @@ msgstr ""
 "markis tiujn partojn de la kodo, por kiuj la plirapidigo sufiĉe necesas "
 "malgraŭ la plia bezonata mastrumado), oni konsideru kelkajn alternativojn:"
 
-#: ../source/guides/packaging-binary-extensions.rst:113
+#: ../source/guides/packaging-binary-extensions.rst:129
 msgid ""
 "look for existing optimised alternatives. The CPython standard library "
 "includes a number of optimised data structures and algorithms (especially in "
@@ -10017,7 +10042,7 @@ msgid ""
 "need to create your own accelerator module."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:120
+#: ../source/guides/packaging-binary-extensions.rst:136
 msgid ""
 "for long running applications, the JIT compiled `PyPy interpreter <https://"
 "www.pypy.org/>`__ may offer a suitable alternative to the standard CPython "
@@ -10039,7 +10064,7 @@ msgstr ""
 "referenco-kalkulado – objekto havanta unu vivan referencon anstatŭ du ne "
 "estas problema, sed neniu referenco anstataŭ unu estas grave problema)."
 
-#: ../source/guides/packaging-binary-extensions.rst:130
+#: ../source/guides/packaging-binary-extensions.rst:146
 msgid ""
 "`Cython <https://cython.org/>`__ is a mature static compiler that can "
 "compile most Python code to C extension modules. The initial compilation "
@@ -10058,7 +10083,7 @@ msgstr ""
 "duumaj etendaĵoj, sed havas la avantaĝon de kutimeco por Python-programantoj "
 "(relative al aliaj lingvoj kiel C aŭ C++)."
 
-#: ../source/guides/packaging-binary-extensions.rst:139
+#: ../source/guides/packaging-binary-extensions.rst:155
 msgid ""
 "`Numba <http://numba.pydata.org/>`__ is a newer tool, created by members of "
 "the scientific Python community, that aims to leverage LLVM to allow "
@@ -10073,20 +10098,18 @@ msgstr ""
 "tiu sistemo, sur kiu ruliĝas la kodo. Tamen ĝi povas multe plirapidigi la "
 "kodon, speciale por operacioj vektorigeblaj."
 
-#: ../source/guides/packaging-binary-extensions.rst:148
+#: ../source/guides/packaging-binary-extensions.rst:164
 msgid "Alternatives to handcoded wrapper modules"
 msgstr "Alternativoj al malaŭtomate koditaj volvilaj moduloj"
 
-#: ../source/guides/packaging-binary-extensions.rst:150
+#: ../source/guides/packaging-binary-extensions.rst:166
 msgid ""
-"The C ABI (Application Binary Interface) is a common standard for sharing "
-"functionality between multiple applications. One of the strengths of the "
-"CPython C API (Application Programming Interface) is allowing Python users "
-"to tap into that functionality. However, wrapping modules by hand is quite "
-"tedious, so a number of other alternative approaches should be considered."
+"Binary extensions let Python programs use existing native libraries. "
+"However, maintaining handcoded wrapper modules is tedious, so alternative "
+"approaches should be considered."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:156
+#: ../source/guides/packaging-binary-extensions.rst:170
 msgid ""
 "The approaches described below don't simplify the distribution case at all, "
 "but they *can* significantly reduce the maintenance burden of keeping "
@@ -10095,7 +10118,7 @@ msgstr ""
 "La ĉi-subaj manieroj ne simpligas la kazon de distribuo sed *ja* povas "
 "simpligi la taskon de ĝisdatigado de volvantaj moduloj."
 
-#: ../source/guides/packaging-binary-extensions.rst:160
+#: ../source/guides/packaging-binary-extensions.rst:174
 msgid ""
 "In addition to being useful for the creation of accelerator modules, `Cython "
 "<https://cython.org/>`__ is also widely used for creating wrapper modules "
@@ -10115,7 +10138,7 @@ msgstr ""
 "per Cython. Ĝi ankaŭ subtenas rapidajn Python-realigojn kun CPython-eca C-"
 "API kiel PyPy kaj Pyston."
 
-#: ../source/guides/packaging-binary-extensions.rst:171
+#: ../source/guides/packaging-binary-extensions.rst:185
 msgid ""
 ":doc:`pybind11 <pybind11:index>` is a pure C++11 library that provides a "
 "clean C++ interface to the CPython (and PyPy) C API. It does not require a "
@@ -10131,7 +10154,7 @@ msgstr ""
 "<https://www.boost.org/doc/libs/1_76_0/libs/python/doc/html/index.html>`__, "
 "sed ne postulas la Boost-bibliotekojn aŭ BJam."
 
-#: ../source/guides/packaging-binary-extensions.rst:178
+#: ../source/guides/packaging-binary-extensions.rst:192
 msgid ""
 ":doc:`cffi <cffi:index>` is a project created by some of the PyPy developers "
 "to make it straightforward for developers that already know both Python and "
@@ -10140,7 +10163,7 @@ msgid ""
 "even if you don't know C yourself."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:184
+#: ../source/guides/packaging-binary-extensions.rst:198
 msgid ""
 "One of the key advantages of ``cffi`` is that it is compatible with the PyPy "
 "JIT, allowing CFFI wrapper modules to participate fully in PyPy's tracing "
@@ -10150,7 +10173,7 @@ msgstr ""
 "tradukado de PyPy, tiel ke volvanta modulo uzanta CFFI povas plene "
 "partopreni en la spuradaj optimumigoj de la ĝustatempa tradukilo de PyPy."
 
-#: ../source/guides/packaging-binary-extensions.rst:188
+#: ../source/guides/packaging-binary-extensions.rst:202
 msgid ""
 "`SWIG <http://www.swig.org/>`__ is a wrapper interface generator that allows "
 "a variety of programming languages, including Python, to interface with C "
@@ -10159,7 +10182,7 @@ msgstr ""
 "`SWIG <http://www.swig.org/>`__ estas generilo de volva interfaco, por "
 "alvoki C/C++-kodon el multaj programlingvoj inkluzive de Python."
 
-#: ../source/guides/packaging-binary-extensions.rst:192
+#: ../source/guides/packaging-binary-extensions.rst:206
 msgid ""
 "The standard library's ``ctypes`` module, while useful for getting access to "
 "C level interfaces when header information isn't available, suffers from the "
@@ -10183,11 +10206,11 @@ msgstr ""
 "nivelo de C ABI, ĝi suferas de la samaj interfaco-kongruecaj problemoj kiel "
 "``ctypes``, se ĝi estas tiel uzata."
 
-#: ../source/guides/packaging-binary-extensions.rst:206
+#: ../source/guides/packaging-binary-extensions.rst:220
 msgid "Alternatives for low level system access"
 msgstr "Alternativoj por malaltnivela sistema atingado"
 
-#: ../source/guides/packaging-binary-extensions.rst:208
+#: ../source/guides/packaging-binary-extensions.rst:222
 msgid ""
 "For applications that need low level system access (regardless of the "
 "reason), a binary extension module often *is* the best way to go about it. "
@@ -10198,7 +10221,7 @@ msgid ""
 "interfaces."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:216
+#: ../source/guides/packaging-binary-extensions.rst:230
 msgid ""
 "For cases where the extension module is manipulating the underlying "
 "operating system or hardware (rather than the CPython runtime), it may "
@@ -10208,11 +10231,11 @@ msgid ""
 "to make the interface available as an importable Python module."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:225
+#: ../source/guides/packaging-binary-extensions.rst:239
 msgid "Implementing binary extensions"
 msgstr "Realigi duumajn etendaĵojn"
 
-#: ../source/guides/packaging-binary-extensions.rst:227
+#: ../source/guides/packaging-binary-extensions.rst:241
 msgid ""
 "The CPython :doc:`Extending and Embedding <python:extending/index>` guide "
 "includes an introduction to writing a :doc:`custom extension module in C "
@@ -10222,7 +10245,7 @@ msgstr ""
 "inkluzivas enkondukon al verkado de :doc:`propra etendaĵa modulo en C "
 "<python:extending/extending>`."
 
-#: ../source/guides/packaging-binary-extensions.rst:231
+#: ../source/guides/packaging-binary-extensions.rst:245
 msgid ""
 "FIXME: Elaborate that all this is one of the reasons why you probably "
 "*don't* want to handcode your extension modules :)"
@@ -10230,35 +10253,35 @@ msgstr ""
 "FIXME: Klarigu, ke tio estas unu el la kialoj por *ne* malaŭtomate kodi "
 "etendaĵajn modulojn ☺"
 
-#: ../source/guides/packaging-binary-extensions.rst:236
+#: ../source/guides/packaging-binary-extensions.rst:250
 msgid "Extension module lifecycle"
 msgstr "Vivciklo de etendaĵa modulo"
 
-#: ../source/guides/packaging-binary-extensions.rst:238
-#: ../source/guides/packaging-binary-extensions.rst:244
-#: ../source/guides/packaging-binary-extensions.rst:250
-#: ../source/guides/packaging-binary-extensions.rst:256
-#: ../source/guides/packaging-binary-extensions.rst:376
+#: ../source/guides/packaging-binary-extensions.rst:252
+#: ../source/guides/packaging-binary-extensions.rst:258
+#: ../source/guides/packaging-binary-extensions.rst:264
+#: ../source/guides/packaging-binary-extensions.rst:270
+#: ../source/guides/packaging-binary-extensions.rst:390
 msgid "FIXME: This section needs to be fleshed out."
 msgstr "FIXME: Plenigu ĉi tiun paragrafon."
 
-#: ../source/guides/packaging-binary-extensions.rst:242
+#: ../source/guides/packaging-binary-extensions.rst:256
 msgid "Implications of shared static state and subinterpreters"
 msgstr "Implicoj pri komuna statika stato kaj subinterpretiloj"
 
-#: ../source/guides/packaging-binary-extensions.rst:248
+#: ../source/guides/packaging-binary-extensions.rst:262
 msgid "Implications of the GIL"
 msgstr "Implicoj de la Malloka Interpretila Seruro"
 
-#: ../source/guides/packaging-binary-extensions.rst:254
+#: ../source/guides/packaging-binary-extensions.rst:268
 msgid "Memory allocation APIs"
 msgstr "Memoro-asignaj API-oj"
 
-#: ../source/guides/packaging-binary-extensions.rst:262
+#: ../source/guides/packaging-binary-extensions.rst:276
 msgid "ABI Compatibility"
 msgstr "ABI-Kongrueco"
 
-#: ../source/guides/packaging-binary-extensions.rst:264
+#: ../source/guides/packaging-binary-extensions.rst:278
 msgid ""
 "The CPython C API does not guarantee ABI stability between minor releases "
 "(3.2, 3.3, 3.4, etc.). This means that, typically, if you build an extension "
@@ -10270,7 +10293,7 @@ msgstr ""
 "por unu versio de Python, do ĝi nur garantiite funkcias por la sama minora "
 "versio de Python kaj ne por aliaj minoraj versioj."
 
-#: ../source/guides/packaging-binary-extensions.rst:270
+#: ../source/guides/packaging-binary-extensions.rst:284
 msgid ""
 "Python 3.2 introduced the Limited API, with is a well-defined subset of "
 "Python's C API. The symbols needed for the Limited API form the \"Stable "
@@ -10279,7 +10302,7 @@ msgid ""
 "ABI tag, to reflect that they're compatible with all Python 3.x versions."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:277
+#: ../source/guides/packaging-binary-extensions.rst:291
 msgid ""
 "CPython's :doc:`C API stability<python:c-api/stable>` page provides detailed "
 "information about the API / ABI stability guarantees, how to use the Limited "
@@ -10289,19 +10312,19 @@ msgstr ""
 "detalas informojn pri la garantioj de la stabileco de API kaj ABI, kiel uzi "
 "la Limigitan API, kaj la ekzakta enhavo de la «Limigita API»."
 
-#: ../source/guides/packaging-binary-extensions.rst:283
+#: ../source/guides/packaging-binary-extensions.rst:297
 msgid "Building binary extensions"
 msgstr "Konstrui duumajn etendaĵojn"
 
-#: ../source/guides/packaging-binary-extensions.rst:285
+#: ../source/guides/packaging-binary-extensions.rst:299
 msgid "FIXME: Cover the build-backends available for building extensions."
 msgstr "FIXME: Diskuti konstruajn malfasadojn por konstrui etendaĵojn."
 
-#: ../source/guides/packaging-binary-extensions.rst:288
+#: ../source/guides/packaging-binary-extensions.rst:302
 msgid "Building extensions for multiple platforms"
 msgstr "Konstrui etendaĵojn por pluraj platformoj"
 
-#: ../source/guides/packaging-binary-extensions.rst:290
+#: ../source/guides/packaging-binary-extensions.rst:304
 msgid ""
 "If you plan to distribute your extension, you should provide :term:`wheels "
 "<Wheel>` for all the platforms you intend to support. These are usually "
@@ -10310,7 +10333,7 @@ msgid ""
 "include :ref:`cibuildwheel` and :ref:`multibuild`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:296
+#: ../source/guides/packaging-binary-extensions.rst:310
 msgid ""
 "For most extensions, you will need to build wheels for all the platforms you "
 "intend to support. This means that the number of wheels you need to build is "
@@ -10320,7 +10343,7 @@ msgstr ""
 "platformoj. Tio signifas, ke la nombro de konstruendaj wheel-oj estas la "
 "jena produto::"
 
-#: ../source/guides/packaging-binary-extensions.rst:302
+#: ../source/guides/packaging-binary-extensions.rst:316
 msgid ""
 "Using CPython's :ref:`Stable ABI <cpython-stable-abi>` can help "
 "significantly reduce the number of wheels you need to provide, since a "
@@ -10329,11 +10352,11 @@ msgid ""
 "generate new wheels for each new minor version of Python."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:309
+#: ../source/guides/packaging-binary-extensions.rst:323
 msgid "Binary extensions for Windows"
 msgstr "Duumaj etendaĵoj por Windows"
 
-#: ../source/guides/packaging-binary-extensions.rst:311
+#: ../source/guides/packaging-binary-extensions.rst:325
 msgid ""
 "Before it is possible to build a binary extension, it is necessary to ensure "
 "that you have a suitable compiler available. On Windows, Visual C is used to "
@@ -10348,7 +10371,7 @@ msgstr ""
 "medion por duuma etendaĵo, instalu `Visual Studio Community Edition <https://"
 "visualstudio.microsoft.com/downloads/>`__ – ajna lastatempa versio taŭgas."
 
-#: ../source/guides/packaging-binary-extensions.rst:318
+#: ../source/guides/packaging-binary-extensions.rst:332
 msgid ""
 "One caveat: if you use Visual Studio 2019 or later, your extension will "
 "depend on an \"extra\" file, ``VCRUNTIME140_1.dll``, in addition to the "
@@ -10365,7 +10388,7 @@ msgstr ""
 "tradukilan argumenton ``/d2FH4-``. Novaj versioj de Python eble inkluzivas "
 "ĉi tiun dosieron."
 
-#: ../source/guides/packaging-binary-extensions.rst:326
+#: ../source/guides/packaging-binary-extensions.rst:340
 msgid ""
 "Building for Python prior to 3.5 is discouraged, because older versions of "
 "Visual Studio are no longer available from Microsoft. If you do need to "
@@ -10384,11 +10407,11 @@ msgstr ""
 "ŝanĝitaj datenstrukturoj ktp. Ilo por generado de etendaĵa modulo ofte "
 "aŭtomate evitas tion."
 
-#: ../source/guides/packaging-binary-extensions.rst:337
+#: ../source/guides/packaging-binary-extensions.rst:351
 msgid "Binary extensions for Linux"
 msgstr "Duumaj etendaĵoj por Linux"
 
-#: ../source/guides/packaging-binary-extensions.rst:339
+#: ../source/guides/packaging-binary-extensions.rst:353
 msgid ""
 "Linux binaries must use a sufficiently old glibc to be compatible with older "
 "distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker "
@@ -10400,11 +10423,11 @@ msgstr ""
 "manylinux>`_ estas konstrua medio kun ``glibc`` sufiĉe malnova por la "
 "plejmulto de aktualaj Linux-distribuoj sur oftaj arĥitekturoj."
 
-#: ../source/guides/packaging-binary-extensions.rst:345
+#: ../source/guides/packaging-binary-extensions.rst:359
 msgid "Binary extensions for macOS"
 msgstr "Duumaj etendaĵoj por macOS"
 
-#: ../source/guides/packaging-binary-extensions.rst:347
+#: ../source/guides/packaging-binary-extensions.rst:361
 msgid ""
 "Binary compatibility on macOS is determined by the target minimum deployment "
 "system, e.g. *10.9*, which is often specified with the "
@@ -10423,11 +10446,11 @@ msgstr ""
 "disponigaj celoj por Python-distribuoj por macOS, vidu `MacPython Spinning "
 "Wheels Wiki <https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_."
 
-#: ../source/guides/packaging-binary-extensions.rst:357
+#: ../source/guides/packaging-binary-extensions.rst:371
 msgid "Publishing binary extensions"
 msgstr "Eldoni duumajn etendaĵojn"
 
-#: ../source/guides/packaging-binary-extensions.rst:359
+#: ../source/guides/packaging-binary-extensions.rst:373
 msgid ""
 "Publishing binary extensions through PyPI uses the same upload mechanisms as "
 "publishing pure Python packages. You build a wheel file for your extension "
@@ -10439,11 +10462,11 @@ msgstr ""
 "per la konstrua malfasado kaj alŝutas ĝin al PyPI per :doc:`twine "
 "<twine:index>`."
 
-#: ../source/guides/packaging-binary-extensions.rst:365
+#: ../source/guides/packaging-binary-extensions.rst:379
 msgid "Avoid binary-only releases"
 msgstr "Evitu nur-duumajn eldonojn"
 
-#: ../source/guides/packaging-binary-extensions.rst:367
+#: ../source/guides/packaging-binary-extensions.rst:381
 msgid ""
 "It is strongly recommended that you publish your binary extensions as well "
 "as the source code that was used to build them. This allows users to build "
@@ -10456,15 +10479,15 @@ msgstr ""
 "etendaĵon de fonto. Speciale, tio necesas por tiuj Linux-distribuoj, kiuj "
 "konstruas de fonto per siaj propraj konstrusistemoj por siaj pakdeponejoj."
 
-#: ../source/guides/packaging-binary-extensions.rst:374
+#: ../source/guides/packaging-binary-extensions.rst:388
 msgid "Weak linking"
 msgstr "Malforta bindado"
 
-#: ../source/guides/packaging-binary-extensions.rst:379
+#: ../source/guides/packaging-binary-extensions.rst:393
 msgid "Additional resources"
 msgstr "Pliaj rimedoj"
 
-#: ../source/guides/packaging-binary-extensions.rst:381
+#: ../source/guides/packaging-binary-extensions.rst:395
 msgid ""
 "Cross-platform development and distribution of extension modules is a "
 "complex topic, so this guide focuses primarily on providing pointers to "
@@ -10474,11 +10497,11 @@ msgid ""
 "interfaces that those systems rely on at runtime."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:388
+#: ../source/guides/packaging-binary-extensions.rst:402
 msgid "Cross-platform wheel generation with scikit-build"
 msgstr "Interplatforma generado de wheel per scikit-build"
 
-#: ../source/guides/packaging-binary-extensions.rst:390
+#: ../source/guides/packaging-binary-extensions.rst:404
 msgid ""
 "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package "
 "helps abstract cross-platform build operations and provides additional "
@@ -10494,11 +10517,11 @@ msgstr ""
 "<https://scikit-build.readthedocs.io/en/latest/generators.html>`_ por duumaj "
 "etendaĵmoduloj de Python."
 
-#: ../source/guides/packaging-binary-extensions.rst:398
+#: ../source/guides/packaging-binary-extensions.rst:412
 msgid "Introduction to C/C++ extension modules"
 msgstr "Enkonduko al C/C++-aj etendaĵaj moduloj"
 
-#: ../source/guides/packaging-binary-extensions.rst:400
+#: ../source/guides/packaging-binary-extensions.rst:414
 msgid ""
 "For a more in depth explanation of how extension modules are used by CPython "
 "on a Debian system, see the following articles:"
@@ -10506,7 +10529,7 @@ msgstr ""
 "Por plia klarigo pri kiel CPython uzas etendaĵan modulon sur Debian-sistemo, "
 "vidu la jenajn artikolojn:"
 
-#: ../source/guides/packaging-binary-extensions.rst:403
+#: ../source/guides/packaging-binary-extensions.rst:417
 msgid ""
 "`What are (c)python extension modules? <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
@@ -10514,13 +10537,13 @@ msgstr ""
 "`Kio estas etendaĵ-moduloj de (C)Python? <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
 
-#: ../source/guides/packaging-binary-extensions.rst:404
+#: ../source/guides/packaging-binary-extensions.rst:418
 msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
 msgstr ""
 "`Malakiri la mallokan interpretilan seruron <https://thomasnyberg.com/"
 "releasing_the_gil.html>`_"
 
-#: ../source/guides/packaging-binary-extensions.rst:405
+#: ../source/guides/packaging-binary-extensions.rst:419
 msgid ""
 "`Writing cpython extension modules using C++ <https://thomasnyberg.com/"
 "cpp_extension_modules.html>`_"
@@ -10528,11 +10551,11 @@ msgstr ""
 "`Verki cpython-etendaĵaj moduloj per C++ <https://thomasnyberg.com/"
 "cpp_extension_modules.html>`_"
 
-#: ../source/guides/packaging-binary-extensions.rst:408
+#: ../source/guides/packaging-binary-extensions.rst:422
 msgid "Additional considerations for binary wheels"
 msgstr "Pliaj konsideroj por duuma wheel"
 
-#: ../source/guides/packaging-binary-extensions.rst:410
+#: ../source/guides/packaging-binary-extensions.rst:424
 msgid ""
 "The `pypackaging-native <https://pypackaging-native.github.io/>`_ website "
 "has additional coverage of packaging Python packages with native code. It "
@@ -10544,7 +10567,7 @@ msgstr ""
 "resumo de la plej gravaj problemoj pri pakado de tia projekto kune kun "
 "detalaj klarigoj kaj referencoj."
 
-#: ../source/guides/packaging-binary-extensions.rst:415
+#: ../source/guides/packaging-binary-extensions.rst:429
 msgid ""
 "Examples of topics covered are non-Python compiled dependencies (\"native "
 "dependencies\"), the importance of the ABI (Application Binary Interface) of "
