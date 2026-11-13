@@ -24,21 +24,27 @@ use (tool-specific configuration should use the ``[tool]`` table).
 
 .. _pyproject-build-system-table:
 
-Declaring build system dependencies: the ``[build-system]`` table
-=================================================================
+Declaring the build system: the ``[build-system]`` table
+========================================================
 
-The ``[build-system]`` table declares any Python level dependencies that
-must be installed in order to run the project's build system
-successfully.
+The ``[build-system]`` table stores build-related data. The valid keys are
+``requires``, ``build-backend``, and ``backend-path``. The
+:ref:`build-system-interface` specification describes how the configured
+backend is invoked.
 
-.. TODO: merge with PEP 517
+.. _pyproject-build-system-requires:
 
-The ``[build-system]`` table is used to store build-related data.
-Initially, only one key of the table is valid and is mandatory
-for the table: ``requires``. This key must have a value of a list
-of strings representing dependencies required to execute the
-build system. The strings in this list follow the :ref:`dependency specifier
-specification <dependency-specifiers>`.
+``requires``
+------------
+
+The ``requires`` key declares the Python level dependencies that must be
+installed in order to run the project's build system successfully.
+This key is mandatory if the table is present. Its value must be a list
+of strings representing dependencies required to execute the build system.
+The strings in this list follow the :ref:`dependency specifier specification
+<dependency-specifiers>`. See also the
+:ref:`requirements on build dependency graphs
+<build-system-interface-build-requirements>`.
 
 An example ``[build-system]`` table for a project built with
 ``setuptools`` is:
@@ -65,38 +71,151 @@ Tools may choose to present an error to the user if the file exists,
 that the project should be built (e.g., no setup.py/setup.cfg or other
 build configuration files, and no ``[project]`` table).
 
-To provide a type-specific representation of the resulting data from
-the TOML file for illustrative purposes only, the following
-`JSON Schema <https://json-schema.org>`_ would match the data format:
+.. _pyproject-build-system-build-backend:
+
+``build-backend``
+-----------------
+
+There is an existing, legacy source tree format involving
+``setup.py``. We don't try to specify it further; its de facto
+specification is encoded in the source code and documentation of
+``setuptools``, ``pip``, and other tools.
+
+Projects can select their build backend using the optional ``build-backend``
+key. Here's an example of how it would look::
+
+    [build-system]
+    requires = ["flit"]
+    build-backend = "flit.buildapi"
+
+``build-backend`` is a string naming a Python object that will be
+used to perform the build (see :ref:`build-system-interface` for details).
+This is formatted following the same ``module:object`` syntax as an
+:ref:`entry point <entry-points>`. For instance, if the string is
+``"flit.buildapi"`` as in the example above, this object would
+be looked up by executing the equivalent of::
+
+    import flit.buildapi
+    backend = flit.buildapi
+
+It's also legal to specify an object within a module, e.g. ::
+
+    build-backend = "example_backend.build:backend"
+
+which acts like::
+
+    import example_backend.build
+    backend = example_backend.build.backend
+
+Formally, the string should satisfy this grammar::
+
+    identifier = (letter | '_') (letter | '_' | digit)*
+    module_path = identifier ('.' identifier)*
+    object_path = identifier ('.' identifier)*
+    entry_point = module_path (':' object_path)?
+
+And we import ``module_path`` and then lookup
+``module_path.object_path`` (or just ``module_path`` if
+``object_path`` is missing).
+
+When importing the module path, we do *not* look in the directory containing the
+source tree, unless that would be on ``sys.path`` anyway (e.g. because it is
+specified in PYTHONPATH). Although Python automatically adds the working
+directory to ``sys.path`` in some situations, code to resolve the backend should
+not be affected by this.
+
+If the ``pyproject.toml`` file is absent, or the ``build-backend``
+key is missing, the source tree is not using the :ref:`build-system-interface`
+specification, and tools should revert to the legacy behaviour of running
+``setup.py`` (either directly, or by implicitly invoking the ``setuptools.build_meta:__legacy__``
+backend).
+
+Where the ``build-backend`` key exists, this takes precedence and the source tree follows the format and
+conventions of the specified backend (as such no ``setup.py`` is needed unless the backend requires it).
+Projects may still wish to include a ``setup.py`` for compatibility with tools
+that do not use the build system interface specification.
+
+.. _pyproject-build-system-backend-path:
+
+``backend-path``
+----------------
+
+The optional ``backend-path`` key can be used as follows::
+
+    [build-system]
+    requires = ["flit"]
+    build-backend = "local_backend"
+    backend-path = ["backend"]
+
+In certain circumstances, projects may wish to include the source code for the
+build backend directly in the source tree, rather than referencing the backend
+via the ``requires`` key. Two specific situations where this would be expected
+are:
+
+- Backends themselves, which want to use their own features for building
+  themselves ("self-hosting backends")
+- Project-specific backends, typically consisting of a custom wrapper around a
+  standard backend, where the wrapper is too project-specific to be worth
+  distributing independently ("in-tree backends")
+
+Projects can specify that their backend code is hosted in-tree by including the
+``backend-path`` key in ``pyproject.toml``. This key contains a list of
+directories, which the frontend will add to the start of ``sys.path`` when
+loading the backend, and running the backend hooks.
+
+There are two restrictions on the content of the ``backend-path`` key:
+
+- Directories in ``backend-path`` are interpreted as relative to the project
+  root, and MUST refer to a location within the source tree (after relative
+  paths and symbolic links have been resolved).
+- The backend code MUST be loaded from one of the directories specified in
+  ``backend-path`` (i.e., it is not permitted to specify ``backend-path`` and
+  *not* have in-tree backend code).
+
+The first restriction is to ensure that source trees remain self-contained,
+and cannot refer to locations outside of the source tree. Frontends SHOULD
+check this condition (typically by resolving the location to an absolute path
+and resolving symbolic links, and then checking it against the project root),
+and fail with an error message if it is violated.
+
+The ``backend-path`` feature is intended to support the implementation of
+in-tree backends, and not to allow configuration of existing backends. The
+second restriction above is specifically to ensure that this is how the feature
+is used. Front ends MAY enforce this check, but are not required to. Doing so
+would typically involve checking the backend's ``__file__`` attribute against
+the locations in ``backend-path``.
+
+Illustrative JSON schema
+------------------------
+
+To provide a type-specific representation of the ``[build-system]`` table
+for illustrative purposes only, the following
+`JSON Schema <https://json-schema.org>`_ would match its data format:
 
 .. code-block:: json
 
    {
        "$schema": "http://json-schema.org/schema#",
-
        "type": "object",
        "additionalProperties": false,
-
        "properties": {
-           "build-system": {
-               "type": "object",
-               "additionalProperties": false,
-
-               "properties": {
-                   "requires": {
-                       "type": "array",
-                       "items": {
-                           "type": "string"
-                       }
-                   }
-               },
-               "required": ["requires"]
+           "requires": {
+               "type": "array",
+               "items": {
+                   "type": "string"
+               }
            },
-
-           "tool": {
-               "type": "object"
+           "build-backend": {
+               "type": "string"
+           },
+           "backend-path": {
+               "type": "array",
+               "items": {
+                   "type": "string"
+               }
            }
-       }
+       },
+       "required": ["requires"]
    }
 
 
@@ -702,6 +821,10 @@ History
 - May 2016: The initial specification of the ``pyproject.toml`` file, with just
   a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` table, was
   approved through :pep:`518`.
+
+- September 2017: The ``build-backend`` key was approved through :pep:`517`.
+
+- March 2019: The ``backend-path`` key was added through an amendment to :pep:`517`.
 
 - November 2020: The specification of the ``[project]`` table was approved
   through :pep:`621`.

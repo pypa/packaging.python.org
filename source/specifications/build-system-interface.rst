@@ -1,0 +1,441 @@
+.. _build-system-interface:
+
+======================
+Build system interface
+======================
+
+This specification defines a standard interface between
+:term:`build frontends <Build Frontend>` and :term:`build backends <Build Backend>`
+to build wheels and source distributions from source trees.
+The project's build system is configured in the
+:ref:`[build-system] table <pyproject-build-system-table>` of
+:file:`pyproject.toml`.
+
+.. _build-system-interface-terminology:
+
+Terminology
+===========
+
+A *source tree* is something like a VCS checkout.
+
+A *source distribution* is a static snapshot representing a particular
+release of some source code, like ``lxml-3.4.4.tar.gz``. Source
+distributions serve many purposes: they form an archival record of
+releases, they provide a stupid-simple de facto standard for tools
+that want to ingest and process large corpora of code, possibly
+written in many languages (e.g. code search), they act as the input to
+downstream packaging systems like Debian/Fedora/Conda/..., and so
+forth. In the Python ecosystem they additionally have a particularly
+important role to play, because packaging tools like ``pip`` are able
+to use source distributions to fulfill binary dependencies, e.g. if
+there is a distribution ``foo.whl`` which declares a dependency on
+``bar``, then we need to support the case where ``pip install bar`` or
+``pip install foo`` automatically locates the sdist for ``bar``,
+downloads it, builds it, and installs the resulting package.
+
+Source distributions are also known as *sdists* for short.
+
+A *build frontend* is a tool that users might run that takes arbitrary
+source trees or source distributions and builds wheels from them. The
+actual building is done by each source tree's *build backend*. In a
+command like ``pip wheel some-directory/``, pip is acting as a build
+frontend.
+
+An *integration frontend* is a tool that users might run that takes a
+set of package requirements (e.g. a requirements.txt file) and
+attempts to update a working environment to satisfy those
+requirements. This may require locating, building, and installing a
+combination of wheels and sdists. In a command like ``pip install
+lxml==2.4.0``, pip is acting as an integration frontend.
+
+
+.. _build-system-interface-build-requirements:
+
+Build requirements
+==================
+
+This specification places additional requirements on the
+:ref:`build requirements <pyproject-build-system-requires>` declared in
+``pyproject.toml``. These are intended to ensure that projects do not create
+impossible to satisfy conditions with their build requirements.
+
+- Project build requirements will define a directed graph of requirements
+  (project A needs B to build, B needs C and D, etc.) This graph MUST NOT
+  contain cycles.  If (due to lack of co-ordination between projects, for
+  example) a cycle is present, front ends MAY refuse to build the project.
+- Where build requirements are available as wheels, front ends SHOULD use these
+  where practical, to avoid deeply nested builds.  However front ends MAY have
+  modes where they do not consider wheels when locating build requirements, and
+  so projects MUST NOT assume that publishing wheels is sufficient to break a
+  requirement cycle.
+- Front ends SHOULD check explicitly for requirement cycles, and terminate
+  the build with an informative message if one is found.
+
+Note in particular that the requirement for no requirement cycles means that
+backends wishing to self-host (i.e., building a wheel for a backend uses that
+backend for the build) need to make special provision to avoid causing cycles.
+Typically this will involve specifying themselves as an
+:ref:`in-tree backend <pyproject-build-system-backend-path>`, and
+avoiding external build dependencies (usually by vendoring them).
+
+
+.. _build-system-interface-backend-interface:
+
+Build backend interface
+=======================
+
+The :ref:`build backend object <pyproject-build-system-build-backend>` is expected
+to have attributes which provide some or all of the following hooks. The common
+``config_settings`` argument is described in
+:ref:`build-system-interface-config-settings`.
+
+Mandatory hooks
+---------------
+
+.. _build-system-interface-build-wheel:
+
+build_wheel
+~~~~~~~~~~~
+
+::
+
+    def build_wheel(wheel_directory, config_settings=None, metadata_directory=None):
+        ...
+
+Must build a .whl file, and place it in the specified ``wheel_directory``. It
+must return the basename (not the full path) of the ``.whl`` file it creates,
+as a unicode string.
+
+If the build frontend has previously called ``prepare_metadata_for_build_wheel``
+and depends on the wheel resulting from this call to have metadata
+matching this earlier call, then it should provide the path to the created
+``.dist-info`` directory as the ``metadata_directory`` argument. If this
+argument is provided, then ``build_wheel`` MUST produce a wheel with identical
+metadata. The directory passed in by the build frontend MUST be
+identical to the directory created by ``prepare_metadata_for_build_wheel``,
+including any unrecognized files it created.
+
+Backends which do not provide the ``prepare_metadata_for_build_wheel`` hook may
+either silently ignore the ``metadata_directory`` parameter to ``build_wheel``,
+or else raise an exception when it is set to anything other than ``None``.
+
+To ensure that wheels from different sources are built the same way, frontends
+may call ``build_sdist`` first, and then call ``build_wheel`` in the unpacked
+sdist. But if the backend indicates that it is missing some requirements for
+creating an sdist (see :ref:`build-system-interface-build-sdist`),
+the frontend will fall back to calling
+``build_wheel`` in the source directory.
+
+The source directory may be read-only. Backends should therefore be
+prepared to build without creating or modifying any files in the source
+directory, but they may opt not to handle this case, in which case
+failures will be visible to the user. Frontends are not responsible for
+any special handling of read-only source directories.
+
+The backend may store intermediate artifacts in cache locations or
+temporary directories. The presence or absence of any caches should not
+make a material difference to the final result of the build.
+
+.. _build-system-interface-build-sdist:
+
+build_sdist
+~~~~~~~~~~~
+
+::
+
+    def build_sdist(sdist_directory, config_settings=None):
+        ...
+
+Must build a .tar.gz source distribution and place it in the specified
+``sdist_directory``. It must return the basename (not the full path) of the
+``.tar.gz`` file it creates, as a unicode string.
+
+The source distribution must conform to :ref:`source-distribution-format`
+and contain the ``pyproject.toml`` from the build directory.
+
+Some backends may have extra requirements for creating sdists, such as version
+control tools. However, some frontends may prefer to make intermediate sdists
+when producing wheels, to ensure consistency.
+If the backend cannot produce an sdist because a dependency is missing, or
+for another well understood reason, it should raise an exception of a specific
+type which it makes available as ``UnsupportedOperation`` on the backend object.
+If the frontend gets this exception while building an sdist as an intermediate
+for a wheel, it should fall back to building a wheel directly.
+The backend does not need to define this exception type if it would never raise
+it.
+
+Optional hooks
+--------------
+
+.. _build-system-interface-get-requires-for-build-wheel:
+
+get_requires_for_build_wheel
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  def get_requires_for_build_wheel(config_settings=None):
+      ...
+
+This hook MUST return an additional list of strings containing
+:ref:`dependency specifiers <dependency-specifiers>`, above and beyond those
+specified in the ``pyproject.toml`` file, to be installed when calling the ``build_wheel`` or
+``prepare_metadata_for_build_wheel`` hooks.
+
+Example::
+
+  def get_requires_for_build_wheel(config_settings):
+      return ["wheel >= 0.25", "setuptools"]
+
+If not defined, the default implementation is equivalent to ``return []``.
+
+.. _build-system-interface-prepare-metadata-for-build-wheel:
+
+prepare_metadata_for_build_wheel
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  def prepare_metadata_for_build_wheel(metadata_directory, config_settings=None):
+      ...
+
+Must create a ``.dist-info`` directory containing wheel metadata
+inside the specified ``metadata_directory`` (i.e., creates a directory
+like ``{metadata_directory}/{package}-{version}.dist-info/``). This
+directory MUST be a valid ``.dist-info`` directory as defined in the
+:ref:`wheel specification <binary-distribution-format>`, except that it need not
+contain ``RECORD`` or signatures. The hook MAY also create other files inside this
+directory, and a build frontend MUST preserve, but otherwise ignore, such files;
+the intention
+here is that in cases where the metadata depends on build-time
+decisions, the build backend may need to record these decisions in
+some convenient format for reuse by the actual wheel-building step.
+
+This must return the basename (not the full path) of the ``.dist-info``
+directory it creates, as a unicode string.
+
+If a build frontend needs this information and the method is
+not defined, it should call ``build_wheel`` and look at the resulting
+metadata directly.
+
+.. _build-system-interface-get-requires-for-build-sdist:
+
+get_requires_for_build_sdist
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  def get_requires_for_build_sdist(config_settings=None):
+      ...
+
+This hook MUST return an additional list of strings containing
+:ref:`dependency specifiers <dependency-specifiers>`, above and beyond those
+specified in the ``pyproject.toml`` file. These dependencies will be installed when calling the
+``build_sdist`` hook.
+
+If not defined, the default implementation is equivalent to ``return []``.
+
+
+.. note::
+
+   Editable installs are specified separately in :pep:`660`.
+
+
+.. _build-system-interface-config-settings:
+
+Config settings
+---------------
+
+::
+
+  config_settings
+
+This argument, which is passed to all hooks, is an arbitrary
+dictionary provided as an "escape hatch" for users to pass ad-hoc
+configuration into individual package builds. Build backends MAY
+assign any semantics they like to this dictionary. Build frontends
+SHOULD provide some mechanism for users to specify arbitrary
+string-key/string-value pairs to be placed in this dictionary.
+For example, they might support some syntax like ``--package-config CC=gcc``.
+In case a user provides duplicate string-keys, build frontends SHOULD
+combine the corresponding string-values into a list of strings.
+Build frontends MAY also provide arbitrary other mechanisms
+for users to place entries in this dictionary. For example, a frontend
+might map command line arguments like::
+
+  build-tool build                                     \
+    --package-config CC=gcc                             \
+    --global-option="--some-global-option"              \
+    --build-option="--build-option1"                    \
+    --build-option="--build-option2"
+
+into a ``config_settings`` dictionary like::
+
+  {
+   "CC": "gcc",
+   "--global-option": ["--some-global-option"],
+   "--build-option": ["--build-option1", "--build-option2"],
+  }
+
+Of course, it's up to users to make sure that they pass options which
+make sense for the particular build backend and package that they are
+building.
+
+The hooks may be called with positional or keyword arguments, so backends
+implementing them should be careful to make sure that their signatures match
+both the order and the names of the arguments above.
+
+All hooks are run with working directory set to the root of the source
+tree, and MAY print arbitrary informational text on stdout and
+stderr. They MUST NOT read from stdin, and the build frontend MAY
+close stdin before invoking the hooks.
+
+The build frontend may capture stdout and/or stderr from the backend. If the
+backend detects that an output stream is not a terminal/console (e.g.
+``not sys.stdout.isatty()``), it SHOULD ensure that any output it writes to that
+stream is UTF-8 encoded. The build frontend MUST NOT fail if captured output is
+not valid UTF-8, but it MAY not preserve all the information in that case (e.g.
+it may decode using the *replace* error handler in Python). If the output stream
+is a terminal, the build backend is responsible for presenting its output
+accurately, as for any program running in a terminal.
+
+If a hook raises an exception, or causes the process to terminate,
+then this indicates an error.
+
+
+.. _build-system-interface-build-environment:
+
+Build environment
+-----------------
+
+One of the responsibilities of a build frontend is to set up the
+Python environment in which the build backend will run.
+
+We do not require that any particular "virtual environment" mechanism
+be used; a build frontend might use virtualenv, or venv, or no special
+mechanism at all. But whatever mechanism is used MUST meet the
+following criteria:
+
+- All requirements specified by the project's build-requirements must
+  be available for import from Python. In particular:
+
+  - The ``get_requires_for_build_wheel`` and ``get_requires_for_build_sdist`` hooks are
+    executed in an environment which contains the bootstrap requirements
+    specified in the ``pyproject.toml`` file.
+
+  - The ``prepare_metadata_for_build_wheel`` and ``build_wheel`` hooks are
+    executed in an environment which contains the
+    bootstrap requirements from ``pyproject.toml`` and those specified by the
+    ``get_requires_for_build_wheel`` hook.
+
+  - The ``build_sdist`` hook is executed in an environment which contains the
+    bootstrap requirements from ``pyproject.toml`` and those specified by the
+    ``get_requires_for_build_sdist`` hook.
+
+- This must remain true even for new Python subprocesses spawned by
+  the build environment, e.g. code like::
+
+    import sys, subprocess
+    subprocess.check_call([sys.executable, ...])
+
+  must spawn a Python process which has access to all the project's
+  build-requirements. This is necessary e.g. for build backends that
+  want to run legacy ``setup.py`` scripts in a subprocess.
+
+- All command-line scripts provided by the build-required packages
+  must be present in the build environment's PATH. For example, if a
+  project declares a build-requirement on `flit
+  <https://flit.readthedocs.org/en/latest/>`__, then the following must
+  work as a mechanism for running the flit command-line tool::
+
+    import subprocess
+    import shutil
+    subprocess.check_call([shutil.which("flit"), ...])
+
+A build backend MUST be prepared to function in any environment which
+meets the above criteria. In particular, it MUST NOT assume that it
+has access to any packages except those that are present in the
+stdlib, or that are explicitly declared as build-requirements.
+
+Frontends should call each hook in a fresh subprocess, so that backends are
+free to change process global state (such as environment variables or the
+working directory).
+
+Recommendations for build frontends (non-normative)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A build frontend MAY use any mechanism for setting up a build
+environment that meets the above criteria. For example, simply
+installing all build-requirements into the global environment would be
+sufficient to build any compliant package -- but this would be
+sub-optimal for a number of reasons. This section contains
+non-normative advice to frontend implementers.
+
+A build frontend SHOULD, by default, create an isolated environment
+for each build, containing only the standard library and any
+explicitly requested build-dependencies. This has two benefits:
+
+- It allows for a single installation run to build multiple packages
+  that have contradictory build-requirements. E.g. if package1
+  build-requires pbr==1.8.1, and package2 build-requires pbr==1.7.2,
+  then these cannot both be installed simultaneously into the global
+  environment -- which is a problem when the user requests ``pip
+  install package1 package2``. Or if the user already has pbr==1.8.1
+  installed in their global environment, and a package build-requires
+  pbr==1.7.2, then downgrading the user's version would be rather
+  rude.
+
+- It acts as a kind of public health measure to maximize the number of
+  packages that actually do declare accurate build-dependencies. We
+  can write all the strongly worded admonitions to package authors we
+  want, but if build frontends don't enforce isolation by default,
+  then we'll inevitably end up with lots of packages on PyPI that
+  build fine on the original author's machine and nowhere else, which
+  is a headache that no-one needs.
+
+However, there will also be situations where build-requirements are
+problematic in various ways. For example, a package author might
+accidentally leave off some crucial requirement despite our best
+efforts; or, a package might declare a build-requirement on ``foo >=
+1.0`` which worked great when 1.0 was the latest version, but now 1.1
+is out and it has a showstopper bug; or, the user might decide to
+build a package against numpy==1.7 -- overriding the package's
+preferred numpy==1.8 -- to guarantee that the resulting build will be
+compatible at the C ABI level with an older version of numpy (even if
+this means the resulting build is unsupported upstream). Therefore,
+build frontends SHOULD provide some mechanism for users to override
+the above defaults. For example, a build frontend could have a
+``--build-with-system-site-packages`` option that causes the
+``--system-site-packages`` option to be passed to
+virtualenv-or-equivalent when creating build environments, or a
+``--build-requirements-override=my-requirements.txt`` option that
+overrides the project's normal build-requirements.
+
+The general principle here is that we want to enforce hygiene on
+package *authors*, while still allowing *end-users* to open up the
+hood and apply duct tape when necessary.
+
+
+.. _build-system-interface-source-distributions:
+
+Source distributions
+====================
+
+The :ref:`source-distribution-format` specification defines the archive format.
+
+Integration frontends require that an sdist named
+``{NAME}-{VERSION}.{EXT}`` will generate a wheel named
+``{NAME}-{VERSION}-{COMPAT-INFO}.whl``.
+
+History
+========
+
+- September 2017: This specification was provisionally approved through :pep:`517`.
+- March 2019: Cycles in build requirements were explicitly prohibited, and
+  ``backend-path`` was added to support in-tree and self-hosting backends.
+- May 2019: Clarified that invoking ``setuptools.build_meta:__legacy__`` is an
+  acceptable alternative to directly invoking ``setup.py`` when ``build-backend``
+  is not specified.
+- June 2021: :pep:`517` was marked Final.
+- February 2023: Clarified that frontends should combine values for duplicate
+  ``config_settings`` keys into a list of strings.
