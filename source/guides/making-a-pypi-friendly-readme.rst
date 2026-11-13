@@ -56,6 +56,37 @@ provide both the file path and content type explicitly:
 The referenced README should remain in the project source tree so the build
 backend can read it when producing package metadata.
 
+
+Adding images
+-------------
+
+To display an image in your project's description on PyPI, use a publicly
+accessible HTTPS URL pointing directly to the image. For an image hosted in a
+source repository, use the raw file URL rather than the repository's page for
+the file.
+
+In :file:`README.md`, use Markdown image syntax:
+
+.. code-block:: markdown
+
+   ![Screenshot of the application](https://example.com/screenshot.png)
+
+In :file:`README.rst`, use the reStructuredText ``image`` directive:
+
+.. code-block:: rst
+
+   .. image:: https://example.com/screenshot.png
+      :alt: Screenshot of the application
+
+Relative paths such as ``docs/screenshot.png`` may work on your repository's
+website, but will not work on PyPI. PyPI does not serve image files from your
+uploaded source distribution or wheel for use in the project description.
+
+The same approach works for logos, badges, and animated GIFs. Base64-encoded
+``data:`` URLs and embedded video players are not supported; link to externally
+hosted videos instead.
+
+
 Validating reStructuredText markup
 ----------------------------------
 
