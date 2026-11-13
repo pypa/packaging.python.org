@@ -158,6 +158,41 @@ command:
 The guide will be browsable via http://localhost:8000.
 
 
+Checking links
+==============
+
+To check links locally, run:
+
+.. code-block:: bash
+
+   nox -s linkcheck
+
+This checks all links, except those explicitly excluded in ``source/conf.py``.
+Reports are written to ``build/output.txt`` and ``build/output.json``.
+
+In CI, pull requests and merge queues check external URLs that are absent from
+the base revision's linkcheck report. New paths and fragments count as new URLs.
+The base report is cached, or generated on demand if the cache is missing.
+Local links are still checked.
+
+After pushes to ``main``, full linkcheck reports failures without failing the
+aggregate ``check`` job. The daily run at 06:00 UTC checks all links and fails on
+broken links. Both runs upload reports and list failing URLs in the job summary.
+
+
+Testing the linkcheck tooling
+=============================
+
+When changing the linkcheck tooling, run its pytest suite:
+
+.. code-block:: bash
+
+   nox -s tests
+
+Nox installs the test dependencies automatically. The tests use a local HTTP
+server and temporary Git repositories. They also run in CI.
+
+
 Where the guide is deployed
 ===========================
 

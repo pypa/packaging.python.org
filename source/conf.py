@@ -175,6 +175,10 @@ linkcheck_ignore = [
     # Archived snapshots don't change, and the Wayback Machine rate-limits CI (429).
     r"https://web\.archive\.org/.*",
 ]
+if _baseline := os.getenv("LINKCHECK_BASELINE"):
+    from scripts.linkcheck import baseline_patterns
+
+    linkcheck_ignore.extend(baseline_patterns(pathlib.Path(_baseline)))
 linkcheck_retries = 2
 linkcheck_timeout = 30
 # Ignore anchors for common targets when we know they likely won't be found
