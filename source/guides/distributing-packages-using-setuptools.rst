@@ -511,6 +511,10 @@ distribution file(s) to upload.
   is cleaned on a semi regular basis. See :ref:`using-test-pypi` on
   how to setup your configuration in order to use it.
 
+.. note:: Public package indexes such as PyPI do not allow
+  :ref:`local version identifiers <local-version-identifiers>`. Use a public
+  version identifier before uploading distributions to PyPI.
+
 .. warning:: In other resources you may encounter references to using
   ``python setup.py register`` and ``python setup.py upload``. These methods
   of registering and uploading a package are **strongly discouraged** as it may
