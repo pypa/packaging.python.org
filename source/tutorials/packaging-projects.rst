@@ -51,8 +51,11 @@ Create the following file structure locally:
             ├── __init__.py
             └── example.py
 
-The directory containing the Python files should match the project name. This
-simplifies the configuration and is more obvious to users who install the package.
+The directory containing the Python files should match the project name, with
+any hyphens replaced by underscores. This simplifies the configuration and is
+more obvious to users who install the package. See
+:doc:`/discussions/distribution-package-vs-import-package` for an explanation
+of the different naming rules.
 
 Creating the file :file:`__init__.py` is recommended because the existence of an
 :file:`__init__.py` file allows users to import the directory as a regular package,
