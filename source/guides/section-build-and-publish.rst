@@ -6,7 +6,6 @@ Building and Publishing
    :titlesonly:
 
    writing-pyproject-toml
-   distributing-packages-using-setuptools
    dropping-older-python-versions
    packaging-binary-extensions
    packaging-namespace-packages

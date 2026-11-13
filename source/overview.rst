@@ -45,7 +45,7 @@ Packaging Python libraries and tools
 You may have heard about PyPI, ``setup.py``, and ``wheel``
 files. These are just a few of the tools Python's ecosystem provides
 for distributing Python code to developers, which you can read about in
-:doc:`guides/distributing-packages-using-setuptools`.
+:doc:`tutorials/packaging-projects`.
 
 The following approaches to packaging are meant for libraries and
 tools used by technical audience in a development setting. If you're

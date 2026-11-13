@@ -143,7 +143,7 @@ Congratulations, you now know how to effectively manage dependencies and
 development environments on a collaborative Python project! ✨ 🍰 ✨
 
 If you're interested in creating and distributing your own Python packages, see
-the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
+the :doc:`packaging tutorial <packaging-projects>`.
 
 Note that when your application includes definitions of Python source packages,
 they (and their dependencies) can be added to your ``pipenv`` environment with

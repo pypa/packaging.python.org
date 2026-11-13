@@ -65,7 +65,7 @@ triggers :ref:`pip` to change its default behavior to use *build isolation*.
 
 For more details:
 
-* :ref:`distributing-packages`
+* :ref:`pyproject-guide-build-system-table`
 * :ref:`pyproject-build-system-table`
 * :doc:`pip:reference/build-system`
 
