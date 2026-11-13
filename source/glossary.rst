@@ -208,20 +208,17 @@ Glossary
 
     Project
 
-        A library, framework, script, plugin, application, or collection of data
-        or other resources, or some combination thereof that is intended to be
-        packaged into a :term:`Distribution <Distribution Package>`.
+        A named collection of software or other resources that is developed and
+        released as a unit, such as a library, application, or plugin.
 
-        Since most projects create :term:`Distributions <Distribution Package>`
-        using either :pep:`518` ``build-system``, :ref:`distutils` or
-        :ref:`setuptools`, another practical way to define projects currently
-        is something that contains a :term:`pyproject.toml`, :term:`setup.py`,
-        or :term:`setup.cfg` file at the root of the project source directory.
+        The project's files are maintained in a :term:`Project Source Tree`.
+        Each :term:`Release` is a version of the project and may comprise one or
+        more :term:`distribution packages <Distribution Package>`, such as a
+        :term:`Source Distribution (or "sdist")` and a :term:`Wheel`.
 
-        Python projects must have unique names, which are registered on
-        :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
-        contain one or more :term:`Releases <Release>`, and each release may
-        comprise one or more :term:`distributions <Distribution Package>`.
+        When a project is published on a :term:`Package Index` such as
+        :term:`PyPI <Python Package Index (PyPI)>`, its name must be unique
+        within that index.
 
         Note that there is a strong convention to name a project after the name
         of the package that is imported to run that project. However, this
