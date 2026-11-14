@@ -192,6 +192,9 @@ Glossary
         A mechanism for splitting a single :term:`Import Package <Import Package>`
         across one or more :term:`Distribution Packages <Distribution Package>`.
 
+        For guidance on creating namespace packages, see
+        :ref:`packaging-namespace-packages`.
+
 
     Package Index
 
