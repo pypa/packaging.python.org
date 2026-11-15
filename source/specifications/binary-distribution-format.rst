@@ -8,6 +8,8 @@ Wheel distribution format
 =========================
 
 This page specifies the wheel format for Python packages.
+The :ref:`build-system-interface` specification describes how wheels are built
+from source trees.
 
 A wheel is a ZIP-format archive with a specially formatted file name and
 the ``.whl`` extension.  It contains a single distribution nearly as it
