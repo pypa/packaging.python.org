@@ -13,13 +13,14 @@
 # "Edgar R. M." <edgarrm358@gmail.com>, 2024.
 # Joseph Hale <me@jhale.dev>, 2025.
 # Jonathan-den <jonathan.obed@gmail.com>, 2025.
+# azxc1 <fernandozzz1707@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-22 14:24+0000\n"
-"PO-Revision-Date: 2025-12-12 01:00+0000\n"
-"Last-Translator: Joseph Hale <me@jhale.dev>\n"
+"PO-Revision-Date: 2026-09-27 03:51+0000\n"
+"Last-Translator: azxc1 <fernandozzz1707@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/es/>\n"
 "Language: es\n"
@@ -27,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -58,10 +59,8 @@ msgid "Writing new content"
 msgstr "Escribir contenido nuevo"
 
 #: ../source/contribute.rst:14
-#, fuzzy
-#| msgid "Translate the guide"
 msgid "Translating the guide"
-msgstr "Traducir la guía"
+msgstr "Traduciendo la guía"
 
 #: ../source/contribute.rst:16
 msgid ""
@@ -1257,6 +1256,15 @@ msgid ""
 "files) should also be included, to help downstreams determine the needed "
 "dependencies, and check for changes in them."
 msgstr ""
+"Este punto se aplica únicamente a los archivos que pertenecen al propio "
+"paquete. El proceso de empaquetado posterior, al igual que los "
+"administradores de paquetes de Python, se encargará de proporcionar las "
+"dependencias de Python, las herramientas del sistema y las bibliotecas "
+"externas necesarias para el paquete y sus scripts de compilación.\n"
+"Sin embargo, también deben incluirse los archivos que enumeran estas "
+"dependencias, como los archivos \"requirements*.txt\". Esto ayuda a los "
+"encargados del empaquetado posterior a determinar qué dependencias se "
+"necesitan y a comprobar si estas han cambiado."
 
 #: ../source/discussions/downstream-packaging.rst:115
 msgid ""
@@ -1270,6 +1278,17 @@ msgid ""
 "Alternatively, large files, such as test data, can be split into separate "
 "archives."
 msgstr ""
+"Algunos proyectos tienen preocupaciones relacionadas con el uso que hacen "
+"los administradores de paquetes de Python de las distribuciones de código "
+"fuente de PyPI. No quieren aumentar su tamaño con archivos que estas "
+"herramientas no utilizan, o simplemente no quieren publicar distribuciones "
+"de código fuente, ya que estas permiten recurrir a una alternativa "
+"problemática o incluso que no funcione para compilar el proyecto en cuestión "
+"desde el código fuente. En estos casos, un buen punto intermedio puede ser "
+"publicar un archivo independiente con el código fuente para que otros "
+"proyectos puedan utilizarlo, por ejemplo, adjuntándolo a una versión "
+"publicada en GitHub. Como alternativa, los archivos grandes, como los datos "
+"de prueba, pueden dividirse en archivos independientes."
 
 #: ../source/discussions/downstream-packaging.rst:124
 msgid ""
@@ -1281,6 +1300,14 @@ msgid ""
 "was taken by the cryptography_ project, with the large test vectors being "
 "split to cryptography-vectors_ package."
 msgstr ""
+"Por otro lado, algunos proyectos (NumPy_, por ejemplo) deciden incluir las "
+"pruebas en los paquetes que instalan. Esto tiene la ventaja adicional de "
+"permitir que los usuarios ejecuten las pruebas después de instalarlos, por "
+"ejemplo, para comprobar si aparecen regresiones después de actualizar una "
+"dependencia. Otro enfoque consiste en dividir las pruebas o los datos de "
+"prueba en un paquete de Python separado. El proyecto cryptography_ adoptó "
+"este enfoque, separando los grandes vectores de prueba en el paquete "
+"cryptography-vectors_."
 
 #: ../source/discussions/downstream-packaging.rst:132
 msgid ""
@@ -1290,6 +1317,12 @@ msgid ""
 "source distribution actually works, and that it won't accidentally install "
 "fewer files than the official wheels."
 msgstr ""
+"Una buena idea es utilizar tu distribución de código fuente durante el "
+"proceso de publicación. Por ejemplo, la herramienta :ref:\"build\" hace "
+"exactamente eso: primero crea una distribución de código fuente y luego la "
+"utiliza para crear un wheel. Esto garantiza que la distribución de código "
+"fuente realmente funcione y que no termine instalando accidentalmente menos "
+"archivos que los wheels oficiales."
 
 #: ../source/discussions/downstream-packaging.rst:138
 msgid ""
@@ -1298,10 +1331,16 @@ msgid ""
 "actually included. Understandably, this requires more effort, so it's fine "
 "not do that — downstream packagers will report any missing files promptly."
 msgstr ""
+"Lo ideal es utilizar también la distribución de código fuente para ejecutar "
+"las pruebas, generar la documentación, etc., o añadir pruebas específicas "
+"que verifiquen que todos los archivos necesarios se hayan incluido "
+"correctamente. Es comprensible que esto requiera un poco más de trabajo, así "
+"que no pasa nada si decides no hacerlo. Los encargados del empaquetado "
+"posterior informarán rápidamente si falta algún archivo."
 
 #: ../source/discussions/downstream-packaging.rst:147
 msgid "Do not use the Internet during the build process"
-msgstr ""
+msgstr "No uses Internet durante el proceso de compilación"
 
 #: ../source/discussions/downstream-packaging.rst:152
 msgid ""
@@ -1309,6 +1348,9 @@ msgid ""
 "access the Internet. The package sources are unpacked into this environment, "
 "and all the necessary dependencies are installed."
 msgstr ""
+"Las compilaciones posteriores suelen realizarse en entornos aislados que no "
+"tienen acceso a Internet. El código fuente del paquete se descomprime en "
+"este entorno y se instalan todas las dependencias necesarias."
 
 #: ../source/discussions/downstream-packaging.rst:156
 msgid ""
@@ -1316,12 +1358,18 @@ msgid ""
 "properly authenticate downloads, using the Internet is discouraged for a "
 "number of reasons:"
 msgstr ""
+"Incluso si este no fuera el caso, y suponiendo que hayas tomado las medidas "
+"necesarias para autenticar correctamente las descargas, se desaconseja "
+"utilizar Internet por varias razones:"
 
 #: ../source/discussions/downstream-packaging.rst:160
 msgid ""
 "The Internet connection may be unstable (e.g. due to poor reception) or "
 "suffer from temporary problems that could cause the process to fail or hang."
 msgstr ""
+"La conexión a Internet puede ser inestable (por ejemplo, debido a una mala "
+"señal) o presentar problemas temporales que podrían hacer que el proceso "
+"falle o se quede bloqueado."
 
 #: ../source/discussions/downstream-packaging.rst:164
 msgid ""
@@ -1329,16 +1377,25 @@ msgid ""
 "making the build no longer possible. This is especially problematic when "
 "someone needs to build an old package version."
 msgstr ""
+"Los recursos externos pueden dejar de estar disponibles temporal o "
+"permanentemente, haciendo que el paquete ya no pueda compilarse. Esto es "
+"especialmente problemático al intentar compilar una versión antigua del "
+"paquete."
 
 #: ../source/discussions/downstream-packaging.rst:168
 msgid "The remote resources may change, making the build not reproducible."
 msgstr ""
+"Los recursos externos pueden cambiar, haciendo que la compilación no sea "
+"reproducible."
 
 #: ../source/discussions/downstream-packaging.rst:170
 msgid ""
 "Accessing remote servers poses a privacy issue and a potential security "
 "issue, as it exposes information about the system building the package."
 msgstr ""
+"Acceder a servidores externos puede suponer un riesgo para la privacidad y "
+"la seguridad, ya que puede revelar información sobre el sistema que está "
+"compilando el paquete."
 
 #: ../source/discussions/downstream-packaging.rst:174
 msgid ""
@@ -1346,6 +1403,9 @@ msgid ""
 "uncontrolled Internet access may result in additional charges or other "
 "inconveniences."
 msgstr ""
+"El usuario puede tener un plan de datos limitado, por lo que el acceso no "
+"controlado a Internet podría generar cargos adicionales u otros "
+"inconvenientes."
 
 #: ../source/discussions/downstream-packaging.rst:181
 msgid ""
@@ -1355,6 +1415,12 @@ msgid ""
 "all of these files or allow provisioning them externally, and the Internet "
 "must not be used if the files are already present."
 msgstr ""
+"Si el paquete utiliza acciones personalizadas de *backend* que acceden a "
+"Internet durante la compilación, por ejemplo, para descargar automáticamente "
+"dependencias incluidas o obtener submódulos de Git, la distribución de "
+"código fuente debe incluir todos esos archivos o permitir que se "
+"proporcionen externamente. Además, no debe utilizarse Internet si los "
+"archivos ya están disponibles."
 
 #: ../source/discussions/downstream-packaging.rst:187
 msgid ""
