@@ -82,9 +82,9 @@ Relative paths such as ``docs/screenshot.png`` may work on your repository's
 website, but will not work on PyPI. PyPI does not serve image files from your
 uploaded source distribution or wheel for use in the project description.
 
-The same approach works for logos, badges, and animated GIFs. Base64-encoded
-``data:`` URLs and embedded video players are not supported; link to externally
-hosted videos instead.
+The same approach works for logos, badges, and animated GIFs. ``data:`` URLs and
+embedded video players are not supported; link to externally hosted videos
+instead.
 
 
 Validating reStructuredText markup
