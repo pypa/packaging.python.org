@@ -498,7 +498,7 @@ balanced, flexible languages available.
    easy may not be for users.
 
    Among other useful points. Read more here:
-   https://jupyterlab.readthedocs.io/en/latest/developer/documentation.html
+   https://jupyterlab.readthedocs.io/en/latest/developer/contributing.html#writing-documentation
 
    At its initial publication in 2018, this document was largely based
    on "The Many Layers of Packaging" essay, here:
