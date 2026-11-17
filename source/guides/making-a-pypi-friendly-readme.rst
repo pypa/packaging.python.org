@@ -65,18 +65,22 @@ accessible HTTPS URL pointing directly to the image. For an image hosted in a
 source repository, use the raw file URL rather than the repository's page for
 the file.
 
-In :file:`README.md`, use Markdown image syntax:
+.. tab:: Markdown
 
-.. code-block:: markdown
+    In :file:`README.md`, use Markdown image syntax:
 
-   ![Screenshot of the application](https://example.com/screenshot.png)
+    .. code-block:: markdown
 
-In :file:`README.rst`, use the reStructuredText ``image`` directive:
+        ![Screenshot of the application](https://example.com/screenshot.png)
 
-.. code-block:: rst
+.. tab:: reStructuredText
 
-   .. image:: https://example.com/screenshot.png
-      :alt: Screenshot of the application
+    In :file:`README.rst`, use the reStructuredText ``image`` directive:
+
+    .. code-block:: rst
+
+        .. image:: https://example.com/screenshot.png
+           :alt: Screenshot of the application
 
 Relative paths such as ``docs/screenshot.png`` may work on your repository's
 website, but will not work on PyPI. PyPI does not serve image files from your
