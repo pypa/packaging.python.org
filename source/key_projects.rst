@@ -209,7 +209,7 @@ Pipenv
 `PyPI <https://pypi.org/project/pipenv>`__
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
-Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
+Python world. It harnesses `Pipfile`_, :ref:`pip`, and :ref:`virtualenv`
 into one single toolchain. It can autoimport ``requirements.txt`` and also
 check for CVEs in `Pipfile`_ using `safety <https://www.getsafety.com/cli/>`_.
 
@@ -219,16 +219,7 @@ imported packages on the command line. It also works well on Windows
 to ensure compliance with hash-locked dependency specifiers, and eases
 uninstallation of packages and dependencies.
 
-.. _Pipfile:
-
-Pipfile
-=======
-
-`Source <https://github.com/pypa/pipfile>`__
-
-:file:`Pipfile` and its sister :file:`Pipfile.lock` are a higher-level
-application-centric alternative to :ref:`pip`'s lower-level
-:file:`requirements.txt` file.
+.. _Pipfile: https://github.com/pypa/pipfile
 
 .. _pipx:
 
@@ -478,37 +469,6 @@ enscons.
 
 .. _SCons: https://scons.org/
 
-.. _flaskpypiproxy:
-
-Flask-Pypi-Proxy
-================
-
-`Docs <https://flask-pypi-proxy.readthedocs.io>`__ |
-:gh:`GitHub <tzulberti/Flask-PyPi-Proxy>` |
-`PyPI <https://pypi.org/project/Flask-Pypi-Proxy/>`__
-
-.. warning:: Not maintained, project archived
-
-Flask-Pypi-Proxy is a :term:`package index <Package Index>` as a cached
-proxy for PyPI.
-
-.. _hashdist:
-
-Hashdist
-========
-
-`Docs <https://hashdist.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/hashdist/hashdist/>`__
-
-Hashdist is a library for building non-root software
-distributions. Hashdist is trying to be “the Debian of choice for
-cases where Debian technology doesn’t work”. The best way for
-Pythonistas to think about Hashdist may be a more powerful hybrid of
-:ref:`virtualenv` and :ref:`buildout`. It is aimed at solving the
-problem of installing scientific software, and making package
-distribution stateless, cached, and branchable. It is used by some
-researchers but has been lacking in maintenance since 2016.
-
 .. _maturin:
 
 Maturin
@@ -546,16 +506,6 @@ multibuild
 
 Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
 Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
-
-.. _nginx_pypi_cache:
-
-nginx_pypi_cache
-================
-
-:gh:`GitHub <hauntsaninja/nginx_pypi_cache>`
-
-nginx_pypi_cache is a :term:`package index <Package Index>` caching proxy
-using `nginx <https://nginx.org/en/>`_.
 
 .. _pdm:
 
@@ -604,17 +554,6 @@ dependencies via hash, conveniently make a properly formatted list of
 requirements from information in other parts of their program, update
 all dependencies (a feature :ref:`pip` currently does not provide), and
 create layers of constraints for the program to obey.
-
-.. _pip2pi:
-
-pip2pi
-=========
-
-:gh:`GitHub <wolever/pip2pi>` |
-`PyPI <https://pypi.org/project/pip2pi/>`__
-
-pip2pi is a :term:`package index <Package Index>` server where specific
-packages are manually synchronised.
 
 .. _piwheels:
 
@@ -672,33 +611,6 @@ Pulp-python is the Python :term:`package index <Package Index>` plugin for
 local or `AWS S3`_, package upload, and proxying to multiple package
 indexes.
 
-.. _pypicloud:
-
-PyPI Cloud
-==========
-
-`Docs <https://pypicloud.readthedocs.io/>`__ |
-:gh:`GitHub <stevearc/pypicloud>` |
-`PyPI <https://pypi.org/project/pypicloud/>`__
-
-.. warning:: Not maintained, project archived
-
-PyPI Cloud is a :term:`package index <Package Index>` server, backed by
-`AWS S3`_ or another cloud storage service, or local files. PyPI Cloud
-supports redirect/cached proxying for PyPI, as well as authentication and
-authorisation.
-
-.. _pypiprivate:
-
-pypiprivate
-===========
-
-:gh:`GitHub <helpshift/pypiprivate>` |
-`PyPI <https://pypi.org/project/pypiprivate/>`__
-
-pypiprivate serves a local (or `AWS S3`_-hosted) directory of packages as a
-:term:`package index <Package Index>`.
-
 .. _pypiserver:
 
 pypiserver
@@ -731,19 +643,6 @@ It relies on a set of sane default configurations for established tools
 environment so developers can start coding right away.
 PyScaffold can also be used with existing projects to make packaging
 easier.
-
-.. _pywharf:
-
-pywharf
-=======
-
-:gh:`GitHub <pywharf/pywharf>` |
-`PyPI <https://pypi.org/project/pywharf>`__
-
-.. warning:: Not maintained, project archived
-
-pywharf is a :term:`package index <Package Index>` server, serving files
-locally or from `GitHub <https://github.com/>`_.
 
 .. _scikit-build:
 
@@ -869,18 +768,6 @@ A package in the Python Standard Library that provides support for bootstrapping
 :ref:`pip` into an existing Python installation or virtual environment.  In most
 cases, end users won't use this module, but rather it will be used during the
 build of the Python distribution.
-
-.. _httpserver:
-
-http.server
-===========
-
-:doc:`Docs <python:library/http.server>` |
-:gh:`Issues <python/cpython/issues>`
-
-A package and command-line interface which can host a directory as a
-website, for example as a :term:`package index <Package Index>` (see
-:ref:`Hosting your Own Simple Repository`).
 
 .. _venv:
 

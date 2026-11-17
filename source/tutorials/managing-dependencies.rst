@@ -71,7 +71,8 @@ tutorial) and run:
     pipenv install requests
 
 Pipenv will install the `Requests`_ library and create a ``Pipfile``
-for you in your project's directory. The :ref:`Pipfile` is used to track which
+for you in your project's directory. The
+`Pipfile <https://github.com/pypa/pipfile>`__ is used to track which
 dependencies your project needs in case you need to re-install them, such as
 when you share your project with others. You should get output similar to this
 (although the exact paths shown will vary):
