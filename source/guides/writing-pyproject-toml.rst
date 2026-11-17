@@ -239,6 +239,12 @@ In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
 ``import sys; from spam import main_cli; sys.exit(main_cli())``.
 
+If your callable is in a submodule, use an
+:ref:`object reference <entry-points>` such as ``spam.cli:main``. The part
+before the colon names the module to import; the part after it identifies
+a callable object through attribute lookup in that module. The callable
+is invoked with no arguments.
+
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
 up. To prevent this from happening, use the ``[project.gui-scripts]``
