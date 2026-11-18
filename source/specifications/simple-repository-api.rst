@@ -44,6 +44,57 @@ can be implemented in Python with the ``re`` module::
    def normalize(name):
        return re.sub(r"[-_.]+", "-", name).lower()
 
+
+.. _simple-repository-api-error-responses:
+
+Error Responses
+---------------
+
+If a response to the simple API cannot be honored, the simple API **MUST** respond
+with an appropriate HTTP error code (in the range 400-499 or 500-599).
+
+When preparing to send an error response to a requester (e.g., an installer client),
+the package index **SHOULD** format its response as an
+:rfc:`RFC 9457 Problem Details object <9457#section-3>`.
+
+Implementers should consult :rfc:`9457` for a fully detailed description of the
+Problem Details object format. The following is an abbreviated description:
+
+- Each Problem Details object is a JSON (:rfc:`8259`) object.
+- Each Problem Details object **MAY** have the following members. All members are optional.
+
+  - ``type`` is a JSON string containing a URI reference. It **MAY** be a "locator,"
+    i.e. an HTTP or HTTPS URI, in which case it **SHOULD** reference human-readable
+    documentation for the error being presented.
+  - ``status`` is a JSON number containing the HTTP status code for the response.
+    If present, the value of ``status`` is purely advisory.
+  - ``title`` is a JSON string containing a short, human-readable summary of the problem *type*.
+    In other words, the ``title`` is covariant with ``type``, and should not vary based on
+    the individual details of a specific occurrence.
+  - ``detail`` is a JSON string containing a human-readable explanation of the problem
+    specific to this occurrence.
+  - ``instance`` is a JSON string containing a URI reference. Like ``type``, it **MAY**
+    be a "locator," in which case it **SHOULD** reference human-readable information
+    about the problem specific to this occurrence.
+
+- Additionally, each Problem Details object **MAY** have additional members, deemed
+  "extensions." All extensions are optional.
+
+When formatting a response as a Problem Details object, the package index **MUST**
+additionally send the ``Content-Type: application/problem+json`` response header.
+
+The following is an example of a Problem Details response:
+
+.. code-block:: json
+
+    {
+        "type": "https://py.example.com/docs/auth-issues",
+        "status": 403,
+        "title": "The server is currently haunted.",
+        "detail": "Consider hiring a priest",
+        "instance": "https://py.example.com/ORGNAME/..."
+    }
+
 .. _simple-repository-api-versioning:
 
 Versioning PyPI's Simple API
@@ -999,3 +1050,4 @@ History
 * July 2025: project status markers in the HTML and JSON formats, in :pep:`792`
 * July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)
 * June 2026: :pep:`833` formally "freezes" the HTML representation of the simple API
+* November 2026: :pep:`847` standardizes error responses for the simple API
