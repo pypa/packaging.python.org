@@ -202,9 +202,6 @@ github_url = "https://github.com"
 github_repo_org = "pypa"
 github_repo_name = "packaging.python.org"
 github_repo_slug = f"{github_repo_org}/{github_repo_name}"
-github_repo_url = f"{github_url}/{github_repo_slug}"
-github_repo_issues_url = f"{github_url}/{github_repo_slug}/issues"
-github_sponsors_url = f"{github_url}/sponsors"
 
 extlinks = {
     "gh": (f"{github_url}/%s", "GitHub: %s"),

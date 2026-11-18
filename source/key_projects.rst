@@ -279,8 +279,7 @@ trove-classifiers
 =================
 
 `Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub
-<https://github.com/pypa/trove-classifiers>`__ | `PyPI
-<https://pypi.org/project/trove-classifiers/>`__
+<https://github.com/pypa/trove-classifiers>`__ | :pypi:`PyPI <trove-classifiers>`
 
 trove-classifiers is the canonical source for `classifiers on PyPI
 <https://pypi.org/classifiers/>`_, which project maintainers use to
@@ -658,8 +657,8 @@ C/C++/Fortran/Cython extensions It uses
 :pypi:`cmake` (available on PyPI) to provide
 better support for additional compilers, build systems, cross compilation, and
 locating dependencies and their associated build requirements. To speed up and
-parallelize the build of large projects, the user can install `ninja
-<https://pypi.org/project/ninja>`__ (also available on PyPI).
+parallelize the build of large projects, the user can install :pypi:`ninja`
+(also available on PyPI).
 
 .. _scikit-build-core:
 
@@ -671,8 +670,8 @@ scikit-build-core
 :pypi:`PyPI <scikit-build-core>`
 
 Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython
-extensions.  It enables users to write extensions with `cmake
-<https://pypi.org/project/cmake>`__ (available on PyPI) to provide better
+extensions.  It enables users to write extensions with :pypi:`cmake`
+(available on PyPI) to provide better
 support for additional compilers, build systems, cross compilation, and
 locating dependencies and their associated build requirements. CMake/Ninja
 are automatically downloaded from PyPI if not available on the system.
