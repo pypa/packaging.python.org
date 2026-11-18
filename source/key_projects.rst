@@ -74,7 +74,7 @@ distlib
 relate to packaging and distribution of Python software.  ``distlib``
 implements several relevant PEPs (Python Enhancement Proposal
 standards) and is useful for developers of third-party packaging tools
-to make and upload binary and source :term:`distributions
+to make and upload built and source :term:`distributions
 <Distribution Package>`, achieve interoperability, resolve
 dependencies, manage package resources, and do other similar
 functions.
@@ -209,9 +209,9 @@ Pipenv
 :pypi:`PyPI <pipenv>`
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
-Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
+Python world. It harnesses `Pipfile`_, :ref:`pip`, and :ref:`virtualenv`
 into one single toolchain. It can autoimport ``requirements.txt`` and also
-check for CVEs in `Pipfile`_ using `safety <https://pyup.io/safety>`_.
+check for CVEs in `Pipfile`_ using `safety <https://www.getsafety.com/cli/>`_.
 
 Pipenv aims to help users manage environments, dependencies, and
 imported packages on the command line. It also works well on Windows
@@ -219,16 +219,7 @@ imported packages on the command line. It also works well on Windows
 to ensure compliance with hash-locked dependency specifiers, and eases
 uninstallation of packages and dependencies.
 
-.. _Pipfile:
-
-Pipfile
-=======
-
-`Source <https://github.com/pypa/pipfile>`__
-
-:file:`Pipfile` and its sister :file:`Pipfile.lock` are a higher-level
-application-centric alternative to :ref:`pip`'s lower-level
-:file:`requirements.txt` file.
+.. _Pipfile: https://github.com/pypa/pipfile
 
 .. _pipx:
 
@@ -268,7 +259,6 @@ process, to check that their package descriptions will properly
 display on PyPI.
 
 .. _setuptools:
-.. _easy_install:
 
 Setuptools
 ==========
@@ -278,10 +268,10 @@ Setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 :pypi:`PyPI <setuptools>`
 
-Setuptools (which includes ``easy_install``) is a collection of
-enhancements to the Python distutils that allow you to more easily
-build and distribute Python :term:`distributions <Distribution
-Package>`, especially ones that have dependencies on other packages.
+Setuptools is a collection of enhancements to the Python distutils
+that allow you to more easily build and distribute Python
+:term:`distributions <Distribution Package>`, especially ones that
+have dependencies on other packages.
 
 .. _trove-classifiers:
 
@@ -289,7 +279,8 @@ trove-classifiers
 =================
 
 `Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub
-<https://github.com/pypa/trove-classifiers>`__ | :pypi:`PyPI <trove-classifiers>`
+<https://github.com/pypa/trove-classifiers>`__ | `PyPI
+<https://pypi.org/project/trove-classifiers/>`__
 
 trove-classifiers is the canonical source for `classifiers on PyPI
 <https://pypi.org/classifiers/>`_, which project maintainers use to
@@ -349,8 +340,8 @@ Warehouse
 =========
 
 `Docs <https://warehouse.pypa.io/>`__ |
-`Issues <https://github.com/pypa/warehouse/issues>`__ |
-`GitHub <https://github.com/pypa/warehouse>`__
+`Issues <https://github.com/pypi/warehouse/issues>`__ |
+`GitHub <https://github.com/pypi/warehouse>`__
 
 The current codebase powering the :term:`Python Package Index
 (PyPI)`. It is hosted at `pypi.org <https://pypi.org/>`_. The default
@@ -372,9 +363,9 @@ creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
 
 See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool
-that package developers use to check and fix Python packages they are
-making in the binary wheel format. It provides functionality to
-discover dependencies, check metadata for compliance, and repair the
+that package developers use to check and fix wheels containing native code.
+It provides functionality to discover dependencies, check metadata for
+compliance, and repair the
 wheel and metadata to properly link and include external shared
 libraries in a package.
 
@@ -407,10 +398,10 @@ Conda is a package, dependency, and environment management system for any langua
 Ruby, C/C++, Fortran, and more. It is written in Python and
 widely used in the Python scientific computing community, due to its support for non-Python
 compiled libraries and extensions. It is used as the basis of the `Anaconda
-<https://docs.anaconda.com/anaconda/>`__ Python distribution from Anaconda, Inc. It was originally
+<https://www.anaconda.com/docs/getting-started/concepts/anaconda-or-miniconda>`__ Python distribution from Anaconda, Inc. It was originally
 aimed at the scientific community, but can also be used on its own, or with the
 :doc:`miniconda <conda:miniconda>`, `miniforge <https://github.com/conda-forge/miniforge>`_ or
-`pixi <https://pixi.sh/>`_ systems. It is available for Windows, Mac and Linux systems.
+`pixi <https://pixi.prefix.dev/>`_ systems. It is available for Windows, Mac and Linux systems.
 
 Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, but provides
 many of their combined features, such as package management, virtual environment
@@ -478,37 +469,6 @@ enscons.
 
 .. _SCons: https://scons.org/
 
-.. _flaskpypiproxy:
-
-Flask-Pypi-Proxy
-================
-
-`Docs <https://flask-pypi-proxy.readthedocs.io>`__ |
-:gh:`GitHub <tzulberti/Flask-PyPi-Proxy>` |
-:pypi:`PyPI <Flask-Pypi-Proxy>`
-
-.. warning:: Not maintained, project archived
-
-Flask-Pypi-Proxy is a :term:`package index <Package Index>` as a cached
-proxy for PyPI.
-
-.. _hashdist:
-
-Hashdist
-========
-
-`Docs <https://hashdist.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/hashdist/hashdist/>`__
-
-Hashdist is a library for building non-root software
-distributions. Hashdist is trying to be “the Debian of choice for
-cases where Debian technology doesn’t work”. The best way for
-Pythonistas to think about Hashdist may be a more powerful hybrid of
-:ref:`virtualenv` and :ref:`buildout`. It is aimed at solving the
-problem of installing scientific software, and making package
-distribution stateless, cached, and branchable. It is used by some
-researchers but has been lacking in maintenance since 2016.
-
 .. _maturin:
 
 Maturin
@@ -547,16 +507,6 @@ multibuild
 Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
 Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
 
-.. _nginx_pypi_cache:
-
-nginx_pypi_cache
-================
-
-:gh:`GitHub <hauntsaninja/nginx_pypi_cache>`
-
-nginx_pypi_cache is a :term:`package index <Package Index>` caching proxy
-using `nginx <https://nginx.org/en/>`_.
-
 .. _pdm:
 
 pdm
@@ -574,8 +524,8 @@ project metadata as defined in :pep:`621`.
 pex
 ===
 
-`Docs <https://pex.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/pantsbuild/pex/>`__ |
+`Docs <https://docs.pex-tool.org/>`__ |
+`GitHub <https://github.com/pex-tool/pex/>`__ |
 :pypi:`PyPI <pex>`
 
 Pex is a tool for generating :file:`.pex` (Python EXecutable)
@@ -593,7 +543,7 @@ pip-tools
 =========
 
 `Docs <https://pip-tools.readthedocs.io/en/latest/>`__ |
-`GitHub <https://github.com/jazzband/pip-tools/>`__ |
+`GitHub <https://github.com/pypa/pip-tools/>`__ |
 :pypi:`PyPI <pip-tools>`
 
 pip-tools is a suite of tools meant for Python system administrators
@@ -604,17 +554,6 @@ dependencies via hash, conveniently make a properly formatted list of
 requirements from information in other parts of their program, update
 all dependencies (a feature :ref:`pip` currently does not provide), and
 create layers of constraints for the program to obey.
-
-.. _pip2pi:
-
-pip2pi
-=========
-
-:gh:`GitHub <wolever/pip2pi>` |
-:pypi:`PyPI <pip2pi>`
-
-pip2pi is a :term:`package index <Package Index>` server where specific
-packages are manually synchronised.
 
 .. _piwheels:
 
@@ -663,7 +602,7 @@ and other indexes with caching.
 Pulp-python
 ===========
 
-`Docs <https://docs.pulpproject.org/pulp_python/>`__ |
+`Docs <https://pulpproject.org/pulp_python/>`__ |
 :gh:`GitHub <pulp/pulp_python>` |
 :pypi:`PyPI <pulp-python>`
 
@@ -671,33 +610,6 @@ Pulp-python is the Python :term:`package index <Package Index>` plugin for
 `Pulp <https://pulpproject.org/>`_. Pulp-python supports mirrors backed by
 local or `AWS S3`_, package upload, and proxying to multiple package
 indexes.
-
-.. _pypicloud:
-
-PyPI Cloud
-==========
-
-`Docs <https://pypicloud.readthedocs.io/>`__ |
-:gh:`GitHub <stevearc/pypicloud>` |
-:pypi:`PyPI <pypicloud>`
-
-.. warning:: Not maintained, project archived
-
-PyPI Cloud is a :term:`package index <Package Index>` server, backed by
-`AWS S3`_ or another cloud storage service, or local files. PyPI Cloud
-supports redirect/cached proxying for PyPI, as well as authentication and
-authorisation.
-
-.. _pypiprivate:
-
-pypiprivate
-===========
-
-:gh:`GitHub <helpshift/pypiprivate>` |
-:pypi:`PyPI <pypiprivate>`
-
-pypiprivate serves a local (or `AWS S3`_-hosted) directory of packages as a
-:term:`package index <Package Index>`.
 
 .. _pypiserver:
 
@@ -732,19 +644,6 @@ environment so developers can start coding right away.
 PyScaffold can also be used with existing projects to make packaging
 easier.
 
-.. _pywharf:
-
-pywharf
-=======
-
-:gh:`GitHub <pywharf/pywharf>` |
-:pypi:`PyPI <pywharf>`
-
-.. warning:: Not maintained, project archived
-
-pywharf is a :term:`package index <Package Index>` server, serving files
-locally or from `GitHub <https://github.com/>`_.
-
 .. _scikit-build:
 
 scikit-build
@@ -759,7 +658,8 @@ C/C++/Fortran/Cython extensions It uses
 :pypi:`cmake` (available on PyPI) to provide
 better support for additional compilers, build systems, cross compilation, and
 locating dependencies and their associated build requirements. To speed up and
-parallelize the build of large projects, the user can install :pypi:`ninja` (also available on PyPI).
+parallelize the build of large projects, the user can install `ninja
+<https://pypi.org/project/ninja>`__ (also available on PyPI).
 
 .. _scikit-build-core:
 
@@ -771,7 +671,8 @@ scikit-build-core
 :pypi:`PyPI <scikit-build-core>`
 
 Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython
-extensions.  It enables users to write extensions with :pypi:`cmake` (available on PyPI) to provide better
+extensions.  It enables users to write extensions with `cmake
+<https://pypi.org/project/cmake>`__ (available on PyPI) to provide better
 support for additional compilers, build systems, cross compilation, and
 locating dependencies and their associated build requirements. CMake/Ninja
 are automatically downloaded from PyPI if not available on the system.
@@ -868,18 +769,6 @@ A package in the Python Standard Library that provides support for bootstrapping
 cases, end users won't use this module, but rather it will be used during the
 build of the Python distribution.
 
-.. _httpserver:
-
-http.server
-===========
-
-:doc:`Docs <python:library/http.server>` |
-:gh:`Issues <python/cpython/issues>`
-
-A package and command-line interface which can host a directory as a
-website, for example as a :term:`package index <Package Index>` (see
-:ref:`Hosting your Own Simple Repository`).
-
 .. _venv:
 
 venv
@@ -891,9 +780,6 @@ venv
 A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more
 information, see the section on :ref:`Creating and using Virtual Environments`.
-
-
-----
 
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _pytest: https://docs.pytest.org/en/stable/

@@ -6,7 +6,7 @@
 Core metadata specifications
 ============================
 
-This page describes version 2.5, approved in September 2025.
+This page describes version 2.6, approved in May 2026.
 
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
@@ -50,7 +50,7 @@ Metadata-Version
 .. versionadded:: 1.0
 
 Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
-"2.2", "2.3", "2.4", and "2.5".
+"2.2", "2.3", "2.4", "2.5", and "2.6".
 
 Automated tools consuming metadata SHOULD warn if ``metadata-version`` is
 greater than the highest version they support, and MUST fail if
@@ -109,6 +109,10 @@ Dynamic (multiple use)
 ======================
 
 .. versionadded:: 2.2
+.. versionchanged:: 2.6
+   A multiple use field that is present in the sdist and also marked
+   ``Dynamic`` may only be appended to in a wheel built from the sdist.
+   Previously any field listed in Dynamic was ignored in an sdist.
 
 A string containing the name of another core metadata field. The field
 names ``Name``, ``Version``, and ``Metadata-Version`` may not be specified
@@ -121,8 +125,12 @@ rules apply:
    in any wheel built from the sdist MUST match the value in the sdist.
    If the field is not in the sdist, and not marked as ``Dynamic``, then
    it MUST NOT be present in the wheel.
-2. If a field is marked as ``Dynamic``, it may contain any valid value in
-   a wheel built from the sdist (including not being present at all).
+2. If a single-use field is marked as ``Dynamic``, it may contain any valid
+   value in a wheel built from the sdist (including not being present at all).
+3. If a multiple use field is present in the sdist and also marked ``Dynamic``,
+   then a wheel built from the sdist MUST include the value(s) present in the
+   sdist. The wheel MAY add further values, but it MUST NOT remove, reorder, or
+   modify the values present in the sdist.
 
 If the sdist metadata version is older than version 2.2, then all fields should
 be treated as if they were specified with ``Dynamic`` (i.e. there are no special
@@ -439,38 +447,6 @@ addresses::
     Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
 
-.. _license-optional:
-.. _core-metadata-license:
-
-License
-=======
-
-.. versionadded:: 1.0
-.. deprecated:: 2.4
-   in favour of ``License-Expression``.
-
-.. warning::
-    As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually
-    exclusive. If both are specified, tools which parse metadata will disregard
-    ``License`` and PyPI will reject uploads.
-    See `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-field>`__.
-
-Text indicating the license covering the distribution where the license
-is not a selection from the "License" Trove classifiers. See
-:ref:`"Classifier" <metadata-classifier>` below.
-This field may also be used to specify a
-particular version of a license which is named via the ``Classifier``
-field, or to indicate a variation or exception to such a license.
-
-Examples::
-
-    License: This software may only be obtained by sending the
-            author a postcard, and then the user promises not
-            to redistribute it.
-
-    License: GPL version 3, excluding DRM provisions
-
-
 .. _license-expression-optional:
 .. _core-metadata-license-expression:
 
@@ -574,13 +550,13 @@ The format of a requirement string contains from one to four parts:
 * An environment marker after a semicolon. This means that the
   requirement is only needed in the specified conditions.
 
-See :pep:`508` for full details of the allowed format.
-
 The project names should correspond to names as found
 on the `Python Package Index`_.
 
 Version specifiers must follow the rules described in
 :doc:`version-specifiers`.
+
+See :ref:`dependency-specifiers` for full details of the allowed format.
 
 Examples::
 
@@ -1031,6 +1007,38 @@ Example::
     Obsoletes: Gorgon
 
 
+.. _license-optional:
+.. _core-metadata-license:
+
+License
+-------
+
+.. versionadded:: 1.0
+.. deprecated:: 2.4
+   in favour of ``License-Expression``.
+
+.. warning::
+    As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually
+    exclusive. If both are specified, tools which parse metadata will disregard
+    ``License`` and PyPI will reject uploads.
+    See `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-field>`__.
+
+Text indicating the license covering the distribution where the license
+is not a selection from the "License" Trove classifiers. See
+:ref:`"Classifier" <metadata-classifier>` below.
+This field may also be used to specify a
+particular version of a license which is named via the ``Classifier``
+field, or to indicate a variation or exception to such a license.
+
+Examples::
+
+    License: This software may only be obtained by sending the
+            author a postcard, and then the user promises not
+            to redistribute it.
+
+    License: GPL version 3, excluding DRM provisions
+
+
 History
 =======
 
@@ -1070,6 +1078,15 @@ History
 
 - October 2025: Clarified that ``License-Expression`` applies to the containing
   distribution file and not the project itself.
+
+- January 2026: Replaced outdated direct reference to :pep:`508` with a
+  reference to :ref:`dependency-specifiers`.
+
+- May 2026: Core metadata 2.6 was approved through :pep:`808`.
+
+  - Allowed a multiple use field marked ``Dynamic`` to be appended to in a
+    wheel built from a sdist, requiring the wheel to preserve the value(s)
+    present in the sdist.
 
 ----
 

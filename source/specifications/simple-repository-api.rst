@@ -122,6 +122,15 @@ HTML Serialization
 
 .. _simple-repository-html-project-list:
 
+.. important::
+
+    The HTML representation is considered "frozen" and is not expected
+    to be updated. Producers and consumers of the simple API
+    should prefer the :ref:`JSON representation <json-serialization>`.
+
+    See :pep:`833` for additional information about the HTML representation's
+    status.
+
 The following constraints apply to all HTML serialized responses described in
 this spec:
 
@@ -477,7 +486,7 @@ The format of this URL is ``/<project>/`` where the ``<project>`` is replaced by
 name for that project, so a project named "Silly_Walk" would
 have a URL like ``/silly-walk/``.
 
-This URL must respond with a JSON encoded dictionary that has five keys:
+This URL must respond with a JSON encoded dictionary that has up to five keys:
 
 - ``name``: The normalized name of the project.
 - ``project-status``: An optional dictionary, containing the following:
@@ -718,7 +727,7 @@ addition, it would be beneficial if any possible new major version to the API ca
 be added without disrupting existing clients expecting the previous API version.
 
 To enable this, this spec standardizes on the use of HTTP's
-`Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation>`_.
+`Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation>`_.
 
 While this spec won't fully describe the entirety of server-driven content
 negotiation, the flow is roughly:
@@ -989,3 +998,4 @@ History
 * November 2024: provenance metadata in the HTML and JSON formats, in :pep:`740`
 * July 2025: project status markers in the HTML and JSON formats, in :pep:`792`
 * July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)
+* June 2026: :pep:`833` formally "freezes" the HTML representation of the simple API

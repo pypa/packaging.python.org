@@ -38,36 +38,32 @@ your project to appear on the site.
 Using TestPyPI with pip
 -----------------------
 
-You can tell :ref:`pip` to download packages from TestPyPI instead of PyPI by
-specifying the ``--index-url`` flag:
+You can use :ref:`pip` to install a wheel that you uploaded to TestPyPI:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        python3 -m pip install --index-url https://test.pypi.org/simple/ your-package
+        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps --only-binary=:all: your-package
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install --index-url https://test.pypi.org/simple/ your-package
+        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps --only-binary=:all: your-package
 
-If you want to allow pip to also download packages from PyPI, you can
-specify ``--extra-index-url`` to point to PyPI. This is useful when the package
-you're testing has dependencies:
+The ``--index-url`` flag selects TestPyPI instead of PyPI. The ``--no-deps``
+flag prevents installing runtime dependencies, while ``--only-binary=:all:``
+requires a wheel, avoiding installation of build dependencies. If your package
+has dependencies, install them separately from PyPI before running these commands.
 
-.. tab:: Unix/macOS
+.. warning::
 
-    .. code-block:: bash
-
-        python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package
-
-.. tab:: Windows
-
-    .. code-block:: bat
-
-        py -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package
+    TestPyPI is a separate index, and packages there may be missing or unrelated
+    to packages with the same name on PyPI. Installing dependencies from TestPyPI
+    could install unintended or malicious packages. Avoid combining the two
+    indexes with ``--extra-index-url``: pip does not prioritize one index over
+    the other, so dependencies could still be downloaded from TestPyPI.
 
 Setting up TestPyPI in :file:`.pypirc`
 --------------------------------------

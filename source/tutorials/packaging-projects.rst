@@ -51,8 +51,11 @@ Create the following file structure locally:
             ├── __init__.py
             └── example.py
 
-The directory containing the Python files should match the project name. This
-simplifies the configuration and is more obvious to users who install the package.
+The directory containing the Python files should match the project name, with
+any hyphens replaced by underscores. This simplifies the configuration and is
+more obvious to users who install the package. See
+:doc:`/discussions/distribution-package-vs-import-package` for an explanation
+of the different naming rules.
 
 Creating the file :file:`__init__.py` is recommended because the existence of an
 :file:`__init__.py` file allows users to import the directory as a regular package,
@@ -369,7 +372,7 @@ https://test.pypi.org/manage/account/#api-tokens, setting the "Scope" to "Entire
 account". **Don't close the page until you have copied and saved the token — you
 won't see that token again.**
 
-.. _API token: https://test.pypi.org/help/#apitoken
+.. _API token: https://docs.pypi.org/publishing/publishing-to-pypi/#using-an-api-token
 
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
@@ -414,6 +417,11 @@ After the command completes, you should see output similar to this:
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 kB • 00:00 • ?
 
+.. tip::
+
+   If Twine reports an invalid username or password, see PyPI's
+   `help on invalid authentication errors <https://docs.pypi.org/publishing/troubleshooting/#why-am-i-getting-an-invalid-or-non-existent-authentication-information-error-when-uploading-files>`_.
+
 Once uploaded, your package should be viewable on TestPyPI; for example:
 ``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
 
@@ -456,6 +464,9 @@ something like this:
    example package doesn't have any dependencies, it's a good practice to avoid
    installing dependencies when using TestPyPI.
 
+Using your newly installed package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 You can test that it was installed correctly by importing the package.
 Make sure you're still in your virtual environment, then run Python:
 
@@ -491,6 +502,12 @@ PyPI, which isn't a permanent storage. The Test system occasionally deletes
 packages and accounts. It is best to use TestPyPI for testing and experiments
 like this tutorial.
 
+.. tip::
+
+   For projects published through a supported CI/CD platform, we recommend
+   :ref:`Trusted Publishing <trusted-publishing>` instead of storing a long-lived
+   API token. The linked guide shows how to set this up with GitHub Actions.
+
 When you are ready to upload a real package to the Python Package Index you can
 do much the same as you did in this tutorial, but with these important
 differences:
@@ -500,10 +517,10 @@ differences:
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
-* Use ``twine upload dist/*`` to upload your package and enter your credentials
-  for the account you registered on the real PyPI.  Now that you're uploading
-  the package in production, you don't need to specify ``--repository``; the
-  package will upload to https://pypi.org/ by default.
+* For a manual upload, use ``twine upload dist/*`` to upload your package and
+  enter your credentials for the account you registered on the real PyPI. Now
+  that you're uploading the package in production, you don't need to specify
+  ``--repository``; the package will upload to https://pypi.org/ by default.
 * Install your package from the real PyPI using ``python3 -m pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are

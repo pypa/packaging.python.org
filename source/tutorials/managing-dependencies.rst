@@ -71,7 +71,8 @@ tutorial) and run:
     pipenv install requests
 
 Pipenv will install the :pypi:`Requests <requests>` library and create a ``Pipfile``
-for you in your project's directory. The :ref:`Pipfile` is used to track which
+for you in your project's directory. The
+`Pipfile <https://github.com/pypa/pipfile>`__ is used to track which
 dependencies your project needs in case you need to re-install them, such as
 when you share your project with others. You should get output similar to this
 (although the exact paths shown will vary):
@@ -101,6 +102,8 @@ when you share your project with others. You should get output similar to this
     Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
     Adding requests to Pipfile's [packages]...
+
+
 
 Using installed packages
 ------------------------
@@ -166,7 +169,7 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
   Python applications, but not limited to them.
 * `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package
   management relying on standards such as :pep:`517` and :pep:`621`.
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
+* `pip-tools <https://github.com/pypa/pip-tools>`_ for creating a lock file of all
   dependencies from a list of packages directly used in a project, and ensuring that
   only those dependencies are installed.
 * `Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope

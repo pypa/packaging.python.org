@@ -11,7 +11,6 @@ from pathlib import Path
 
 import httpx
 from packaging.utils import parse_wheel_filename
-from packaging.version import Version
 
 
 def main():
@@ -34,13 +33,14 @@ def main():
     [major, minor, _patch] = current_release.release
     if major != 0:
         raise NotImplementedError("The script needs to be updated for uv 1.x")
-    upper_bound = Version(f"{major}.{minor + 1}.0")
+    lower_bound = f"{major}.{minor}"
+    upper_bound = f"{major}.{minor + 1}"
 
     repository_root = Path(__file__).parent.parent
     existing = repository_root.joinpath(
         "source/shared/build-backend-tabs.rst"
     ).read_text()
-    replacement = f'requires = ["uv_build >= {current_release}, <{upper_bound}"]'
+    replacement = f'requires = ["uv_build >= {lower_bound}, <{upper_bound}"]'
     searcher = re.compile(re.escape('requires = ["uv_build') + ".*" + re.escape('"]'))
     if not searcher.search(existing):
         raise RuntimeError("Could not `uv-build` entry")
@@ -51,7 +51,7 @@ def main():
         Path("source/shared/build-backend-tabs.rst").write_text(updated)
         if github_output := os.environ.get("GITHUB_OUTPUT"):
             with open(github_output, "a") as f:
-                f.write(f"version={current_release}\n")
+                f.write(f"version={lower_bound}\n")
                 f.write("updated=true\n")
     else:
         print("Already up-to-date source/shared/build-backend-tabs.rst")

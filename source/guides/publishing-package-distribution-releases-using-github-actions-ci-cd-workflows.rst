@@ -75,7 +75,7 @@ Let's begin! 🚀
 
    .. attention::
 
-      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment>`_
+      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#creating-an-environment>`_
       on each run for the ``pypi`` environment.
 
 
@@ -104,8 +104,21 @@ We will have to define two jobs to publish to PyPI
 and TestPyPI respectively, and an additional job to
 build the distribution packages.
 
+.. important::
+
+   Keep the build job separate from the publishing jobs. Building
+   distributions in a publishing job is unsupported; publishing jobs should
+   only download the already-built artifacts and upload them.
+
 First, we'll define the job for building the dist packages of
 your project and storing them for later use:
+
+.. tip::
+
+   If you adapt this workflow to build multiple platform-specific wheels, use
+   uniquely named artifacts for each build job and adjust the download step
+   accordingly. The `cibuildwheel GitHub Actions examples`_ show a fuller
+   wheel matrix layout.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
@@ -207,7 +220,7 @@ sure that your release pipeline remains healthy!
 
   If your repository has frequent commit activity and every push is uploaded
   to TestPyPI as described, the project might exceed the
-  `PyPI project size limit <https://pypi.org/help/#project-size-limit>`_.
+  `PyPI project size limit <https://docs.pypi.org/project-management/storage-limits/#project-size-limits>`_.
   The limit could be increased, but a better solution may constitute to
   use a PyPI-compatible server like :ref:`pypiserver` in the CI for testing purposes.
 
@@ -231,3 +244,5 @@ sure that your release pipeline remains healthy!
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
 .. _Trusted Publishing: https://docs.pypi.org/trusted-publishers/
+.. _`cibuildwheel GitHub Actions examples`:
+   https://cibuildwheel.pypa.io/en/latest/ci-services/#github-actions

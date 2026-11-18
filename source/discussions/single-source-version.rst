@@ -59,4 +59,4 @@ The following are links to some build system's documentation for handling versio
 
 * `Setuptools <https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata>`_
 
-  -  `setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_
+  -  `setuptools_scm <https://setuptools-scm.rtfd.io/latest>`_
