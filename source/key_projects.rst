@@ -21,7 +21,7 @@ bandersnatch
 `Docs <https://bandersnatch.readthedocs.io>`__ |
 `Issues <https://github.com/pypa/bandersnatch/issues>`__ |
 `GitHub <https://github.com/pypa/bandersnatch>`__ |
-`PyPI <https://pypi.org/project/bandersnatch>`__
+:pypi:`PyPI <bandersnatch>`
 
 ``bandersnatch`` is a PyPI mirroring client designed to efficiently
 create a complete mirror of the contents of PyPI. Organizations thus
@@ -39,7 +39,7 @@ build
 :any:`Docs <build:index>` |
 `Issues <https://github.com/pypa/build/issues>`__ |
 `GitHub <https://github.com/pypa/build>`__ |
-`PyPI <https://pypi.org/project/build>`__
+:pypi:`PyPI <build>`
 
 ``build`` is a :pep:`517` compatible Python package builder. It provides a CLI to
 build packages, as well as a Python API.
@@ -53,7 +53,7 @@ cibuildwheel
 `Docs <https://cibuildwheel.readthedocs.io/>`__ |
 `Issues <https://github.com/pypa/cibuildwheel/issues>`__ |
 `GitHub <https://github.com/pypa/cibuildwheel>`__ |
-`PyPI <https://pypi.org/project/cibuildwheel>`__ |
+:pypi:`PyPI <cibuildwheel>` |
 `Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
 `Discord #cibuildwheel <https://discord.com/invite/pypa>`__
 
@@ -68,7 +68,7 @@ distlib
 :doc:`Docs <distlib:index>` |
 `Issues <https://github.com/pypa/distlib/issues>`__ |
 `GitHub <https://github.com/pypa/distlib>`__ |
-`PyPI <https://pypi.org/project/distlib>`__
+:pypi:`PyPI <distlib>`
 
 ``distlib`` is a library which implements low-level functions that
 relate to packaging and distribution of Python software.  ``distlib``
@@ -117,7 +117,7 @@ flit
 
 `Docs <https://flit.readthedocs.io/en/latest/>`__ |
 `Issues <https://github.com/pypa/flit/issues>`__ |
-`PyPI <https://pypi.org/project/flit>`__
+:pypi:`PyPI <flit>`
 
 Flit provides a simple way to create and upload pure Python packages and
 modules to PyPI.  It focuses on `making the easy things easy <flit-rationale_>`_
@@ -143,7 +143,7 @@ hatch
 
 `Docs <https://hatch.pypa.io/latest/>`__ |
 `GitHub <https://github.com/pypa/hatch>`__ |
-`PyPI <https://pypi.org/project/hatch>`__
+:pypi:`PyPI <hatch>`
 
 Hatch is a unified command-line tool meant to conveniently manage
 dependencies and environment isolation for Python developers. Python
@@ -159,7 +159,7 @@ packaging
 :doc:`Docs <packaging:index>` |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
-`PyPI <https://pypi.org/project/packaging>`__
+:pypi:`PyPI <packaging>`
 
 Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 
@@ -188,7 +188,7 @@ pip
 `Docs <https://pip.pypa.io/>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
-`PyPI <https://pypi.org/project/pip/>`__
+:pypi:`PyPI <pip>`
 
 The most popular tool for installing Python packages, and the one
 included with modern versions of Python.
@@ -206,7 +206,7 @@ Pipenv
 :doc:`Docs <pipenv:index>` |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
-`PyPI <https://pypi.org/project/pipenv>`__
+:pypi:`PyPI <pipenv>`
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
 Python world. It harnesses `Pipfile`_, :ref:`pip`, and :ref:`virtualenv`
@@ -228,7 +228,7 @@ pipx
 
 `Docs <https://pipx.pypa.io/>`__ |
 `GitHub <https://github.com/pypa/pipx>`__ |
-`PyPI <https://pypi.org/project/pipx/>`__
+:pypi:`PyPI <pipx>`
 
 pipx is a tool to install and run Python command-line applications without
 causing dependency conflicts with other packages installed on the system.
@@ -249,7 +249,7 @@ readme_renderer
 ===============
 
 `GitHub and docs <https://github.com/pypa/readme_renderer/>`__ |
-`PyPI <https://pypi.org/project/readme-renderer/>`__
+:pypi:`PyPI <readme-renderer>`
 
 ``readme_renderer`` is a library that package developers use to render
 their user documentation (README) files into HTML from markup
@@ -266,7 +266,7 @@ Setuptools
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
-`PyPI <https://pypi.org/project/setuptools>`__
+:pypi:`PyPI <setuptools>`
 
 Setuptools is a collection of enhancements to the Python distutils
 that allow you to more easily build and distribute Python
@@ -279,8 +279,7 @@ trove-classifiers
 =================
 
 `Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub
-<https://github.com/pypa/trove-classifiers>`__ | `PyPI
-<https://pypi.org/project/trove-classifiers/>`__
+<https://github.com/pypa/trove-classifiers>`__ | :pypi:`PyPI <trove-classifiers>`
 
 trove-classifiers is the canonical source for `classifiers on PyPI
 <https://pypi.org/classifiers/>`_, which project maintainers use to
@@ -306,7 +305,7 @@ twine
 `Docs <https://twine.readthedocs.io/en/latest/>`__ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
 `GitHub <https://github.com/pypa/twine>`__ |
-`PyPI <https://pypi.org/project/twine>`__
+:pypi:`PyPI <twine>`
 
 Twine is the primary tool developers use to upload packages to the
 Python Package Index or other Python package indexes. It is a
@@ -323,7 +322,7 @@ virtualenv
 `Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
-`PyPI <https://pypi.org/project/virtualenv/>`__
+:pypi:`PyPI <virtualenv>`
 
 virtualenv is a tool for creating isolated Python :term:`Virtual Environments
 <Virtual Environment>`, like :ref:`venv`. Unlike :ref:`venv`, virtualenv can
@@ -356,7 +355,7 @@ wheel
 `Docs <https://wheel.readthedocs.io/en/latest/>`__ |
 `Issues <https://github.com/pypa/wheel/issues>`__ |
 `GitHub <https://github.com/pypa/wheel>`__ |
-`PyPI <https://pypi.org/project/wheel>`__
+:pypi:`PyPI <wheel>`
 
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
 creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
@@ -380,7 +379,7 @@ buildout
 
 `Docs <http://www.buildout.org/en/latest/>`__ |
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
-`PyPI <https://pypi.org/project/zc.buildout>`__ |
+:pypi:`PyPI <zc.buildout>` |
 `GitHub <https://github.com/buildout/buildout/>`__
 
 Buildout is a Python-based build system for creating, assembling and deploying
@@ -426,7 +425,7 @@ devpi
 
 `Docs <http://doc.devpi.net/latest/>`__ |
 :gh:`Issues <devpi/devpi/issues>` |
-`PyPI <https://pypi.org/project/devpi>`__
+:pypi:`PyPI <devpi>`
 
 devpi features a powerful PyPI-compatible server and PyPI proxy cache
 with a complementary command line tool to drive packaging, testing and
@@ -442,7 +441,7 @@ dumb-pypi
 =========
 
 `GitHub <https://github.com/chriskuehl/dumb-pypi>`__ |
-`PyPI <https://pypi.org/project/dumb-pypi>`__
+:pypi:`PyPI <dumb-pypi>`
 
 dumb-pypi is a simple :term:`package index <Package Index>` static file site
 generator, which then must be hosted by a static file webserver to become the
@@ -455,7 +454,7 @@ enscons
 
 :gh:`Source <dholth/enscons>` |
 :gh:`Issues <dholth/enscons/issues>` |
-`PyPI <https://pypi.org/project/enscons>`__
+:pypi:`PyPI <enscons>`
 
 Enscons is a Python packaging tool based on `SCons`_. It builds
 :ref:`pip`-compatible source distributions and wheels without using
@@ -514,7 +513,7 @@ pdm
 
 `Docs <https://pdm.fming.dev/>`__ |
 `GitHub <https://github.com/pdm-project/pdm/>`__ |
-`PyPI <https://pypi.org/project/pdm>`__
+:pypi:`PyPI <pdm>`
 
 PDM is a modern Python package manager. It uses :term:`pyproject.toml` to store
 project metadata as defined in :pep:`621`.
@@ -526,7 +525,7 @@ pex
 
 `Docs <https://docs.pex-tool.org/>`__ |
 `GitHub <https://github.com/pex-tool/pex/>`__ |
-`PyPI <https://pypi.org/project/pex>`__
+:pypi:`PyPI <pex>`
 
 Pex is a tool for generating :file:`.pex` (Python EXecutable)
 files, standalone Python environments in the spirit of :ref:`virtualenv`.
@@ -544,7 +543,7 @@ pip-tools
 
 `Docs <https://pip-tools.readthedocs.io/en/latest/>`__ |
 `GitHub <https://github.com/pypa/pip-tools/>`__ |
-`PyPI <https://pypi.org/project/pip-tools/>`__
+:pypi:`PyPI <pip-tools>`
 
 pip-tools is a suite of tools meant for Python system administrators
 and release managers who particularly want to keep their builds
@@ -577,7 +576,7 @@ poetry
 
 `Docs <https://python-poetry.org/>`__ |
 `GitHub <https://github.com/python-poetry/poetry>`__ |
-`PyPI <https://pypi.org/project/poetry/>`__
+:pypi:`PyPI <poetry>`
 
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
@@ -592,7 +591,7 @@ proxpi
 ======
 
 :gh:`GitHub <EpicWink/proxpi>` |
-`PyPI <https://pypi.org/project/proxpi/>`__
+:pypi:`PyPI <proxpi>`
 
 proxpi is a simple :term:`package index <Package Index>` which proxies PyPI
 and other indexes with caching.
@@ -604,7 +603,7 @@ Pulp-python
 
 `Docs <https://pulpproject.org/pulp_python/>`__ |
 :gh:`GitHub <pulp/pulp_python>` |
-`PyPI <https://pypi.org/project/pulp-python/>`__
+:pypi:`PyPI <pulp-python>`
 
 Pulp-python is the Python :term:`package index <Package Index>` plugin for
 `Pulp <https://pulpproject.org/>`_. Pulp-python supports mirrors backed by
@@ -617,7 +616,7 @@ pypiserver
 ==========
 
 `GitHub <https://github.com/pypiserver/pypiserver>`__ |
-`PyPI <https://pypi.org/project/pypiserver/>`__
+:pypi:`PyPI <pypiserver>`
 
 pypiserver is a minimalist application that serves as a private Python
 :term:`package index <Package Index>` (from a local directory) within
@@ -634,7 +633,7 @@ PyScaffold
 
 `Docs <https://pyscaffold.org>`__ |
 `GitHub <https://github.com/pyscaffold/pyscaffold>`__ |
-`PyPI <https://pypi.org/project/pyscaffold/>`__
+:pypi:`PyPI <pyscaffold>`
 
 PyScaffold is a project generator for bootstrapping Python packages,
 ready to be shared on PyPI and installable via :ref:`pip`.
@@ -651,15 +650,15 @@ scikit-build
 
 `Docs <https://scikit-build.readthedocs.io/en/latest/>`__ |
 `GitHub <https://github.com/scikit-build/scikit-build/>`__ |
-`PyPI <https://pypi.org/project/scikit-build>`__
+:pypi:`PyPI <scikit-build>`
 
 Scikit-build is a :ref:`setuptools` wrapper for CPython that builds
 C/C++/Fortran/Cython extensions It uses
-`cmake <https://pypi.org/project/cmake>`__ (available on PyPI) to provide
+:pypi:`cmake` (available on PyPI) to provide
 better support for additional compilers, build systems, cross compilation, and
 locating dependencies and their associated build requirements. To speed up and
-parallelize the build of large projects, the user can install `ninja
-<https://pypi.org/project/ninja>`__ (also available on PyPI).
+parallelize the build of large projects, the user can install :pypi:`ninja`
+(also available on PyPI).
 
 .. _scikit-build-core:
 
@@ -668,11 +667,11 @@ scikit-build-core
 
 `Docs <https://scikit-build-core.readthedocs.io/en/latest/>`__ |
 `GitHub <https://github.com/scikit-build/scikit-build-core/>`__ |
-`PyPI <https://pypi.org/project/scikit-build-core>`__
+:pypi:`PyPI <scikit-build-core>`
 
 Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython
-extensions.  It enables users to write extensions with `cmake
-<https://pypi.org/project/cmake>`__ (available on PyPI) to provide better
+extensions.  It enables users to write extensions with :pypi:`cmake`
+(available on PyPI) to provide better
 support for additional compilers, build systems, cross compilation, and
 locating dependencies and their associated build requirements. CMake/Ninja
 are automatically downloaded from PyPI if not available on the system.
@@ -684,7 +683,7 @@ shiv
 
 `Docs <https://shiv.readthedocs.io/en/latest/>`__ |
 `GitHub <https://github.com/linkedin/shiv>`__ |
-`PyPI <https://pypi.org/project/shiv/>`__
+:pypi:`PyPI <shiv>`
 
 shiv is a command line utility for building fully self contained
 Python zipapps as outlined in :pep:`441`, but with all their
@@ -697,7 +696,7 @@ simpleindex
 ===========
 
 :gh:`GitHub <uranusjr/simpleindex>` |
-`PyPI <https://pypi.org/project/simpleindex/>`__
+:pypi:`PyPI <simpleindex>`
 
 simpleindex is a :term:`package index <Package Index>` which routes URLs to
 multiple package indexes (including PyPI), serves local (or cloud-hosted,
@@ -732,7 +731,7 @@ uv
 
 `Docs <https://docs.astral.sh/uv/>`__ |
 `GitHub <https://github.com/astral-sh/uv>`__ |
-`PyPI <https://pypi.org/project/uv/>`__
+:pypi:`PyPI <uv>`
 
 A Python package and project manager, written in Rust for high performance. It
 supports creating and managing virtual environments, installing packages,
@@ -745,7 +744,7 @@ zest.releaser
 
 `Docs <https://zestreleaser.readthedocs.io/en/latest/>`__ |
 `GitHub <https://github.com/zestsoftware/zest.releaser/>`__ |
-`PyPI <https://pypi.org/project/zest.releaser/>`__
+:pypi:`PyPI <zest.releaser>`
 
 ``zest.releaser`` is a Python package release tool providing an
 abstraction layer on top of :ref:`twine`. Python developers use
