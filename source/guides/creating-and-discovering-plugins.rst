@@ -103,16 +103,14 @@ the plugin packages must omit the :file:`__init__.py` for your top-level
 package directory (``myapp`` in this case). In the namespace sub-package
 directory (``myapp/plugins``) they must either omit :file:`__init__.py`, if
 you use :ref:`native namespace packages <native-namespace-packages>`, or
-include a pkgutil-style :file:`__init__.py`, if you use the legacy approach;
-all plugins have to use the same one. Plugins will also need to list their
-packages explicitly or use :func:`setuptools.find_namespace_packages`, as
+include a pkgutil-style :file:`__init__.py`, if you use the legacy approach.
+Plugins will also need to list their packages explicitly or use :func:`setuptools.find_namespace_packages`, as
 :func:`setuptools.find_packages` skips directories without an
 :file:`__init__.py`.
 
-With native namespace packages, ``myapp.plugins`` only exists once at least
-one plugin is installed, so ``import myapp.plugins`` raises
-:exc:`ModuleNotFoundError` if there are none. Make sure your code handles that
-case.
+With native namespace packages, ``import myapp.plugins`` raises
+:exc:`ModuleNotFoundError` if no installed distribution provides the
+``myapp/plugins`` directory. Make sure your discovery code handles that case.
 
 .. warning:: Namespace packages are a complex feature and there are several
     different ways to create them. It's highly recommended to read the
