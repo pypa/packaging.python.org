@@ -303,9 +303,10 @@ Use
 
 The tags are used by installers to decide which built distribution
 (if any) to download from a list of potential built distributions.
-The installer maintains a list of (pyver, abi, arch) tuples that it
-will support.  If the built distribution's tag is ``in`` the list, then
-it can be installed.
+The installer maintains an ordered list of tags supported by the target
+environment. A wheel is tag-compatible if at least one of its tags appears in
+that list. A matching tag does not by itself guarantee installation: the
+installer can also consider metadata such as ``Requires-Python``.
 
 It is recommended that installers try to choose the most feature complete
 built distribution available (the one most specific to the installation
@@ -348,9 +349,24 @@ Sometimes there will be more than one supported built distribution for a
 particular version of a package.  For example, a packager could release
 a package tagged ``cp33-abi3-linux_x86_64`` that contains an optional C
 extension and the same distribution tagged ``py3-none-any`` that does not.
-The index of the tag in the supported tags list breaks the tie, and the
-package with the C extension is installed in preference to the package
-without because that tag appears first in the list.
+When otherwise equivalent wheels both match, the wheel with the earliest
+matching tag in the supported list is preferred. This compares each wheel's
+best match, not the order of the tags in its filename.
+
+The CPython 3.3 list above is historical. To see the first few supported
+tags for the interpreter you are running, use
+`packaging.tags.sys_tags() <https://packaging.pypa.io/en/stable/tags.html#packaging.tags.sys_tags>`_:
+
+.. code-block:: python
+
+    from itertools import islice
+
+    from packaging.tags import sys_tags
+
+    for tag in islice(sys_tags(), 5):
+        print(tag)
+
+The output depends on the Python implementation, ABI, and platform.
 
 Compressed Tag Sets
 ===================
