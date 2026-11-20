@@ -50,8 +50,8 @@ can be implemented in Python with the ``re`` module::
 Error Responses
 ---------------
 
-If a response to the simple API cannot be honored, the simple API **MUST** respond
-with an appropriate HTTP error code (in the range 400-499 or 500-599).
+Package indices
+~~~~~~~~~~~~~~~
 
 When preparing to send an error response to a requester (e.g., an installer client),
 the package index **SHOULD** format its response as an
@@ -94,6 +94,23 @@ The following is an example of a Problem Details response:
         "detail": "Consider hiring a priest",
         "instance": "https://py.example.com/ORGNAME/..."
     }
+
+
+Clients
+~~~~~~~
+
+Upon receipt of an error response from an origin, the client **SHOULD**:
+
+- Confirm that the ``Content-Type`` is ``application/problem+json``. If the ``Content-Type``
+  is not ``application/problem+json``, the client **MUST NOT** process the response
+  as if it contains a Problem Details object.
+- Deserialize the response body as JSON, and validate it as a Problem Details object.
+- Use the contents of the Problem Details object to present a contextually
+  appropriate error message to the user.
+
+If the process above fails at any step, the client **MAY** handle the original HTTP
+error response as it sees fit. This can include handling the error using any pre-existing,
+generic HTTP error handling logic.
 
 .. _simple-repository-api-versioning:
 
