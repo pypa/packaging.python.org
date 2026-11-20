@@ -21,6 +21,20 @@ out onto their final paths at any later time.
 Details
 =======
 
+The example below uses ``distribution-1.0`` as the distribution name and
+version in the archive's directory names. The ``distribution-1.0.dist-info/``
+directory contains metadata, including the ``WHEEL`` file that describes the
+archive. The optional ``distribution-1.0.data/`` directory groups files that
+need a different destination from the archive root, such as scripts, into
+subdirectories named for their destinations.
+
+An installation scheme maps keys to directories in the target Python
+environment. Two :ref:`installation path keys <python:installation_paths>`
+are ``purelib`` for platform-independent package files and ``platlib`` for
+platform-specific package files. These keys can point to the same directory,
+usually ``site-packages``. The ``Root-Is-Purelib`` field in ``WHEEL`` tells
+the installer which key to use for the archive root.
+
 Installing a wheel 'distribution-1.0-py32-none-any.whl'
 -------------------------------------------------------
 
@@ -43,8 +57,6 @@ Wheel installation notionally consists of two phases:
      destination path. Each subdirectory of ``distribution-1.0.data/``
      is a key into a dict of destination directories, such as
      ``distribution-1.0.data/(purelib|platlib|headers|scripts|data)``.
-     These subdirectories are :ref:`installation paths defined by sysconfig
-     <python:installation_paths>`.
   c. If applicable, update scripts starting with ``#!python`` to point
      to the correct interpreter.
   d. Update ``distribution-1.0.dist-info/RECORD`` with the installed
