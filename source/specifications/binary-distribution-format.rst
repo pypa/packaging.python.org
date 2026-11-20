@@ -24,6 +24,10 @@ Details
 Installing a wheel 'distribution-1.0-py32-none-any.whl'
 -------------------------------------------------------
 
+``purelib`` is the installation path for platform-independent Python modules.
+``platlib`` is the installation path for platform-specific Python modules.
+On some platforms, both paths point to the same directory.
+
 Wheel installation notionally consists of two phases:
 
 - Unpack.
