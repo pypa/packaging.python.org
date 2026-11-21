@@ -44,6 +44,11 @@ are defined:
   also add the system site directories to ``sys.path`` after the virtual
   environment site directories. If ``false``, the system site directories are
   not included. Defaults to ``true``.
+* ``python-version``: Contains a string value with the major and minor version
+  of the Python interpreter, such as ``3.16``. The value can be obtained with
+  ``f"{sys.version_info[0]}.{sys.version_info[1]}"``. It omits the patch
+  version or any other version components. Tools MUST write ``python-version``
+  to ``pyvenv.cfg`` when creating the virtual environment.
 
 
 Declaring installation environments as Python virtual environments
@@ -63,3 +68,4 @@ History
 - May 2012: This specification was approved through :pep:`405`.
 - Nov 2026: Removed PEP 405 references and clarified that
   ``include-system-site-packages`` defaults to ``true``.
+- Nov 2026: Added ``python-version`` from :pep:`838`.
