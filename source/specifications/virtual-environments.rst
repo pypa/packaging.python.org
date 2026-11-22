@@ -40,10 +40,11 @@ are defined:
 
 * ``home``: The directory containing the Python executable used to create this
   virtual environment.
-* ``include-system-site-packages``: When ``true``, the ``site`` module will
-  also add the system site directories to ``sys.path`` after the virtual
-  environment site directories. If ``false``, the system site directories are
-  not included. The value is not case sensitive. Defaults to ``true``.
+* ``include-system-site-packages``: When ``true`` or absent, the ``site``
+  module will also add the system site directories to ``sys.path`` after the
+  virtual environment site directories. If ``false``, the system site
+  directories are not included. It is RECOMMENDED to set it to ``false`` when
+  creating a virtual environments. The value is not case sensitive.
 
 
 Declaring installation environments as Python virtual environments
