@@ -176,7 +176,7 @@ Conclusion
 ==========
 
 You know by now how to package a command-line application written in Python. A further step could be to distribute your package,
-meaning uploading it to a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python Package Index (PyPI)>`. To do that, follow the instructions at :ref:`Packaging your project`. And once you're done, don't forget to :ref:`do some research <analyzing-pypi-package-downloads>` on how your package is received!
+meaning uploading it to a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python Package Index (PyPI)>`. To do that, follow the instructions in the :doc:`packaging tutorial </tutorials/packaging-projects>`. And once you're done, don't forget to :ref:`do some research <analyzing-pypi-package-downloads>` on how your package is received!
 
 .. _click: https://click.palletsprojects.com/
 .. _docopt: https://docopt.readthedocs.io/en/latest/

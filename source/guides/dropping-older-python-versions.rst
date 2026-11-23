@@ -114,7 +114,7 @@ Validate that the following is in place, before publishing the package:
 4. Publishing the package
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Proceed as suggested in :ref:`Uploading your Project to PyPI`.
+Proceed as suggested in the :doc:`packaging tutorial </tutorials/packaging-projects>`.
 
 Dropping a Python version
 -------------------------
