@@ -15,6 +15,11 @@ to build the package, and how to upload it to the Python Package Index (PyPI).
 
 .. _packaging-problems: https://github.com/pypa/packaging-problems
 
+If you see the ``>>>`` prompt, you're in Python's interactive interpreter.
+Open a terminal, such as Terminal on macOS or PowerShell on Windows, to run the
+commands in the platform tabs below. See :ref:`installing_requirements` for
+help running Python from the command line.
+
 Some of the commands require a newer version of :ref:`pip`, so start by making
 sure you have the latest version installed:
 
