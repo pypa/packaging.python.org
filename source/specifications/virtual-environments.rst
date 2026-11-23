@@ -12,9 +12,10 @@ of installed Python packages in its site directories, but shares the standard
 library with the base installed Python.
 
 A Python interpreter detects whether it is in a virtual environment by looking
-for a ``pyvenv.cfg`` file one or two levels above its executable (without
-resolving symlinks). The ``pyvenv.cfg`` needs to have at least a ``home`` key
-to declare a virtual environment.
+for a ``pyvenv.cfg`` file in the directory containing its executable or in that
+directory's parent, without resolving symlinks to the executable. The
+``pyvenv.cfg`` needs to have at least a ``home`` key to declare a virtual
+environment.
 
 
 Runtime detection of virtual environments
