@@ -179,6 +179,11 @@ Each of the keys defines a "packaging extra". In the example above, one
 could use, e.g., ``pip install your-project-name[gui]`` to install your
 project with GUI support, adding the PyQt5 dependency.
 
+To keep your package usable without optional dependencies, import them only where
+needed, and handle their absence explicitly. If a user requests a feature whose
+dependencies are missing, provide an error message explaining which extra to
+install, for example, ``your-project-name[gui]``.
+
 .. _self-referential-extras:
 
 You can also define an extra that refers back to the current project with
