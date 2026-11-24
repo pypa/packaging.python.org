@@ -145,6 +145,13 @@ development environments on a collaborative Python project! ✨ 🍰 ✨
 If you're interested in creating and distributing your own Python packages, see
 the :doc:`packaging tutorial <packaging-projects>`.
 
+You can follow the packaging tutorial on its own. If you're packaging an
+application from this tutorial, keep ``Pipfile.lock`` for recreating the
+application environment. Declare the dependencies that consumers of your
+package need in :ref:`the project's package metadata <pyproject-toml-dependencies>`.
+Hatchling reads that metadata from ``pyproject.toml``. It does not use the
+Pipenv lock file to populate the wheel's dependency metadata.
+
 Note that when your application includes definitions of Python source packages,
 they (and their dependencies) can be added to your ``pipenv`` environment with
 ``pipenv install -e <relative-path-to-source-directory>`` (e.g.
