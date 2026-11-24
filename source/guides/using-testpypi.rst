@@ -55,7 +55,9 @@ You can use :ref:`pip` to install a wheel that you uploaded to TestPyPI:
 The ``--index-url`` flag selects TestPyPI instead of PyPI. The ``--no-deps``
 flag prevents installing runtime dependencies, while ``--only-binary=:all:``
 requires a wheel, avoiding installation of build dependencies. If your package
-has dependencies, install them separately from PyPI before running these commands.
+has dependencies, install them separately from PyPI before running these commands
+(for example, run ``pip install --only-deps .`` from your project directory;
+this requires pip 26.2 or later).
 
 .. warning::
 
