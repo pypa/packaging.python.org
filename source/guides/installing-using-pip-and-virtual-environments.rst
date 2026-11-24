@@ -73,10 +73,9 @@ can just create this in your project and call it ``.venv``.
 Activate a virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before you can start installing or using packages in your virtual environment you'll
-need to ``activate`` it. Activating a virtual environment will put the
-virtual environment-specific ``python`` and ``pip`` executables into your
-shell's ``PATH``.
+Activating a virtual environment puts its executable directory first on
+your current shell's ``PATH``. This lets commands such as ``python`` and
+``pip`` select the copies in the virtual environment.
 
 .. tab:: Unix/macOS
 
@@ -121,9 +120,24 @@ filepath that includes the ``.venv`` directory, by ending with the following:
         .venv\Scripts\python
 
 
-While a virtual environment is activated, pip will install packages into that
-specific environment. This enables you to import and use packages in your
-Python application.
+Activation is optional. You can run the virtual environment's Python
+directly, including when invoking pip:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        .venv/bin/python -m pip --version
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        .venv\Scripts\python.exe -m pip --version
+
+Use the same executable path with ``-m pip install`` to install packages
+into that environment, or with a script path to run a Python program there.
+The rest of this guide assumes you activated the environment.
 
 
 Deactivate a virtual environment
