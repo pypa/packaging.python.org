@@ -140,7 +140,7 @@ Archives in Version Control
 
 A top-level ``file`` field MAY be present for VCS repositories, containing the
 location of an archive relative to the root of a VCS repository. The filename
-of the path must be a valid distribution name. This key is mutually exclusive
+of the path must be a valid archive name. This key is mutually exclusive
 with ``subdirectory``. Note that ``file`` has no PEP 508 equivalent.
 
 .. _direct-url-data-structure-registered-vcs:
