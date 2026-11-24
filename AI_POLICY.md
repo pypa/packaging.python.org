@@ -1,5 +1,4 @@
-AI Policy
-=========
+# AI Policy
 
 AI-assisted contributions are accepted only if:
 
@@ -23,6 +22,6 @@ Only humans can be named as co-authors, and AI can *never* sign off on a
 commit. The Linux kernel trailer should be used to credit AI assistance, like
 this:
 
-.. code-block:: text
-
-   Assisted-by: <harness>:<model>
+```text
+Assisted-by: <harness>:<model>
+```

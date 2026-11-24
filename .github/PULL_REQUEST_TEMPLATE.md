@@ -20,6 +20,6 @@ If no AI tools were used, please write "No AI tools used" in this section.
 All interactions with reviewers must be performed by humans, including the submission of PRs.
 
 Read the Python Packaging User Guide's policy on AI-assisted contributions at
-https://packaging.python.org/en/latest/contribute/#ai-policy
+https://github.com/pypa/packaging.python.org/blob/main/AI_POLICY.md
 
 -->
