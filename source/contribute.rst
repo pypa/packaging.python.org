@@ -28,6 +28,11 @@ By contributing to the |PyPUG|, you're expected to follow the PSF's
 .. __: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
 
 
+.. _ai-policy:
+
+.. include:: ../AI_POLICY.rst
+
+
 Documentation types
 ===================
 
