@@ -14,8 +14,6 @@ Creating the package
 First of all, create a source tree for the :term:`project <Project>`. For the sake of an example, we'll
 build a simple tool outputting a greeting (a string) for a person based on arguments given on the command-line.
 
-.. todo:: Advise on the optimal structure of a Python package in another guide or discussion and link to it here.
-
 This project will adhere to :ref:`src-layout <src-layout-vs-flat-layout>` and in the end be alike this file tree,
 with the top-level folder and package name ``greetings``:
 
@@ -94,6 +92,16 @@ so initialize the command-line interface here:
 	if __name__ == "__main__":
 	    from greetings.cli import app
 	    app()
+
+In this layout, importing ``greetings`` runs :file:`__init__.py`, which can
+stay empty. Running ``python -m greetings`` then runs :file:`__main__.py`.
+Keep that entry point small and put the reusable CLI callable in an importable
+module such as :file:`cli.py`. Both :file:`__main__.py` and the installed
+script declared in ``[project.scripts]`` can call the same object. Code that
+needs that callable can import it from ``greetings.cli``.
+See the `Python documentation for __main__`_ for more details.
+
+.. _Python documentation for __main__: https://docs.python.org/3/library/__main__.html
 
 .. note::
 
