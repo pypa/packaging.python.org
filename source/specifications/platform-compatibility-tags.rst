@@ -93,7 +93,9 @@ Basic platform tags
 In its simplest form, the platform tag is :py:func:`sysconfig.get_platform()` with
 all hyphens ``-`` and periods ``.`` replaced with underscore ``_``.
 Until the removal of :ref:`distutils` in Python 3.12, this
-was ``distutils.util.get_platform()``. For example:
+was ``distutils.util.get_platform()``. Build tools may apply additional
+platform-specific corrections; for example, ``wheel.bdist_wheel.get_platform()``
+is used when building wheels. For example:
 
 * win32
 * linux_i386
