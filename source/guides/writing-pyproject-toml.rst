@@ -164,7 +164,8 @@ syntax you can use to constrain versions.
 
 You may want to make some of your dependencies optional, if they are
 only needed for a specific feature of your package. In that case, put
-them in ``optional-dependencies``.
+them in ``optional-dependencies``. Your package should remain usable without
+these optional dependencies installed.
 
 .. code-block:: toml
 
