@@ -80,37 +80,17 @@ Existing projects
      -
      -
 
-   * - :ref:`pypiprivate`
-     -
-     -
-     -
-
-   * - :ref:`pypicloud`
-     -
-     -
-     - unmaintained; also cached proxying; authentication, authorisation
-
-   * - :ref:`pywharf`
-     -
-     -
-     - unmaintained; serve files in GitHub
-
    * - :ref:`pulppython`
      - ✔
      -
      - also mirroring, proxying; plugin for Pulp
-
-   * - :ref:`pip2pi`
-     -
-     -
-     - also mirroring; manual synchronisation
 
    * - :ref:`dumb-pypi`
      -
      -
      - not a server, but a static file site generator
 
-   * - :ref:`httpserver`
+   * - `http.server <https://docs.python.org/3/library/http.server.html>`__
      -
      -
      - standard-library
@@ -134,4 +114,4 @@ Existing projects
 .. [2] Can be configured to fall back to PyPI (or another package index)
        if a requested package is missing.
 
-.. _Twisted: https://twistedmatrix.com/
+.. _Twisted: https://twisted.org/

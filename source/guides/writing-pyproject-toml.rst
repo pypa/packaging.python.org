@@ -6,7 +6,7 @@ Writing your ``pyproject.toml``
 
 ``pyproject.toml`` is a configuration file used by packaging tools, as
 well as other tools such as linters, type checkers, etc. There are
-three possible TOML tables in this file.
+four possible TOML tables in this file.
 
 - The ``[build-system]`` table is **strongly recommended**. It allows
   you to declare which :term:`build backend` you use and which other
@@ -14,6 +14,10 @@ three possible TOML tables in this file.
 
 - The ``[project]`` table is the format that most build backends use to specify
   your project's basic metadata, such as the dependencies, your name, etc.
+
+- The ``[dependency-groups]`` table specifies dependencies for development tasks
+  such as testing and linting. See the
+  :ref:`Dependency Groups specification <dependency-groups>`.
 
 - The ``[tool]`` table has tool-specific subtables, e.g., ``[tool.hatch]``,
   ``[tool.black]``, ``[tool.mypy]``. We only touch upon this table here because
@@ -175,6 +179,33 @@ Each of the keys defines a "packaging extra". In the example above, one
 could use, e.g., ``pip install your-project-name[gui]`` to install your
 project with GUI support, adding the PyQt5 dependency.
 
+.. _self-referential-extras:
+
+You can also define an extra that refers back to the current project with
+other extras. This is useful for convenience extras that combine several
+optional features (such as an ``all`` extra hosting dependencies from both
+``gui`` and ``cli``):
+
+.. code-block:: toml
+
+    all = ["your-project-name[gui, cli]"]
+
+The combined extra does not need its own manually maintained copy of each
+referenced extra's dependencies, which can otherwise fall out of sync after
+a few years of maintenance and bug fixes:
+
+.. code-block:: toml
+
+    gui = ["PyQt5"]
+    cli = [
+      "rich>=14.2",   # version range is added after last "all" extra update
+      "textual",      # dependency newly added since last "all" extra update
+      "click",
+    ]
+    all = ["PyQt5", "rich", "click"]
+
+Most package managers now support this kind of extra, including
+:ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`.
 
 .. _requires-python:
 .. _python_requires:
@@ -207,6 +238,12 @@ To install a command as part of your package, declare it in the
 In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
 ``import sys; from spam import main_cli; sys.exit(main_cli())``.
+
+If your callable is in a submodule, use an
+:ref:`object reference <entry-points>` such as ``spam.cli:main``. The part
+before the colon names the module to import; the part after it identifies
+a callable object through attribute lookup in that module. The callable
+is invoked with no arguments.
 
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
@@ -255,7 +292,7 @@ an email address.
 ---------------
 
 This should be a one-line description of your project, to show as the "headline"
-of your project page on PyPI (`example <pypi-pip_>`_), and other places such as
+of your project page on PyPI (:pypi:`example <pip>`), and other places such as
 lists of search results (`example <pypi-search-pip_>`_).
 
 .. code-block:: toml
@@ -296,22 +333,25 @@ You can also specify the format explicitly, like this:
 ``license`` and ``license-files``
 ---------------------------------
 
-As per :pep:`639`, licenses should be declared with two fields:
+The :ref:`Core Metadata specification <core-metadata-license-expression>` defines
+two fields for modern license metadata. They serve different purposes and can be
+used independently:
 
-- ``license`` is an :term:`SPDX license expression <License Expression>`
+- ``license`` declares an :term:`SPDX license expression <License Expression>`
   consisting of one or more :term:`license identifiers <License Identifier>`.
-- ``license-files`` is a list of license file glob patterns.
+- ``license-files`` specifies glob patterns matching license files and other
+  legal notices to include in distribution archives.
 
 A previous PEP had specified ``license`` to be a table with a ``file`` or a
 ``text`` key, this format is now deprecated. Most :term:`build backends<build
 backend>` now support the new format as shown in the following table.
 
-.. list-table:: build backend versions that introduced :pep:`639` support
+.. list-table:: build backend versions supporting the standardized license fields
    :header-rows: 1
 
    * - hatchling
      - setuptools
-     - flit-core [#flit-core-pep639]_
+     - flit-core
      - pdm-backend
      - poetry-core
      - uv-build
@@ -321,6 +361,9 @@ backend>` now support the new format as shown in the following table.
      - 2.4.0
      - 2.2.0
      - 0.7.19
+
+The table lists minimum backend versions for these fields; prefer a current
+supported backend release when possible.
 
 
 .. _license:
@@ -344,7 +387,8 @@ The full license list is available at the
 .. note:: If you get a build error that ``license`` should be a dict/table,
    your build backend doesn't yet support the new format. See the
    `above section <license-and-license-files_>`_ for more context.
-   The now deprecated format is `described in PEP 621 <https://peps.python.org/pep-0621/#license>`__.
+   The now deprecated format is described in
+   :ref:`the pyproject.toml specification <pyproject-toml-license-legacy>`.
 
 As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
@@ -454,7 +498,7 @@ sidebar of your PyPI project page.
 
     See :ref:`well-known-labels` for a listing
     of labels that PyPI and other packaging tools are specifically aware of,
-    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_
+    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-links>`_
     for PyPI-specific URL processing.
 
 .. code-block:: toml
@@ -555,6 +599,7 @@ A full example
      "rich",
      "click",
    ]
+   all = ["spam-eggs[gui, cli]"]
 
    [project.urls]
    Homepage = "https://example.com"
@@ -579,14 +624,10 @@ A full example
    like ``requires-python = "<= 3.10"`` here. `This blog post <requires-python-blog-post_>`_
    contains some information regarding possible problems.
 
-.. [#flit-core-pep639] flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license expressions.
-
-.. _flit-issue-735: https://github.com/pypa/flit/issues/735
 .. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
-.. _pypi-pip: https://pypi.org/project/pip
-.. _pypi-search-pip: https://pypi.org/search?q=pip
+.. _pypi-search-pip: https://pypi.org/search/?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 .. _pytest: https://pytest.org

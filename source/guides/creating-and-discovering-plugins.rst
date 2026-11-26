@@ -19,7 +19,7 @@ Using naming convention
 
 If all of the plugins for your application follow the same naming convention,
 you can use :func:`pkgutil.iter_modules` to discover all of the top-level
-modules that match the naming convention. For example, `Flask`_ uses the
+modules that match the naming convention. For example, :pypi:`Flask` uses the
 naming convention ``flask_{plugin_name}``. If you wanted to automatically
 discover all of the Flask plugins installed:
 
@@ -35,7 +35,7 @@ discover all of the Flask plugins installed:
         if name.startswith('flask_')
     }
 
-If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins installed
+If you had both the :pypi:`Flask-SQLAlchemy` and :pypi:`Flask-Talisman <flask-talisman>` plugins installed
 then ``discovered_plugins`` would be:
 
 .. code-block:: python
@@ -48,11 +48,6 @@ then ``discovered_plugins`` would be:
 Using naming convention for plugins also allows you to query
 the Python Package Index's :ref:`simple repository API <simple-repository-api>`
 for all packages that conform to your naming convention.
-
-.. _Flask: https://pypi.org/project/Flask/
-.. _Flask-SQLAlchemy: https://pypi.org/project/Flask-SQLAlchemy/
-.. _Flask-Talisman: https://pypi.org/project/flask-talisman
-
 
 Using namespace packages
 ========================
@@ -88,13 +83,14 @@ under that namespace:
 Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` causes
 it to only look for the modules directly under that namespace. For example,
 if you have installed distributions that provide the modules ``myapp.plugins.a``
-and ``myapp.plugins.b`` then ``discovered_plugins`` in this case would be:
+and ``myapp.plugins.b``, ``discovered_plugins`` uses their fully qualified
+names as keys:
 
 .. code-block:: python
 
     {
-        'a': <module: 'myapp.plugins.a'>,
-        'b': <module: 'myapp.plugins.b'>,
+        'myapp.plugins.a': <module: 'myapp.plugins.a'>,
+        'myapp.plugins.b': <module: 'myapp.plugins.b'>,
     }
 
 This sample uses a sub-package as the namespace package (``myapp.plugins``), but
@@ -105,11 +101,17 @@ but it's not recommended to make your project's main top-level package
 bad plugin could cause the entire namespace to break which would in turn make
 your project unimportable. For the "namespace sub-package" approach to work,
 the plugin packages must omit the :file:`__init__.py` for your top-level
-package directory (``myapp`` in this case) and include the namespace-package
-style :file:`__init__.py` in the namespace sub-package directory
-(``myapp/plugins``).  This also means that plugins will need to explicitly pass
-a list of packages to :func:`setup`'s ``packages`` argument instead of using
-:func:`setuptools.find_packages`.
+package directory (``myapp`` in this case). In the namespace sub-package
+directory (``myapp/plugins``) they must either omit :file:`__init__.py`, if
+you use :ref:`native namespace packages <native-namespace-packages>`, or
+include a pkgutil-style :file:`__init__.py`, if you use the legacy approach.
+Plugins will also need to list their packages explicitly or use :func:`setuptools.find_namespace_packages`, as
+:func:`setuptools.find_packages` skips directories without an
+:file:`__init__.py`.
+
+With native namespace packages, ``import myapp.plugins`` raises
+:exc:`ModuleNotFoundError` if no installed distribution provides the
+``myapp/plugins`` directory. Make sure your discovery code handles that case.
 
 .. warning:: Namespace packages are a complex feature and there are several
     different ways to create them. It's highly recommended to read the
@@ -165,7 +167,7 @@ Now the module of your choice can be imported by executing
     section on :doc:`entry points <setuptools:userguide/entry_point>` .
 
 .. note:: Since this specification is part of the :doc:`standard library
-   <python:library/importlib.metadata>`, most packaging tools other than setuptools
+   <python:library/importlib.metadata>`, packaging tools including setuptools
    provide support for defining entry points.
 
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/

@@ -44,10 +44,8 @@ For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
 .. todo:: Write a "pip vs. Conda" comparison, here or in a new discussion.
 
-Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is deprecated
-in favor of pip (see :ref:`pip vs easy_install` for details). Likewise, do
-**not** use ``python setup.py install`` or ``python setup.py develop``, which
-are also deprecated (see :ref:`setup-py-deprecated` for background and
+Do **not** use ``python setup.py install`` or ``python setup.py develop``, which
+are deprecated (see :ref:`setup-py-deprecated` for background and
 :ref:`modernize-setup-py-project` for migration advice).
 
 
@@ -74,11 +72,11 @@ in alphabetical order:
 - :doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate from :ref:`Flit`.
   A minimal and opinionated build backend. It does not support plugins.
 
-- Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports plugins.
+- :pypi:`Hatchling <hatchling>` -- developed with but separate from :ref:`Hatch`. Supports plugins.
 
 - PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports plugins.
 
-- Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports
+- :pypi:`Poetry-core <poetry-core>` -- developed with but separate from :ref:`Poetry`. Supports
   plugins.
 
   Unlike other backends on this list, Poetry-core does not support the standard
@@ -100,10 +98,9 @@ in alphabetical order:
      :file:`setup.py` only if programmatic configuration is needed. See
      :ref:`setup-py-deprecated`.
 
-     Other examples of deprecated features you should **not** use include the
+     Another example of a deprecated feature you should **not** use is the
      ``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] table
-     <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead), and
-     the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
+     <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead).
 
 Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
 the standard library in Python 3.12, although it still remains available from
@@ -185,6 +182,4 @@ alphabetical order:
 - :doc:`tox <tox:index>`.
 
 
-.. _hatchling: https://pypi.org/project/hatchling/
 .. _pdm-backend: https://backend.pdm-project.org
-.. _poetry-core: https://pypi.org/project/poetry-core/

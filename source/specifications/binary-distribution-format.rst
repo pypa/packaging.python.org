@@ -1,13 +1,13 @@
 .. highlight:: text
 
 .. _binary-distribution-format:
+.. _wheel-distribution-format:
 
-==========================
-Binary distribution format
-==========================
+=========================
+Wheel distribution format
+=========================
 
-This page specifies the binary distribution format for Python packages,
-also called the wheel format.
+This page specifies the wheel format for Python packages.
 
 A wheel is a ZIP-format archive with a specially formatted file name and
 the ``.whl`` extension.  It contains a single distribution nearly as it
@@ -276,6 +276,8 @@ fields is specified, the :file:`.dist-info/` directory MUST contain a
 ``License-File`` fields in the :file:`METADATA` file at their respective paths
 relative to the :file:`licenses/` directory.
 
+.. _dist-info-sbom-directory:
+
 The :file:`.dist-info/sboms/` directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -396,7 +398,9 @@ History
 Appendix
 ========
 
-Example urlsafe-base64-nopad implementation::
+Example urlsafe-base64-nopad implementation:
+
+.. code-block:: python
 
     # urlsafe-base64-nopad for Python 3
     import base64

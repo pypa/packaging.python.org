@@ -1,12 +1,15 @@
+.. legacy title, keep for now to avoid breaking incoming links
+.. _pypa-specifications:
+
 .. _`packaging-specifications`:
 
-PyPA specifications
-###################
+Python Packaging Specifications
+###############################
 
 This is a list of currently active interoperability specifications maintained
-by the Python Packaging Authority. The process for updating these standards,
-and for proposing new ones, is documented on
-`pypa.io <https://www.pypa.io/en/latest/specifications/>`__.
+by the Python Packaging Council. The process for updating these standards,
+and for proposing new ones, is documented in
+`the python/packaging-council repo <https://github.com/python/packaging-council#process-for-packaging-standards>`__.
 
 .. toctree::
    :titlesonly:

@@ -14,10 +14,11 @@
 The ``pyproject.toml`` file acts as a configuration file for packaging-related
 tools (as well as other tools).
 
-The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
+The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Four
 tables are currently specified, namely
 :ref:`[build-system] <pyproject-build-system-table>`,
-:ref:`[project] <pyproject-project-table>` and
+:ref:`[project] <pyproject-project-table>`,
+:ref:`[dependency-groups] <dependency-groups>` and
 :ref:`[tool] <pyproject-tool-table>`. Other tables are reserved for future
 use (tool-specific configuration should use the ``[tool]`` table).
 
@@ -36,8 +37,8 @@ The ``[build-system]`` table is used to store build-related data.
 Initially, only one key of the table is valid and is mandatory
 for the table: ``requires``. This key must have a value of a list
 of strings representing dependencies required to execute the
-build system. The strings in this list follow the :ref:`version specifier
-specification <version-specifiers>`.
+build system. The strings in this list follow the :ref:`dependency specifier
+specification <dependency-specifiers>`.
 
 An example ``[build-system]`` table for a project built with
 ``setuptools`` is:
@@ -113,6 +114,13 @@ cannot be specified or changed by a tool (this includes data
 by the metadata). Dynamic metadata is listed via the ``dynamic`` key
 (defined later in this specification) and represents metadata that a
 tool will later provide.
+
+A key whose value is a list or a table of arbitrary entries MAY be
+specified statically *and* listed in ``dynamic`` at the same time. In
+that case the entries given statically are fixed and a build back-end
+MAY only *append* further entries to them; the back-end MUST NOT
+remove, reorder, or modify any statically-specified entries. See the
+:ref:`dynamic <pyproject-toml-dynamic>` key for details.
 
 The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>`
 will dynamically provide all keys.
@@ -215,7 +223,7 @@ If the file path ends in a case-insensitive ``.md`` suffix, then tools
 MUST assume the content-type is ``text/markdown``. If the file path
 ends in a case-insensitive ``.rst``, then tools MUST assume the
 content-type is ``text/x-rst``. If a tool recognizes more extensions
-than this PEP, they MAY infer the content-type for the user without
+than this specification, it MAY infer the content-type for the user without
 specifying this key as ``dynamic``. For all unrecognized suffixes
 when a content-type is not provided, tools MUST raise an error.
 
@@ -268,6 +276,8 @@ and all distribution files created by a build backend using the
 :file:`pyproject.toml` is the same as the one specified. If the license
 expression will differ then it should either be specified as dynamic or
 not set at all.
+
+.. _pyproject-toml-license-legacy:
 
 Legacy specification
 ''''''''''''''''''''
@@ -447,34 +457,62 @@ be ambiguous in the face of ``[project.scripts]`` and
 
 
 .. _pyproject-toml-dependencies:
+
+``dependencies``
+----------------
+
+- TOML_ type: Array of :ref:`dependency specifier <dependency-specifiers>`
+  strings (``dependencies``)
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`Requires-Dist <core-metadata-requires-dist>`
+
+``dependencies`` lists the expected dependencies of the project as an
+array of strings.
+
+Each string represents a dependency of the project and MUST be
+formatted as a valid :ref:`dependency specifier <dependency-specifiers>`.
+
+Each string maps directly to a
+:ref:`Requires-Dist <core-metadata-requires-dist>` entry.
+
+Dependencies listed in this array are always considered
+for installation, but may still contain environment markers that cause them
+to be skipped in some environments.
+
+
 .. _pyproject-toml-optional-dependencies:
 
-``dependencies``/``optional-dependencies``
-------------------------------------------
+``optional-dependencies``
+-------------------------
 
-- TOML_ type: Array of :pep:`508` strings (``dependencies``), and a
-  table with values of arrays of :pep:`508` strings
-  (``optional-dependencies``)
-- Corresponding :ref:`core metadata <core-metadata>` field:
+- TOML_ type: table with string keys mapping to arrays of
+  :ref:`dependency specifier <dependency-specifiers>` strings (``optional-dependencies``)
+- Corresponding :ref:`core metadata <core-metadata>` fields:
   :ref:`Requires-Dist <core-metadata-requires-dist>` and
   :ref:`Provides-Extra <core-metadata-provides-extra>`
 
-The (optional) dependencies of the project.
+``optional-dependencies`` is a table where each key specifies
+an extra and whose value is an array of strings using the same format as the
+``dependencies`` array (the strings in the
+arrays must be valid :ref:`dependency specifiers <dependency-specifiers>`).
 
-For ``dependencies``, it is a key whose value is an array of strings.
-Each string represents a dependency of the project and MUST be
-formatted as a valid :pep:`508` string. Each string maps directly to
-a :ref:`Requires-Dist <core-metadata-requires-dist>` entry.
-
-For ``optional-dependencies``, it is a table where each key specifies
-an extra and whose value is an array of strings. The strings of the
-arrays must be valid :pep:`508` strings. The keys MUST be valid values
+The keys MUST be valid values
 for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value
 in the array thus becomes a corresponding
 :ref:`Requires-Dist <core-metadata-requires-dist>` entry for the
 matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
+The optionality of these dependencies is recorded by modifying the environment
+marker clause on the related ``Requires-Dist`` entries to check the extra name.
+Optional dependencies are thus only considered for installation if installation
+if the associated extra name is requested.
+
+Dependency specifiers in an extra may self-reference other extras from the
+current project (e.g. ``all = ["your-project-name[gui, cli]"]``). See
+:ref:`self-referential extras <self-referential-extras>` for an example.
+Most package managers now support this kind of extra, including
+:ref:`pip`, :ref:`uv`, :ref:`poetry`, :ref:`hatch`, :ref:`pdm` and :ref:`pipenv`.
 
 .. _pyproject-toml-import-names:
 
@@ -596,8 +634,9 @@ provided via tooling later on.
   field as "Optional", the metadata MAY list it in ``dynamic`` if the
   expectation is a build back-end will provide the data for the key
   later.
-- Build back-ends MUST raise an error if the metadata specifies a
-  key statically as well as being listed in ``dynamic``.
+- Build back-ends MUST raise an error if the metadata specifies a key
+  statically as well as being listed in ``dynamic``, *unless* the key
+  represents a list or arbitrary table that can be extended, listed below.
 - If the metadata does not list a key in ``dynamic``, then a build
   back-end CANNOT fill in the requisite metadata on behalf of the user
   (i.e. ``dynamic`` is the only way to allow a tool to fill in
@@ -607,6 +646,35 @@ provided via tooling later on.
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
 
+A key whose value is a list or a table of arbitrary entries MAY be
+specified statically and listed in ``dynamic`` simultaneously. The
+keys fitting that description are:
+
+- ``authors``
+- ``classifiers``
+- ``dependencies``
+- ``entry-points``
+- ``gui-scripts``
+- ``import-names``
+- ``import-namespaces``
+- ``keywords``
+- ``license-files``
+- ``maintainers``
+- ``optional-dependencies``
+- ``scripts``
+- ``urls``
+
+When such a key is specified both statically and listed in
+``dynamic``:
+
+- A build back-end MAY only *append* entries to the value; it MUST NOT
+  remove, reorder, or modify any statically-specified entries. For
+  tables (such as ``optional-dependencies`` or ``entry-points``) this
+  means a back-end MAY add new keys and MAY append to the values of
+  existing keys (in the case of a list), but MUST NOT change or remove the
+  entries given statically.
+- A build back-end SHOULD raise an error if a key is listed in
+  ``dynamic`` and it does not support extending that key.
 
 
 .. _pyproject-tool-table:
@@ -617,7 +685,7 @@ Arbitrary tool configuration: the ``[tool]`` table
 The ``[tool]`` table is where any tool related to your Python
 project, not just build tools, can have users specify configuration
 data as long as they use a sub-table within ``[tool]``, e.g. the
-`flit <https://pypi.python.org/pypi/flit>`_ tool would store its
+:pypi:`flit` tool would store its
 configuration in ``[tool.flit]``.
 
 A mechanism is needed to allocate names within the ``tool.*``
@@ -646,5 +714,15 @@ History
 
 - October 2025: The ``import-names`` and ``import-namespaces`` keys were added
   through :pep:`794`.
+
+- January 2026: Replaced outdated direct reference to :pep:`508` with a
+  reference to :ref:`dependency-specifiers`.
+
+- May 2026: Allowed list and table keys to be specified statically as well
+  as listed in ``dynamic``, with build back-ends only able to append
+  entries, through :pep:`808`.
+
+- August 2026: Document self-referential extra as a supported feature by many
+  modern package managers of Python.
 
 .. _TOML: https://toml.io
