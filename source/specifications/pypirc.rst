@@ -46,7 +46,7 @@ Each section describing a repository defines three fields:
 .. warning::
 
     Be aware that this stores your password in plain text. For better security,
-    consider an alternative like `keyring`_, setting environment variables, or
+    consider an alternative like :pypi:`keyring`, setting environment variables, or
     providing the password on the command line.
 
     Otherwise, set the permissions on :file:`.pypirc` so that only you can view
@@ -55,8 +55,6 @@ Each section describing a repository defines three fields:
     .. code-block:: bash
 
         chmod 600 ~/.pypirc
-
-.. _keyring: https://pypi.org/project/keyring/
 
 Common configurations
 =====================
@@ -134,7 +132,7 @@ example of a :file:`$HOME/.pypirc` for PyPI, TestPyPI, and a private repository:
 .. warning::
 
     Instead of using the ``password`` field, consider saving your API tokens
-    and passwords securely using `keyring`_ (which is installed by Twine):
+    and passwords securely using :pypi:`keyring` (which is installed by Twine):
 
     .. code-block:: bash
 

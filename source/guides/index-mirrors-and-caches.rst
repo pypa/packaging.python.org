@@ -74,12 +74,6 @@ Existing projects
      - ✔
      - custom plugin enables caching; re-routing to other package indexes
 
-   * - :ref:`pypicloud`
-     - ✔
-     -
-     - ✔
-     - unmaintained; authentication, authorisation
-
    * - :ref:`pulppython`
      -
      - ✔
@@ -92,17 +86,11 @@ Existing projects
      - ✔
      - multiple proxied indexes
 
-   * - :ref:`nginx_pypi_cache`
+   * - `nginx_pypi_cache <https://github.com/hauntsaninja/nginx_pypi_cache>`__
      - ✔
      -
      - ✔
      - multiple proxied indexes
-
-   * - :ref:`flaskpypiproxy`
-     - ✔
-     -
-     - ✔
-     - unmaintained
 
    * - `Apache <https://httpd.apache.org/>`_
      - ✔

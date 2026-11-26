@@ -45,7 +45,7 @@ Packaging Python libraries and tools
 You may have heard about PyPI, ``setup.py``, and ``wheel``
 files. These are just a few of the tools Python's ecosystem provides
 for distributing Python code to developers, which you can read about in
-:doc:`guides/distributing-packages-using-setuptools`.
+:doc:`tutorials/packaging-projects`.
 
 The following approaches to packaging are meant for libraries and
 tools used by technical audience in a development setting. If you're
@@ -96,24 +96,26 @@ go to the :ref:`source-distribution-format` specification to learn more.
 
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
-`lxml <https://pypi.org/project/lxml/>`_, or BLAS libraries in the
-case of `numpy <https://pypi.org/project/numpy>`_), you will need to
+:pypi:`lxml`, or BLAS libraries in the
+case of :pypi:`numpy`), you will need to
 use the format detailed in the next section, which also has many
 advantages for pure-Python libraries.
 
 .. note:: Python and PyPI support multiple distributions providing
    different implementations of the same package. For instance the
-   unmaintained-but-seminal `PIL distribution
-   <https://pypi.org/project/PIL/>`_ provides the PIL package, and so
-   does `Pillow <https://pypi.org/project/Pillow/>`_, an
+   unmaintained-but-seminal :pypi:`PIL distribution <PIL>` provides the PIL package, and so
+   does :pypi:`Pillow`, an
    actively-maintained fork of PIL!
 
    This Python packaging superpower makes it possible for Pillow to be
    a drop-in replacement for PIL, just by changing your project's
    ``install_requires`` or ``requirements.txt``.
 
-Python binary distributions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _python-binary-distributions:
+.. _python-built-distributions:
+
+Python built distributions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So much of Python's practical power comes from its ability to
 integrate with the software ecosystem, in particular libraries written
@@ -126,7 +128,7 @@ compiled artifacts. In fact, Python's package installer, ``pip``,
 always prefers wheels because installation is always faster, so even
 pure-Python packages work better with wheels.
 
-Binary distributions are best when they come with source distributions
+Built distributions are best when they come with source distributions
 to match. Even if you don't upload wheels of your code for every
 operating system, by uploading the sdist, you're enabling users of
 other platforms to still build it for themselves. Default to
@@ -237,7 +239,7 @@ machines of developers and data scientists.
 
 Technologies which support this model:
 
-* :gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)
+* :gh:`PEX <pex-tool/pex>` (Python EXecutable)
 * :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
 * :gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)
 
@@ -272,8 +274,8 @@ analytical, and other data-oriented environments, even making its way
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
-* `Building libraries and applications with conda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
-* `Transitioning a native Python package to Anaconda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
+* `Building libraries and applications with conda <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
 
 A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
@@ -308,7 +310,7 @@ A selection of Python freezers:
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
 * `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only
 * `osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac
-* `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
+* :pypi:`pynsist` - Windows only
 
 Most of the above imply single-user deployments. For multi-component
 server applications, see :gh:`Chef Omnibus
@@ -495,7 +497,7 @@ balanced, flexible languages available.
    easy may not be for users.
 
    Among other useful points. Read more here:
-   https://jupyterlab.readthedocs.io/en/latest/developer/documentation.html
+   https://jupyterlab.readthedocs.io/en/latest/developer/contributing.html#writing-documentation
 
    At its initial publication in 2018, this document was largely based
    on "The Many Layers of Packaging" essay, here:

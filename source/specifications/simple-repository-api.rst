@@ -44,6 +44,74 @@ can be implemented in Python with the ``re`` module::
    def normalize(name):
        return re.sub(r"[-_.]+", "-", name).lower()
 
+
+.. _simple-repository-api-error-responses:
+
+Error Responses
+---------------
+
+Package indices
+~~~~~~~~~~~~~~~
+
+When preparing to send an error response to a requester (e.g., an installer client),
+the package index **SHOULD** format its response as an
+:rfc:`RFC 9457 Problem Details object <9457#section-3>`.
+
+Implementers should consult :rfc:`9457` for a fully detailed description of the
+Problem Details object format. The following is an abbreviated description:
+
+- Each Problem Details object is a JSON (:rfc:`8259`) object.
+- Each Problem Details object **MAY** have the following members. All members are optional.
+
+  - ``type`` is a JSON string containing a URI reference. It **MAY** be a "locator,"
+    i.e. an HTTP or HTTPS URI, in which case it **SHOULD** reference human-readable
+    documentation for the error being presented.
+  - ``status`` is a JSON number containing the HTTP status code for the response.
+    If present, the value of ``status`` is purely advisory.
+  - ``title`` is a JSON string containing a short, human-readable summary of the problem *type*.
+    In other words, the ``title`` is covariant with ``type``, and should not vary based on
+    the individual details of a specific occurrence.
+  - ``detail`` is a JSON string containing a human-readable explanation of the problem
+    specific to this occurrence.
+  - ``instance`` is a JSON string containing a URI reference. Like ``type``, it **MAY**
+    be a "locator," in which case it **SHOULD** reference human-readable information
+    about the problem specific to this occurrence.
+
+- Additionally, each Problem Details object **MAY** have additional members, deemed
+  "extensions." All extensions are optional.
+
+When formatting a response as a Problem Details object, the package index **MUST**
+additionally send the ``Content-Type: application/problem+json`` response header.
+
+The following is an example of a Problem Details response:
+
+.. code-block:: json
+
+    {
+        "type": "https://py.example.com/docs/auth-issues",
+        "status": 403,
+        "title": "The server is currently haunted.",
+        "detail": "Consider hiring a priest",
+        "instance": "https://py.example.com/ORGNAME/..."
+    }
+
+
+Clients
+~~~~~~~
+
+Upon receipt of an error response from an origin, the client **SHOULD**:
+
+- Confirm that the ``Content-Type`` is ``application/problem+json``. If the ``Content-Type``
+  is not ``application/problem+json``, the client **MUST NOT** process the response
+  as if it contains a Problem Details object.
+- Deserialize the response body as JSON, and validate it as a Problem Details object.
+- Use the contents of the Problem Details object to present a contextually
+  appropriate error message to the user.
+
+If the process above fails at any step, the client **MAY** handle the original HTTP
+error response as it sees fit. This can include handling the error using any pre-existing,
+generic HTTP error handling logic.
+
 .. _simple-repository-api-versioning:
 
 Versioning PyPI's Simple API
@@ -486,7 +554,7 @@ The format of this URL is ``/<project>/`` where the ``<project>`` is replaced by
 name for that project, so a project named "Silly_Walk" would
 have a URL like ``/silly-walk/``.
 
-This URL must respond with a JSON encoded dictionary that has five keys:
+This URL must respond with a JSON encoded dictionary that has up to five keys:
 
 - ``name``: The normalized name of the project.
 - ``project-status``: An optional dictionary, containing the following:
@@ -727,7 +795,7 @@ addition, it would be beneficial if any possible new major version to the API ca
 be added without disrupting existing clients expecting the previous API version.
 
 To enable this, this spec standardizes on the use of HTTP's
-`Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation>`_.
+`Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation>`_.
 
 While this spec won't fully describe the entirety of server-driven content
 negotiation, the flow is roughly:
@@ -999,3 +1067,4 @@ History
 * July 2025: project status markers in the HTML and JSON formats, in :pep:`792`
 * July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)
 * June 2026: :pep:`833` formally "freezes" the HTML representation of the simple API
+* November 2026: :pep:`847` standardizes error responses for the simple API

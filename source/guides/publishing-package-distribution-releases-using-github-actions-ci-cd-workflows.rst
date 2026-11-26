@@ -75,7 +75,7 @@ Let's begin! 🚀
 
    .. attention::
 
-      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment>`_
+      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#creating-an-environment>`_
       on each run for the ``pypi`` environment.
 
 
@@ -220,7 +220,7 @@ sure that your release pipeline remains healthy!
 
   If your repository has frequent commit activity and every push is uploaded
   to TestPyPI as described, the project might exceed the
-  `PyPI project size limit <https://pypi.org/help/#project-size-limit>`_.
+  `PyPI project size limit <https://docs.pypi.org/project-management/storage-limits/#project-size-limits>`_.
   The limit could be increased, but a better solution may constitute to
   use a PyPI-compatible server like :ref:`pypiserver` in the CI for testing purposes.
 

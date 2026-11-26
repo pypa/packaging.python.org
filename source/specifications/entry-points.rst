@@ -18,8 +18,8 @@ example:
 
 The entry point file format was originally developed to allow packages built
 with setuptools to provide integration point metadata that would be read at
-runtime with :py:mod:`importlib.metadata`. It is now defined as a PyPA interoperability
-specification in order to allow build tools other than ``setuptools`` to publish
+runtime with :py:mod:`importlib.metadata`. It is now defined as a Python packaging
+interoperability specification in order to allow build tools other than ``setuptools`` to publish
 :py:mod:`importlib.metadata` compatible entry point metadata, and runtime libraries other
 than :py:mod:`importlib.metadata` to portably read published entry point metadata
 (potentially with different caching and conflict resolution strategies).

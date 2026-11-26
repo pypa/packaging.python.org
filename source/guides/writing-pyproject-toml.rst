@@ -6,7 +6,7 @@ Writing your ``pyproject.toml``
 
 ``pyproject.toml`` is a configuration file used by packaging tools, as
 well as other tools such as linters, type checkers, etc. There are
-three possible TOML tables in this file.
+four possible TOML tables in this file.
 
 - The ``[build-system]`` table is **strongly recommended**. It allows
   you to declare which :term:`build backend` you use and which other
@@ -14,6 +14,10 @@ three possible TOML tables in this file.
 
 - The ``[project]`` table is the format that most build backends use to specify
   your project's basic metadata, such as the dependencies, your name, etc.
+
+- The ``[dependency-groups]`` table specifies dependencies for development tasks
+  such as testing and linting. See the
+  :ref:`Dependency Groups specification <dependency-groups>`.
 
 - The ``[tool]`` table has tool-specific subtables, e.g., ``[tool.hatch]``,
   ``[tool.black]``, ``[tool.mypy]``. We only touch upon this table here because
@@ -235,6 +239,12 @@ In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
 ``import sys; from spam import main_cli; sys.exit(main_cli())``.
 
+If your callable is in a submodule, use an
+:ref:`object reference <entry-points>` such as ``spam.cli:main``. The part
+before the colon names the module to import; the part after it identifies
+a callable object through attribute lookup in that module. The callable
+is invoked with no arguments.
+
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
 up. To prevent this from happening, use the ``[project.gui-scripts]``
@@ -282,7 +292,7 @@ an email address.
 ---------------
 
 This should be a one-line description of your project, to show as the "headline"
-of your project page on PyPI (`example <pypi-pip_>`_), and other places such as
+of your project page on PyPI (:pypi:`example <pip>`), and other places such as
 lists of search results (`example <pypi-search-pip_>`_).
 
 .. code-block:: toml
@@ -379,7 +389,8 @@ The full license list is available at the
 .. note:: If you get a build error that ``license`` should be a dict/table,
    your build backend doesn't yet support the new format. See the
    `above section <license-and-license-files_>`_ for more context.
-   The now deprecated format is `described in PEP 621 <https://peps.python.org/pep-0621/#license>`__.
+   The now deprecated format is described in
+   :ref:`the pyproject.toml specification <pyproject-toml-license-legacy>`.
 
 As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
@@ -489,7 +500,7 @@ sidebar of your PyPI project page.
 
     See :ref:`well-known-labels` for a listing
     of labels that PyPI and other packaging tools are specifically aware of,
-    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_
+    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-links>`_
     for PyPI-specific URL processing.
 
 .. code-block:: toml
@@ -621,8 +632,7 @@ A full example
 .. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
-.. _pypi-pip: https://pypi.org/project/pip
-.. _pypi-search-pip: https://pypi.org/search?q=pip
+.. _pypi-search-pip: https://pypi.org/search/?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 .. _pytest: https://pytest.org

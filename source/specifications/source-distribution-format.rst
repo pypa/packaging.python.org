@@ -39,7 +39,7 @@ Source distribution file name
 
 The file name of a sdist was standardised in :pep:`625`. The file name must be in
 the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised according to
-the same rules as for binary distributions (see :ref:`binary-distribution-format`),
+the same rules as for wheels (see :ref:`binary-distribution-format`),
 and ``{version}`` is the canonicalized form of the project version (see
 :ref:`version-specifiers`).
 
@@ -74,10 +74,19 @@ at their respective paths relative to the root directory of the sdist
 No other content of a sdist is required or defined. Build systems can store
 whatever information they need in the sdist to build the project.
 
-The tarball must use the modern POSIX.1-2001 pax tar format, which specifies
-UTF-8 based file names. In particular, source distribution files must be readable
+The tarball MUST use the modern POSIX.1-2001 pax tar format, which specifies
+UTF-8 based file names. In particular, source distribution files MUST be readable
 using the standard library tarfile module with the open flag 'r:gz'.
 
+The tarball MUST NOT use pax-style vendor extensions (such as ``SCHILY.xattr``
+or ``LIBARCHIVE.xattr``) for interoperability reasons.
+
+Source distributions MUST NOT use non-pax features, even if those features are
+structurally compatible with the pax standard. Installers and other consumers MAY
+warn on source distributions that are not strictly pax-conforming.
+
+Examples of non-pax features include GNU-style or legacy ("V7")-style tar members
+and sparse member encodings (e.g. ``GNU.sparse`` extensions or ``S`` typeflag members).
 
 .. _sdist-archive-features:
 

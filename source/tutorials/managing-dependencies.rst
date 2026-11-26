@@ -70,8 +70,9 @@ tutorial) and run:
     cd myproject
     pipenv install requests
 
-Pipenv will install the `Requests`_ library and create a ``Pipfile``
-for you in your project's directory. The :ref:`Pipfile` is used to track which
+Pipenv will install the :pypi:`Requests <requests>` library and create a ``Pipfile``
+for you in your project's directory. The
+`Pipfile <https://github.com/pypa/pipfile>`__ is used to track which
 dependencies your project needs in case you need to re-install them, such as
 when you share your project with others. You should get output similar to this
 (although the exact paths shown will vary):
@@ -102,7 +103,6 @@ when you share your project with others. You should get output similar to this
 
     Adding requests to Pipfile's [packages]...
 
-.. _Requests: https://pypi.org/project/requests/
 
 
 Using installed packages
@@ -143,7 +143,7 @@ Congratulations, you now know how to effectively manage dependencies and
 development environments on a collaborative Python project! ✨ 🍰 ✨
 
 If you're interested in creating and distributing your own Python packages, see
-the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
+the :doc:`packaging tutorial <packaging-projects>`.
 
 Note that when your application includes definitions of Python source packages,
 they (and their dependencies) can be added to your ``pipenv`` environment with
@@ -169,7 +169,7 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
   Python applications, but not limited to them.
 * `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package
   management relying on standards such as :pep:`517` and :pep:`621`.
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
+* `pip-tools <https://github.com/pypa/pip-tools>`_ for creating a lock file of all
   dependencies from a list of packages directly used in a project, and ensuring that
   only those dependencies are installed.
 * `Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
