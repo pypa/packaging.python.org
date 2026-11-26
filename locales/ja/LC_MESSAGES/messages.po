@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 12:18+0000\n"
+"POT-Creation-Date: 2026-10-28 20:57+0000\n"
 "PO-Revision-Date: 2026-10-28 12:10+0000\n"
 "Last-Translator: moto kawasaki <mtkwsk@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -273,10 +273,10 @@ msgid ""
 "guide:starting/installation>` to install Python 3.14 on your operating "
 "system."
 msgstr ""
-"Python 3.14。我々のビルドスクリプトは、通常、Python 3.14でのみ試験されている"
-"。あなたの使っているオペレーティングシステムにPython 3.14をインストールする方"
-"法については、 :doc:`Python のインストール指南のためのヒッチハッカーズガイド "
-"<python-guide:starting/installation>` を見てほしい。"
+"Python 3.14。我々のビルドスクリプトは、通常、Python 3.14でのみ試験されてい"
+"る。あなたの使っているオペレーティングシステムにPython 3.14をインストールする"
+"方法については、 :doc:`Python のインストール指南のためのヒッチハッカーズガイ"
+"ド <python-guide:starting/installation>` を見てほしい。"
 
 #: ../source/contribute.rst:140
 msgid ""
@@ -662,7 +662,7 @@ msgid "2021-8-24"
 msgstr "2021-8-24"
 
 #: ../source/discussions/deploying-python-applications.rst:11
-#: ../source/specifications/externally-managed-environments.rst:130
+#: ../source/specifications/externally-managed-environments.rst:124
 #: ../source/specifications/platform-compatibility-tags.rst:14
 msgid "Overview"
 msgstr "概要"
@@ -781,7 +781,7 @@ msgid "Unix (including Linux and macOS)"
 msgstr "Unix (LinuxとmacOSを含む)"
 
 #: ../source/discussions/deploying-python-applications.rst:118
-#: ../source/key_projects.rst:576
+#: ../source/key_projects.rst:575
 msgid "pex"
 msgstr "pex"
 
@@ -1121,11 +1121,19 @@ msgid "Why?"
 msgstr "なぜ？"
 
 #: ../source/discussions/downstream-packaging.rst:56
+#, fuzzy
+#| msgid ""
+#| "The vast majority of downstream packagers prefer to build packages from "
+#| "source, rather than use the upstream-provided binary packages. In some "
+#| "cases, using sources is actually required for the package to be included "
+#| "in the distribution. This is also true of pure Python packages that "
+#| "provide universal wheels. The reasons for using source distributions may "
+#| "include:"
 msgid ""
 "The vast majority of downstream packagers prefer to build packages from "
-"source, rather than use the upstream-provided binary packages. In some "
-"cases, using sources is actually required for the package to be included in "
-"the distribution. This is also true of pure Python packages that provide "
+"source, rather than use the upstream-provided wheels. In some cases, using "
+"sources is actually required for the package to be included in the "
+"distribution. This is also true of pure Python packages that provide "
 "universal wheels. The reasons for using source distributions may include:"
 msgstr ""
 "ダウンストリームのパッケージ作業者の大多数は、アップストリーム側が提供するバ"
@@ -2246,11 +2254,11 @@ msgstr ""
 "とでしょう: 短く **sdists** とも呼ばれる **ソースコード配布物 <source "
 "distributions>** と、普通は **wheels** と呼ばれる **ビルド済配布物 <built "
 "distributions>** です。例えば、 `pip 23.3.1 用の PyPI ページ <pip-pypi_>`_ で"
-"は、 ``pip-23.3.1.tar.gz`` と ``pip-23.3.1-py3-none-any.whl`` の二つの"
-"ファイルをダウンロードすることができます。前者は sdist であり、後者は wheel "
-"です。この後に説明するように、これらは異なった目的のために提供されています。 "
-"PyPI (にせよ他のどこかにせよ) パッケージを公開する時は、常に sdist とひとつま"
-"たは複数の wheel の両方をアップロードするべきです。"
+"は、 ``pip-23.3.1.tar.gz`` と ``pip-23.3.1-py3-none-any.whl`` の二つのファイ"
+"ルをダウンロードすることができます。前者は sdist であり、後者は wheel です。"
+"この後に説明するように、これらは異なった目的のために提供されています。 PyPI "
+"(にせよ他のどこかにせよ) パッケージを公開する時は、常に sdist とひとつまたは"
+"複数の wheel の両方をアップロードするべきです。"
 
 #: ../source/discussions/package-formats.rst:21
 msgid "What is a source distribution?"
@@ -2643,168 +2651,6 @@ msgstr ""
 "状況としては、 :ref:`現時点で公式にはサポートされていません <binary-"
 "distribution-format-import-wheel>` が、 一部のケースで wheel ファイルをイン"
 "ポート可能な稼働時(runtime)フォーマットとして使うことが可能です。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:6
-msgid "pip vs easy_install"
-msgstr "pip対easy_install"
-
-#: ../source/discussions/pip-vs-easy-install.rst:9
-msgid ""
-":ref:`easy_install <easy_install>`, now `deprecated`_, was released in 2004 "
-"as part of :ref:`setuptools`. It was notable at the time for "
-"installing :term:`packages <Distribution Package>` from :term:`PyPI <Python "
-"Package Index (PyPI)>` using requirement specifiers, and automatically "
-"installing dependencies."
-msgstr ""
-":ref:`easy_install <easy_install>` は、現在では `deprecated`_ とされています"
-"が、2004年に :ref:`setuptools` の一部として公開されました。 :term:`PyPI "
-"<Python Package Index (PyPI)>` から :term:`パッケージ <Distribution "
-"Package>` と、要求事項指定子を利用して依存関係にあるパッケージをも自動的にイ"
-"ンストールすることが当時としては画期的でした。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:14
-msgid ""
-":ref:`pip` came later in 2008, as an alternative to :ref:`easy_install "
-"<easy_install>`, although still largely built on top of :ref:`setuptools` "
-"components.  It was notable at the time for *not* installing packages "
-"as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but rather simply as "
-"'flat' packages from :term:`sdists <Source Distribution (or \"sdist\")>`), "
-"and introducing the idea of :ref:`Requirements Files <pip:Requirements "
-"Files>`, which gave users the power to easily replicate environments."
-msgstr ""
-"依然として :ref:`setuptools` を部品に使ってビルドされてはいます"
-"が、 :ref:`easy_install <easy_install>` を置き換えるものとして :ref:`pip` が"
-"2008年に後からやってきました。当時はパッケージを (かなり単純に :term:`sdists "
-"<Source Distribution (or \"sdist\")>` から「フラット」なパッケージとしてイン"
-"ストールするものであって) :term:`Eggs <Egg>` の形でインストールするもので"
-"も、 :term:`Eggs <Egg>` からインストールするものでも *なかった* こと、そし"
-"て、簡単に環境を再現する力をユーザに与える :ref:`Requirements Files "
-"<pip:Requirements Files>` の考え方を導入したことは注目に値します。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:22
-msgid ""
-"Here's a breakdown of the important differences between pip and the "
-"deprecated easy_install:"
-msgstr ""
-"pipと非推奨となったeasy_installの重要な違いをおさらいしておきましょう："
-
-#: ../source/discussions/pip-vs-easy-install.rst:25
-msgid "**pip**"
-msgstr ""
-
-#: ../source/discussions/pip-vs-easy-install.rst:25
-msgid "**easy_install**"
-msgstr ""
-
-#: ../source/discussions/pip-vs-easy-install.rst:27
-msgid "Installs from :term:`Wheels <Wheel>`"
-msgstr ":term:`Wheels <Wheel>` からのインストール"
-
-#: ../source/discussions/pip-vs-easy-install.rst:27
-#: ../source/discussions/pip-vs-easy-install.rst:38
-#: ../source/discussions/pip-vs-easy-install.rst:44
-#: ../source/discussions/pip-vs-easy-install.rst:48
-#: ../source/discussions/pip-vs-easy-install.rst:54
-#: ../source/discussions/pip-vs-easy-install.rst:57
-msgid "Yes"
-msgstr "はい"
-
-#: ../source/discussions/pip-vs-easy-install.rst:27
-#: ../source/discussions/pip-vs-easy-install.rst:30
-#: ../source/discussions/pip-vs-easy-install.rst:32
-#: ../source/discussions/pip-vs-easy-install.rst:35
-#: ../source/discussions/pip-vs-easy-install.rst:38
-#: ../source/discussions/pip-vs-easy-install.rst:44
-#: ../source/discussions/pip-vs-easy-install.rst:48
-#: ../source/discussions/pip-vs-easy-install.rst:51
-#: ../source/discussions/pip-vs-easy-install.rst:54
-#: ../source/discussions/pip-vs-easy-install.rst:57
-msgid "No"
-msgstr "いいえ"
-
-#: ../source/discussions/pip-vs-easy-install.rst:30
-msgid "Uninstall Packages"
-msgstr "パッケージのアンインストール"
-
-#: ../source/discussions/pip-vs-easy-install.rst:30
-msgid "Yes (``python -m pip uninstall``)"
-msgstr "はい (``python -m pip uninstall``)"
-
-#: ../source/discussions/pip-vs-easy-install.rst:32
-msgid "Dependency Overrides"
-msgstr "依存関係を上書きする"
-
-#: ../source/discussions/pip-vs-easy-install.rst:32
-msgid "Yes (:ref:`Requirements Files <pip:Requirements Files>`)"
-msgstr "はい (:ref:`Requirementsファイル <pip:Requirements Files>`"
-
-#: ../source/discussions/pip-vs-easy-install.rst:35
-msgid "List Installed Packages"
-msgstr "インストールされたパッケージのリスト"
-
-#: ../source/discussions/pip-vs-easy-install.rst:35
-msgid "Yes (``python -m pip list`` and ``python -m pip freeze``)"
-msgstr "はい (``python -m pip list`` and ``python -m pip freeze``)"
-
-#: ../source/discussions/pip-vs-easy-install.rst:38
-msgid ":pep:`438` Support"
-msgstr ":pep:`438` サポート"
-
-#: ../source/discussions/pip-vs-easy-install.rst:41
-msgid "Installation format"
-msgstr "インストールフォーマット"
-
-#: ../source/discussions/pip-vs-easy-install.rst:41
-msgid "'Flat' packages with :file:`egg-info` metadata."
-msgstr ":file:`egg-info` のメタデータを伴った「フラット」なパッケージ。"
-
-#: ../source/discussions/pip-vs-easy-install.rst:41
-msgid "Encapsulated Egg format"
-msgstr "カプセル化されたEggフォーマット"
-
-#: ../source/discussions/pip-vs-easy-install.rst:44
-msgid "sys.path modification"
-msgstr "sys.pathの変更"
-
-#: ../source/discussions/pip-vs-easy-install.rst:48
-msgid "Installs from :term:`Eggs <Egg>`"
-msgstr ":term:`Eggs <Egg>` からのインストール"
-
-#: ../source/discussions/pip-vs-easy-install.rst:51
-msgid "`pylauncher support`_"
-msgstr "`pylauncher support`_"
-
-#: ../source/discussions/pip-vs-easy-install.rst:51
-msgid "Yes [1]_"
-msgstr "はい [1]_"
-
-#: ../source/discussions/pip-vs-easy-install.rst:54
-msgid ":ref:`Multi-version Installs`"
-msgstr ":ref:`複数バージョンのインストール <Multi-version Installs>`"
-
-#: ../source/discussions/pip-vs-easy-install.rst:57
-msgid "Exclude scripts during install"
-msgstr "インストール中にスクリプトを除外する"
-
-#: ../source/discussions/pip-vs-easy-install.rst:60
-msgid "per project index"
-msgstr "プロジェクトごとの索引"
-
-#: ../source/discussions/pip-vs-easy-install.rst:60
-msgid "Only in virtualenv"
-msgstr "virtualenvの中のみ"
-
-#: ../source/discussions/pip-vs-easy-install.rst:60
-msgid "Yes, via setup.cfg"
-msgstr "はい、setup.cfgを通じて"
-
-#: ../source/discussions/pip-vs-easy-install.rst:68
-msgid ""
-"https://setuptools.readthedocs.io/en/latest/deprecated/"
-"easy_install.html#natural-script-launcher"
-msgstr ""
-"https://setuptools.readthedocs.io/en/latest/deprecated/"
-"easy_install.html#natural-script-launcher"
 
 #: ../source/discussions/setup-py-deprecated.rst:6
 msgid "Is ``setup.py`` deprecated?"
@@ -6559,8 +6405,10 @@ msgstr ""
 "す。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:123
-msgid ""
-":file:`MANIFEST.in` does not affect binary distributions such as wheels."
+#, fuzzy
+#| msgid ""
+#| ":file:`MANIFEST.in` does not affect binary distributions such as wheels."
+msgid ":file:`MANIFEST.in` does not affect built distributions such as wheels."
 msgstr ""
 ":file:`MANIFEST.in` は、wheelなどのバイナリ配布物には影響を与えません。"
 
@@ -8120,7 +7968,7 @@ msgstr ""
 "たツールチェーンと互換性がないかもしれません。"
 
 #: ../source/guides/installing-scientific-packages.rst:100
-#: ../source/key_projects.rst:812
+#: ../source/key_projects.rst:811
 msgid "Spack"
 msgstr "Spack"
 
@@ -10522,8 +10370,8 @@ msgstr ""
 "はないので、API 全体に対してビルドされた拡張は通常それがコンパイルされた "
 "CPython の機能リリースとプラットフォームに対して紐付けられています。 C "
 "Python の限定された API だけを用いる拡張は、その代わりに :ref:`StableABI "
-"<python-stable-abi>` をターゲットにしていて、単一の ``abi3`` wheel が同一"
-"プラットフォーム上の複数の Python 3 機能リリースとともに動作します。"
+"<python-stable-abi>` をターゲットにしていて、単一の ``abi3`` wheel が同一プ"
+"ラットフォーム上の複数の Python 3 機能リリースとともに動作します。"
 
 #: ../source/guides/packaging-binary-extensions.rst:122
 msgid "Alternatives to handcoded accelerator modules"
@@ -12683,12 +12531,17 @@ msgid "Write a \"pip vs. Conda\" comparison, here or in a new discussion."
 msgstr "ここか、新しい議論として、\"pip vs. Conda\" の比較を書くべし。"
 
 #: ../source/guides/tool-recommendations.rst:47
+#, fuzzy
+#| msgid ""
+#| "Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is "
+#| "deprecated in favor of pip (see :ref:`pip vs easy_install` for details). "
+#| "Likewise, do **not** use ``python setup.py install`` or ``python setup.py "
+#| "develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
+#| "background and :ref:`modernize-setup-py-project` for migration advice)."
 msgid ""
-"Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is "
-"deprecated in favor of pip (see :ref:`pip vs easy_install` for details). "
-"Likewise, do **not** use ``python setup.py install`` or ``python setup.py "
-"develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
-"background and :ref:`modernize-setup-py-project` for migration advice)."
+"Do **not** use ``python setup.py install`` or ``python setup.py develop``, "
+"which are deprecated (see :ref:`setup-py-deprecated` for background "
+"and :ref:`modernize-setup-py-project` for migration advice)."
 msgstr ""
 "``easy_install`` (:ref:`setuptools` の一部) は、 pip の登場によって非推奨に"
 "なっていますので、 **使わない** でください (詳しくは :ref:`pip vs "
@@ -12698,11 +12551,11 @@ msgstr ""
 "ついては :ref:`setup.py 近代化プロジェクト <modernize-setup-py-project>` を見"
 "てください)。"
 
-#: ../source/guides/tool-recommendations.rst:55
+#: ../source/guides/tool-recommendations.rst:53
 msgid "Lock files"
 msgstr "ロックファイル"
 
-#: ../source/guides/tool-recommendations.rst:57
+#: ../source/guides/tool-recommendations.rst:55
 msgid ""
 ":ref:`pip-tools` and :ref:`Pipenv` are two recognized tools to create lock "
 "files, which contain the exact versions of all packages installed into an "
@@ -12712,11 +12565,11 @@ msgstr ""
 "こにはその環境にインストールされたパッケージの正確なバージョンを含みますが、"
 "そのようなロックファイルを作成するためのツールとしてよく知られています。"
 
-#: ../source/guides/tool-recommendations.rst:63
+#: ../source/guides/tool-recommendations.rst:61
 msgid "Build backends"
 msgstr "ビルドバックエンド"
 
-#: ../source/guides/tool-recommendations.rst:67
+#: ../source/guides/tool-recommendations.rst:65
 msgid ""
 "Please, remember: this document does not seek to steer the reader towards a "
 "particular tool, only to enumerate common tools. Different use cases often "
@@ -12727,7 +12580,7 @@ msgstr ""
 "けです。異なるユースケースでは、しばしば、そのケースに特化したワークフローが"
 "必要になります。"
 
-#: ../source/guides/tool-recommendations.rst:71
+#: ../source/guides/tool-recommendations.rst:69
 msgid ""
 "Popular :term:`build backends <build backend>` for pure-Python packages "
 "include, in alphabetical order:"
@@ -12735,7 +12588,7 @@ msgstr ""
 "純 Python のパッケージを取り扱う :term:`ビルドバックエンド <build backend>` "
 "で人気のあるものは、アルファベット順に:"
 
-#: ../source/guides/tool-recommendations.rst:74
+#: ../source/guides/tool-recommendations.rst:72
 msgid ""
 ":doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate "
 "from :ref:`Flit`. A minimal and opinionated build backend. It does not "
@@ -12745,7 +12598,7 @@ msgstr ""
 "のもの。最小限で自己主張の強いビルドバックエンド。プラグインをサポートしな"
 "い。"
 
-#: ../source/guides/tool-recommendations.rst:77
+#: ../source/guides/tool-recommendations.rst:75
 msgid ""
 "Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports "
 "plugins."
@@ -12753,7 +12606,7 @@ msgstr ""
 "Hatchling_ -- :ref:`Hatch` とともに開発されたが別のもの。プラグインをサポート"
 "する。"
 
-#: ../source/guides/tool-recommendations.rst:79
+#: ../source/guides/tool-recommendations.rst:77
 msgid ""
 "PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports "
 "plugins."
@@ -12761,7 +12614,7 @@ msgstr ""
 "PDM-backend_ -- :ref:`PDM` とともに開発されたが別のもの。プラグインをサポー"
 "ト。"
 
-#: ../source/guides/tool-recommendations.rst:81
+#: ../source/guides/tool-recommendations.rst:79
 msgid ""
 "Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports "
 "plugins."
@@ -12769,7 +12622,7 @@ msgstr ""
 "Poetry-core_ -- :ref:`Poetry` とともに開発されたが別のもの。プラグインをサ"
 "ポート。"
 
-#: ../source/guides/tool-recommendations.rst:84
+#: ../source/guides/tool-recommendations.rst:82
 msgid ""
 "Unlike other backends on this list, Poetry-core does not support the "
 "standard :ref:`[project] table <writing-pyproject-toml>` (it uses a "
@@ -12779,14 +12632,14 @@ msgstr ""
 "な :ref:`[project] table <writing-pyproject-toml>` をサポートしていません "
 "(``[tool.poetry]`` テーブル内に別のフォーマットで書くことはできます)。"
 
-#: ../source/guides/tool-recommendations.rst:88
+#: ../source/guides/tool-recommendations.rst:86
 msgid ""
 ":ref:`setuptools`, which used to be the only build backend. Supports plugins."
 msgstr ""
 ":ref:`setuptools` は、以前は唯一のビルドバックエンドでした。プラグインをサ"
 "ポート。"
 
-#: ../source/guides/tool-recommendations.rst:92
+#: ../source/guides/tool-recommendations.rst:90
 msgid ""
 "If you use setuptools, please be aware that some features that predate "
 "standardisation efforts are now deprecated and only *temporarily kept* for "
@@ -12796,7 +12649,7 @@ msgstr ""
 "推奨になっていて互換性を保つために *一時的に継続使用* しているだけであること"
 "を忘れないでください。"
 
-#: ../source/guides/tool-recommendations.rst:96
+#: ../source/guides/tool-recommendations.rst:94
 msgid ""
 "In particular, do **not** use direct ``python setup.py`` invocations. On the "
 "other hand, configuring setuptools with a :file:`setup.py` file is still "
@@ -12812,12 +12665,19 @@ msgstr ""
 "てはいますが、 :file:`setup.py` を使って setuptools に設定を渡すことは今も完"
 "全にサポートされています。 :ref:`setup-py-deprecated` を見てください。"
 
-#: ../source/guides/tool-recommendations.rst:103
+#: ../source/guides/tool-recommendations.rst:101
+#, fuzzy
+#| msgid ""
+#| "Other examples of deprecated features you should **not** use include the "
+#| "``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] "
+#| "table <pyproject-guide-build-system-table>` in :file:`pyproject.toml` "
+#| "instead), and the ``easy_install`` command (cf. :ref:`pip vs "
+#| "easy_install`)."
 msgid ""
-"Other examples of deprecated features you should **not** use include the "
+"Another example of a deprecated feature you should **not** use is the "
 "``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] "
 "table <pyproject-guide-build-system-table>` in :file:`pyproject.toml` "
-"instead), and the ``easy_install`` command (cf. :ref:`pip vs easy_install`)."
+"instead)."
 msgstr ""
 "非推奨となって使用するべきで **なくなった** 機能の他の例としては、 "
 "``setup()`` の ``setup_requires`` 引数 (代わりに :file:`pyproject.toml` 内"
@@ -12825,7 +12685,7 @@ msgstr ""
 "てください) や、 ``easy_install`` コマンド ( :ref:`pip vs easy_install` を参"
 "照のこと) を挙げることができるでしょう。"
 
-#: ../source/guides/tool-recommendations.rst:108
+#: ../source/guides/tool-recommendations.rst:105
 msgid ""
 "Do **not** use :ref:`distutils`, which is deprecated, and has been removed "
 "from the standard library in Python 3.12, although it still remains "
@@ -12835,11 +12695,11 @@ msgstr ""
 "いますし、まだ setuptools から利用可能ではありますが Python 3.12 で標準ライブ"
 "ラリから取り除かれたものです。"
 
-#: ../source/guides/tool-recommendations.rst:115
+#: ../source/guides/tool-recommendations.rst:112
 msgid "Build backends for extension modules"
 msgstr "拡張モジュール用のビルドバックエンド"
 
-#: ../source/guides/tool-recommendations.rst:117
+#: ../source/guides/tool-recommendations.rst:114
 msgid ""
 "For packages with :term:`extension modules <extension module>`, it is best "
 "to use a build system with dedicated support for the language the extension "
@@ -12849,7 +12709,7 @@ msgstr ""
 "張が書かれた言語用の専用サポートのあるビルドシステムを使うのが最善です、例え"
 "ば:"
 
-#: ../source/guides/tool-recommendations.rst:121
+#: ../source/guides/tool-recommendations.rst:118
 msgid ""
 ":ref:`setuptools` -- natively supports C and C++ (with third-party plugins "
 "for Go and Rust),"
@@ -12857,7 +12717,7 @@ msgstr ""
 ":ref:`setuptools` -- C 言語および C++ 言語をネイティブにサポート (サードパー"
 "ティのプラグインで Go 言語と Rust 言語も)、"
 
-#: ../source/guides/tool-recommendations.rst:122
+#: ../source/guides/tool-recommendations.rst:119
 msgid ""
 ":ref:`meson-python` -- C, C++, Fortran, Rust, and other languages supported "
 "by Meson,"
@@ -12865,7 +12725,7 @@ msgstr ""
 ":ref:`meson-python` -- C 言語・ C++ 言語・ Fortran ・ Rust およびその他の言語"
 "が Meson によってサポートされています、"
 
-#: ../source/guides/tool-recommendations.rst:123
+#: ../source/guides/tool-recommendations.rst:120
 msgid ""
 ":ref:`scikit-build-core` -- C, C++, Fortran, and other languages supported "
 "by CMake,"
@@ -12873,15 +12733,15 @@ msgstr ""
 ":ref:`scikit-build-core` -- C 言語・ C++ 言語・ Fortran やその他の言語が "
 "CMake によってサポートされています、"
 
-#: ../source/guides/tool-recommendations.rst:124
+#: ../source/guides/tool-recommendations.rst:121
 msgid ":ref:`maturin` -- Rust, via Cargo."
 msgstr ":ref:`maturin` -- Rust 、 Cargo を経由して。"
 
-#: ../source/guides/tool-recommendations.rst:128
+#: ../source/guides/tool-recommendations.rst:125
 msgid "Building distributions"
 msgstr "配布物をビルドする"
 
-#: ../source/guides/tool-recommendations.rst:130
+#: ../source/guides/tool-recommendations.rst:127
 msgid ""
 "The standard tool to build :term:`source distributions <source distribution "
 "(or \"sdist\")>` and :term:`wheels <wheel>` for uploading to PyPI "
@@ -12894,7 +12754,7 @@ msgstr ""
 "<pyproject-guide-build-system-table>` ビルドバックエンドが何であれ、それを起"
 "動することになります。"
 
-#: ../source/guides/tool-recommendations.rst:135
+#: ../source/guides/tool-recommendations.rst:132
 msgid ""
 "Do **not** use ``python setup.py sdist`` and ``python setup.py bdist_wheel`` "
 "for this task. All direct invocations of :file:`setup.py` "
@@ -12904,7 +12764,7 @@ msgstr ""
 "bdist_wheel`` を **使わないで** ください。:file:`setup.py` を直接に起動するこ"
 "とは :ref:`非推奨 <setup-py-deprecated>` になっています。"
 
-#: ../source/guides/tool-recommendations.rst:139
+#: ../source/guides/tool-recommendations.rst:136
 msgid ""
 "If you have :term:`extension modules <extension module>` and want to "
 "distribute wheels for multiple platforms, use :ref:`cibuildwheel` as part of "
@@ -12914,11 +12774,11 @@ msgstr ""
 "フォーム向けに wheel ファイルを配布したいと考えているなら、配布可能な wheel "
 "ファイルをビルドする CI 環境の一部として :ref:`cibuildwheel` を使いましょう。"
 
-#: ../source/guides/tool-recommendations.rst:145
+#: ../source/guides/tool-recommendations.rst:142
 msgid "Uploading to PyPI"
 msgstr "PyPIにアップロードする"
 
-#: ../source/guides/tool-recommendations.rst:147
+#: ../source/guides/tool-recommendations.rst:144
 msgid ""
 "For projects hosted on or published via supported CI/CD platforms, it is "
 "recommended to use the :ref:`Trusted Publishing <trusted-publishing>`, which "
@@ -12931,7 +12791,7 @@ msgstr ""
 "る :ref:`Trusted Publishing <trusted-publishing>` を使うことが推奨されていま"
 "す。"
 
-#: ../source/guides/tool-recommendations.rst:152
+#: ../source/guides/tool-recommendations.rst:149
 msgid ""
 "As of November 2024, PyPI supports the following platforms as Trusted "
 "Publishing providers:"
@@ -12939,23 +12799,23 @@ msgstr ""
 "2024 年 11 月の時点では、 PyPI は以下のプラットフォームを 信頼ある公開 "
 "<Trusted Publishing> プロバイダとしてサポートしています:"
 
-#: ../source/guides/tool-recommendations.rst:155
+#: ../source/guides/tool-recommendations.rst:152
 msgid "GitHub Actions (on ``https://github.com``)"
 msgstr "(``https://github.com`` における) GitHub Actions"
 
-#: ../source/guides/tool-recommendations.rst:156
+#: ../source/guides/tool-recommendations.rst:153
 msgid "GitLab CI/CD (on ``https://gitlab.com``)"
 msgstr "(``https://gitlab.com`` における) GitLab CI/CD"
 
-#: ../source/guides/tool-recommendations.rst:157
+#: ../source/guides/tool-recommendations.rst:154
 msgid "ActiveState"
 msgstr "ActiveState"
 
-#: ../source/guides/tool-recommendations.rst:158
+#: ../source/guides/tool-recommendations.rst:155
 msgid "Google Cloud"
 msgstr "Google Cloud"
 
-#: ../source/guides/tool-recommendations.rst:160
+#: ../source/guides/tool-recommendations.rst:157
 msgid ""
 "The other available method is to upload the package manually "
 "using :ref:`twine`."
@@ -12963,7 +12823,7 @@ msgstr ""
 "利用可能なもうひとつの方法は、 :ref:`twine` を用いて手動でパッケージをアップ"
 "ロードすることです。"
 
-#: ../source/guides/tool-recommendations.rst:164
+#: ../source/guides/tool-recommendations.rst:161
 msgid ""
 "**Never** use ``python setup.py upload`` for this task. In addition to "
 "being :ref:`deprecated <setup-py-deprecated>`, it is insecure."
@@ -12972,11 +12832,11 @@ msgstr ""
 "** ください。 :ref:`非推奨 <setup-py-deprecated>` であることに加えて、危険 "
 "<insecure> です。"
 
-#: ../source/guides/tool-recommendations.rst:169
+#: ../source/guides/tool-recommendations.rst:166
 msgid "Workflow tools"
 msgstr "ワークフローツール"
 
-#: ../source/guides/tool-recommendations.rst:171
+#: ../source/guides/tool-recommendations.rst:168
 msgid ""
 "These tools are environment managers that automatically manage virtual "
 "environments for a project. They also act as \"task runners\", allowing you "
@@ -12994,31 +12854,31 @@ msgstr ""
 "のロックファイルをサポートしています。これらは、往々にして、先述のツール群を"
 "内部的に呼び出しています。アルファベット順に:"
 
-#: ../source/guides/tool-recommendations.rst:179
+#: ../source/guides/tool-recommendations.rst:176
 msgid ":ref:`Flit`,"
 msgstr ":ref:`Flit`,"
 
-#: ../source/guides/tool-recommendations.rst:180
+#: ../source/guides/tool-recommendations.rst:177
 msgid ":ref:`Hatch`,"
 msgstr ":ref:`Hatch`,"
 
-#: ../source/guides/tool-recommendations.rst:181
+#: ../source/guides/tool-recommendations.rst:178
 msgid ":doc:`nox <nox:index>`,"
 msgstr ":doc:`nox <nox:index>`,"
 
-#: ../source/guides/tool-recommendations.rst:182
+#: ../source/guides/tool-recommendations.rst:179
 msgid ":ref:`PDM`,"
 msgstr ":ref:`PDM`,"
 
-#: ../source/guides/tool-recommendations.rst:183
+#: ../source/guides/tool-recommendations.rst:180
 msgid ":ref:`Pipenv`,"
 msgstr ":ref:`Pipenv`,"
 
-#: ../source/guides/tool-recommendations.rst:184
+#: ../source/guides/tool-recommendations.rst:181
 msgid ":ref:`Poetry`,"
 msgstr ":ref:`Poetry`,"
 
-#: ../source/guides/tool-recommendations.rst:185
+#: ../source/guides/tool-recommendations.rst:182
 msgid ":doc:`tox <tox:index>`."
 msgstr ":doc:`tox <tox:index>`."
 
@@ -14094,15 +13954,11 @@ msgstr ""
 ":doc:`議論/Python アプリケーションを配置する <discussions/deploying-python-"
 "applications>`"
 
-#: ../source/index.rst:86
-msgid ":doc:`discussions/pip-vs-easy-install`"
-msgstr ":doc:`議論/pip対easy-install <discussions/pip-vs-easy-install>`"
-
-#: ../source/index.rst:89
+#: ../source/index.rst:88
 msgid "Reference"
 msgstr "参考文献"
 
-#: ../source/index.rst:91
+#: ../source/index.rst:90
 msgid ""
 "The :doc:`specifications/index` section for packaging interoperability "
 "specifications."
@@ -14110,7 +13966,7 @@ msgstr ""
 "パッケージングに関する相互運用性の仕様については、 :doc:`仕様 "
 "<specifications/index>` を見てください。"
 
-#: ../source/index.rst:92
+#: ../source/index.rst:91
 msgid ""
 "The list of :doc:`other projects <key_projects>` maintained by members of "
 "the Python Packaging Authority."
@@ -14118,7 +13974,7 @@ msgstr ""
 "Python パッケージングオーソリティのメンバーが維持管理している :doc:`他のプロ"
 "ジェクト群 <key_projects>` のリスト。"
 
-#: ../source/index.rst:93
+#: ../source/index.rst:92
 msgid "The :doc:`glossary` for definitions of terms used in Python packaging."
 msgstr ""
 "Python パッケージングで使われる用語の定義についての :doc:`語彙集 "
@@ -14234,11 +14090,20 @@ msgstr ""
 "pypi.org/project/distlib>`__"
 
 #: ../source/key_projects.rst:73
+#, fuzzy
+#| msgid ""
+#| "``distlib`` is a library which implements low-level functions that relate "
+#| "to packaging and distribution of Python software.  ``distlib`` implements "
+#| "several relevant PEPs (Python Enhancement Proposal standards) and is "
+#| "useful for developers of third-party packaging tools to make and upload "
+#| "binary and source :term:`distributions <Distribution Package>`, achieve "
+#| "interoperability, resolve dependencies, manage package resources, and do "
+#| "other similar functions."
 msgid ""
 "``distlib`` is a library which implements low-level functions that relate to "
 "packaging and distribution of Python software.  ``distlib`` implements "
 "several relevant PEPs (Python Enhancement Proposal standards) and is useful "
-"for developers of third-party packaging tools to make and upload binary and "
+"for developers of third-party packaging tools to make and upload built and "
 "source :term:`distributions <Distribution Package>`, achieve "
 "interoperability, resolve dependencies, manage package resources, and do "
 "other similar functions."
@@ -14600,11 +14465,11 @@ msgstr ""
 "または :ref:`twine` 経由でこれを呼び出し、そのパッケージに関する説明がきちん"
 "と PyPI に表示されることを確認します。"
 
-#: ../source/key_projects.rst:274
+#: ../source/key_projects.rst:273
 msgid "Setuptools"
 msgstr "Setuptools"
 
-#: ../source/key_projects.rst:276
+#: ../source/key_projects.rst:275
 msgid ""
 "`Docs <https://setuptools.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/setuptools/issues>`__ | `GitHub <https://github.com/pypa/"
@@ -14614,23 +14479,29 @@ msgstr ""
 "<https://github.com/pypa/setuptools/issues>`__ | `GitHub <https://github.com/"
 "pypa/setuptools>`__ | `PyPI <https://pypi.org/project/setuptools>`__"
 
-#: ../source/key_projects.rst:281
+#: ../source/key_projects.rst:280
+#, fuzzy
+#| msgid ""
+#| "Setuptools (which includes ``easy_install``) is a collection of "
+#| "enhancements to the Python distutils that allow you to more easily build "
+#| "and distribute Python :term:`distributions <Distribution Package>`, "
+#| "especially ones that have dependencies on other packages."
 msgid ""
-"Setuptools (which includes ``easy_install``) is a collection of enhancements "
-"to the Python distutils that allow you to more easily build and distribute "
-"Python :term:`distributions <Distribution Package>`, especially ones that "
-"have dependencies on other packages."
+"Setuptools is a collection of enhancements to the Python distutils that "
+"allow you to more easily build and distribute Python :term:`distributions "
+"<Distribution Package>`, especially ones that have dependencies on other "
+"packages."
 msgstr ""
 "(``easy_install`` を含む) Setuptools は Python の distutils への拡張を集めた"
 "もので、特に他のパッケージに依存関係がある場合に、より簡単に Python "
 "の :term:`配布物 <Distribution Package>` をビルドし配布することが可能となりま"
 "す。"
 
-#: ../source/key_projects.rst:289
+#: ../source/key_projects.rst:288
 msgid "trove-classifiers"
 msgstr "trove-classifiers"
 
-#: ../source/key_projects.rst:291
+#: ../source/key_projects.rst:290
 msgid ""
 "`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub "
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
@@ -14640,7 +14511,7 @@ msgstr ""
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
 "project/trove-classifiers/>`__"
 
-#: ../source/key_projects.rst:295
+#: ../source/key_projects.rst:294
 msgid ""
 "trove-classifiers is the canonical source for `classifiers on PyPI <https://"
 "pypi.org/classifiers/>`_, which project maintainers use "
@@ -14652,7 +14523,7 @@ msgstr ""
 "く探し出せるように、プロジェクトの保守者が :ref:`プロジェクトを体系的に表現す"
 "る <core-metadata-classifier>` のに使います。"
 
-#: ../source/key_projects.rst:300
+#: ../source/key_projects.rst:299
 msgid ""
 "The trove-classifiers package contains a list of valid classifiers and "
 "deprecated classifiers (which are paired with the classifiers that replace "
@@ -14674,11 +14545,11 @@ msgstr ""
 "pypa/trove-classifiers/issues>`_ に、提案された分類子に関する議論や新しい分類"
 "子が欲しいという要求に関する議論が公開されています。"
 
-#: ../source/key_projects.rst:314
+#: ../source/key_projects.rst:313
 msgid "twine"
 msgstr "twine"
 
-#: ../source/key_projects.rst:316
+#: ../source/key_projects.rst:315
 msgid ""
 "`Docs <https://twine.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/"
@@ -14688,7 +14559,7 @@ msgstr ""
 "<https://github.com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/"
 "twine>`__ | `PyPI <https://pypi.org/project/twine>`__"
 
-#: ../source/key_projects.rst:321
+#: ../source/key_projects.rst:320
 msgid ""
 "Twine is the primary tool developers use to upload packages to the Python "
 "Package Index or other Python package indexes. It is a command-line program "
@@ -14703,11 +14574,11 @@ msgstr ""
 "らであり、動作が速く安全であるからであり、保守されているからであり、動作が信"
 "頼できるからです。"
 
-#: ../source/key_projects.rst:331 ../source/overview.rst:405
+#: ../source/key_projects.rst:330 ../source/overview.rst:408
 msgid "virtualenv"
 msgstr "virtualenv"
 
-#: ../source/key_projects.rst:333
+#: ../source/key_projects.rst:332
 msgid ""
 "`Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ | `Issues "
 "<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
@@ -14717,7 +14588,7 @@ msgstr ""
 "<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
 "pypa/virtualenv>`__ | `PyPI <https://pypi.org/project/virtualenv/>`__"
 
-#: ../source/key_projects.rst:338
+#: ../source/key_projects.rst:337
 msgid ""
 "virtualenv is a tool for creating isolated Python :term:`Virtual "
 "Environments <Virtual Environment>`, like :ref:`venv`. Unlike :ref:`venv`, "
@@ -14734,11 +14605,11 @@ msgstr ""
 "な機能を提供しています。より詳しくは、 :ref:`仮想環境を作って使う <Creating "
 "and using Virtual Environments>` の節を見てください。"
 
-#: ../source/key_projects.rst:350
+#: ../source/key_projects.rst:349
 msgid "Warehouse"
 msgstr "Warehouse"
 
-#: ../source/key_projects.rst:352
+#: ../source/key_projects.rst:351
 msgid ""
 "`Docs <https://warehouse.pypa.io/>`__ | `Issues <https://github.com/pypa/"
 "warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
@@ -14746,7 +14617,7 @@ msgstr ""
 "`説明文書 <https://warehouse.pypa.io/>`__ | `課題リスト <https://github.com/"
 "pypa/warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
 
-#: ../source/key_projects.rst:356
+#: ../source/key_projects.rst:355
 msgid ""
 "The current codebase powering the :term:`Python Package Index (PyPI)`. It is "
 "hosted at `pypi.org <https://pypi.org/>`_. The default source for :ref:`pip` "
@@ -14756,11 +14627,11 @@ msgstr ""
 "構成しているコードベース。 `pypi.org <https://pypi.org/>`_ にホストされていま"
 "す。 :ref:`pip` がダウンロードする際のデフォルトのソースです。"
 
-#: ../source/key_projects.rst:364
+#: ../source/key_projects.rst:363
 msgid "wheel"
 msgstr "wheel"
 
-#: ../source/key_projects.rst:366
+#: ../source/key_projects.rst:365
 msgid ""
 "`Docs <https://wheel.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/"
@@ -14770,7 +14641,7 @@ msgstr ""
 "<https://github.com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/"
 "wheel>`__ | `PyPI <https://pypi.org/project/wheel>`__"
 
-#: ../source/key_projects.rst:371
+#: ../source/key_projects.rst:370
 msgid ""
 "Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` "
 "extension for creating :term:`wheel distributions <Wheel>`.  Additionally, "
@@ -14781,13 +14652,21 @@ msgstr ""
 "す。この他にも、wheel ファイルを作成しインストールするためのコマンドライン"
 "ユーティリティを提供します。"
 
-#: ../source/key_projects.rst:375
+#: ../source/key_projects.rst:374
+#, fuzzy
+#| msgid ""
+#| "See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool that "
+#| "package developers use to check and fix Python packages they are making "
+#| "in the binary wheel format. It provides functionality to discover "
+#| "dependencies, check metadata for compliance, and repair the wheel and "
+#| "metadata to properly link and include external shared libraries in a "
+#| "package."
 msgid ""
 "See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool that "
-"package developers use to check and fix Python packages they are making in "
-"the binary wheel format. It provides functionality to discover dependencies, "
-"check metadata for compliance, and repair the wheel and metadata to properly "
-"link and include external shared libraries in a package."
+"package developers use to check and fix wheels containing native code. It "
+"provides functionality to discover dependencies, check metadata for "
+"compliance, and repair the wheel and metadata to properly link and include "
+"external shared libraries in a package."
 msgstr ""
 "パッケージ開発者がバイナリの wheel フォーマットで開発中の Python パッケージを"
 "チェックし問題を解決するためのツールである `auditwheel <https://github.com/"
@@ -14795,15 +14674,15 @@ msgstr ""
 "のためのメタデータを確認し、 wheel とメタデータがパッケージないの外部共有ライ"
 "ブラリに正しくリンクしインクルードするように修正する機能を提供します。"
 
-#: ../source/key_projects.rst:384
+#: ../source/key_projects.rst:383
 msgid "Non-PyPA Projects"
 msgstr "非 PyPA プロジェクト"
 
-#: ../source/key_projects.rst:389
+#: ../source/key_projects.rst:388
 msgid "buildout"
 msgstr "buildout"
 
-#: ../source/key_projects.rst:391
+#: ../source/key_projects.rst:390
 msgid ""
 "`Docs <http://www.buildout.org/en/latest/>`__ | `Issues <https://"
 "bugs.launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/"
@@ -14813,7 +14692,7 @@ msgstr ""
 "bugs.launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/"
 "zc.buildout>`__ | `GitHub <https://github.com/buildout/buildout/>`__"
 
-#: ../source/key_projects.rst:396
+#: ../source/key_projects.rst:395
 msgid ""
 "Buildout is a Python-based build system for creating, assembling and "
 "deploying applications from multiple parts, some of which may be non-Python-"
@@ -14825,15 +14704,15 @@ msgstr ""
 "buildout の設定を作っておけば、後で同じソフトウェアを再生成することができま"
 "す。"
 
-#: ../source/key_projects.rst:403
+#: ../source/key_projects.rst:402
 msgid "conda"
 msgstr "conda"
 
-#: ../source/key_projects.rst:405
+#: ../source/key_projects.rst:404
 msgid ":doc:`Docs <conda:index>`"
 msgstr ":doc:`説明文書 <conda:index>`"
 
-#: ../source/key_projects.rst:407
+#: ../source/key_projects.rst:406
 msgid ""
 "Conda is a package, dependency, and environment management system for any "
 "language — Python, R, Ruby, C/C++, Fortran, and more. It is written in "
@@ -14857,7 +14736,7 @@ msgstr ""
 "テムと一緒に使用することも可能です。 Windows ・ Mac ・ Linux システムで利用可"
 "能です。"
 
-#: ../source/key_projects.rst:416
+#: ../source/key_projects.rst:415
 msgid ""
 "Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, "
 "but provides many of their combined features, such as package management, "
@@ -14868,7 +14747,7 @@ msgstr ""
 "ケージ管理・仮想環境管理・バイナリ拡張のデプロイメントなどの、これらのツール"
 "を合わせたような機能を提供します。"
 
-#: ../source/key_projects.rst:420
+#: ../source/key_projects.rst:419
 msgid ""
 "Conda does not install packages from PyPI -- it can only manage packages "
 "built specifically for conda, which can be made available on a \"conda "
@@ -14886,7 +14765,7 @@ msgstr ""
 "チャンネルに加えて、コミュニティがサポートする `conda-forge project <https://"
 "conda-forge.org/>`__ にも広範囲にわたるパッケージがあります。"
 
-#: ../source/key_projects.rst:426
+#: ../source/key_projects.rst:425
 msgid ""
 "Note that :ref:`pip` can be installed into, and work side-by-side with conda "
 "for managing :term:`distributions <Distribution Package>` from PyPI. It is "
@@ -14903,11 +14782,11 @@ msgstr ""
 "パッケージを自動的に作成するツールですが、そのようなツールを使って、 conda "
 "パッケージ群を Python ソースコードパッケージからビルドすることもできます。"
 
-#: ../source/key_projects.rst:435
+#: ../source/key_projects.rst:434
 msgid "devpi"
 msgstr "devpi"
 
-#: ../source/key_projects.rst:437
+#: ../source/key_projects.rst:436
 msgid ""
 "`Docs <http://doc.devpi.net/latest/>`__ | :gh:`Issues <devpi/devpi/issues>` "
 "| `PyPI <https://pypi.org/project/devpi>`__"
@@ -14915,7 +14794,7 @@ msgstr ""
 "`説明文書 <http://doc.devpi.net/latest/>`__ | :gh:`課題リスト <devpi/devpi/"
 "issues>` | `PyPI <https://pypi.org/project/devpi>`__"
 
-#: ../source/key_projects.rst:441
+#: ../source/key_projects.rst:440
 msgid ""
 "devpi features a powerful PyPI-compatible server and PyPI proxy cache with a "
 "complementary command line tool to drive packaging, testing and release "
@@ -14932,11 +14811,11 @@ msgstr ""
 "機能、これらのインデックスの間の同期機能、インデックスの複製とフェイルオーバ"
 "とパッケージのアップロードの機能を提供できます。"
 
-#: ../source/key_projects.rst:452
+#: ../source/key_projects.rst:451
 msgid "dumb-pypi"
 msgstr "dumb-pypi"
 
-#: ../source/key_projects.rst:454
+#: ../source/key_projects.rst:453
 msgid ""
 "`GitHub <https://github.com/chriskuehl/dumb-pypi>`__ | `PyPI <https://"
 "pypi.org/project/dumb-pypi>`__"
@@ -14944,7 +14823,7 @@ msgstr ""
 "`GitHub <https://github.com/chriskuehl/dumb-pypi>`__ | `PyPI <https://"
 "pypi.org/project/dumb-pypi>`__"
 
-#: ../source/key_projects.rst:457
+#: ../source/key_projects.rst:456
 msgid ""
 "dumb-pypi is a simple :term:`package index <Package Index>` static file site "
 "generator, which then must be hosted by a static file webserver to become "
@@ -14956,11 +14835,11 @@ msgstr ""
 "静的ファイルをサポートするウェブサーバにホストされていなければなりません。"
 "ハッシュ、コアとなるメタデータ、そして yank ステータスをサポートしています。"
 
-#: ../source/key_projects.rst:464
+#: ../source/key_projects.rst:463
 msgid "enscons"
 msgstr "enscons"
 
-#: ../source/key_projects.rst:466
+#: ../source/key_projects.rst:465
 msgid ""
 ":gh:`Source <dholth/enscons>` | :gh:`Issues <dholth/enscons/issues>` | `PyPI "
 "<https://pypi.org/project/enscons>`__"
@@ -14968,7 +14847,7 @@ msgstr ""
 ":gh:`ソースコード <dholth/enscons>` | :gh:`課題リスト <dholth/enscons/"
 "issues>` | `PyPI <https://pypi.org/project/enscons>`__"
 
-#: ../source/key_projects.rst:470
+#: ../source/key_projects.rst:469
 msgid ""
 "Enscons is a Python packaging tool based on `SCons`_. It builds :ref:`pip`-"
 "compatible source distributions and wheels without using distutils or "
@@ -14987,11 +14866,11 @@ msgstr ""
 "パッケージング機能を追加しています。 Enscons は、 :ref:`pip` で自動的にビルド"
 "された sdist や、enscons から独立した wheel をビルドすることを支援します。"
 
-#: ../source/key_projects.rst:485
+#: ../source/key_projects.rst:484
 msgid "Flask-Pypi-Proxy"
 msgstr "Flask-Pypi-Proxy"
 
-#: ../source/key_projects.rst:487
+#: ../source/key_projects.rst:486
 msgid ""
 "`Docs <https://flask-pypi-proxy.readthedocs.io>`__ | :gh:`GitHub <tzulberti/"
 "Flask-PyPi-Proxy>` | `PyPI <https://pypi.org/project/Flask-Pypi-Proxy/>`__"
@@ -15000,12 +14879,12 @@ msgstr ""
 "<tzulberti/Flask-PyPi-Proxy>` | `PyPI <https://pypi.org/project/Flask-Pypi-"
 "Proxy/>`__"
 
-#: ../source/key_projects.rst:491 ../source/key_projects.rst:685
-#: ../source/key_projects.rst:744
+#: ../source/key_projects.rst:490 ../source/key_projects.rst:684
+#: ../source/key_projects.rst:743
 msgid "Not maintained, project archived"
 msgstr "もはや保守されておらず、アーカイブされたプロジェクト"
 
-#: ../source/key_projects.rst:493
+#: ../source/key_projects.rst:492
 msgid ""
 "Flask-Pypi-Proxy is a :term:`package index <Package Index>` as a cached "
 "proxy for PyPI."
@@ -15013,11 +14892,11 @@ msgstr ""
 "Flask-PyPI-Proxy は PyPI に対するキャッシュ付きのプロクシという形の :term:`"
 "パッケージインデックス <Package Index>` です。"
 
-#: ../source/key_projects.rst:499
+#: ../source/key_projects.rst:498
 msgid "Hashdist"
 msgstr "Hashdist"
 
-#: ../source/key_projects.rst:501
+#: ../source/key_projects.rst:500
 msgid ""
 "`Docs <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/hashdist/hashdist/>`__"
@@ -15025,7 +14904,7 @@ msgstr ""
 "`説明文書 <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/hashdist/hashdist/>`__"
 
-#: ../source/key_projects.rst:504
+#: ../source/key_projects.rst:503
 msgid ""
 "Hashdist is a library for building non-root software distributions. Hashdist "
 "is trying to be “the Debian of choice for cases where Debian technology "
@@ -15044,11 +14923,11 @@ msgstr ""
 "とを目指しています。一部の研究者が使っていますが、2016 年以降は保守されていま"
 "せん。"
 
-#: ../source/key_projects.rst:516
+#: ../source/key_projects.rst:515
 msgid "Maturin"
 msgstr "Maturin"
 
-#: ../source/key_projects.rst:518
+#: ../source/key_projects.rst:517
 msgid ""
 "`Docs <https://www.maturin.rs>`__ | `GitHub <https://github.com/PyO3/"
 "maturin>`__"
@@ -15056,7 +14935,7 @@ msgstr ""
 "`説明文書 <https://www.maturin.rs>`__ | `GitHub <https://github.com/PyO3/"
 "maturin>`__"
 
-#: ../source/key_projects.rst:521
+#: ../source/key_projects.rst:520
 msgid ""
 "Maturin is a build backend for Rust extension modules, also written in Rust. "
 "It supports building wheels for python 3.7+ on Windows, Linux, macOS and "
@@ -15067,11 +14946,11 @@ msgstr ""
 "ドすることができ、それを PyPI にアップロードすることができ、また、 PyPy と "
 "GraalPy に対する基本的なサポートもあります。"
 
-#: ../source/key_projects.rst:529
+#: ../source/key_projects.rst:528
 msgid "meson-python"
 msgstr "meson-python"
 
-#: ../source/key_projects.rst:531
+#: ../source/key_projects.rst:530
 msgid ""
 "`Docs <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/mesonbuild/meson-python>`__"
@@ -15079,7 +14958,7 @@ msgstr ""
 "`説明文書 <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/mesonbuild/meson-python>`__"
 
-#: ../source/key_projects.rst:534
+#: ../source/key_projects.rst:533
 msgid ""
 "``meson-python`` is a build backend that uses the Meson_ build system. It "
 "enables Python package authors to use Meson_ as the build system for their "
@@ -15091,15 +14970,15 @@ msgstr ""
 "ステムとして使うことを可能にします。これは C 言語を含む広範囲の言語をサポート"
 "しており、最も複雑なビルド設定を記述することが可能になります。"
 
-#: ../source/key_projects.rst:544
+#: ../source/key_projects.rst:543
 msgid "multibuild"
 msgstr "multibuild"
 
-#: ../source/key_projects.rst:546
+#: ../source/key_projects.rst:545
 msgid "`GitHub <https://github.com/multi-build/multibuild>`__"
 msgstr "`GitHub <https://github.com/multi-build/multibuild>`__"
 
-#: ../source/key_projects.rst:548
+#: ../source/key_projects.rst:547
 msgid ""
 "Multibuild is a set of CI scripts for building and testing "
 "Python :term:`wheels <Wheel>` for Linux, macOS, and (less flexibly) Windows. "
@@ -15109,15 +14988,15 @@ msgstr ""
 "Python :term:`wheels <Wheel>` をビルドしテストする一揃いの CI スクリプトで"
 "す。 :ref:`cibuildwheel` も見てください。"
 
-#: ../source/key_projects.rst:554
+#: ../source/key_projects.rst:553
 msgid "nginx_pypi_cache"
 msgstr "nginx_pypi_cache"
 
-#: ../source/key_projects.rst:556
+#: ../source/key_projects.rst:555
 msgid ":gh:`GitHub <hauntsaninja/nginx_pypi_cache>`"
 msgstr ":gh:`GitHub <hauntsaninja/nginx_pypi_cache>`"
 
-#: ../source/key_projects.rst:558
+#: ../source/key_projects.rst:557
 msgid ""
 "nginx_pypi_cache is a :term:`package index <Package Index>` caching proxy "
 "using `nginx <https://nginx.org/en/>`_."
@@ -15125,11 +15004,11 @@ msgstr ""
 "nginx_pypi_cache は、 `nginx <https://nginx.org/en/>`_ を用いた :term:`パッ"
 "ケージインデックス <Package Index>` のキャッシュ機能付きプロクシです。"
 
-#: ../source/key_projects.rst:564
+#: ../source/key_projects.rst:563
 msgid "pdm"
 msgstr "pdm"
 
-#: ../source/key_projects.rst:566
+#: ../source/key_projects.rst:565
 msgid ""
 "`Docs <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-project/"
 "pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
@@ -15137,7 +15016,7 @@ msgstr ""
 "`説明文書 <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-"
 "project/pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
 
-#: ../source/key_projects.rst:570
+#: ../source/key_projects.rst:569
 msgid ""
 "PDM is a modern Python package manager. It uses :term:`pyproject.toml` to "
 "store project metadata as defined in :pep:`621`."
@@ -15145,7 +15024,7 @@ msgstr ""
 "PDM は近代的な Python パッケージ管理ソフトです。 :pep:`621` で定義されている"
 "形でプロジェクトのメタデータを :term:`pyproject.toml` に保存します。"
 
-#: ../source/key_projects.rst:578
+#: ../source/key_projects.rst:577
 msgid ""
 "`Docs <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
@@ -15153,7 +15032,7 @@ msgstr ""
 "`説明文書 <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
 
-#: ../source/key_projects.rst:582
+#: ../source/key_projects.rst:581
 msgid ""
 "Pex is a tool for generating :file:`.pex` (Python EXecutable) files, "
 "standalone Python environments in the spirit of :ref:`virtualenv`. PEX files "
@@ -15174,11 +15053,11 @@ msgstr ""
 "PEX ファイルを標準の venv に変換したり依存関係をグラフ化したり、あるいはもっ"
 "と多くをサポートするツールを内蔵することもできます。"
 
-#: ../source/key_projects.rst:594
+#: ../source/key_projects.rst:593
 msgid "pip-tools"
 msgstr "pip-tools"
 
-#: ../source/key_projects.rst:596
+#: ../source/key_projects.rst:595
 msgid ""
 "`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/project/pip-"
@@ -15188,7 +15067,7 @@ msgstr ""
 "<https://github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/"
 "project/pip-tools/>`__"
 
-#: ../source/key_projects.rst:600
+#: ../source/key_projects.rst:599
 msgid ""
 "pip-tools is a suite of tools meant for Python system administrators and "
 "release managers who particularly want to keep their builds deterministic "
@@ -15206,17 +15085,17 @@ msgstr ""
 "ること (これは現時点の :ref:`pip` にはない機能です) 、プログラムが従うべき制"
 "約条件の層を作成することができます。"
 
-#: ../source/key_projects.rst:612
+#: ../source/key_projects.rst:611
 msgid "pip2pi"
 msgstr "pip2pi"
 
-#: ../source/key_projects.rst:614
+#: ../source/key_projects.rst:613
 msgid ""
 ":gh:`GitHub <wolever/pip2pi>` | `PyPI <https://pypi.org/project/pip2pi/>`__"
 msgstr ""
 ":gh:`GitHub <wolever/pip2pi>` | `PyPI <https://pypi.org/project/pip2pi/>`__"
 
-#: ../source/key_projects.rst:617
+#: ../source/key_projects.rst:616
 msgid ""
 "pip2pi is a :term:`package index <Package Index>` server where specific "
 "packages are manually synchronised."
@@ -15224,11 +15103,11 @@ msgstr ""
 "pip2pi は、特定のパッケージ群が手動で同期される :term:`パッケージインデック"
 "ス <Package Index>` です。"
 
-#: ../source/key_projects.rst:623
+#: ../source/key_projects.rst:622
 msgid "piwheels"
 msgstr "piwheels"
 
-#: ../source/key_projects.rst:625
+#: ../source/key_projects.rst:624
 msgid ""
 "`Website <https://www.piwheels.org/>`__ | :doc:`Docs <piwheels:index>` | "
 "`GitHub <https://github.com/piwheels/piwheels/>`__"
@@ -15236,7 +15115,7 @@ msgstr ""
 "`Web サイト <https://www.piwheels.org/>`__ | :doc:`説明文書 "
 "<piwheels:index>` | `GitHub <https://github.com/piwheels/piwheels/>`__"
 
-#: ../source/key_projects.rst:629
+#: ../source/key_projects.rst:628
 msgid ""
 "piwheels is a website, and software underpinning it, that fetches source "
 "code distribution packages from PyPI and compiles them into binary wheels "
@@ -15249,11 +15128,11 @@ msgstr ""
 "pip が PyPI に加えて piwheel.org を追加のインデックスとして使うように予め設定"
 "されています。"
 
-#: ../source/key_projects.rst:638
+#: ../source/key_projects.rst:637
 msgid "poetry"
 msgstr "poetry"
 
-#: ../source/key_projects.rst:640
+#: ../source/key_projects.rst:639
 msgid ""
 "`Docs <https://python-poetry.org/>`__ | `GitHub <https://github.com/python-"
 "poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
@@ -15261,7 +15140,7 @@ msgstr ""
 "`説明文書 <https://python-poetry.org/>`__ | `GitHub <https://github.com/"
 "python-poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
 
-#: ../source/key_projects.rst:644
+#: ../source/key_projects.rst:643
 msgid ""
 "poetry is a command-line tool to handle dependency installation and "
 "isolation as well as building and packaging of Python packages. It uses "
@@ -15276,17 +15155,17 @@ msgstr ""
 "を提供します。依存関係に関するメタデータをローカルにキャッシュすることでイン"
 "ストールや依存関係解決のユーザ体験を高速化しようとしています。"
 
-#: ../source/key_projects.rst:654
+#: ../source/key_projects.rst:653
 msgid "proxpi"
 msgstr "proxpi"
 
-#: ../source/key_projects.rst:656
+#: ../source/key_projects.rst:655
 msgid ""
 ":gh:`GitHub <EpicWink/proxpi>` | `PyPI <https://pypi.org/project/proxpi/>`__"
 msgstr ""
 ":gh:`GitHub <EpicWink/proxpi>` | `PyPI <https://pypi.org/project/proxpi/>`__"
 
-#: ../source/key_projects.rst:659
+#: ../source/key_projects.rst:658
 msgid ""
 "proxpi is a simple :term:`package index <Package Index>` which proxies PyPI "
 "and other indexes with caching."
@@ -15294,11 +15173,11 @@ msgstr ""
 "proxpi は、PyPI や他のインデックスをキャッシュ付きでプロクシする単純"
 "な :term:`パッケージインデックス <Package Index>` です。"
 
-#: ../source/key_projects.rst:665
+#: ../source/key_projects.rst:664
 msgid "Pulp-python"
 msgstr "Pulp-python"
 
-#: ../source/key_projects.rst:667
+#: ../source/key_projects.rst:666
 msgid ""
 "`Docs <https://docs.pulpproject.org/pulp_python/>`__ | :gh:`GitHub <pulp/"
 "pulp_python>` | `PyPI <https://pypi.org/project/pulp-python/>`__"
@@ -15306,7 +15185,7 @@ msgstr ""
 "`説明文書 <https://docs.pulpproject.org/pulp_python/>`__ | :gh:`GitHub <pulp/"
 "pulp_python>` | `PyPI <https://pypi.org/project/pulp-python/>`__"
 
-#: ../source/key_projects.rst:671
+#: ../source/key_projects.rst:670
 msgid ""
 "Pulp-python is the Python :term:`package index <Package Index>` plugin for "
 "`Pulp <https://pulpproject.org/>`_. Pulp-python supports mirrors backed by "
@@ -15317,11 +15196,11 @@ msgstr ""
 "か `AWS S3`_ で裏打ちされたミラー群や、パッケージアップロード、また、複数の"
 "パッケージインデックスへのプロクシ機能をサポートします。"
 
-#: ../source/key_projects.rst:679
+#: ../source/key_projects.rst:678
 msgid "PyPI Cloud"
 msgstr "PyPI クラウド"
 
-#: ../source/key_projects.rst:681
+#: ../source/key_projects.rst:680
 msgid ""
 "`Docs <https://pypicloud.readthedocs.io/>`__ | :gh:`GitHub <stevearc/"
 "pypicloud>` | `PyPI <https://pypi.org/project/pypicloud/>`__"
@@ -15329,7 +15208,7 @@ msgstr ""
 "`説明文書 <https://pypicloud.readthedocs.io/>`__ | :gh:`GitHub <stevearc/"
 "pypicloud>` | `PyPI <https://pypi.org/project/pypicloud/>`__"
 
-#: ../source/key_projects.rst:687
+#: ../source/key_projects.rst:686
 msgid ""
 "PyPI Cloud is a :term:`package index <Package Index>` server, backed by `AWS "
 "S3`_ or another cloud storage service, or local files. PyPI Cloud supports "
@@ -15341,11 +15220,11 @@ msgstr ""
 "す。PyPI クラウドは、認証や認可と同様に PyPI に対するリダイレクト機能やプロク"
 "シ機能をサポートします。"
 
-#: ../source/key_projects.rst:695
+#: ../source/key_projects.rst:694
 msgid "pypiprivate"
 msgstr "pypiprivate"
 
-#: ../source/key_projects.rst:697
+#: ../source/key_projects.rst:696
 msgid ""
 ":gh:`GitHub <helpshift/pypiprivate>` | `PyPI <https://pypi.org/project/"
 "pypiprivate/>`__"
@@ -15353,7 +15232,7 @@ msgstr ""
 ":gh:`GitHub <helpshift/pypiprivate>` | `PyPI <https://pypi.org/project/"
 "pypiprivate/>`__"
 
-#: ../source/key_projects.rst:700
+#: ../source/key_projects.rst:699
 msgid ""
 "pypiprivate serves a local (or `AWS S3`_-hosted) directory of packages as "
 "a :term:`package index <Package Index>`."
@@ -15361,11 +15240,11 @@ msgstr ""
 "pypiprivate は、 :term:`パッケージインデックス <Package Index>` としてローカ"
 "ルの (または `AWS S3`_ でホストされた) パッケージディレクトリを提供します。"
 
-#: ../source/key_projects.rst:706
+#: ../source/key_projects.rst:705
 msgid "pypiserver"
 msgstr "pypiserver"
 
-#: ../source/key_projects.rst:708
+#: ../source/key_projects.rst:707
 msgid ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI <https://"
 "pypi.org/project/pypiserver/>`__"
@@ -15373,7 +15252,7 @@ msgstr ""
 "`GitHub <https://github.com/pypiserver/pypiserver/>`__ | `PyPI <https://"
 "pypi.org/project/pypiserver/>`__"
 
-#: ../source/key_projects.rst:711
+#: ../source/key_projects.rst:710
 msgid ""
 "pypiserver is a minimalist application that serves as a private "
 "Python :term:`package index <Package Index>` (from a local directory) within "
@@ -15391,11 +15270,11 @@ msgstr ""
 "できます。 pypiserver を用いる組織では、通常は pypiserver と PyPI の両方から"
 "パッケージをダウンロードします。"
 
-#: ../source/key_projects.rst:722
+#: ../source/key_projects.rst:721
 msgid "PyScaffold"
 msgstr "PyScaffold"
 
-#: ../source/key_projects.rst:724
+#: ../source/key_projects.rst:723
 msgid ""
 "`Docs <https://pyscaffold.org>`__ | `GitHub <https://github.com/pyscaffold/"
 "pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
@@ -15403,7 +15282,7 @@ msgstr ""
 "`説明文書 <https://pyscaffold.org>`__ | `GitHub <https://github.com/"
 "pyscaffold/pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
 
-#: ../source/key_projects.rst:728
+#: ../source/key_projects.rst:727
 msgid ""
 "PyScaffold is a project generator for bootstrapping Python packages, ready "
 "to be shared on PyPI and installable via :ref:`pip`. It relies on a set of "
@@ -15419,17 +15298,17 @@ msgstr ""
 "PyScaffold は、また、既存のプロジェクトにおいてもパッケージングをより簡単にす"
 "るために使用することができます。"
 
-#: ../source/key_projects.rst:739
+#: ../source/key_projects.rst:738
 msgid "pywharf"
 msgstr "pywharf"
 
-#: ../source/key_projects.rst:741
+#: ../source/key_projects.rst:740
 msgid ""
 ":gh:`GitHub <pywharf/pywharf>` | `PyPI <https://pypi.org/project/pywharf>`__"
 msgstr ""
 ":gh:`GitHub <pywharf/pywharf>` | `PyPI <https://pypi.org/project/pywharf>`__"
 
-#: ../source/key_projects.rst:746
+#: ../source/key_projects.rst:745
 msgid ""
 "pywharf is a :term:`package index <Package Index>` server, serving files "
 "locally or from `GitHub <https://github.com/>`_."
@@ -15437,11 +15316,11 @@ msgstr ""
 "pywharf は、ローカルから、もしくは `GitHub <https://github.com/>`_ からファイ"
 "ルを提供する :term:`パッケージインデックス <Package Index>` です。"
 
-#: ../source/key_projects.rst:752
+#: ../source/key_projects.rst:751
 msgid "scikit-build"
 msgstr "scikit-build"
 
-#: ../source/key_projects.rst:754
+#: ../source/key_projects.rst:753
 msgid ""
 "`Docs <https://scikit-build.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/project/"
@@ -15451,7 +15330,7 @@ msgstr ""
 "<https://github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/"
 "project/scikit-build>`__"
 
-#: ../source/key_projects.rst:758
+#: ../source/key_projects.rst:757
 msgid ""
 "Scikit-build is a :ref:`setuptools` wrapper for CPython that builds C/C++/"
 "Fortran/Cython extensions It uses `cmake <https://pypi.org/project/cmake>`__ "
@@ -15470,11 +15349,11 @@ msgstr ""
 "ユーザは `ninja <https://pypi.org/project/ninja>`__ (これも PyPI にあります) "
 "をユーザはインストールすることができます。"
 
-#: ../source/key_projects.rst:769
+#: ../source/key_projects.rst:768
 msgid "scikit-build-core"
 msgstr "scikit-build-core"
 
-#: ../source/key_projects.rst:771
+#: ../source/key_projects.rst:770
 msgid ""
 "`Docs <https://scikit-build-core.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/scikit-build/scikit-build-core/>`__ | `PyPI <https://"
@@ -15484,7 +15363,7 @@ msgstr ""
 "<https://github.com/scikit-build/scikit-build-core/>`__ | `PyPI <https://"
 "pypi.org/project/scikit-build-core>`__"
 
-#: ../source/key_projects.rst:775
+#: ../source/key_projects.rst:774
 msgid ""
 "Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython "
 "extensions.  It enables users to write extensions with `cmake <https://"
@@ -15501,11 +15380,11 @@ msgstr ""
 "は、もしシステム上に利用可能なものがなければ、 PyPI から自動的にダウンロード"
 "されます。"
 
-#: ../source/key_projects.rst:785
+#: ../source/key_projects.rst:784
 msgid "shiv"
 msgstr "shiv"
 
-#: ../source/key_projects.rst:787
+#: ../source/key_projects.rst:786
 msgid ""
 "`Docs <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
@@ -15513,7 +15392,7 @@ msgstr ""
 "`説明文書 <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
 
-#: ../source/key_projects.rst:791
+#: ../source/key_projects.rst:790
 msgid ""
 "shiv is a command line utility for building fully self contained Python "
 "zipapps as outlined in :pep:`441`, but with all their dependencies included. "
@@ -15525,11 +15404,11 @@ msgstr ""
 "ティです。このツールの第一の目標は、Python アプリケーションとコマンドライン"
 "ツールを素早く簡便に配布できるようにすることです。"
 
-#: ../source/key_projects.rst:799
+#: ../source/key_projects.rst:798
 msgid "simpleindex"
 msgstr "simpleindex"
 
-#: ../source/key_projects.rst:801
+#: ../source/key_projects.rst:800
 msgid ""
 ":gh:`GitHub <uranusjr/simpleindex>` | `PyPI <https://pypi.org/project/"
 "simpleindex/>`__"
@@ -15537,7 +15416,7 @@ msgstr ""
 ":gh:`GitHub <uranusjr/simpleindex>` | `PyPI <https://pypi.org/project/"
 "simpleindex/>`__"
 
-#: ../source/key_projects.rst:804
+#: ../source/key_projects.rst:803
 msgid ""
 "simpleindex is a :term:`package index <Package Index>` which routes URLs to "
 "multiple package indexes (including PyPI), serves local (or cloud-hosted, "
@@ -15550,7 +15429,7 @@ msgstr ""
 "ラグインをサポートしている :term:`パッケージインデックス <Package Index>` で"
 "す。"
 
-#: ../source/key_projects.rst:814
+#: ../source/key_projects.rst:813
 msgid ""
 ":doc:`Docs <spack:index>` | `GitHub <https://github.com/spack/spack>`__ | "
 "`Paper <https://www.computer.org/csdl/proceedings-article/sc/"
@@ -15562,7 +15441,7 @@ msgstr ""
 "2015/2807623/12OmNBf94Xq>`__ | `スライド <https://tgamblin.github.io/files/"
 "Gamblin-Spack-SC15-Talk.pdf>`__"
 
-#: ../source/key_projects.rst:819
+#: ../source/key_projects.rst:818
 msgid ""
 "A flexible package manager designed to support multiple versions, "
 "configurations, platforms, and compilers.  Spack is like Homebrew, but "
@@ -15581,7 +15460,7 @@ msgstr ""
 "で科学分野の高パフォーマンスアプリケーションを素早くビルドするために設計され"
 "ました。"
 
-#: ../source/key_projects.rst:827
+#: ../source/key_projects.rst:826
 msgid ""
 "Spack is not in PyPI (yet), but it requires no installation and can be used "
 "immediately after cloning from GitHub."
@@ -15589,11 +15468,11 @@ msgstr ""
 "Spack は (まだ) PyPI にありませんが、 GitHub からクローンした直後にインストー"
 "ル作業なしで使用できます。"
 
-#: ../source/key_projects.rst:833
+#: ../source/key_projects.rst:832
 msgid "uv"
 msgstr "uv"
 
-#: ../source/key_projects.rst:835
+#: ../source/key_projects.rst:834
 msgid ""
 "`Docs <https://docs.astral.sh/uv/>`__ | `GitHub <https://github.com/astral-"
 "sh/uv>`__ | `PyPI <https://pypi.org/project/uv/>`__"
@@ -15601,7 +15480,7 @@ msgstr ""
 "`説明文書 <https://docs.astral.sh/uv/>`__ | `GitHub <https://github.com/"
 "astral-sh/uv>`__ | `PyPI <https://pypi.org/project/uv/>`__"
 
-#: ../source/key_projects.rst:839
+#: ../source/key_projects.rst:838
 msgid ""
 "A Python package and project manager, written in Rust for high performance. "
 "It supports creating and managing virtual environments, installing packages, "
@@ -15611,11 +15490,11 @@ msgstr ""
 "のマネージャ。仮想環境の作成と維持管理や、パッケージインストール、依存関係の"
 "固定、 Python バージョンやプロジェクトの管理をサポートしています。"
 
-#: ../source/key_projects.rst:846
+#: ../source/key_projects.rst:845
 msgid "zest.releaser"
 msgstr "zest.releaser"
 
-#: ../source/key_projects.rst:848
+#: ../source/key_projects.rst:847
 msgid ""
 "`Docs <https://zestreleaser.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://pypi.org/project/"
@@ -15625,7 +15504,7 @@ msgstr ""
 "<https://github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://"
 "pypi.org/project/zest.releaser/>`__"
 
-#: ../source/key_projects.rst:852
+#: ../source/key_projects.rst:851
 msgid ""
 "``zest.releaser`` is a Python package release tool providing an abstraction "
 "layer on top of :ref:`twine`. Python developers use ``zest.releaser`` to "
@@ -15638,15 +15517,15 @@ msgstr ""
 "ド管理の側でリリースタグを挿入したり、新しいパッケージを PyPI にアップロード"
 "することを自動化することができます。"
 
-#: ../source/key_projects.rst:859
+#: ../source/key_projects.rst:858
 msgid "Standard Library Projects"
 msgstr "標準ライブラリ内のプロジェクト群"
 
-#: ../source/key_projects.rst:864
+#: ../source/key_projects.rst:863
 msgid "ensurepip"
 msgstr "ensurepip"
 
-#: ../source/key_projects.rst:866
+#: ../source/key_projects.rst:865
 msgid ""
 "`Docs <https://docs.python.org/3/library/ensurepip.html>`__ | `Issues "
 "<https://bugs.python.org/>`__"
@@ -15654,7 +15533,7 @@ msgstr ""
 "`説明文書 <https://docs.python.org/3/library/ensurepip.html>`__ | `課題リス"
 "ト <https://bugs.python.org/>`__"
 
-#: ../source/key_projects.rst:869
+#: ../source/key_projects.rst:868
 msgid ""
 "A package in the Python Standard Library that provides support for "
 "bootstrapping :ref:`pip` into an existing Python installation or virtual "
@@ -15666,11 +15545,11 @@ msgstr ""
 "ほとんどの場合にはエンドユーザがこのモジュールを使うことはなく、どちらかと言"
 "えば Python 配布物のビルドの際に使われるでしょう。"
 
-#: ../source/key_projects.rst:877
+#: ../source/key_projects.rst:876
 msgid "http.server"
 msgstr "http.server"
 
-#: ../source/key_projects.rst:879
+#: ../source/key_projects.rst:878
 msgid ""
 ":doc:`Docs <python:library/http.server>` | :gh:`Issues <python/cpython/"
 "issues>`"
@@ -15678,7 +15557,7 @@ msgstr ""
 ":doc:`説明文書 <python:library/http.server>` | :gh:`課題リスト <python/"
 "cpython/issues>`"
 
-#: ../source/key_projects.rst:882
+#: ../source/key_projects.rst:881
 msgid ""
 "A package and command-line interface which can host a directory as a "
 "website, for example as a :term:`package index <Package Index>` "
@@ -15689,11 +15568,11 @@ msgstr ""
 "タフェース (:ref:`自分用のシンプルなリポジトリをホストする <Hosting your Own "
 "Simple Repository>` を参照してください) 。"
 
-#: ../source/key_projects.rst:889
+#: ../source/key_projects.rst:888
 msgid "venv"
 msgstr "venv"
 
-#: ../source/key_projects.rst:891
+#: ../source/key_projects.rst:890
 msgid ""
 "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
 "github.com/python/cpython/issues>`__"
@@ -15701,7 +15580,7 @@ msgstr ""
 "`説明文書 <https://docs.python.org/3/library/venv.html>`__ | `課題リスト "
 "<https://github.com/python/cpython/issues>`__"
 
-#: ../source/key_projects.rst:894
+#: ../source/key_projects.rst:893
 msgid ""
 "A package in the Python Standard Library (starting with Python 3.3) for "
 "creating :term:`Virtual Environments <Virtual Environment>`.  For more "
@@ -16660,11 +16539,13 @@ msgstr ""
 "``install_requires`` か ``requirements.txt`` を変更するだけで Pillow が PIL "
 "に対して単純に入れ替えるだけで済む代替物になっているのです。"
 
-#: ../source/overview.rst:116
-msgid "Python binary distributions"
+#: ../source/overview.rst:119
+#, fuzzy
+#| msgid "Python binary distributions"
+msgid "Python built distributions"
 msgstr "Python バイナリ配布物"
 
-#: ../source/overview.rst:118
+#: ../source/overview.rst:121
 msgid ""
 "So much of Python's practical power comes from its ability to integrate with "
 "the software ecosystem, in particular libraries written in C, C++, Fortran, "
@@ -16674,7 +16555,7 @@ msgstr ""
 "・ Fortran ・ Rust ・その他の言語で書かれたライブラリと統合できる能力からもた"
 "らされます。"
 
-#: ../source/overview.rst:122
+#: ../source/overview.rst:125
 msgid ""
 "Not all developers have the right tools or experiences to build these "
 "components written in these compiled languages, so Python created "
@@ -16690,9 +16571,18 @@ msgstr ""
 "できるので常に wheel ファイルを選好するし、純 Python のパッケージでさえも "
 "wheel ファイルの方がうまく動作します。"
 
-#: ../source/overview.rst:129
+#: ../source/overview.rst:132
+#, fuzzy
+#| msgid ""
+#| "Binary distributions are best when they come with source distributions to "
+#| "match. Even if you don't upload wheels of your code for every operating "
+#| "system, by uploading the sdist, you're enabling users of other platforms "
+#| "to still build it for themselves. Default to publishing both sdist and "
+#| "wheel archives together, *unless* you're creating artifacts for a very "
+#| "specific use case where you know the recipient only needs one or the "
+#| "other."
 msgid ""
-"Binary distributions are best when they come with source distributions to "
+"Built distributions are best when they come with source distributions to "
 "match. Even if you don't upload wheels of your code for every operating "
 "system, by uploading the sdist, you're enabling users of other platforms to "
 "still build it for themselves. Default to publishing both sdist and wheel "
@@ -16707,7 +16597,7 @@ msgstr ""
 "しないことを熟知しているので *ない限り* 、 sdist と wheel の両方を一緒に公開"
 "することをデフォルトにしてください。"
 
-#: ../source/overview.rst:137
+#: ../source/overview.rst:140
 msgid ""
 "Python and PyPI make it easy to upload both wheels and sdists together. Just "
 "follow the :doc:`tutorials/packaging-projects` tutorial."
@@ -16716,11 +16606,11 @@ msgstr ""
 "するのが簡単になります。 :doc:`tutorials/packaging-projects` のチュートリアル"
 "に従うだけです。"
 
-#: ../source/overview.rst:141
+#: ../source/overview.rst:144
 msgid "A summary of Python's packaging capabilities for tools and libraries."
 msgstr "ツールやライブラリ向けの Python のパッケージング機能の概要。"
 
-#: ../source/overview.rst:145
+#: ../source/overview.rst:148
 msgid ""
 "Python's recommended built-in library and tool packaging technologies. "
 "Excerpted from `The Packaging Gradient (2017) <https://www.youtube.com/watch?"
@@ -16729,11 +16619,11 @@ msgstr ""
 "Python が推奨するライブラリやツールをパッケージングする技術。`パッケージング"
 "の変遷 (2017) <https://www.youtube.com/watch?v=iLVNWfPWAC8>`_ から抜粋。"
 
-#: ../source/overview.rst:152
+#: ../source/overview.rst:155
 msgid "Packaging Python applications"
 msgstr "Python アプリケーションをパッケージングする"
 
-#: ../source/overview.rst:154
+#: ../source/overview.rst:157
 msgid ""
 "So far we've only discussed Python's native distribution tools. Based on our "
 "introduction, you would be correct to infer these built-in approaches only "
@@ -16745,7 +16635,7 @@ msgstr ""
 "る環境だけを対象にしたもので、聞き手は Python パッケージのインストール方法を"
 "知っているものと推測するのは正しいでしょう。"
 
-#: ../source/overview.rst:159
+#: ../source/overview.rst:162
 msgid ""
 "With the variety of operating systems, configurations, and people out there, "
 "this assumption is only safe when targeting a developer audience."
@@ -16753,7 +16643,7 @@ msgstr ""
 "多様なオペレーティングシステム・設定・そこに居る人々を想定すると、聞き手が開"
 "発者である場合にだけこの仮定が正当であると言えます。"
 
-#: ../source/overview.rst:163
+#: ../source/overview.rst:166
 msgid ""
 "Python's native packaging is mostly built for distributing reusable code, "
 "called libraries, between developers. You can piggyback **tools**, or basic "
@@ -16768,7 +16658,7 @@ msgstr ""
 "に構築されている **ツール類** や開発者向けの基本的なアプリケーションに便乗す"
 "ることができます。"
 
-#: ../source/overview.rst:169
+#: ../source/overview.rst:172
 msgid ""
 "Libraries are building blocks, not complete applications. For distributing "
 "applications, there's a whole new world of technologies out there."
@@ -16776,7 +16666,7 @@ msgstr ""
 "ライブラリは部品であって完成したアプリケーションではありません。アプリケー"
 "ションを配布するには、全く新しい技術の世界が広がっています。"
 
-#: ../source/overview.rst:173
+#: ../source/overview.rst:176
 msgid ""
 "The next few sections organize these application packaging options according "
 "to their dependencies on the target environment, so you can choose the right "
@@ -16786,11 +16676,11 @@ msgstr ""
 "なアプリケーションをパッケージングする選択肢を整理し、あなたのプロジェクトに"
 "最適なものを選択できるようにしましょう。"
 
-#: ../source/overview.rst:178
+#: ../source/overview.rst:181
 msgid "Depending on a framework"
 msgstr "フレームワークに依存する"
 
-#: ../source/overview.rst:180
+#: ../source/overview.rst:183
 msgid ""
 "Some types of Python applications, like web site backends and other network "
 "services, are common enough that they have frameworks to enable their "
@@ -16804,7 +16694,7 @@ msgstr ""
 "ンドやモバイルクライアントのような他の種類のアプリケーションはとても複雑で、"
 "フレームワークが単に便利という以上の存在になっています。"
 
-#: ../source/overview.rst:186
+#: ../source/overview.rst:189
 msgid ""
 "In all these cases, it makes sense to work backwards, from the framework's "
 "packaging and deployment story. Some frameworks include a deployment system "
@@ -16818,7 +16708,7 @@ msgstr ""
 "最も簡単で最も信頼できる製品レベルの経験を積むまで、あなたのフレームワークの"
 "パッケージングガイドを延期しておきたくなるでしょう。"
 
-#: ../source/overview.rst:192
+#: ../source/overview.rst:195
 msgid ""
 "If you ever wonder how these platforms and frameworks work under the hood, "
 "you can always read the sections beyond."
@@ -16826,11 +16716,11 @@ msgstr ""
 "このようなプラットフォームやフレームワークが内部でどのように動作しているのか"
 "と不思議に思うのであれば、いつでもその先の節を読めば良いでしょう。"
 
-#: ../source/overview.rst:196
+#: ../source/overview.rst:199
 msgid "Service platforms"
 msgstr "サービスプラットフォーム"
 
-#: ../source/overview.rst:198
+#: ../source/overview.rst:201
 msgid ""
 "If you're developing for a \"`Platform-as-a-Service <https://"
 "en.wikipedia.org/wiki/Platform_as_a_service>`_\" or \"PaaS\", you are going "
@@ -16847,7 +16737,7 @@ msgstr ""
 "るので、ほとんどのソフトウェアはこれらのテンプレートのひとつにはうまく合致し"
 "ません。"
 
-#: ../source/overview.rst:205
+#: ../source/overview.rst:208
 msgid ""
 "If you're developing software that will be deployed to machines you own, "
 "users' personal computers, or any other arrangement, read on."
@@ -16855,11 +16745,11 @@ msgstr ""
 "自分の機材やユーザのパーソナルコンピュータやその他の機材に配置することを想定"
 "するソフトウェアを開発しているのであれば、このまま読み進めてください。"
 
-#: ../source/overview.rst:209
+#: ../source/overview.rst:212
 msgid "Web browsers and mobile applications"
 msgstr "ウェブブラウザとモバイルアプリケーション"
 
-#: ../source/overview.rst:211
+#: ../source/overview.rst:214
 msgid ""
 "Python's steady advances are leading it into new spaces. These days you can "
 "write a mobile app or web application frontend in Python. While the language "
@@ -16870,7 +16760,7 @@ msgstr ""
 "ています。言語自体には慣れていても、パッケージングや配置の実務は全く新しいも"
 "のになっています。"
 
-#: ../source/overview.rst:216
+#: ../source/overview.rst:219
 msgid ""
 "If you're planning on releasing to these new frontiers, you'll want to check "
 "out the following frameworks, and refer to their packaging guides:"
@@ -16879,23 +16769,23 @@ msgstr ""
 "ワークに興味が湧いて、それぞれのパッケージングガイドを参照したくなるかもしれ"
 "ません。"
 
-#: ../source/overview.rst:220
+#: ../source/overview.rst:223
 msgid "`Kivy <https://kivy.org/>`_"
 msgstr ""
 
-#: ../source/overview.rst:221
+#: ../source/overview.rst:224
 msgid "`Beeware <https://pybee.org/>`_"
 msgstr "`Beeware <https://pybee.org/>`_"
 
-#: ../source/overview.rst:222
+#: ../source/overview.rst:225
 msgid "`Brython <https://brython.info/>`_"
 msgstr "`Brython <https://brython.info/>`_"
 
-#: ../source/overview.rst:223
+#: ../source/overview.rst:226
 msgid "`Flexx <https://flexx.readthedocs.io/en/latest/>`_"
 msgstr ""
 
-#: ../source/overview.rst:225
+#: ../source/overview.rst:228
 msgid ""
 "If you are *not* interested in using a framework or platform, or just wonder "
 "about some of the technologies and techniques utilized by the frameworks "
@@ -16905,11 +16795,11 @@ msgstr ""
 "記のフレームワークが利用している技術や手練手管について不思議に思うのであれ"
 "ば、このまま読み進めてください。"
 
-#: ../source/overview.rst:230
+#: ../source/overview.rst:233
 msgid "Depending on a pre-installed Python"
 msgstr "インストール済みの Python に依存する"
 
-#: ../source/overview.rst:232
+#: ../source/overview.rst:235
 msgid ""
 "Pick an arbitrary computer, and depending on the context, there's a very "
 "good chance Python is already installed. Included by default in most Linux "
@@ -16923,15 +16813,15 @@ msgstr ""
 "データセンタの機材や、開発者やデータ科学者の個人用の機材には Python が入って"
 "いるものと思っても構わないでしょう。"
 
-#: ../source/overview.rst:238
+#: ../source/overview.rst:241
 msgid "Technologies which support this model:"
 msgstr "このモデルを支える技術:"
 
-#: ../source/overview.rst:240
+#: ../source/overview.rst:243
 msgid ":gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)"
 msgstr ":gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)"
 
-#: ../source/overview.rst:241
+#: ../source/overview.rst:244
 msgid ""
 ":doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, "
 "requires Python 3.5+)"
@@ -16939,11 +16829,11 @@ msgstr ""
 ":doc:`zipapp <python:library/zipapp>` (依存関係を管理する助けにはならない。"
 "Python 3.5+ が必要。)"
 
-#: ../source/overview.rst:242
+#: ../source/overview.rst:245
 msgid ":gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)"
 msgstr ":gh:`shiv <linkedin/shiv#user-content-shiv>` (Python 3 が必要)"
 
-#: ../source/overview.rst:244
+#: ../source/overview.rst:247
 msgid ""
 "Of all the approaches here, depending on a pre-installed Python relies the "
 "most on the target environment. Of course, this also makes for the smallest "
@@ -16953,7 +16843,7 @@ msgstr ""
 "トール済みの Python があるものと当てにしています。もちろん、これは、一桁メガ"
 "バイト規模やさらにはキロバイト規模の最小のパッケージを作ることになります。"
 
-#: ../source/overview.rst:249
+#: ../source/overview.rst:252
 msgid ""
 "In general, decreasing the dependency on the target system increases the "
 "size of our package, so the solutions here are roughly arranged by "
@@ -16963,11 +16853,11 @@ msgstr ""
 "大きくなるので、ここで述べる解決策は、おおまかに出力となるパッケージのサイズ"
 "の増える順番に整理しています。"
 
-#: ../source/overview.rst:256
+#: ../source/overview.rst:259
 msgid "Depending on a separate software distribution ecosystem"
 msgstr "個別のソフトウェア配布エコシステムに依存する"
 
-#: ../source/overview.rst:258
+#: ../source/overview.rst:261
 msgid ""
 "For a long time many operating systems, including Mac and Windows, lacked "
 "built-in package management. Only recently did these OSes gain so-called "
@@ -16980,7 +16870,7 @@ msgstr ""
 "プリケーションを扱っているだけであり、開発者の役に立つものは少ないのが現状で"
 "す。"
 
-#: ../source/overview.rst:263
+#: ../source/overview.rst:266
 msgid ""
 "Developers long sought remedies, and in this struggle, emerged with their "
 "own package management solutions, such as `Homebrew <https://brew.sh/>`_. "
@@ -17001,11 +16891,11 @@ msgstr ""
 "web/20190403064038/https://www.paypal-engineering.com/2016/09/07/python-"
 "packaging-at-paypal/>`_ さえ入り込んでいます。"
 
-#: ../source/overview.rst:273
+#: ../source/overview.rst:276
 msgid "Instructions on building and publishing for the Anaconda ecosystem:"
 msgstr "Anaconda エコシステム向けにビルドし公開するための指示書き:"
 
-#: ../source/overview.rst:275
+#: ../source/overview.rst:278
 msgid ""
 "`Building libraries and applications with conda <https://conda.io/projects/"
 "conda-build/en/latest/user-guide/tutorials/index.html>`_"
@@ -17013,7 +16903,7 @@ msgstr ""
 "`conda でライブラリやアプリケーションをビルドする <https://conda.io/projects/"
 "conda-build/en/latest/user-guide/tutorials/index.html>`_"
 
-#: ../source/overview.rst:276
+#: ../source/overview.rst:279
 msgid ""
 "`Transitioning a native Python package to Anaconda <https://conda.io/"
 "projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-"
@@ -17022,7 +16912,7 @@ msgstr ""
 "`Python 由来のパッケージを Anaconda へ移行する <https://conda.io/projects/"
 "conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_"
 
-#: ../source/overview.rst:278
+#: ../source/overview.rst:281
 msgid ""
 "A similar model involves installing an alternative Python distribution, but "
 "does not support arbitrary operating system-level packages:"
@@ -17030,7 +16920,7 @@ msgstr ""
 "よく似たモデルが Python 配布物の代替物をインストールする際にも適用されます"
 "が、オペレーティングシステムレベルのパッケージはサポートしていません。"
 
-#: ../source/overview.rst:282
+#: ../source/overview.rst:285
 msgid ""
 "`ActiveState ActivePython <https://www.activestate.com/platform/supported-"
 "languages/python>`_"
@@ -17038,15 +16928,15 @@ msgstr ""
 "`ActiveState ActivePython <https://www.activestate.com/platform/supported-"
 "languages/python>`_"
 
-#: ../source/overview.rst:283
+#: ../source/overview.rst:286
 msgid "`WinPython <http://winpython.github.io/>`_"
 msgstr "`WinPython <http://winpython.github.io/>`_"
 
-#: ../source/overview.rst:288
+#: ../source/overview.rst:291
 msgid "Bringing your own Python executable"
 msgstr "自分の Python 実行形式を持ち込む"
 
-#: ../source/overview.rst:290
+#: ../source/overview.rst:293
 msgid ""
 "Computing as we know it is defined by the ability to execute programs. Every "
 "operating system natively supports one or more formats of programs they can "
@@ -17056,7 +16946,7 @@ msgstr ""
 "れます。それぞれのオペレーティングシステムは、そのまま実行することが可能なひ"
 "とつかもっと多くのプログラムフォーマットを元々サポートしています。"
 
-#: ../source/overview.rst:294
+#: ../source/overview.rst:297
 msgid ""
 "There are many techniques and technologies which turn your Python program "
 "into one of these formats, most of which involve embedding the Python "
@@ -17066,7 +16956,7 @@ msgstr ""
 "や技術が存在していて、そのほとんどでは Python インタープリタやその他の依存先"
 "を単一の実行形式のファイルに組み込むことになるでしょう。"
 
-#: ../source/overview.rst:299
+#: ../source/overview.rst:302
 msgid ""
 "This approach, called *freezing*, offers wide compatibility and seamless "
 "user experience, though often requires multiple technologies, and a good "
@@ -17075,11 +16965,11 @@ msgstr ""
 "*フリージング* と呼ばれるこの方法論は、しばしば複数の技術と共にかなりの努力を"
 "要求しますが、幅広い互換性と継ぎ目のないユーザ経験を提供します。"
 
-#: ../source/overview.rst:303
+#: ../source/overview.rst:306
 msgid "A selection of Python freezers:"
 msgstr "Python フリーザの選択肢:"
 
-#: ../source/overview.rst:305
+#: ../source/overview.rst:308
 msgid ""
 "`pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - Cross-"
 "platform"
@@ -17087,14 +16977,14 @@ msgstr ""
 "`pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - クロスプラッ"
 "トフォーム"
 
-#: ../source/overview.rst:306
+#: ../source/overview.rst:309
 msgid ""
 "`cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - Cross-platform"
 msgstr ""
 "`cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - クロスプラット"
 "フォーム"
 
-#: ../source/overview.rst:307
+#: ../source/overview.rst:310
 msgid ""
 "`constructor <https://github.com/conda/constructor>`_ - For command-line "
 "installers"
@@ -17102,23 +16992,23 @@ msgstr ""
 "`constructor <https://github.com/conda/constructor>`_ - コマンドラインインス"
 "トーラ向け"
 
-#: ../source/overview.rst:308
+#: ../source/overview.rst:311
 msgid "`py2exe <http://www.py2exe.org/>`_ - Windows only"
 msgstr "`py2exe <http://www.py2exe.org/>`_ - Windows 限定"
 
-#: ../source/overview.rst:309
+#: ../source/overview.rst:312
 msgid "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only"
 msgstr "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac 限定"
 
-#: ../source/overview.rst:310
+#: ../source/overview.rst:313
 msgid "`osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac"
 msgstr "`osnap <https://github.com/jamesabel/osnap>`_ - Windows と Mac"
 
-#: ../source/overview.rst:311
+#: ../source/overview.rst:314
 msgid "`pynsist <https://pypi.org/project/pynsist/>`_ - Windows only"
 msgstr "`pynsist <https://pypi.org/project/pynsist/>`_ - Windows 限定"
 
-#: ../source/overview.rst:313
+#: ../source/overview.rst:316
 msgid ""
 "Most of the above imply single-user deployments. For multi-component server "
 "applications, see :gh:`Chef Omnibus <chef/omnibus#user-content--omnibus>`."
@@ -17127,11 +17017,11 @@ msgstr ""
 "アプリケーション向けには :gh:`Chef Omnibus <chef/omnibus#user-content--"
 "omnibus>` を見てください。"
 
-#: ../source/overview.rst:319
+#: ../source/overview.rst:322
 msgid "Bringing your own userspace"
 msgstr "自分自身のユーザスペースを持ち込む"
 
-#: ../source/overview.rst:321
+#: ../source/overview.rst:324
 msgid ""
 "An increasing number of operating systems -- including Linux, Mac OS, and "
 "Windows -- can be set up to run applications packaged as lightweight images, "
@@ -17145,7 +17035,7 @@ msgstr ""
 "る相対的に新しい手法を用いた、軽量のイメージとしてパッケージされたアプリケー"
 "ションを走らせるように設定することができるものが数を増しています。"
 
-#: ../source/overview.rst:328
+#: ../source/overview.rst:331
 msgid ""
 "These techniques are mostly Python agnostic, because they package whole OS "
 "filesystems, not just Python or Python packages."
@@ -17154,7 +17044,7 @@ msgstr ""
 "システム全体をパッケージ化するので、ほとんどの場合には Python を直接にサポー"
 "トしているわけではありません。"
 
-#: ../source/overview.rst:331
+#: ../source/overview.rst:334
 msgid ""
 "Adoption is most extensive among Linux servers, where the technology "
 "originated and where the technologies below work best:"
@@ -17162,27 +17052,27 @@ msgstr ""
 "(訳注、このような技術の) 取り入れが最も広範囲に渡るのは、この技術の発祥の地で"
 "あり下に述べる技術が最もうまく動作する Linux サーバです:"
 
-#: ../source/overview.rst:334
+#: ../source/overview.rst:337
 msgid "`AppImage <https://appimage.org/>`_"
 msgstr "`AppImage <https://appimage.org/>`_"
 
-#: ../source/overview.rst:335
+#: ../source/overview.rst:338
 msgid "`Docker <https://www.fullstackpython.com/docker.html>`_"
 msgstr "`Docker <https://www.fullstackpython.com/docker.html>`_"
 
-#: ../source/overview.rst:336
+#: ../source/overview.rst:339
 msgid "`Flatpak <https://flatpak.org/>`_"
 msgstr "`Flatpak <https://flatpak.org/>`_"
 
-#: ../source/overview.rst:337
+#: ../source/overview.rst:340
 msgid "`Snapcraft <https://snapcraft.io/>`_"
 msgstr "`Snapcraft <https://snapcraft.io/>`_"
 
-#: ../source/overview.rst:340
+#: ../source/overview.rst:343
 msgid "Bringing your own kernel"
 msgstr "自分自身のカーネルを持ち込む"
 
-#: ../source/overview.rst:342
+#: ../source/overview.rst:345
 msgid ""
 "Most desktop operating systems support some form of classical "
 "virtualization, running applications packaged as images containing a full "
@@ -17195,7 +17085,7 @@ msgstr ""
 "うな仮想マシンもしくは VM を動作させることは枯れた方法論で、データセンタ環境"
 "に広く普及しています。"
 
-#: ../source/overview.rst:347
+#: ../source/overview.rst:350
 msgid ""
 "These techniques are mostly reserved for larger scale deployments in data "
 "centers, though certain complex applications can benefit from this "
@@ -17206,15 +17096,15 @@ msgstr ""
 "置のために使用します。技術としては Python を直接サポートしているわけではな"
 "く、次のものを含みます:"
 
-#: ../source/overview.rst:351
+#: ../source/overview.rst:354
 msgid "KVM on Linux"
 msgstr "Linux 上の KVM"
 
-#: ../source/overview.rst:352
+#: ../source/overview.rst:355
 msgid "Hyper-V on Windows"
 msgstr "Windows 上の Hyper-V"
 
-#: ../source/overview.rst:353
+#: ../source/overview.rst:356
 msgid ""
 "`VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://"
 "en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats "
@@ -17224,7 +17114,7 @@ msgstr ""
 "en.wikipedia.org/wiki/Amazon_Machine_Image>`_ や :doc:`他のフォーマット "
 "<openstack:user/formats>`"
 
-#: ../source/overview.rst:356
+#: ../source/overview.rst:359
 msgid ""
 "`OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud "
 "management system written in Python, with extensive VM support"
@@ -17232,11 +17122,11 @@ msgstr ""
 "`OpenStack <https://www.redhat.com/en/topics/openstack>`_ - 大規模な VM サ"
 "ポート機能が付いていて Python で書かれたクラウド管理システム"
 
-#: ../source/overview.rst:360
+#: ../source/overview.rst:363
 msgid "Bringing your own hardware"
 msgstr "自分自身のハードウェアを持ち込む"
 
-#: ../source/overview.rst:362
+#: ../source/overview.rst:365
 msgid ""
 "The most all-encompassing way to ship your software would be to ship it "
 "already-installed on some hardware. This way, your software's user would "
@@ -17246,7 +17136,7 @@ msgstr ""
 "ンストールして出荷することです。この方法では、あなたのソフトウェアのユーザは"
 "電力供給しか要求されません。"
 
-#: ../source/overview.rst:366
+#: ../source/overview.rst:369
 msgid ""
 "Whereas the virtual machines described above are primarily reserved for the "
 "tech-savvy, you can find hardware appliances being used by everyone from the "
@@ -17256,7 +17146,7 @@ msgstr ""
 "によるアプライアンス機器は最先端のデータセンタから最も若い子供たちまでの誰に"
 "でも使えます。"
 
-#: ../source/overview.rst:370
+#: ../source/overview.rst:373
 msgid ""
 "Embed your code on an :gh:`Adafruit <adafruit/circuitpython>`, `MicroPython "
 "<https://micropython.org/>`_, or more-powerful hardware running Python, then "
@@ -17269,21 +17159,21 @@ msgstr ""
 "に出荷しましょう。彼らはプラグアンドプレイで使うし、あなたはその日の仕事を終"
 "わりにできるでしょう。"
 
-#: ../source/overview.rst:375
+#: ../source/overview.rst:378
 msgid "A summary of technologies used to package Python applications."
 msgstr "Python アプリケーションをパッケージするのに使われる技術の概要。"
 
-#: ../source/overview.rst:379
+#: ../source/overview.rst:382
 msgid ""
 "The simplified gamut of technologies used to package Python applications."
 msgstr ""
 "Python アプリケーションをパッケージするのに使われる技術の単純化された全体像。"
 
-#: ../source/overview.rst:382
+#: ../source/overview.rst:385
 msgid "What about..."
 msgstr "これは何..."
 
-#: ../source/overview.rst:384
+#: ../source/overview.rst:387
 msgid ""
 "The sections above can only summarize so much, and you might be wondering "
 "about some of the more conspicuous gaps."
@@ -17291,11 +17181,11 @@ msgstr ""
 "上記の節ではかなり要約して書いているので、飛躍している点が目につくかもしれま"
 "せん。"
 
-#: ../source/overview.rst:388
+#: ../source/overview.rst:391
 msgid "Operating system packages"
 msgstr "オペレーティングシステムレベルのパッケージ"
 
-#: ../source/overview.rst:390
+#: ../source/overview.rst:393
 msgid ""
 "As mentioned in :ref:`depending-on-a-separate-ecosystem` above, some "
 "operating systems have package managers of their own. If you're very sure of "
@@ -17318,7 +17208,7 @@ msgstr ""
 "latest/cli-reference.html#virtualenv>`_ を使えば、同じソースコードから deb "
 "と RPM の両方を生成することさえ可能です。"
 
-#: ../source/overview.rst:401
+#: ../source/overview.rst:404
 msgid ""
 "In most deployment pipelines, the OS package manager is just one piece of "
 "the puzzle."
@@ -17326,7 +17216,7 @@ msgstr ""
 "ほとんどの配置パイプラインでは、 OS パッケージ管理機構は全体から見ればほんの"
 "一部です。"
 
-#: ../source/overview.rst:407
+#: ../source/overview.rst:410
 msgid ""
 ":doc:`Virtualenvs <python-guide:dev/virtualenvs>` have been an indispensable "
 "tool for multiple generations of Python developer, but are slowly fading "
@@ -17343,7 +17233,7 @@ msgstr ""
 "github.com/jamesabel/osnap>`_ では virtualenvs はプリミティブとして使われてい"
 "ます。"
 
-#: ../source/overview.rst:416
+#: ../source/overview.rst:419
 msgid ""
 "For production deployments, do not rely on running ``python -m pip install`` "
 "from the Internet into a virtualenv, as one might do in a development "
@@ -17353,11 +17243,11 @@ msgstr ""
 "virtualenv への ``python -m pip install`` を走らせることに信用をおいてはなり"
 "ません。上に述べた概要には、より良い解決策がたくさんあります。"
 
-#: ../source/overview.rst:421
+#: ../source/overview.rst:424
 msgid "Security"
 msgstr "セキュリティ"
 
-#: ../source/overview.rst:423
+#: ../source/overview.rst:426
 msgid ""
 "The further down the gradient you come, the harder it gets to update "
 "components of your package. Everything is more tightly bound together."
@@ -17366,7 +17256,7 @@ msgstr ""
 "に困難なものになるでしょう。あらゆるものがより緊密に互いに固着しているので"
 "す。"
 
-#: ../source/overview.rst:426
+#: ../source/overview.rst:429
 msgid ""
 "For example, if a kernel security issue emerges, and you're deploying "
 "containers, the host system's kernel can be updated without requiring a new "
@@ -17384,11 +17274,11 @@ msgstr ""
 "がまだ決着のついていない `静的リンク対動的リンク <https://www.google.com/"
 "search?channel=fs&q=static+vs+dynamic+linking>`_ ということになります。"
 
-#: ../source/overview.rst:435
+#: ../source/overview.rst:438
 msgid "Wrap up"
 msgstr "まとめ"
 
-#: ../source/overview.rst:437
+#: ../source/overview.rst:440
 msgid ""
 "Packaging in Python has a bit of a reputation for being a bumpy ride. This "
 "impression is mostly a byproduct of Python's versatility. Once you "
@@ -17403,14 +17293,18 @@ msgstr ""
 "い言語を使うということのために Python プログラマが支払う小さな代償であること"
 "に気づくことでしょう。"
 
-#: ../source/specifications/binary-distribution-format.rst:7
-msgid "Binary distribution format"
-msgstr "バイナリ配布物のフォーマット"
+#: ../source/specifications/binary-distribution-format.rst:8
+#, fuzzy
+#| msgid "Source distribution format"
+msgid "Wheel distribution format"
+msgstr "ソースコード配布物のフォーマット"
 
-#: ../source/specifications/binary-distribution-format.rst:9
-msgid ""
-"This page specifies the binary distribution format for Python packages, also "
-"called the wheel format."
+#: ../source/specifications/binary-distribution-format.rst:10
+#, fuzzy
+#| msgid ""
+#| "This page specifies the binary distribution format for Python packages, "
+#| "also called the wheel format."
+msgid "This page specifies the wheel format for Python packages."
 msgstr ""
 "このページでは、Python パッケージのバイナリ配布物フォーマット、これは wheel "
 "フォーマットとも呼ばれているものですが、これについて仕様を記述します。"
@@ -18294,7 +18188,7 @@ msgstr ""
 #: ../source/specifications/direct-url-data-structure.rst:292
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:163
-#: ../source/specifications/externally-managed-environments.rst:472
+#: ../source/specifications/externally-managed-environments.rst:466
 #: ../source/specifications/glob-patterns.rst:118
 #: ../source/specifications/inline-script-metadata.rst:224
 #: ../source/specifications/name-normalization.rst:50
@@ -23211,14 +23105,24 @@ msgstr ""
 "ん。"
 
 #: ../source/specifications/externally-managed-environments.rst:51
+#, fuzzy
+#| msgid ""
+#| "This document uses the short term \"distro,\" because the term "
+#| "\"distribution\" has another meaning in Python packaging contexts: a "
+#| "source or binary distribution package of a single piece of Python "
+#| "language software, that is, in the sense of "
+#| "``setuptools.dist.Distribution`` or \"sdist\". To avoid confusion, this "
+#| "document does not use the plain term \"distribution\" at all. In the "
+#| "Python packaging sense, it uses the full phrase \"distribution package\" "
+#| "or just \"package\" (see below)."
 msgid ""
 "This document uses the short term \"distro,\" because the term "
 "\"distribution\" has another meaning in Python packaging contexts: a source "
-"or binary distribution package of a single piece of Python language "
-"software, that is, in the sense of ``setuptools.dist.Distribution`` or "
-"\"sdist\". To avoid confusion, this document does not use the plain term "
-"\"distribution\" at all. In the Python packaging sense, it uses the full "
-"phrase \"distribution package\" or just \"package\" (see below)."
+"or built distribution package of a single piece of Python language software, "
+"that is, in the sense of ``setuptools.dist.Distribution`` or \"sdist\". To "
+"avoid confusion, this document does not use the plain term \"distribution\" "
+"at all. In the Python packaging sense, it uses the full phrase "
+"\"distribution package\" or just \"package\" (see below)."
 msgstr ""
 "Python のパッケージングの文脈では、\"ディストリビューション <distribution>\" "
 "という用語は別の意味、つまり、 Python 言語で書かれたソフトウェアのひとつの部"
@@ -23285,12 +23189,17 @@ msgid "Python-specific package manager"
 msgstr "Python 特有のパッケージマネージャ"
 
 #: ../source/specifications/externally-managed-environments.rst:82
+#, fuzzy
+#| msgid ""
+#| "A tool for installing, upgrading, and/or removing Python packages in a "
+#| "manner that conforms to Python packaging standards. The most popular "
+#| "Python-specific package manager is pip_; other examples include the old "
+#| "`Easy Install command <easy-install_>`_ as well as direct usage of a "
+#| "``setup.py`` command."
 msgid ""
 "A tool for installing, upgrading, and/or removing Python packages in a "
 "manner that conforms to Python packaging standards. The most popular Python-"
-"specific package manager is pip_; other examples include the old `Easy "
-"Install command <easy-install_>`_ as well as direct usage of a ``setup.py`` "
-"command."
+"specific package manager is pip_. Another popular example is uv_."
 msgstr ""
 "Python パッケージング標準 <Python packaging standard> を満足する形で Python "
 "パッケージをインストール・アップグレード・削除するためのツール。最もよく知ら"
@@ -23298,15 +23207,7 @@ msgstr ""
 "``setup.py`` コマンドを直接に使う方法と同様、古い `Easy Install コマンド "
 "<easy-install_>`_ が含まれます。"
 
-#: ../source/specifications/externally-managed-environments.rst:92
-msgid ""
-"(Note that the ``easy_install`` command was removed in setuptools version "
-"52, released 23 January 2021.)"
-msgstr ""
-"(``easy_install`` コマンドは、2021 年 1 月 23 日にリリースされた setuptools "
-"のバージョン 52 で除去されています。)"
-
-#: ../source/specifications/externally-managed-environments.rst:96
+#: ../source/specifications/externally-managed-environments.rst:90
 msgid ""
 "(Conda_ is a bit of a special case, as the ``conda`` command can install "
 "much more than just Python packages, making it more like a distro package "
@@ -23321,11 +23222,11 @@ msgstr ""
 "環境の上でのみ動作するので、Python 特有のパッケージマネージャとして動作する場"
 "合には、この説明文書における関心のほとんどは ``conda`` には適用されません。)"
 
-#: ../source/specifications/externally-managed-environments.rst:104
+#: ../source/specifications/externally-managed-environments.rst:98
 msgid "distro package manager"
 msgstr "ディストロ <distro> パッケージマネージャ"
 
-#: ../source/specifications/externally-managed-environments.rst:105
+#: ../source/specifications/externally-managed-environments.rst:99
 msgid ""
 "A tool for installing, upgrading, and/or removing a distro's packages in an "
 "installed instance of that distro, which is capable of installing Python "
@@ -23349,7 +23250,7 @@ msgstr ""
 "般にディストロのパッケージマネージャの状態を不整合なまま放置するであろうとい"
 "うことです。"
 
-#: ../source/specifications/externally-managed-environments.rst:117
+#: ../source/specifications/externally-managed-environments.rst:111
 msgid ""
 "This document also uses phrases like \"external package manager\" or "
 "\"system's package manager\" to refer to a distro package manager in certain "
@@ -23360,11 +23261,11 @@ msgstr ""
 "\"システムのパッケージマネージャ <system's package manager>\" のような言い回"
 "しを用います。"
 
-#: ../source/specifications/externally-managed-environments.rst:120
+#: ../source/specifications/externally-managed-environments.rst:114
 msgid "shadow"
 msgstr "シャドー <shadow>"
 
-#: ../source/specifications/externally-managed-environments.rst:121
+#: ../source/specifications/externally-managed-environments.rst:115
 msgid ""
 "To shadow an installed Python package is to cause some other package to be "
 "preferred for imports without removing any files from the shadowed package. "
@@ -23381,11 +23282,11 @@ msgstr ""
 "の ``sys.path`` エントリにインストールしている時に、 ``import a`` が前者のモ"
 "ジュールを返し、これを A 2.0 が A 1.0 をシャドーしたと言います。"
 
-#: ../source/specifications/externally-managed-environments.rst:132
+#: ../source/specifications/externally-managed-environments.rst:126
 msgid "This specification is twofold."
 msgstr "この仕様には二つの部分があります。"
 
-#: ../source/specifications/externally-managed-environments.rst:134
+#: ../source/specifications/externally-managed-environments.rst:128
 msgid ""
 "First, it describes **a way for distributors of a Python interpreter to mark "
 "that interpreter as having its packages managed by means external to "
@@ -23403,7 +23304,7 @@ msgstr ""
 "いう印を付ける方法を記述しています。また、代替手段としての仮想環境をどのよう"
 "に使うのかを配布者 <distributor> が指示する手段を提供します。"
 
-#: ../source/specifications/externally-managed-environments.rst:142
+#: ../source/specifications/externally-managed-environments.rst:136
 msgid ""
 "This is an opt-in mechanism: by default, the Python interpreter compiled "
 "from upstream sources will not be so marked, and so running ``pip install`` "
@@ -23415,7 +23316,7 @@ msgstr ""
 "とはなく、また、セルフコンパイルされたインタープリタやディストロのものを使っ"
 "て ``pip install`` を実行すると、それまでと同様に動作するはずです。"
 
-#: ../source/specifications/externally-managed-environments.rst:148
+#: ../source/specifications/externally-managed-environments.rst:142
 msgid ""
 "Second, it sets the rule that when installing packages to an interpreter's "
 "global context (either to an unmarked interpreter, or if overriding the "
@@ -23439,13 +23340,13 @@ msgstr ""
 "ネージャ <external package manager> が管理しているファイル群が削除 (または上"
 "書き) されることがないことを保証します。"
 
-#: ../source/specifications/externally-managed-environments.rst:160
+#: ../source/specifications/externally-managed-environments.rst:154
 msgid "Marking an interpreter as using an external package manager"
 msgstr ""
 "外部パッケージマネージャ <external package manager> を用いるものとしてイン"
 "タープリタにマークを付ける"
 
-#: ../source/specifications/externally-managed-environments.rst:162
+#: ../source/specifications/externally-managed-environments.rst:156
 msgid ""
 "Before a Python-specific package installer (that is, a tool such as pip - "
 "not an external tool such as apt) installs a package into a certain Python "
@@ -23455,7 +23356,7 @@ msgstr ""
 "外部ツールではない) がある Python コンテキストにパッケージをインストールする"
 "前に、デフォルトで以下の項目を確認するべきです:"
 
-#: ../source/specifications/externally-managed-environments.rst:167
+#: ../source/specifications/externally-managed-environments.rst:161
 msgid ""
 "Is it running outside of a virtual environment? It can determine this by "
 "whether ``sys.prefix == sys.base_prefix``."
@@ -23463,7 +23364,7 @@ msgstr ""
 "仮想環境の外側で動作しているのか？ ``sys.prefix == sys.base_prefix`` が成立す"
 "るか否かで判断することができます。"
 
-#: ../source/specifications/externally-managed-environments.rst:170
+#: ../source/specifications/externally-managed-environments.rst:164
 msgid ""
 "Is there an ``EXTERNALLY-MANAGED`` file in the directory identified by "
 "``sysconfig.get_path(\"stdlib\", sysconfig.get_default_scheme())``?"
@@ -23471,7 +23372,7 @@ msgstr ""
 "``sysconfig.get_path(\"stdlib\", sysconfig.get_default_scheme())`` で同定され"
 "るディレクトリの中に ``EXTERNALLY-MANAGED`` ファイルが存在するか否か？"
 
-#: ../source/specifications/externally-managed-environments.rst:173
+#: ../source/specifications/externally-managed-environments.rst:167
 msgid ""
 "If both of these conditions are true, the installer should exit with an "
 "error message indicating that package installation into this Python "
@@ -23481,7 +23382,7 @@ msgstr ""
 "クトリへパッケージをインストールすることが無効にされていることを示すエラー"
 "メッセージとともに、インストーラは終了するべきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:177
+#: ../source/specifications/externally-managed-environments.rst:171
 msgid ""
 "The installer should have a way for the user to override these rules, such "
 "as a command-line flag ``--break-system-packages``. This option should not "
@@ -23493,7 +23394,7 @@ msgstr ""
 "オプションはデフォルトでは無効であるべきで、有効にするとリスクを伴うことを含"
 "意する何らかのメッセージを伴うべきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:182
+#: ../source/specifications/externally-managed-environments.rst:176
 msgid ""
 "The ``EXTERNALLY-MANAGED`` file is an INI-style metadata file intended to be "
 "parsable by the standard library configparser_ module. If the file can be "
@@ -23523,7 +23424,7 @@ msgstr ""
 "くキーを探すべきです。これらのいずれも発見できない場合や、言語コードが "
 "``None`` の場合には、単に ``Error`` というキーを探すべきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:200
+#: ../source/specifications/externally-managed-environments.rst:194
 msgid ""
 "If the installer cannot find an error message in the file (either because "
 "the file cannot be parsed or because no suitable error key exists), then the "
@@ -23537,7 +23438,7 @@ msgstr ""
 "るためにユーザが仮想環境を作成することを示唆するものであるべきですが、それを"
 "使うべきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:206
+#: ../source/specifications/externally-managed-environments.rst:200
 msgid ""
 "Software distributors who have a non-Python-specific package manager that "
 "manages libraries in the ``sys.path`` of their Python package should, in "
@@ -23552,7 +23453,7 @@ msgstr ""
 "成された ``/usr/lib/python3.9/EXTERNALLY-MANAGED`` ファイルを同梱して出荷して"
 "も構いません"
 
-#: ../source/specifications/externally-managed-environments.rst:230
+#: ../source/specifications/externally-managed-environments.rst:224
 msgid ""
 "which provides useful and distro-relevant information to a user trying to "
 "install a package. Optionally, translations can be provided in the same file:"
@@ -23561,7 +23462,7 @@ msgstr ""
 "した情報を適合すること。オプションとして、同一ファイル内に提供されるトランザ"
 "クション:"
 
-#: ../source/specifications/externally-managed-environments.rst:240
+#: ../source/specifications/externally-managed-environments.rst:234
 msgid ""
 "In certain contexts, such as single-application container images that aren't "
 "updated after creation, a distributor may choose not to ship an ``EXTERNALLY-"
@@ -23574,11 +23475,11 @@ msgstr ""
 "インストールできるように、 ``EXTERNALLY-MANAGED`` ファイルを同梱しない選択を"
 "行っても構いません。"
 
-#: ../source/specifications/externally-managed-environments.rst:247
+#: ../source/specifications/externally-managed-environments.rst:241
 msgid "Writing to only the target ``sysconfig`` scheme"
 msgstr "ターゲットとなる ``sysconfig`` スキームだけを書く"
 
-#: ../source/specifications/externally-managed-environments.rst:249
+#: ../source/specifications/externally-managed-environments.rst:243
 msgid ""
 "Usually, a Python package installer installs to directories in a scheme "
 "returned by the ``sysconfig`` standard library package. Ordinarily, this is "
@@ -23591,7 +23492,7 @@ msgstr ""
 "とですが、設定 (例えば ``pip install --user``) に基づいて異なるスキームを用い"
 "ることもあります。"
 
-#: ../source/specifications/externally-managed-environments.rst:255
+#: ../source/specifications/externally-managed-environments.rst:249
 msgid ""
 "Whenever the installer is installing to a ``sysconfig`` scheme, this "
 "specification declares that the installer should never modify or delete "
@@ -23607,7 +23508,7 @@ msgstr ""
 "の) にすでにインストールされているなら、既存のファイル群をそのままにしておく"
 "べきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:262
+#: ../source/specifications/externally-managed-environments.rst:256
 msgid ""
 "If the installer does end up shadowing an existing installation during an "
 "upgrade, we recommend that it produces a warning at the end of its run."
@@ -23616,7 +23517,7 @@ msgstr ""
 "群) をシャドーしてしまうのであれば、警告を生成して実行を中止することを推奨し"
 "ます。"
 
-#: ../source/specifications/externally-managed-environments.rst:266
+#: ../source/specifications/externally-managed-environments.rst:260
 msgid ""
 "If the installer is installing to a location outside of a ``sysconfig`` "
 "scheme (e.g., ``pip install --target``), then this subsection does not apply."
@@ -23625,11 +23526,11 @@ msgstr ""
 "target``) へインストールしようとしているなら、このサブセクションは適用されま"
 "せん。"
 
-#: ../source/specifications/externally-managed-environments.rst:271
+#: ../source/specifications/externally-managed-environments.rst:265
 msgid "Recommendations for distros"
 msgstr "ディストロへの推奨"
 
-#: ../source/specifications/externally-managed-environments.rst:273
+#: ../source/specifications/externally-managed-environments.rst:267
 msgid ""
 "This section is non-normative. It provides best practices we believe distros "
 "should follow unless they have a specific reason otherwise."
@@ -23637,11 +23538,11 @@ msgstr ""
 "この節は規範的なものではありません。特に他の理由がなければディストロが従うべ"
 "きであると信じられるベストプラクティスを提供するものです。"
 
-#: ../source/specifications/externally-managed-environments.rst:277
+#: ../source/specifications/externally-managed-environments.rst:271
 msgid "Mark the installation as externally managed"
 msgstr "インストールされたものを外部管理のものとしてマークする"
 
-#: ../source/specifications/externally-managed-environments.rst:279
+#: ../source/specifications/externally-managed-environments.rst:273
 msgid ""
 "Distros should create an ``EXTERNALLY-MANAGED`` file in their ``stdlib`` "
 "directory."
@@ -23649,11 +23550,11 @@ msgstr ""
 "ディストロは、その ``stdlib`` ディレクトリ内に ``EXTERNALLY-MANAGED`` ファイ"
 "ルを作成するべきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:283
+#: ../source/specifications/externally-managed-environments.rst:277
 msgid "Guide users towards virtual environments"
 msgstr "仮想環境へ向かうユーザへのガイド文書"
 
-#: ../source/specifications/externally-managed-environments.rst:285
+#: ../source/specifications/externally-managed-environments.rst:279
 msgid ""
 "The file should contain a useful and distro-relevant error message "
 "indicating both how to install system-wide packages via the distro's package "
@@ -23671,7 +23572,7 @@ msgstr ""
 "ことが多いのであれば、当該メッセージは、 ``python3 -m venv`` を正しく動作させ"
 "るにはどうすれば良いかをはっきりと示すべきです。"
 
-#: ../source/specifications/externally-managed-environments.rst:293
+#: ../source/specifications/externally-managed-environments.rst:287
 msgid ""
 "Consider packaging pipx_, a tool for installing Python-language "
 "applications, and suggesting it in the error. pipx automatically creates a "
@@ -23697,11 +23598,11 @@ msgstr ""
 "Debian での ``python3-full`` ) がともに pipx に依存するようにすることができま"
 "す。"
 
-#: ../source/specifications/externally-managed-environments.rst:308
+#: ../source/specifications/externally-managed-environments.rst:302
 msgid "Keep the marker file in container images"
 msgstr "コンテナイメージ内のマーカーファイルを維持する"
 
-#: ../source/specifications/externally-managed-environments.rst:310
+#: ../source/specifications/externally-managed-environments.rst:304
 msgid ""
 "Distros that produce official images for single-application containers "
 "(e.g., Docker container images) should keep the ``EXTERNALLY-MANAGED`` file, "
@@ -23715,11 +23616,11 @@ msgstr ""
 "トールしたとしても (``RUN apt-get dist-upgrade`` のようなものを考えてみてほし"
 "い) 失われることのないようなやり方で行うのが望ましいことです。"
 
-#: ../source/specifications/externally-managed-environments.rst:317
+#: ../source/specifications/externally-managed-environments.rst:311
 msgid "Create separate distro and local directories"
 msgstr "ディストロとローカルのディレクトリを別々に作成する"
 
-#: ../source/specifications/externally-managed-environments.rst:319
+#: ../source/specifications/externally-managed-environments.rst:313
 msgid ""
 "Distros should place two separate paths on the system interpreter's "
 "``sys.path``, one for distro-installed packages and one for packages "
@@ -23739,7 +23640,7 @@ msgstr ""
 "ローカルにインストールされたものがディストロ側のパッケージよりも選好されるよ"
 "うになります。"
 
-#: ../source/specifications/externally-managed-environments.rst:328
+#: ../source/specifications/externally-managed-environments.rst:322
 msgid ""
 "For example, Fedora and Debian (and their derivatives) both implement this "
 "split by using ``/usr/local`` for locally-installed packages and ``/usr`` "
@@ -23764,7 +23665,7 @@ msgstr ""
 "インタープリタ経由でインストールされたパッケージがディストロ側のインタープリ"
 "タ用の ``sys.path`` 上には出現しないことを確実にしようと願っています。)"
 
-#: ../source/specifications/externally-managed-environments.rst:341
+#: ../source/specifications/externally-managed-environments.rst:335
 msgid ""
 "Note that the ``/usr/local`` vs. ``/usr`` split is analogous to how the "
 "``PATH`` environment variable typically includes ``/usr/local/bin:/usr/bin`` "
@@ -23777,7 +23678,7 @@ msgstr ""
 "ください。この分離は、 `recommended by the Filesystem Hierarchy Standard`__ "
 "です。"
 
-#: ../source/specifications/externally-managed-environments.rst:349
+#: ../source/specifications/externally-managed-environments.rst:343
 msgid ""
 "There are two ways you could do this. One is, if you are building and "
 "packaging Python libraries directly (e.g., your packaging helpers unpack a "
@@ -23791,7 +23692,7 @@ msgstr ""
 "ないようなディレクトリを使って実行するようにそれらツール群を調整することで"
 "す。"
 
-#: ../source/specifications/externally-managed-environments.rst:355
+#: ../source/specifications/externally-managed-environments.rst:349
 msgid ""
 "The other is to arrange for the default ``sysconfig`` scheme to change when "
 "running inside a package build versus when running on an installed system. "
@@ -23811,7 +23712,7 @@ msgstr ""
 "``pip install`` をディストロパッケージングの一部として使用できるようになりま"
 "す。"
 
-#: ../source/specifications/externally-managed-environments.rst:367
+#: ../source/specifications/externally-managed-environments.rst:361
 msgid ""
 "We propose adding a ``--scheme=...`` option to instruct pip to run against a "
 "specific scheme. (See `Implementation Notes`_ below for how pip currently "
@@ -23832,7 +23733,7 @@ msgstr ""
 "pip を使ってシステム側が管理するディレクトリからパッケージを削除するために "
 "``pip uninstall --scheme=posix_distro`` を使うことさえできるでしょう。"
 
-#: ../source/specifications/externally-managed-environments.rst:377
+#: ../source/specifications/externally-managed-environments.rst:371
 msgid ""
 "To install packages with pip, you would also need to either suppress the "
 "``EXTERNALLY-MANAGED`` marker file to allow pip to run or to override it on "
@@ -23845,7 +23746,7 @@ msgstr ""
 "に chroot した環境においても同じ方法でマーカーファイルを抑止したくなるかもし"
 "れません。"
 
-#: ../source/specifications/externally-managed-environments.rst:383
+#: ../source/specifications/externally-managed-environments.rst:377
 msgid ""
 "The advantage of setting these up to be automatic (suppressing the marker "
 "file in your build environment and having ``get_preferred_schemes`` "
@@ -23865,7 +23766,7 @@ msgstr ""
 "scheme=posix_distro --break-system-packages`` を呼び出すようにすることもでき"
 "ますし、それも動作します。"
 
-#: ../source/specifications/externally-managed-environments.rst:393
+#: ../source/specifications/externally-managed-environments.rst:387
 msgid ""
 "The best approach here depends a lot on your distro's conventions and "
 "mechanisms for packaging."
@@ -23873,7 +23774,7 @@ msgstr ""
 "ここでの最善のアプローチは、ディストロの慣習やパッケージング機構に大きく依存"
 "します。"
 
-#: ../source/specifications/externally-managed-environments.rst:396
+#: ../source/specifications/externally-managed-environments.rst:390
 msgid ""
 "Similarly, the ``sysconfig`` paths that are not for importable Python code - "
 "that is, ``include``, ``platinclude``, ``scripts``, and ``data`` - should "
@@ -23898,11 +23799,11 @@ msgstr ""
 "``/usr/bin`` をディストロ側のパッケージのエントリポイント用に使って、両方を "
 "``$PATH`` に含めておくでしょう。"
 
-#: ../source/specifications/externally-managed-environments.rst:410
+#: ../source/specifications/externally-managed-environments.rst:404
 msgid "Implementation Notes"
 msgstr "実装に関する覚書"
 
-#: ../source/specifications/externally-managed-environments.rst:412
+#: ../source/specifications/externally-managed-environments.rst:406
 msgid ""
 "This section is non-normative and contains notes relevant to both the "
 "specification and potential implementations."
@@ -23910,7 +23811,7 @@ msgstr ""
 "この節は規範的なものではなく、仕様と潜在的な実装の両方に関連する覚え書きを含"
 "んでいます。"
 
-#: ../source/specifications/externally-managed-environments.rst:415
+#: ../source/specifications/externally-managed-environments.rst:409
 msgid ""
 "Currently (as of May 2021), pip does not directly expose a way to choose a "
 "target ``sysconfig`` scheme, but it has three ways of looking up schemes "
@@ -23920,11 +23821,11 @@ msgstr ""
 "る方法を直接には外部に見せていませんが、インストールの際にルックアップする３"
 "個の方法があります:"
 
-#: ../source/specifications/externally-managed-environments.rst:419
+#: ../source/specifications/externally-managed-environments.rst:413
 msgid "``pip install``"
 msgstr "``pip install``"
 
-#: ../source/specifications/externally-managed-environments.rst:420
+#: ../source/specifications/externally-managed-environments.rst:414
 msgid ""
 "Calls ``sysconfig.get_default_scheme()``, which is usually (in upstream "
 "CPython and most current distros) the same as "
@@ -23934,23 +23835,23 @@ msgstr ""
 "CPython や今使われているほとんどのディストロでは) 普通は "
 "``get_preferred_scheme('prefix')`` と同じ結果になるもの。"
 
-#: ../source/specifications/externally-managed-environments.rst:424
+#: ../source/specifications/externally-managed-environments.rst:418
 msgid "``pip install --prefix=/some/path``"
 msgstr "``pip install --prefix=/some/path``"
 
-#: ../source/specifications/externally-managed-environments.rst:425
+#: ../source/specifications/externally-managed-environments.rst:419
 msgid "Calls ``sysconfig.get_preferred_scheme('prefix')``."
 msgstr "``sysconfig.get_preferred_scheme('prefix')`` を呼び出す。"
 
-#: ../source/specifications/externally-managed-environments.rst:427
+#: ../source/specifications/externally-managed-environments.rst:421
 msgid "``pip install --user``"
 msgstr "``pip install --user``"
 
-#: ../source/specifications/externally-managed-environments.rst:428
+#: ../source/specifications/externally-managed-environments.rst:422
 msgid "Calls ``sysconfig.get_preferred_scheme('user')``."
 msgstr "``sysconfig.get_preferred_scheme('user')`` を呼び出す。"
 
-#: ../source/specifications/externally-managed-environments.rst:430
+#: ../source/specifications/externally-managed-environments.rst:424
 msgid ""
 "Finally, ``pip install --target=/some/path`` writes directly to ``/some/"
 "path`` without looking up any schemes."
@@ -23958,7 +23859,7 @@ msgstr ""
 "最後に、 ``pip install --target=/some/path`` でスキームをルックアップすること"
 "なしに ``/some/path`` を書きます。"
 
-#: ../source/specifications/externally-managed-environments.rst:433
+#: ../source/specifications/externally-managed-environments.rst:427
 msgid ""
 "Debian currently carries a `patch to change the default install location "
 "inside a virtual environment`__, using a few heuristics (including checking "
@@ -23977,7 +23878,7 @@ msgstr ""
 "デフォルトの ``sysconfig`` スキームを変更するわけではなく、特に "
 "``sysconfig.get_path(\"stdlib\")`` の結果を変更しないからです。"
 
-#: ../source/specifications/externally-managed-environments.rst:445
+#: ../source/specifications/externally-managed-environments.rst:439
 msgid ""
 "Fedora currently carries a `patch to change the default install location "
 "when not running inside rpmbuild`__, which they use to implement the two-"
@@ -23991,7 +23892,7 @@ msgstr ""
 "ムを変更するものとしてではなく ``distutils`` へのソースコードパッチとして実装"
 "されていることを除けば、 bpo-43976_ によって可視化されたある種のフックです。"
 
-#: ../source/specifications/externally-managed-environments.rst:454
+#: ../source/specifications/externally-managed-environments.rst:448
 msgid ""
 "The implementation of ``is_virtual_environment`` above, as well as the logic "
 "to load the ``EXTERNALLY-MANAGED`` file and find the error message from it, "
@@ -24004,11 +23905,11 @@ msgstr ""
 "するために標準ライブラリ (順に ``sys`` と ``sysconfig``) に追加されるかもしれ"
 "ませんが、まだそのようにはなっていません。"
 
-#: ../source/specifications/externally-managed-environments.rst:464
+#: ../source/specifications/externally-managed-environments.rst:458
 msgid "Copyright"
 msgstr "著作権"
 
-#: ../source/specifications/externally-managed-environments.rst:466
+#: ../source/specifications/externally-managed-environments.rst:460
 msgid ""
 "This document is placed in the public domain or under the CC0-1.0-Universal "
 "license, whichever is more permissive."
@@ -24016,7 +23917,7 @@ msgstr ""
 "この説明文書は、パブリックドメインに置かれるか、または、 CC0-1.0-Universal ラ"
 "イセンスの下に置かれるかですが、いずれにしてもかなり寛大なものです。"
 
-#: ../source/specifications/externally-managed-environments.rst:474
+#: ../source/specifications/externally-managed-environments.rst:468
 msgid "June 2022: This specification was approved through :pep:`668`."
 msgstr "2022年6月: :pep:`668` を通じてこの仕様が承認されました。"
 
@@ -32047,12 +31948,19 @@ msgid "Source distribution file name"
 msgstr "ソースコード配布物のファイル名"
 
 #: ../source/specifications/source-distribution-format.rst:40
+#, fuzzy
+#| msgid ""
+#| "The file name of a sdist was standardised in :pep:`625`. The file name "
+#| "must be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is "
+#| "normalised according to the same rules as for binary distributions "
+#| "(see :ref:`binary-distribution-format`), and ``{version}`` is the "
+#| "canonicalized form of the project version (see :ref:`version-specifiers`)."
 msgid ""
 "The file name of a sdist was standardised in :pep:`625`. The file name must "
 "be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised "
-"according to the same rules as for binary distributions (see :ref:`binary-"
-"distribution-format`), and ``{version}`` is the canonicalized form of the "
-"project version (see :ref:`version-specifiers`)."
+"according to the same rules as for wheels (see :ref:`binary-distribution-"
+"format`), and ``{version}`` is the canonicalized form of the project version "
+"(see :ref:`version-specifiers`)."
 msgstr ""
 "sdist のファイル名は、 :pep:`625` で標準化されています。ファイル名は "
 "``{name}-{version}.tar.gz`` の形をしていなければならず、この中の ``{name}`` "
@@ -32389,11 +32297,17 @@ msgstr ""
 "ます。"
 
 #: ../source/specifications/version-specifiers.rst:21
+#, fuzzy
+#| msgid ""
+#| "\"Build tools\" are automated tools intended to run on development "
+#| "systems, producing source and binary distribution archives. Build tools "
+#| "may also be invoked by integration tools in order to build software "
+#| "distributed as sdists rather than prebuilt binary archives."
 msgid ""
 "\"Build tools\" are automated tools intended to run on development systems, "
-"producing source and binary distribution archives. Build tools may also be "
+"producing source and built distribution archives. Build tools may also be "
 "invoked by integration tools in order to build software distributed as "
-"sdists rather than prebuilt binary archives."
+"sdists rather than built distribution archives."
 msgstr ""
 "\"ビルドツール <Build tools>\" とは、開発システムを走らせてソースコード配布物"
 "やバイナリ配布物のアーカイブを生成することを意図した自動化ツールのことです。"
@@ -32411,20 +32325,31 @@ msgstr ""
 "るものです。"
 
 #: ../source/specifications/version-specifiers.rst:29
+#, fuzzy
+#| msgid ""
+#| "\"Publication tools\" are automated tools intended to run on development "
+#| "systems and upload source and binary distribution archives to index "
+#| "servers."
 msgid ""
 "\"Publication tools\" are automated tools intended to run on development "
-"systems and upload source and binary distribution archives to index servers."
+"systems and upload source and built distribution archives to index servers."
 msgstr ""
 "\"出版ツール <Publication tools>\" とは、開発システムを走らせ、ソースコード配"
 "布物やバイナリ配布物のアーカイブをインデックスサーバへアップロードすることを"
 "意図した自動化ツールのことです。"
 
 #: ../source/specifications/version-specifiers.rst:32
+#, fuzzy
+#| msgid ""
+#| "\"Installation tools\" are integration tools specifically intended to run "
+#| "on deployment targets, consuming source and binary distribution archives "
+#| "from an index server or other designated location and deploying them to "
+#| "the target system."
 msgid ""
 "\"Installation tools\" are integration tools specifically intended to run on "
-"deployment targets, consuming source and binary distribution archives from "
-"an index server or other designated location and deploying them to the "
-"target system."
+"deployment targets, consuming source and built distribution archives from an "
+"index server or other designated location and deploying them to the target "
+"system."
 msgstr ""
 "\"インストールツール <Installation tools>\" とは、デプロイメントターゲット上"
 "で走らせ、インデックスサーバもしくは別途指定された場所から得たソースコード配"
@@ -34363,10 +34288,15 @@ msgstr ""
 "ウェアインテグレータ向けのツールとして意図されたものです。"
 
 #: ../source/specifications/version-specifiers.rst:1114
+#, fuzzy
+#| msgid ""
+#| "Depending on the use case, some appropriate targets for a direct URL "
+#| "reference may be an sdist or a wheel binary archive. The exact URLs and "
+#| "targets supported will be tool dependent."
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
-"reference may be an sdist or a wheel binary archive. The exact URLs and "
-"targets supported will be tool dependent."
+"reference may be an sdist or a wheel. The exact URLs and targets supported "
+"will be tool dependent."
 msgstr ""
 "ユースケースに依存しますが、 URL の直接参照の適切な使い所は sdist や wheel の"
 "バイナリアーカイブでしょう。正確な URL やターゲットのサポートがあるかどうかは"
@@ -36936,6 +36866,134 @@ msgstr ""
 "話題** であると見做されています。Pythonのパッケージングについてやり始めたばか"
 "りなのであれば、 *通常のパッケージ* と (空のファイルだとしても) "
 "``__init__.py`` から離れないことをお薦めします。"
+
+#~ msgid "pip vs easy_install"
+#~ msgstr "pip対easy_install"
+
+#~ msgid ""
+#~ ":ref:`easy_install <easy_install>`, now `deprecated`_, was released in "
+#~ "2004 as part of :ref:`setuptools`. It was notable at the time for "
+#~ "installing :term:`packages <Distribution Package>` from :term:`PyPI "
+#~ "<Python Package Index (PyPI)>` using requirement specifiers, and "
+#~ "automatically installing dependencies."
+#~ msgstr ""
+#~ ":ref:`easy_install <easy_install>` は、現在では `deprecated`_ とされていま"
+#~ "すが、2004年に :ref:`setuptools` の一部として公開されました。 :term:`PyPI "
+#~ "<Python Package Index (PyPI)>` から :term:`パッケージ <Distribution "
+#~ "Package>` と、要求事項指定子を利用して依存関係にあるパッケージをも自動的に"
+#~ "インストールすることが当時としては画期的でした。"
+
+#~ msgid ""
+#~ ":ref:`pip` came later in 2008, as an alternative to :ref:`easy_install "
+#~ "<easy_install>`, although still largely built on top of :ref:`setuptools` "
+#~ "components.  It was notable at the time for *not* installing packages "
+#~ "as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but rather simply as "
+#~ "'flat' packages from :term:`sdists <Source Distribution (or "
+#~ "\"sdist\")>`), and introducing the idea of :ref:`Requirements Files "
+#~ "<pip:Requirements Files>`, which gave users the power to easily replicate "
+#~ "environments."
+#~ msgstr ""
+#~ "依然として :ref:`setuptools` を部品に使ってビルドされてはいます"
+#~ "が、 :ref:`easy_install <easy_install>` を置き換えるものとして :ref:`pip` "
+#~ "が2008年に後からやってきました。当時はパッケージを (かなり単純"
+#~ "に :term:`sdists <Source Distribution (or \"sdist\")>` から「フラット」な"
+#~ "パッケージとしてインストールするものであって) :term:`Eggs <Egg>` の形でイ"
+#~ "ンストールするものでも、 :term:`Eggs <Egg>` からインストールするものでも *"
+#~ "なかった* こと、そして、簡単に環境を再現する力をユーザに与え"
+#~ "る :ref:`Requirements Files <pip:Requirements Files>` の考え方を導入したこ"
+#~ "とは注目に値します。"
+
+#~ msgid ""
+#~ "Here's a breakdown of the important differences between pip and the "
+#~ "deprecated easy_install:"
+#~ msgstr ""
+#~ "pipと非推奨となったeasy_installの重要な違いをおさらいしておきましょう："
+
+#~ msgid "Installs from :term:`Wheels <Wheel>`"
+#~ msgstr ":term:`Wheels <Wheel>` からのインストール"
+
+#~ msgid "Yes"
+#~ msgstr "はい"
+
+#~ msgid "No"
+#~ msgstr "いいえ"
+
+#~ msgid "Uninstall Packages"
+#~ msgstr "パッケージのアンインストール"
+
+#~ msgid "Yes (``python -m pip uninstall``)"
+#~ msgstr "はい (``python -m pip uninstall``)"
+
+#~ msgid "Dependency Overrides"
+#~ msgstr "依存関係を上書きする"
+
+#~ msgid "Yes (:ref:`Requirements Files <pip:Requirements Files>`)"
+#~ msgstr "はい (:ref:`Requirementsファイル <pip:Requirements Files>`"
+
+#~ msgid "List Installed Packages"
+#~ msgstr "インストールされたパッケージのリスト"
+
+#~ msgid "Yes (``python -m pip list`` and ``python -m pip freeze``)"
+#~ msgstr "はい (``python -m pip list`` and ``python -m pip freeze``)"
+
+#~ msgid ":pep:`438` Support"
+#~ msgstr ":pep:`438` サポート"
+
+#~ msgid "Installation format"
+#~ msgstr "インストールフォーマット"
+
+#~ msgid "'Flat' packages with :file:`egg-info` metadata."
+#~ msgstr ":file:`egg-info` のメタデータを伴った「フラット」なパッケージ。"
+
+#~ msgid "Encapsulated Egg format"
+#~ msgstr "カプセル化されたEggフォーマット"
+
+#~ msgid "sys.path modification"
+#~ msgstr "sys.pathの変更"
+
+#~ msgid "Installs from :term:`Eggs <Egg>`"
+#~ msgstr ":term:`Eggs <Egg>` からのインストール"
+
+#~ msgid "`pylauncher support`_"
+#~ msgstr "`pylauncher support`_"
+
+#~ msgid "Yes [1]_"
+#~ msgstr "はい [1]_"
+
+#~ msgid ":ref:`Multi-version Installs`"
+#~ msgstr ":ref:`複数バージョンのインストール <Multi-version Installs>`"
+
+#~ msgid "Exclude scripts during install"
+#~ msgstr "インストール中にスクリプトを除外する"
+
+#~ msgid "per project index"
+#~ msgstr "プロジェクトごとの索引"
+
+#~ msgid "Only in virtualenv"
+#~ msgstr "virtualenvの中のみ"
+
+#~ msgid "Yes, via setup.cfg"
+#~ msgstr "はい、setup.cfgを通じて"
+
+#~ msgid ""
+#~ "https://setuptools.readthedocs.io/en/latest/deprecated/"
+#~ "easy_install.html#natural-script-launcher"
+#~ msgstr ""
+#~ "https://setuptools.readthedocs.io/en/latest/deprecated/"
+#~ "easy_install.html#natural-script-launcher"
+
+#~ msgid ":doc:`discussions/pip-vs-easy-install`"
+#~ msgstr ":doc:`議論/pip対easy-install <discussions/pip-vs-easy-install>`"
+
+#~ msgid "Binary distribution format"
+#~ msgstr "バイナリ配布物のフォーマット"
+
+#~ msgid ""
+#~ "(Note that the ``easy_install`` command was removed in setuptools version "
+#~ "52, released 23 January 2021.)"
+#~ msgstr ""
+#~ "(``easy_install`` コマンドは、2021 年 1 月 23 日にリリースされた "
+#~ "setuptools のバージョン 52 で除去されています。)"
 
 #~ msgid "True"
 #~ msgstr "True"
