@@ -508,7 +508,7 @@ like this tutorial.
    :ref:`Trusted Publishing <trusted-publishing>` instead of storing a long-lived
    API token. The linked guide shows how to set this up with GitHub Actions.
 
-.. note:: Public package indexes such as PyPI do not allow
+.. note:: PyPI does not allow
    :ref:`local version identifiers <local-version-identifiers>`. Use a public
    version identifier before uploading distributions to PyPI.
 
