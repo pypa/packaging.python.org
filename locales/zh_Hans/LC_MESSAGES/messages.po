@@ -40,13 +40,15 @@
 # reducedradius <137701630+flytothehighest@users.noreply.github.com>, 2026.
 # Haozhe Xu <xuhaozhepy@outlook.com>, 2026.
 # B10112 <B10112@outlook.com>, 2026.
+# Hosted Weblate user 162400 <nathan-peng@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-11 10:39+0000\n"
-"PO-Revision-Date: 2026-08-17 03:52+0000\n"
-"Last-Translator: B10112 <B10112@outlook.com>\n"
+"PO-Revision-Date: 2026-08-18 21:41+0000\n"
+"Last-Translator: Hosted Weblate user 162400 <nathan-"
+"peng@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/pypa/packaging-python-org/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1096,9 +1098,9 @@ msgid ""
 "time. For example, automatically generated Git archives do not guarantee "
 "this, as the compressed data may change if gzip is upgraded on the server."
 msgstr ""
-"下游经常使用哈希来验证后续构建中源文件的真实性，而这需要文件长期保持二进制相"
-"同。举个例子，自动生成的 Git 存档就不保证这一点，因为如果服务器上的 gzip 升级"
-"了，那么压缩的数据可能会改变。"
+"下游项目经常使用哈希值，在后续构建过程中校验源码文件的真实性，这就要求源码文"
+"件随时间推移必须保持按比特完全一致。例如，自动生成的 Git 归档文件无法保证这一"
+"点：如果服务端的 gzip 版本升级，压缩得到的数据就可能发生变化。"
 
 #: ../source/discussions/downstream-packaging.rst:88
 msgid ""
@@ -1638,6 +1640,8 @@ msgid ""
 "include e.g. significant space usage, significant memory usage, long "
 "runtime, incompatibility with parallel testing."
 msgstr ""
+"更一般地说，为有特殊要求的测试添加标记。例如，这类测试可能会占用大量磁盘空间"
+"、消耗大量内存、运行耗时较长，或是与并行测试不兼容。"
 
 #: ../source/discussions/downstream-packaging.rst:372
 msgid ""
@@ -1646,6 +1650,9 @@ msgid ""
 "dependency versions. Assert for warnings using ``pytest.warns()`` rather "
 "than ``pytest.raises()``!"
 msgstr ""
+"不要假定测试套件会使用 ``-Werror`` 运行。下游项目往往需要禁用该选项，因为它会"
+"产生误报，例如依赖库版本更新就可能导致该问题。请使用 ``pytest.warns()`` 对警"
+"告进行断言，而不要使用 ``pytest.raises()`` ！"
 
 #: ../source/discussions/downstream-packaging.rst:377
 msgid ""
@@ -1655,6 +1662,9 @@ msgid ""
 "its advantages, but you want to have static test cases for completeness as "
 "well."
 msgstr ""
+"请力求让你的测试套件可靠且可复现。避免不稳定测试。不要依赖特定平台细节，不要"
+"依赖浮点计算的精确结果、操作执行时序等内容。模糊测试固然有其优势，但为保证完"
+"备性，你同样应当编写静态测试用例。"
 
 #: ../source/discussions/downstream-packaging.rst:383
 msgid ""
@@ -1666,6 +1676,10 @@ msgid ""
 "upgraded or the system is under load, without actually affecting the package "
 "itself."
 msgstr ""
+"请按照用途拆分测试，并让无关或存在问题的测试类别可以方便地跳过。下游测试的主"
+"要目的是确保软件包本身能够正常工作，因此下游项目通常并不关心代码覆盖率检查、"
+"代码格式化、类型检查或是运行基准测试这类任务。当依赖升级或者系统处于高负载时"
+"，这类测试可能会失败，但并不会真正影响软件包本身的功能。"
 
 #: ../source/discussions/downstream-packaging.rst:390
 msgid ""
@@ -1674,6 +1688,8 @@ msgid ""
 "them all takes a lot of time. Using pytest-xdist_ can help them avoid "
 "bottlenecks."
 msgstr ""
+"如果你的测试套件运行耗时较长，请支持并行测试。下游项目通常要维护大量软件包，"
+"全部测试会消耗大量时间。使用 pytest‑xdist_ 可以帮助他们消除测试瓶颈。"
 
 #: ../source/discussions/downstream-packaging.rst:395
 msgid ""
@@ -1686,6 +1702,12 @@ msgid ""
 "``pytest``: ``pytest`` is able to find and execute almost all test cases "
 "that are compatible with the standard library's ``unittest`` test discovery."
 msgstr ""
+"在理想情况下，请支持通过 ``pytest`` 运行你的测试套件。``pytest``_ 拥有大量对"
+"下游项目十分实用的命令行参数，例如可以便捷地剔除指定测试、重跑不稳定测试（借"
+"助 ``pytest‑rerunfailures``_）、设置超时防止测试挂起（借助 ``pytest‑"
+"timeout``_），或是并行执行测试（借助 ``pytest‑xdist``_）。请注意：测试套件无"
+"需用 ``pytest`` *written*，也能够用 ``pytest`` *executed*；``pytest`` 几乎能"
+"够发现并运行所有兼容标准库 ``unittest`` 测试发现机制的测试用例。"
 
 #: ../source/discussions/downstream-packaging.rst:409
 msgid "Aim for stable releases"
@@ -1698,6 +1720,9 @@ msgid ""
 "upgrades to users with higher stability needs. These users often prefer to "
 "trade having the newest features available for lower risk of issues."
 msgstr ""
+"许多下游项目除主软件包源之外还提供稳定发布渠道。设置这些渠道的目的，是为对稳"
+"定性要求较高的用户提供更保守的版本升级。这类用户往往宁愿放弃最新功能，换取更"
+"低的故障风险。"
 
 #: ../source/discussions/downstream-packaging.rst:419
 msgid ""
@@ -1708,6 +1733,10 @@ msgid ""
 "available in testing for a month, and being tested against the versions of "
 "its dependencies that are marked stable at the time."
 msgstr ""
+"尽管具体策略各有差异，但将软件包新版本纳入稳定发布渠道的一项重要标准是：该版"
+"本已经在测试渠道中发布一段时间，且不存在已知的严重功能退化问题。例如，在 "
+"Gentoo Linux 中，软件包通常需要在测试渠道中发布满一个月，并且针对当时标记为稳"
+"定版本的依赖项完成测试后，才会被标记为稳定。"
 
 #: ../source/discussions/downstream-packaging.rst:426
 msgid ""
@@ -1717,24 +1746,29 @@ msgid ""
 "a need to resolve it. In this case, they need to consider various options, "
 "such as:"
 msgstr ""
+"但也存在需要更快速处理的情形。例如，如果稳定渠道当前提供的版本中发现安全漏洞"
+"或重大缺陷，下游项目就需要着手解决该问题。此时他们需要权衡多种可选方案，例如"
+"："
 
 #: ../source/discussions/downstream-packaging.rst:431
 msgid "putting a new version in the stable channel early,"
-msgstr ""
+msgstr "提前将新版本纳入稳定渠道，"
 
 #: ../source/discussions/downstream-packaging.rst:433
 msgid "adding patches to the version currently published,"
-msgstr ""
+msgstr "为当前已发布的版本应用补丁，"
 
 #: ../source/discussions/downstream-packaging.rst:435
 msgid "or even downgrading the stable channel to an earlier release."
-msgstr ""
+msgstr "甚至将稳定渠道降级至更早的发行版本。"
 
 #: ../source/discussions/downstream-packaging.rst:437
 msgid ""
 "Each of these options involves certain risks and a certain amount of work, "
 "and packagers needs to weigh them to determine the course of action."
 msgstr ""
+"上述每一种方案都伴随着相应的风险与工作量，打包维护者需要权衡利弊来确定处理方"
+"案。"
 
 #: ../source/discussions/downstream-packaging.rst:443
 msgid ""
@@ -1742,6 +1776,8 @@ msgid ""
 "stable release channels. These actions often are beneficial to the package's "
 "users as well. Some specific suggestions are:"
 msgstr ""
+"上游项目可以采取一些措施，让自身工作流适配稳定发布渠道。这些做法通常也会对软"
+"件包的用户带来益处。部分具体建议如下："
 
 #: ../source/discussions/downstream-packaging.rst:447
 msgid ""
@@ -1749,6 +1785,8 @@ msgid ""
 "released rarely often bring significant changes with every release, and a "
 "higher risk of accidental regressions."
 msgstr ""
+"根据代码变更的幅度调整版本发布频率。低频发布的软件包往往每次更新都会引入大量"
+"改动，出现意外功能退化的风险也会更高。"
 
 #: ../source/discussions/downstream-packaging.rst:451
 msgid ""
@@ -16486,7 +16524,7 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:1093
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
-msgstr "reStructuredText 标记：https://docutils.sourceforge.io/"
+msgstr "`reStructuredText 标记 <https://docutils.sourceforge.io/>`_"
 
 #: ../source/specifications/core-metadata.rst:1098
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
