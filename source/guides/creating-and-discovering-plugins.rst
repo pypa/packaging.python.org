@@ -101,11 +101,17 @@ but it's not recommended to make your project's main top-level package
 bad plugin could cause the entire namespace to break which would in turn make
 your project unimportable. For the "namespace sub-package" approach to work,
 the plugin packages must omit the :file:`__init__.py` for your top-level
-package directory (``myapp`` in this case) and include the namespace-package
-style :file:`__init__.py` in the namespace sub-package directory
-(``myapp/plugins``).  This also means that plugins will need to explicitly pass
-a list of packages to :func:`setup`'s ``packages`` argument instead of using
-:func:`setuptools.find_packages`.
+package directory (``myapp`` in this case). In the namespace sub-package
+directory (``myapp/plugins``) they must either omit :file:`__init__.py`, if
+you use :ref:`native namespace packages <native-namespace-packages>`, or
+include a pkgutil-style :file:`__init__.py`, if you use the legacy approach.
+Plugins will also need to list their packages explicitly or use :func:`setuptools.find_namespace_packages`, as
+:func:`setuptools.find_packages` skips directories without an
+:file:`__init__.py`.
+
+With native namespace packages, ``import myapp.plugins`` raises
+:exc:`ModuleNotFoundError` if no installed distribution provides the
+``myapp/plugins`` directory. Make sure your discovery code handles that case.
 
 .. warning:: Namespace packages are a complex feature and there are several
     different ways to create them. It's highly recommended to read the
