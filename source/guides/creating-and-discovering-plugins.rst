@@ -83,13 +83,14 @@ under that namespace:
 Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` causes
 it to only look for the modules directly under that namespace. For example,
 if you have installed distributions that provide the modules ``myapp.plugins.a``
-and ``myapp.plugins.b`` then ``discovered_plugins`` in this case would be:
+and ``myapp.plugins.b``, ``discovered_plugins`` uses their fully qualified
+names as keys:
 
 .. code-block:: python
 
     {
-        'a': <module: 'myapp.plugins.a'>,
-        'b': <module: 'myapp.plugins.b'>,
+        'myapp.plugins.a': <module: 'myapp.plugins.a'>,
+        'myapp.plugins.b': <module: 'myapp.plugins.b'>,
     }
 
 This sample uses a sub-package as the namespace package (``myapp.plugins``), but
