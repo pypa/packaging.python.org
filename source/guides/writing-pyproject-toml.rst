@@ -333,39 +333,37 @@ You can also specify the format explicitly, like this:
 ``license`` and ``license-files``
 ---------------------------------
 
-The :ref:`Core Metadata specification <core-metadata-license>` defines two fields
-for modern license metadata. They serve different purposes and can be used
-independently:
+The :ref:`Core Metadata specification <core-metadata-license-expression>` defines
+two fields for modern license metadata. They serve different purposes and can be
+used independently:
 
 - ``license`` declares an :term:`SPDX license expression <License Expression>`
   consisting of one or more :term:`license identifiers <License Identifier>`.
-- ``license-files`` declares the license and other legal files that should be
-  included in distribution metadata, using a list of glob patterns.
+- ``license-files`` specifies glob patterns matching license files and other
+  legal notices to include in distribution archives.
 
 A previous PEP had specified ``license`` to be a table with a ``file`` or a
 ``text`` key, this format is now deprecated. Most :term:`build backends<build
 backend>` now support the new format as shown in the following table.
 
-.. list-table:: build backend versions introducing the standardized license fields
+.. list-table:: build backend versions supporting the standardized license fields
    :header-rows: 1
 
    * - hatchling
      - setuptools
-     - flit-core [#flit-core-pep639]_
+     - flit-core
      - pdm-backend
      - poetry-core
      - uv-build
    * - 1.27.0
-     - 77.0.0
+     - 77.0.3
      - 3.12
      - 2.4.0
      - 2.2.0
      - 0.7.19
 
-The table records the first backend release implementing the license fields
-in the :ref:`Core Metadata specification <core-metadata-license>`; it is not
-a recommendation to pin projects to those historical versions. Prefer a
-current supported backend release when possible.
+The table lists minimum backend versions for these fields; prefer a current
+supported backend release when possible.
 
 
 .. _license:
@@ -626,9 +624,6 @@ A full example
    like ``requires-python = "<= 3.10"`` here. `This blog post <requires-python-blog-post_>`_
    contains some information regarding possible problems.
 
-.. [#flit-core-pep639] flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license expressions.
-
-.. _flit-issue-735: https://github.com/pypa/flit/issues/735
 .. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
