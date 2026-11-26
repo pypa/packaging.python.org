@@ -164,7 +164,8 @@ syntax you can use to constrain versions.
 
 You may want to make some of your dependencies optional, if they are
 only needed for a specific feature of your package. In that case, put
-them in ``optional-dependencies``.
+them in ``optional-dependencies``. Your package should remain usable without
+these optional dependencies installed.
 
 .. code-block:: toml
 
@@ -178,11 +179,6 @@ them in ``optional-dependencies``.
 Each of the keys defines a "packaging extra". In the example above, one
 could use, e.g., ``pip install your-project-name[gui]`` to install your
 project with GUI support, adding the PyQt5 dependency.
-
-To keep your package usable without optional dependencies, import them only where
-needed, and handle their absence explicitly. If a user requests a feature whose
-dependencies are missing, provide an error message explaining which extra to
-install, for example, ``your-project-name[gui]``.
 
 .. _self-referential-extras:
 
