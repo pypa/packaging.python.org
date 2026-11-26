@@ -140,11 +140,12 @@ Glossary
 
     Known Good Set (KGS)
 
-        A set of distributions at specified versions which are compatible with
+        A set of :term:`releases <Release>` of different
+        :term:`projects <Project>` which are known to be compatible with
         each other. Typically a test suite will be run which passes all tests
-        before a specific set of packages is declared a known good set. This
-        term is commonly used by frameworks and toolkits which are comprised of
-        multiple individual distributions.
+        before a specific set of :term:`releases <Release>` is declared a known
+        good set. This term is commonly used by frameworks and toolkits which
+        are comprised of multiple individual :term:`projects <Project>`.
 
 
     License Classifier
