@@ -9,7 +9,6 @@ specific topic. If you're just trying to get stuff done, see
    :maxdepth: 1
 
    versioning
-   install-requires-vs-requirements
    distribution-package-vs-import-package
    package-formats
    src-layout-vs-flat-layout
