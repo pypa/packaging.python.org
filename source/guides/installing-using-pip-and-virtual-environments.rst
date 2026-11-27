@@ -90,6 +90,12 @@ shell's ``PATH``.
 
         .venv\Scripts\activate
 
+.. tab:: Windows (PowerShell)
+
+    .. code-block:: powershell
+
+        .venv\Scripts\Activate.ps1
+
 To confirm the virtual environment is activated, check the location of your
 Python interpreter:
 
@@ -105,20 +111,15 @@ Python interpreter:
 
         where python
 
+.. tab:: Windows (PowerShell)
+
+    .. code-block:: powershell
+
+        (Get-Command python).Source
+
 While the virtual environment is active, the above command will output a
-filepath that includes the ``.venv`` directory, by ending with the following:
-
-.. tab:: Unix/macOS
-
-    .. code-block:: bash
-
-        .venv/bin/python
-
-.. tab:: Windows
-
-    .. code-block:: bat
-
-        .venv\Scripts\python
+filepath that includes the ``.venv`` directory, ending with ``.venv/bin/python``
+on Unix/macOS or ``.venv\Scripts\python.exe`` on Windows.
 
 
 While a virtual environment is activated, pip will install packages into that
