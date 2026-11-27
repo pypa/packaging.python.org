@@ -131,47 +131,6 @@ All technical details on the wheel format can be found in the :ref:`wheel
 specification <binary-distribution-format>`.
 
 
-.. _egg-format:
-.. _`Wheel vs Egg`:
-
-What about eggs?
-================
-
-"Egg" is an old package format that has been replaced with the wheel format.  It
-should not be used anymore. Since August 2023, PyPI `rejects egg uploads
-<pypi-eggs-deprecation_>`_.
-
-Here's a breakdown of the important differences between wheel and egg.
-
-* The egg format was introduced by :ref:`setuptools` in 2004, whereas the wheel
-  format was introduced by :pep:`427` in 2012.
-
-* Wheel has an :doc:`official standard specification
-  </specifications/binary-distribution-format>`. Egg did not.
-
-* Wheel is a :term:`distribution <Distribution Package>` format, i.e a packaging
-  format. [#wheel-importable]_ Egg was both a distribution format and a runtime
-  installation format (if left zipped), and was designed to be importable.
-
-* Wheel archives do not include ``.pyc`` files. Therefore, when the distribution
-  only contains Python files (i.e. no compiled extensions), and is compatible
-  with Python 2 and 3, it's possible for a wheel to be "universal", similar to
-  an :term:`sdist <Source Distribution (or "sdist")>`.
-
-* Wheel uses standard :ref:`.dist-info directories
-  <recording-installed-packages>`.  Egg used ``.egg-info``.
-
-* Wheel has a :ref:`richer file naming convention <wheel-file-name-spec>`. A
-  single wheel archive can indicate its compatibility with a number of Python
-  language versions and implementations, ABIs, and system architectures.
-
-* Wheel is versioned. Every wheel file contains the version of the wheel
-  specification and the implementation that packaged it.
-
-* Wheel is internally organized by `sysconfig path type
-  <https://docs.python.org/2/library/sysconfig.html#installation-paths>`_,
-  therefore making it easier to convert to other formats.
-
 --------------------------------------------------------------------------------
 
 .. [#core-metadata-format] This format is email-based. Although this would
@@ -181,13 +140,6 @@ Here's a breakdown of the important differences between wheel and egg.
    understood by the build backend, typically ``[project]`` in ``pyproject.toml``,
    and translated by the build backend into ``PKG-INFO``.
 
-.. [#wheel-importable] Circumstantially, in some cases, wheels can be used
-   as an importable runtime format, although :ref:`this is not officially supported
-   at this time <binary-distribution-format-import-wheel>`.
-
-
-
 .. _pip-pypi: https://pypi.org/project/pip/23.3.1/#files
 .. _pypi: https://pypi.org
-.. _pypi-eggs-deprecation: https://blog.pypi.org/posts/2023-06-26-deprecate-egg-uploads/
 .. _pypy: https://pypy.org
