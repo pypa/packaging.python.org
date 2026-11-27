@@ -13,6 +13,5 @@ specific topic. If you're just trying to get stuff done, see
    distribution-package-vs-import-package
    package-formats
    src-layout-vs-flat-layout
-   setup-py-deprecated
    single-source-version
    downstream-packaging
