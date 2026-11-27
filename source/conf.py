@@ -287,6 +287,7 @@ redirects = {
 
 # Internal redirects, made relative for the current builder (html or dirhtml)
 internal_redirects = {
+    "guides/dropping-older-python-versions": "guides/writing-pyproject-toml",
     "guides/single-sourcing-package-version": "discussions/single-source-version",
 }
 

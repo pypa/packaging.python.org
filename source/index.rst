@@ -79,9 +79,7 @@ Explanations and Discussions
 ============================
 
 The :doc:`discussions/index` section provides in-depth explanations and discussion
-about topics, such as:
-
-* :doc:`discussions/deploying-python-applications`
+about Python packaging topics.
 
 Reference
 =========

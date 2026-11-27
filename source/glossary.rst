@@ -106,8 +106,10 @@ Glossary
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
-        which has been replaced by :term:`Wheel`.  For details, see
-        :ref:`egg-format`.
+        which has been replaced by :term:`Wheel`. See :pep:`715` for the removal
+        of egg uploads from PyPI, and
+        :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>`
+        for details of the format.
 
     Extension Module
 

@@ -61,7 +61,7 @@ Discussions
 
 Discussions are focused on understanding and information. These explore a
 specific topic without a specific goal in mind. :doc:`example discussion-style
-document <discussions/install-requires-vs-requirements>`.
+document <discussions/src-layout-vs-flat-layout>`.
 
 Specifications
 --------------
