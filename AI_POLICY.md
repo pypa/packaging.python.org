@@ -19,7 +19,7 @@ your responsibility to make sure it does not.
 Unsolicited, undisclosed, or low-effort AI PRs will be closed.
 
 Only humans can be named as co-authors, and AI can *never* sign off on a
-commit. The Linux kernel trailer should be used to credit AI assistance, like
+commit. The old form of the Linux kernel trailer should be used to credit AI assistance, like
 this:
 
 ```text
