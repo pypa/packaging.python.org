@@ -4,9 +4,6 @@
 Supporting downstream packaging
 ===============================
 
-:Page Status: Draft
-:Last Reviewed: 2025-?
-
 While PyPI and the Python packaging tools such as :ref:`pip` are the primary
 means of distributing Python packages, they are also often made available as part
 of other packaging ecosystems. These repackaging efforts are collectively called
