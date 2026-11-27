@@ -13,5 +13,4 @@ Building and Publishing
    using-testpypi
    making-a-pypi-friendly-readme
    publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
-   modernize-setup-py-project
    licensing-examples-and-user-scenarios
