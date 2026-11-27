@@ -6,7 +6,6 @@ Building and Publishing
    :titlesonly:
 
    writing-pyproject-toml
-   dropping-older-python-versions
    packaging-binary-extensions
    packaging-namespace-packages
    creating-command-line-tools
